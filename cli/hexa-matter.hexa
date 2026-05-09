@@ -1,0 +1,183 @@
+#!hexa strict
+// hexa-matter/cli/hexa-matter.hexa — standalone hexa-matter CLI router
+//
+// 16-verb 소재 substrate (HEXA family) router. Spec-first dispatcher: each
+// verb subcmd resolves its spec doc path and prints headline (head -30).
+//
+// Cross-link policy (raw#10): chip-grade materials live in hexa-chip;
+// for those, call `hexa-chip materials` directly — do NOT proxy here.
+//
+// Root resolution: $HEXA_MATTER_ROOT env, else inferred from $0.
+//
+// raw#9 hexa-only, raw#15 read-only.
+
+let VERSION = "1.0.0"
+
+let HOME = env("HOME")
+let HEXA_MATTER_ROOT_ENV = env("HEXA_MATTER_ROOT")
+
+fn hexa_matter_root() -> str {
+    if HEXA_MATTER_ROOT_ENV.len() > 0 { return HEXA_MATTER_ROOT_ENV }
+    let inferred = exec("dirname \"$(dirname \"$0\")\" 2>/dev/null || true").trim()
+    if inferred.len() > 0 { return inferred }
+    return HOME + "/.hexa-matter"  // @allow-devpath
+}
+
+let HM = hexa_matter_root()
+
+// 16-verb spec doc registry: verb_name → (subdir, filename)
+let VERBS = [
+    ["ceramics",      "ceramics",      "ceramics.md"],
+    ["concrete",      "concrete",      "concrete.md"],
+    ["concrete_tech", "concrete_tech", "concrete-technology.md"],
+    ["glass",         "glass",         "hexa-glass.md"],
+    ["aramid",        "aramid",        "aramid.md"],
+    ["epoxy",         "epoxy",         "epoxy.md"],
+    ["nylon",         "nylon",         "nylon.md"],
+    ["pet_film",      "pet_film",      "pet-film.md"],
+    ["tire_cord",     "tire_cord",     "tire-cord.md"],
+    ["fabric",        "fabric",        "hexa-fabric.md"],
+    ["paper",         "paper",         "paper.md"],
+    ["gemology",      "gemology",      "gemology.md"],
+    ["metallurgy",    "metallurgy",    "swordsmithing.md"],
+    ["synthesis",     "synthesis",     "material-synthesis.md"],
+    ["recycle_n6",    "recycle_n6",    "hexa-recycle.md"],
+    ["recycling",     "recycling",     "recycling.md"],
+]
+
+fn shq(s: str) -> str {
+    return "'" + s.replace("'", "'\\''") + "'"
+}
+
+fn _file_exists(p: str) -> bool {
+    let r = exec("[ -f " + shq(p) + " ] && echo yes || echo no").trim()
+    return r == "yes"
+}
+
+fn _spec_path(subdir: str, fname: str) -> str {
+    return HM + "/" + subdir + "/" + fname
+}
+
+fn _print_spec_headline(verb: str, spec_path: str) {
+    if _file_exists(spec_path) == false {
+        println("ERROR: spec doc not found: " + spec_path)
+        println("  (set HEXA_MATTER_ROOT or run from repo root)")
+        return
+    }
+    println("hexa-matter " + verb + " — spec doc:")
+    println("  " + spec_path)
+    println("")
+    println("--- doc head (first 30 lines) ---")
+    let raw = exec("head -30 " + shq(spec_path) + " 2>&1")
+    println(raw.trim())
+    println("--- end doc head ---")
+    println("")
+    println("__HEXA_MATTER_" + verb.to_upper() + "__ PASS")
+}
+
+fn _print_caveats() {
+    println("")
+    println("--- caveats (raw#10 C3) ---")
+    println("  1. 16/16 verbs ship as SPEC docs at v1.0.0 — working .hexa")
+    println("     numerical sandboxes are TBD per per-verb F-* gates.")
+    println("  2. chip-grade semiconductor materials live in hexa-chip:")
+    println("     `hexa-chip materials` — do NOT proxy through hexa-matter.")
+    println("  3. n=6 invariant lattice (σ=12, τ=4, φ=2, J₂=24) projected")
+    println("     per-verb; empirical Bayesian audit pending.")
+}
+
+fn cmd_status(a: [str]) {
+    println("hexa-matter " + VERSION + " status — 16-verb 소재 substrate (HEXA family)")
+    println("")
+    println("  group                verbs")
+    println("  -------------------- ------------------------------------------------")
+    println("  ceramic_inorganic    ceramics · concrete · concrete_tech · glass")
+    println("  polymer              aramid · epoxy · nylon · pet_film · tire_cord")
+    println("  fiber_paper          fabric · paper")
+    println("  gem_mineral          gemology")
+    println("  metal                metallurgy (swordsmithing-anchored)")
+    println("  synthesis            synthesis (material-synthesis platform)")
+    println("  recycle              recycle_n6 · recycling")
+    println("")
+    println("  verdict: SPEC_FIRST (16/16 verbs spec-only)")
+    println("  cross-link: chip materials → `hexa-chip materials` (sibling CLI)")
+    _print_caveats()
+}
+
+fn cmd_verb(verb: str) {
+    for row in VERBS {
+        if row[0] == verb {
+            _print_spec_headline(verb, _spec_path(row[1], row[2]))
+            return
+        }
+    }
+    println("hexa-matter: unknown verb: " + verb)
+    println("(try `hexa-matter status` for the verb list)")
+    exit(2)
+}
+
+fn cmd_selftest(a: [str]) {
+    println("hexa-matter selftest — 16-verb spec doc presence check")
+    println("")
+    let mut count = 0
+    for row in VERBS {
+        let verb = row[0]
+        let path = _spec_path(row[1], row[2])
+        if _file_exists(path) {
+            println("  [PASS] " + verb)
+            count = count + 1
+        } else {
+            println("  [FAIL] " + verb + " (missing: " + path + ")")
+        }
+    }
+    println("")
+    println("verbs_present = " + str(count) + " / 16")
+    if count == 16 {
+        println("__HEXA_MATTER_SELFTEST__ PASS")
+    } else {
+        println("__HEXA_MATTER_SELFTEST__ FAIL")
+        exit(1)
+    }
+}
+
+fn cmd_version() {
+    println("hexa-matter " + VERSION)
+    println("standalone n=6 소재 substrate (HEXA family — extracted from canon@47c70cbf on 2026-05-09)")
+    println("license: MIT")
+    println("repo:    https://github.com/dancinlab/hexa-matter")
+}
+
+fn cmd_help() {
+    println("hexa-matter " + VERSION + " — standalone 소재 substrate CLI")
+    println("")
+    println("usage: hexa-matter <subcmd> [flags...]")
+    println("")
+    println("verb subcommands (16-verb materials substrate):")
+    for row in VERBS {
+        println("  " + row[0])
+    }
+    println("")
+    println("utility:")
+    println("  status          16-verb table + cross-link + caveats")
+    println("  selftest        16-verb spec doc presence check")
+    println("")
+    println("global flags: --version, --help, -h")
+    println("env:          HEXA_MATTER_ROOT (override repo root)")
+    println("")
+    println("cross-link (call sibling CLI directly):")
+    println("  chip-grade semiconductor materials → hexa-chip materials")
+}
+
+fn main(args: [str]) {
+    if args.len() < 2 { cmd_help(); return }
+    let sub = args[1]
+
+    if sub == "--version" || sub == "-v" { cmd_version(); return }
+    if sub == "--help"    || sub == "-h" { cmd_help();    return }
+
+    if sub == "status"   { cmd_status(args);   return }
+    if sub == "selftest" { cmd_selftest(args); return }
+    if sub == "help"     { cmd_help();         return }
+
+    cmd_verb(sub)
+}

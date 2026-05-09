@@ -1,0 +1,69 @@
+# hexa.toml — hexa-matter standalone package manifest
+#
+# Spec: shared/hexa-lang/hexa-toml-spec.json (version 1.0.0)
+# Distribution target: hx install hexa-matter
+# Provenance: extracted from canon/domains/materials/ on 2026-05-09
+#             (n6-arch SHA 47c70cbf — sister of hexa-energy / hexa-chip).
+
+[package]
+name = "hexa-matter"
+version = "1.0.0"
+entry = "cli/hexa-matter.hexa"
+description = "n=6 소재 substrate (HEXA family) — 16-verb materials toolkit (ceramic·polymer·glass·gem·metal·recycle). Spec-first; 작동 .hexa CLI는 spec headline dispatcher. chip-materials는 별도 standalone — 필요하면 hexa-chip CLI 직접 호출."
+license = "MIT"
+authors = ["박민우 <nerve011235@gmail.com>"]
+repository = "https://github.com/dancinlab/hexa-matter"
+homepage = "https://github.com/dancinlab/hexa-matter"
+readme = "README.md"
+keywords = ["materials", "ceramics", "polymer", "glass", "concrete", "metallurgy", "recycle", "hexa-family"]
+categories = ["material-science", "spec-substrate"]
+
+[[bin]]
+name = "hexa-matter"
+path = "cli/hexa-matter.hexa"
+
+[test]
+runner = "hexa"
+files = [
+    "tests/test_selftest.hexa",
+]
+
+[scripts]
+install = "install.hexa"
+
+# ── Verb manifest (16-verb materials substrate) ───────────
+verb_parent = "."
+[verbs]
+ceramic_inorganic = ["ceramics", "concrete", "concrete_tech", "glass"]
+polymer           = ["aramid", "epoxy", "nylon", "pet_film", "tire_cord"]
+fiber_paper       = ["fabric", "paper"]
+gem_mineral       = ["gemology"]
+metal             = ["metallurgy"]
+synthesis         = ["synthesis"]
+recycle           = ["recycle_n6", "recycling"]
+
+# ── Cross-link (sister substrates — invoke their CLIs directly) ──
+# Policy: chip-grade semiconductor materials live in hexa-chip. When working
+#         inside hexa-matter and you need wafer/EUV-resist/lithography stack
+#         materials, call `hexa-chip materials` directly. Do NOT re-vendor.
+[crosslink]
+chip = "dancinlab/hexa-chip (semiconductor materials — call `hexa-chip materials` for chip-grade Si/SiC/GaN/EUV-resist stack)"
+
+# ── Closure provenance (raw#10 honest C3) ─────────────────
+[closure]
+verbs_total = 16
+groups_total = 7
+verbs_wired = 0
+verbs_spec = 16
+verdict = "SPEC_FIRST"
+extracted_from = "canon/domains/materials/ @ 47c70cbf"
+
+# ── Scope honesty (raw#10 C3) ─────────────────────────────
+[scope]
+honest_scope = "16-verb 통합 substrate (7 그룹). spec-first markdown only at v1.0.0 — 작동 .hexa CLI는 spec headline dispatcher."
+not_scope = ["chip-grade semiconductor materials (→ hexa-chip CLI)", "lutherie / instrument-craft (culture 결)", "fashion-textile / textile-dyeing (industrial-textile 별도 묶음 후보)", "in-situ pilot batch validation"]
+
+# ── Cost profile ──────────────────────────────────────────
+[cost]
+mac_local_default = "$0 (spec read + CLI dispatcher placeholder)"
+selftest = "$0 (verb count check)"
