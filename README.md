@@ -3,6 +3,7 @@
 > 16-verb materials toolkit organized around the **n=6 invariant lattice**:
 > ceramic / polymer / fiber / gem / metal / synthesis / recycle.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20102811.svg)](https://doi.org/10.5281/zenodo.20102811)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
 [![Verbs: 16 spec](https://img.shields.io/badge/verbs-16_spec-blue.svg)](#verbs)
