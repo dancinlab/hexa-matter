@@ -1,3 +1,6 @@
+<!-- @canonical: canon@d1640e62:domains/materials/epoxy/epoxy.md -->
+<!-- @extracted: 2026-05-06 -->
+<!-- @md5_at_extraction: 514169a2923f34b8280a2888f01e1a0e -->
 <!-- gold-standard: shared/harness/sample.md -->
 ---
 domain: epoxy

@@ -1,3 +1,6 @@
+<!-- @canonical: canon@d1640e62:domains/materials/aramid/aramid.md -->
+<!-- @extracted: 2026-05-06 -->
+<!-- @md5_at_extraction: 80fa7257fa423ef22a4574730a2db905 -->
 <!-- gold-standard: shared/harness/sample.md -->
 ---
 domain: aramid

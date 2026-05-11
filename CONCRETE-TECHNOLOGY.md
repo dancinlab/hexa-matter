@@ -1,3 +1,6 @@
+<!-- @canonical: canon@d1640e62:domains/materials/concrete-technology/concrete-technology.md -->
+<!-- @extracted: 2026-05-06 -->
+<!-- @md5_at_extraction: 020b0a86b9305f6e37c213dda126461c -->
 <!-- gold-standard: shared/harness/sample.md -->
 ---
 domain: concrete-technology

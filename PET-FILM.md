@@ -1,3 +1,6 @@
+<!-- @canonical: canon@d1640e62:domains/materials/pet-film/pet-film.md -->
+<!-- @extracted: 2026-05-06 -->
+<!-- @md5_at_extraction: 95f0cb34ab2477b2724a5e3be65813a4 -->
 <!-- gold-standard: shared/harness/sample.md -->
 ---
 domain: pet-film

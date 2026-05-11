@@ -1,3 +1,6 @@
+<!-- @canonical: canon@d1640e62:domains/materials/tire-cord/tire-cord.md -->
+<!-- @extracted: 2026-05-06 -->
+<!-- @md5_at_extraction: 254211dee8bdd94ae47f4f0292aadedf -->
 <!-- gold-standard: shared/harness/sample.md -->
 ---
 domain: tire-cord
