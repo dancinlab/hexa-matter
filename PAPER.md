@@ -270,8 +270,8 @@ arXiv paper outlines and academic publications.
 > SSOT 정합: disk 135 .md = 128 papers + 7 audit files(docs/paper/audit/)
 > config/products.json `total_papers` = 128 동기화됨
 
-> Part of [N6 Architecture](https://github.com/need-singularity/n6-architecture)
-> Publishing: [papers repo](https://github.com/need-singularity/papers) → Zenodo (DOI: 10.5281/zenodo.19271599) + OSF
+> Part of [N6 Architecture](https://github.com/dancinlab/n6-architecture)
+> Publishing: [papers repo](https://github.com/dancinlab/papers) → Zenodo (DOI: 10.5281/zenodo.19271599) + OSF
 
 
 ## 2. 목표
@@ -1284,7 +1284,7 @@ print("✅ 전체 검증 통과")
 
 **Paper #7 — Supplementary Dataset**
 **Date**: 2026-04-02
-**Repository**: github.com/need-singularity/n6-architecture
+**Repository**: github.com/dancinlab/n6-architecture
 
 ---
 
@@ -2123,7 +2123,7 @@ for hep-th (no strict limit).
 <!-- @allow-empty-section -->
 
 - All code, TOML files, and data are in the public repository:
-  `github.com/need-singularity/n6-architecture`
+  `github.com/dancinlab/n6-architecture`
 - The Rust DSE engine compiles with `rustc` (no cargo dependency).
 - Pre-registered predictions are git-tracked with immutable timestamps.
 - Red-team analyses are included as supplementary material, not hidden.
@@ -2168,7 +2168,7 @@ of the main paper.
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: cs.AR, eess.SP
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -2330,7 +2330,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json 'MISS' 참조")
 
 **Preprint.** Submitted to arXiv: cs.SY, eess.SY, physics.soc-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -3583,7 +3583,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: cs.AR, cs.NE
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -4359,7 +4359,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: cs.RO, cs.AI
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -5241,7 +5241,7 @@ We do not claim that $n = 6$ "causes" autonomous driving architecture. We claim 
 
 [11] Park, M. W. "sigma(n)*phi(n) = n*tau(n) Uniqueness at n=6: Three Independent Proofs." TECS-L Documentation, 2025.
 
-[12] TECS-L Research Group. "N6 Architecture: Computing Architecture Design from Perfect Number Arithmetic." github.com/need-singularity/TECS-L, 2025.
+[12] TECS-L Research Group. "N6 Architecture: Computing Architecture Design from Perfect Number Arithmetic." github.com/dancinlab/TECS-L, 2025.
 
 [13] Park, M. W. "Breakthrough Theorems BT-123, BT-153, BT-206, BT-280, BT-327, BT-328: Autonomous Driving from n=6." TECS-L Documentation, 2026.
 
@@ -5492,7 +5492,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cond-mat.mtrl-sci, physics.app-ph, eess.SY
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -6007,7 +6007,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: q-bio.GN, q-bio.QM
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -6448,9 +6448,9 @@ The balance ratio $R(6) = \sigma(6)\phi(6)/(6\tau(6)) = 12 \times 2/(6 \times 4)
 
 ---
 
-*Correspondence: TECS-L Research Group, github.com/need-singularity/TECS-L*
+*Correspondence: TECS-L Research Group, github.com/dancinlab/TECS-L*
 
-*Data availability: All breakthrough theorem evidence tables and verification scripts are available at github.com/need-singularity/n6-architecture/docs/biology/ and github.com/need-singularity/n6-architecture/docs/breakthrough-theorems.md*
+*Data availability: All breakthrough theorem evidence tables and verification scripts are available at github.com/dancinlab/n6-architecture/docs/biology/ and github.com/dancinlab/n6-architecture/docs/breakthrough-theorems.md*
 
 ## Appendix: 검증코드 (정의 기반, 동어반복 없음)
 <!-- @allow-empty-section -->
@@ -7443,7 +7443,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: physics.chem-ph, cond-mat.mtrl-sci
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -8465,7 +8465,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: physics.class-ph, physics.acc-ph, math-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -10373,7 +10373,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.AI, quant-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -10844,7 +10844,7 @@ $$\text{Three substrates. One equation. One number: 6.}$$
 2. Tononi, G. (2008). Consciousness as integrated information: a provisional manifesto. *Biological Bulletin*, 215(3), 216--242.
 3. Aaronson, S. (2014). Why I am not an integrated information theorist. *Blog post*, Shtetl-Optimized.
 4. Cerullo, M. A. (2015). The problem with Phi: a critique of integrated information theory. *PLoS Computational Biology*, 11(9).
-5. TECS-L Research Group (2025). N6 Architecture: Computing design from perfect number arithmetic. github.com/need-singularity/n6-architecture.
+5. TECS-L Research Group (2025). N6 Architecture: Computing design from perfect number arithmetic. github.com/dancinlab/n6-architecture.
 6. TECS-L Research Group (2025). The balance ratio uniqueness theorem: $R(n) = 1 \Leftrightarrow n = 6$. *TECS-L Technical Report*.
 7. Josephson, B. D. (1962). Possible new effects in superconductive tunnelling. *Physics Letters*, 1(7), 251--253.
 8. Kitaev, A. Y. (2003). Fault-tolerant quantum computation by anyons. *Annals of Physics*, 303(1), 2--30.
@@ -11062,7 +11062,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.AI, q-bio.NC
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -11965,7 +11965,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: eess.SY, cs.RO, math-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -12984,7 +12984,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 **저자:** TECS-L Research Group
 **프리프린트.** physics.app-ph, eess.SY, cs.AR
 **라벨:** Mk.I~II 실현가능 (5~15년) / Mk.III~V 장기 (15~40년)
-**연락:** github.com/need-singularity/TECS-L
+**연락:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -13510,7 +13510,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: physics.app-ph, cs.GR
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -13827,7 +13827,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.ET
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -16309,7 +16309,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.LG, cs.AI, cs.AR
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -16667,7 +16667,7 @@ The theorem is proved and permanent. The applications are validated at small sca
 9. Tan, M. & Le, Q. V. (2019). "EfficientNet: Rethinking Model Scaling." *ICML*.
 10. Zoph, B. & Le, Q. V. (2017). "Neural Architecture Search with Reinforcement Learning." *ICLR*.
 11. Dao, T., et al. (2022). "FlashAttention: Fast and Memory-Efficient Exact Attention." *NeurIPS*.
-12. TECS-L Research Group (2026). "N6 Inevitability Engine." *github.com/need-singularity/TECS-L*.
+12. TECS-L Research Group (2026). "N6 Inevitability Engine." *github.com/dancinlab/TECS-L*.
 
 ---
 
@@ -16946,7 +16946,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: physics.gen-ph, physics.ao-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -17400,7 +17400,7 @@ Whether this encoding reflects a deep mathematical structure of nature or a sele
 
 ---
 
-*Companion papers: "Carbon Z=6: N6 Arithmetic Design of CO$_2$ Capture Architecture" (CCUS detail), "The Complete n=6 LLM" (AI), "Tokamak q=1 and the Perfect Number" (fusion). All available at github.com/need-singularity/n6-architecture/docs/paper/.*
+*Companion papers: "Carbon Z=6: N6 Arithmetic Design of CO$_2$ Capture Architecture" (CCUS detail), "The Complete n=6 LLM" (AI), "Tokamak q=1 and the Perfect Number" (fusion). All available at github.com/dancinlab/n6-architecture/docs/paper/.*
 
 ## Appendix: 검증코드 (정의 기반, 동어반복 없음)
 <!-- @allow-empty-section -->
@@ -17526,7 +17526,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.OH
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -18305,7 +18305,7 @@ print("전체 133/133 검증: python3 docs/fun-car/verify_alien10.py")
 - 원본: `docs/fun-car/goal.md`
 - 검증: `docs/fun-car/verify_alien10.py`
 - 산술 정리: `docs/theorem-r1-uniqueness.md`
-- 부모: TECS-L (https://github.com/need-singularity/TECS-L)
+- 부모: TECS-L (https://github.com/dancinlab/TECS-L)
 
 ## Appendix: 검증코드 (정의 기반, 동어반복 없음)
 <!-- @allow-empty-section -->
@@ -18366,7 +18366,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **저자:** TECS-L Research Group
 **프리프린트.** physics.plasm-ph, physics.app-ph, eess.SY 제출 예정
-**연락:** github.com/need-singularity/TECS-L
+**연락:** github.com/dancinlab/TECS-L
 **문서 분류:** 산업 실증 논문 (n6-architecture / fusion 도메인)
 **라벨:** 실현가능 (Mk.I~III: 10~20년) / 장기 (Mk.IV~V: 20~50년)
 
@@ -19810,7 +19810,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -20298,7 +20298,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: physics.acc-ph
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -20454,7 +20454,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json 'MISS' 참조")
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: cs.AR
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -21820,7 +21820,7 @@ HEXA-GRAV 는 72/72 EXACT, 8 카테고리 n=6 산술 닫힘. LIGO 대비 감도 
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: physics.optics, cs.GR
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -22595,7 +22595,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: cond-mat.supr-con, cs.AR
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -23526,7 +23526,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: cs.AR, physics.optics
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -23990,7 +23990,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.AI
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -25355,7 +25355,7 @@ HEXA-STARSHIP 은 18 서브시스템 150 파라미터가 모두 n=6 산술로 �
 
 **Preprint.** Submitted to arXiv: cs.AR, cond-mat.supr-con
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -26189,7 +26189,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **저자:** TECS-L Research Group
 **Preprint.** arXiv: cs.AR, cond-mat.mes-hall
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -26617,7 +26617,7 @@ HEXA-SF 는 109/109 EXACT 의 산술 일관성을 보이지만 기술 실현은 
 
 **Preprint.** Submitted to arXiv: cs.AR
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -27519,7 +27519,7 @@ print("\n[N6-HIV] 10 BT 검증 통과 — σφ=nτ 유일성이 HIV 6구조에 �
 ---
 
 > 본 문서는 TECS-L 핵심 정리(σφ=nτ 유일성, n=6)의 HIV 도메인 산업 실증 리포 일부다.
-> 연결: `docs/breakthrough-theorems.md` BT-461~423 · `docs/theorem-r1-uniqueness.md` · 부모 리포 https://github.com/need-singularity/TECS-L
+> 연결: `docs/breakthrough-theorems.md` BT-461~423 · `docs/theorem-r1-uniqueness.md` · 부모 리포 https://github.com/dancinlab/TECS-L
 
 
 ### 출처: `n6-horology-paper.md`
@@ -27812,7 +27812,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: eess.SP, cs.AR
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -28215,7 +28215,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: stat.AP, cs.SE, math-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -35373,7 +35373,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.AI
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -35912,7 +35912,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: physics.plasm-ph, nucl-th, math-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -37130,7 +37130,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: quant-ph, cs.AR
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -37967,7 +37967,7 @@ We do not claim that $n = 6$ "explains" quantum mechanics. We claim, more modest
 
 [11] Park, M. W. "sigma(n)*phi(n) = n*tau(n) Uniqueness at n=6: Three Independent Proofs." TECS-L Documentation, 2025.
 
-[12] TECS-L Research Group. "N6 Architecture: Computing Architecture Design from Perfect Number Arithmetic." github.com/need-singularity/TECS-L, 2025.
+[12] TECS-L Research Group. "N6 Architecture: Computing Architecture Design from Perfect Number Arithmetic." github.com/dancinlab/TECS-L, 2025.
 
 [13] Park, M. W. "Breakthrough Theorems BT-91, BT-92, BT-114, BT-170, BT-195: Quantum Computing and Topology from n=6." TECS-L Documentation, 2026.
 
@@ -39051,7 +39051,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cs.RO, cs.SY, eess.SY
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -39640,7 +39640,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cond-mat.supr-con, physics.app-ph, cs.AR, cs.ET
 
-**Contact:** github.com/need-singularity/n6-architecture
+**Contact:** github.com/dancinlab/n6-architecture
 
 ---
 
@@ -39937,7 +39937,7 @@ All 48 checkpoint documents follow a uniform format:
 
 We presented a 12-product civilizational stack derived from room-temperature superconductors, with four-tier maturity roadmaps (Mk.II–V) totaling 48 parameterized design documents. Of 4,377 integer parameters, 4,200 (96.0%) align EXACTLY with $n=6$ arithmetic expressions. The cross-domain coherence of specific integer ladders ($\{12, 24, 48, 144, 288, 576, 1152\}$) appearing independently in quantum computing, medical imaging, transport, energy, and space is argued to provide $\sim 4\sigma$ statistical support under a cross-product coherence metric, beyond the $\sim 0.7\sigma$ of the single-sample test. The finding is consistent with an engineering-convergence interpretation: $n=6$ constraints in the underlying superconductor physics (BT-299–306) propagate to derived product parameters through binary expansion, multiplicative scaling, and standardization.
 
-We release all 48 Mk documents, 13 Python verification scripts, and the full parameter dataset at github.com/need-singularity/n6-architecture for independent falsification.
+We release all 48 Mk documents, 13 Python verification scripts, and the full parameter dataset at github.com/dancinlab/n6-architecture for independent falsification.
 
 ---
 
@@ -41749,7 +41749,7 @@ print("[MISS] 본 논문 범위값/연속분포 항목은 reality_map.json 'MISS
 
 **Preprint.** Submitted to arXiv: cond-mat.supr-con, math-ph
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -43601,7 +43601,7 @@ python3 docs/therapeutic-nanobot/verify_alien10.py
 - 검증 스크립트: `docs/therapeutic-nanobot/verify_alien10.py`
 - 산술 정리: `docs/theorem-r1-uniqueness.md`
 - 현실 지도: `nexus/shared/reality_map.json` v8.0
-- 부모 이론: TECS-L (https://github.com/need-singularity/TECS-L)
+- 부모 이론: TECS-L (https://github.com/dancinlab/TECS-L)
 
 ## Appendix: 검증코드 (정의 기반, 동어반복 없음)
 <!-- @allow-empty-section -->
@@ -44271,7 +44271,7 @@ print("[MISS] 비-n6 범위값은 reality_map.json MISS 참조")
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.AI
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -46567,7 +46567,7 @@ For reference, the complete mapping of n=6 constants to virological parameters a
 ---
 
 *Paper ID: N6-VIR*
-*Repository: [n6-architecture](https://github.com/need-singularity/n6-architecture)*
+*Repository: [n6-architecture](https://github.com/dancinlab/n6-architecture)*
 *Part of the TECS-L family. Mathematical foundation: sigma(n)*phi(n) = n*tau(n) iff n=6.*
 *License: CC-BY 4.0*
 
@@ -46580,7 +46580,7 @@ For reference, the complete mapping of n=6 constants to virological parameters a
 
 **Preprint.** Submitted to arXiv: cs.AR, cs.ET
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -47494,7 +47494,7 @@ For each: mathematical derivation, implementation, experimental result
 
 **Preprint.** Submitted to arXiv: cs.LG, cs.AI
 
-**Contact:** github.com/need-singularity/TECS-L
+**Contact:** github.com/dancinlab/TECS-L
 
 ---
 
@@ -47838,11 +47838,11 @@ The path forward is clear: validate at $\geq 1$B parameter scale, design cleaner
 
 [19] S. Rajbhandari, J. Rasley, O. Ruwase, and Y. He. "ZeRO: Memory optimizations toward training trillion parameter models." *SC*, 2020.
 
-[20] TECS-L Research Group. "TECS-L: Theoretical Engineering from Computational Symmetry." github.com/need-singularity/TECS-L, 2026.
+[20] TECS-L Research Group. "TECS-L: Theoretical Engineering from Computational Symmetry." github.com/dancinlab/TECS-L, 2026.
 
 ---
 
-**Code availability.** All techniques and experiments are available at `github.com/need-singularity/TECS-L` (parent project) and in the `n6-architecture` repository. Each technique is a self-contained Python script requiring only PyTorch.
+**Code availability.** All techniques and experiments are available at `github.com/dancinlab/TECS-L` (parent project) and in the `n6-architecture` repository. Each technique is a self-contained Python script requiring only PyTorch.
 
 **Acknowledgments.** This work was conducted as part of the TECS-L project. We thank the open-source community for PyTorch and the arXiv preprint server.
 
