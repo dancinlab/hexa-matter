@@ -45,13 +45,39 @@ tree (SHA `47c70cbf`, 2026-05-09).
 
 ---
 
-## Quick start
+## Install
 
-```sh
-hx install hexa-matter
-hexa-matter status         # 16-verb table
-hexa-matter ceramics       # ceramics.md spec headline
-hexa-matter selftest       # verb-count check
+```bash
+# 1. Install hexa-lang (ships `hexa` + `hx` package manager)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dancinlab/hexa-lang/main/install.sh)"
+
+# 2. Install hexa-matter
+hx install hexa-matter          # global, pulls latest from registry
+```
+
+## Run
+
+```bash
+hexa-matter ceramics         # ceramics spec doc
+hexa-matter concrete         # concrete spec doc
+hexa-matter concrete_tech    # concrete-technology spec doc
+hexa-matter glass            # hexa-glass spec doc
+hexa-matter aramid           # aramid spec doc
+hexa-matter epoxy            # epoxy spec doc
+hexa-matter nylon            # nylon spec doc
+hexa-matter pet_film         # pet-film spec doc
+hexa-matter tire_cord        # tire-cord spec doc
+hexa-matter fabric           # hexa-fabric spec doc
+hexa-matter paper            # paper spec doc
+hexa-matter gemology         # gemology spec doc
+hexa-matter metallurgy       # swordsmithing-anchored metallurgy spec doc
+hexa-matter synthesis        # material-synthesis spec doc
+hexa-matter recycle_n6       # hexa-recycle spec doc
+hexa-matter recycling        # recycling spec doc
+hexa-matter status           # 16-verb table + cross-link + caveats
+hexa-matter selftest         # 16-verb spec doc presence check
+hexa-matter version          # print version
+hexa-matter help             # full --help (subcommands + env vars + cross-link)
 ```
 
 ## Status
