@@ -31,20 +31,6 @@ tree (SHA `47c70cbf`, 2026-05-09).
 
 ---
 
-## Verbs (16)
-
-| group              | verbs                                                           |
-| ------------------ | --------------------------------------------------------------- |
-| ceramic_inorganic  | `ceramics`, `concrete`, `concrete_tech`, `glass`                |
-| polymer            | `aramid`, `epoxy`, `nylon`, `pet_film`, `tire_cord`             |
-| fiber_paper        | `fabric`, `paper`                                               |
-| gem_mineral        | `gemology`                                                      |
-| metal              | `metallurgy` (swordsmithing-anchored)                           |
-| synthesis          | `synthesis` (material-synthesis platform)                       |
-| recycle            | `recycle_n6`, `recycling`                                       |
-
----
-
 ## Install
 
 ```bash
