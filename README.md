@@ -48,11 +48,11 @@ tree (SHA `47c70cbf`, 2026-05-09).
 ## Install
 
 ```bash
-# 1. Install hexa-lang (ships `hexa` + `hx` package manager)
+# 1. Install hexa-lang (gives you `hexa` + `hx` package manager)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dancinlab/hexa-lang/main/install.sh)"
 
 # 2. Install hexa-matter
-hx install hexa-matter          # global, pulls latest from registry
+hx install hexa-matter
 ```
 
 ## Run
