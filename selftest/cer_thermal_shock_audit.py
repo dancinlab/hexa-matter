@@ -40,6 +40,10 @@ CER_SPECS = [
     "2d-materials/2d-materials.md",
     "mof/mof.md",
     "carbon/carbon.md",
+    # Phase D follow-on (2026-05-13, 29→33):
+    "glass-ceramic/glass-ceramic.md",
+    "geopolymer/geopolymer.md",
+    "aerogel-foam/aerogel-foam.md",
     "CERAMIC-ENGINEERING.md",
     "LIMIT_BREAKTHROUGH.md",
 ]

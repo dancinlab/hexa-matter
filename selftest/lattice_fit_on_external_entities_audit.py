@@ -54,6 +54,11 @@ POST_POLICY_FILES = {
     "wood-cellulose/wood-cellulose.md", "WOOD-CELLULOSE.md",
     "superalloy/superalloy.md", "SUPERALLOY.md",
     "magnetic-materials/magnetic-materials.md", "MAGNETIC-MATERIALS.md",
+    # Phase D follow-on verbs (4, 2026-05-13, 29→33)
+    "glass-ceramic/glass-ceramic.md",
+    "geopolymer/geopolymer.md",
+    "aerogel-foam/aerogel-foam.md",
+    "ionic-liquid/ionic-liquid.md",
     # Phase A authored infra docs (real-limits-first, raw#10 C3 enforced):
     "AXIS.md", "AXIS_CLOSURE_PLAN.md", "CLOSURE_RESIDUAL_BACKLOG.md",
     "DECOMPOSITION_PLAN.md", "LESSONS.md",

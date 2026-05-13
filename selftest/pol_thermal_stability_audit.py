@@ -34,6 +34,8 @@ POL_SPECS = [
     "adhesive/adhesive.md",
     "liquid-crystal/liquid-crystal.md",
     "biodegradable-plastics/biodegradable-plastics.md",
+    # Phase D follow-on (2026-05-13, 29→33):
+    "ionic-liquid/ionic-liquid.md",
     # Root deep doc
     "POLYMER-CHEMISTRY.md",
 ]

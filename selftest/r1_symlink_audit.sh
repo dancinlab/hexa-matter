@@ -8,8 +8,8 @@
 # the kind of latent dependency that breaks `hx install hexa-matter` and the
 # raw#15 read-only discipline.)
 #
-# Scope: every verb subdir listed in hexa.toml [verbs] (29 verbs as of
-#   2026-05-13 Phase D close).
+# Scope: every verb subdir listed in hexa.toml [verbs] (33 verbs as of
+#   2026-05-13 Phase D follow-on close).
 #
 # Mirrors hexa-bio/selftest/r1_symlink_audit.sh shape; we have no docs/n6/
 # legacy SSOT symlink path, so the audit just walks per-verb dirs.
@@ -28,12 +28,13 @@ if [[ ! -f "$REPO_ROOT/hexa.toml" ]]; then
   exit 1
 fi
 
-# 29 verb directories (mirrors verify/spec_presence.hexa).
+# 33 verb directories (mirrors verify/spec_presence.hexa).
 VERB_DIRS=(
   ceramics concrete concrete_tech glass silicon
   compound-semi perovskite 2d-materials mof carbon
+  glass-ceramic geopolymer aerogel-foam
   aramid epoxy nylon pet_film tire_cord
-  elastomer adhesive liquid-crystal biodegradable-plastics
+  elastomer adhesive liquid-crystal biodegradable-plastics ionic-liquid
   fabric paper wood-cellulose
   gemology
   metallurgy superalloy magnetic-materials

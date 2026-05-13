@@ -31,7 +31,8 @@ REPO_ROOT = os.environ.get("HEXA_MATTER_ROOT") or os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
 )
 
-# Specs authored under the post-2026-05-12 policy (silicon + 12 Phase D verbs):
+# Specs authored under the post-2026-05-12 policy (silicon + 12 Phase D verbs
+# + 4 Phase D follow-on verbs):
 POST_POLICY_SPECS = [
     ("silicon", "silicon/silicon.md"),
     ("compound-semi", "compound-semi/compound-semi.md"),
@@ -46,6 +47,11 @@ POST_POLICY_SPECS = [
     ("wood-cellulose", "wood-cellulose/wood-cellulose.md"),
     ("superalloy", "superalloy/superalloy.md"),
     ("magnetic-materials", "magnetic-materials/magnetic-materials.md"),
+    # Phase D follow-on (2026-05-13, 29→33):
+    ("glass-ceramic", "glass-ceramic/glass-ceramic.md"),
+    ("geopolymer", "geopolymer/geopolymer.md"),
+    ("aerogel-foam", "aerogel-foam/aerogel-foam.md"),
+    ("ionic-liquid", "ionic-liquid/ionic-liquid.md"),
 ]
 
 ANCHOR_KEYWORDS = (

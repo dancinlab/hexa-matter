@@ -23,12 +23,13 @@ User directive (2026-05-13):
 |---|---|---|---|
 | **A** | 10 infra docs + 5 deep expansion + 11 stubs | ✅ DONE | `c55199b` |
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
+| **D'** | 4 Phase D follow-on verbs (29→33): glass-ceramic, geopolymer, aerogel-foam, ionic-liquid | ✅ DONE | _(this commit)_ |
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
-| **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(this commit)_ |
+| **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
 | **H** | Category (b) parity-gate landing — `tests/<group>_<gate>_parity.py` ledger drain (Phase B target subset of CLOSURE_RESIDUAL_BACKLOG §B) | 🚧 WIP | _(no SHA yet)_ |
 
 ## Phase A — DONE (commit `c55199b`)
@@ -97,6 +98,32 @@ Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 
 Small fix during verify: `verify/closure_consistency.hexa` regex `[a-z_0-9]+` → `[a-z_0-9-]+`
 to accept dash-named Phase D verbs (`2d-materials`, `compound-semi`, etc.).
+
+## Phase D follow-on — DONE (this commit)
+
+4 additional verb subdirectories added with `<verb>/<verb>.md` specs
+(silicon.md template), 29 → **33 verbs**.
+
+4 verbs (with line counts):
+| # | Verb | Lines |
+|---|---|---|
+| 30 | glass-ceramic (LAS Zerodur, Macor, Pyroceram, Li-disilicate dental, transparent armor) | 304 |
+| 31 | geopolymer (alkali-activated FA/MK/GGBFS; low-CO₂ cement alternative) | 340 |
+| 32 | aerogel-foam (silica, carbon, polymer, graphene aerogel) | 355 |
+| 33 | ionic-liquid (imidazolium / pyridinium / ammonium / phosphonium; DES distinction preserved) | 376 |
+
+Verify scoreboard: **4/4 PASS · 33/33 verbs** ✅
+
+Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
+- **glass-ceramic** — transparent-armor large-pane production UNVERIFIED; self-healing GC UNPROVEN
+- **geopolymer** — CO₂-reduction claim bracket 10–80 % UNVERIFIED (system-boundary-sensitive LCA); multi-decade durability UNVERIFIED (oldest commercial < 10 yr)
+- **aerogel-foam** — cost-per-kg UNPROVEN at commodity-foam parity ($20–100/kg insulation vs $2–5/kg PU); graphene aerogel 0.16 kg/m³ density record UNVERIFIED at production
+- **ionic-liquid** — "green solvent" claim UNVERIFIED at full LCA (toxicity EC50 ~ 5 mg/L; biodegradability poor); commodity cost < $50/kg UNPROVEN; DES distinction preserved (H-bond complex ≠ pure salt)
+
+Allocation: CER +3 (glass-ceramic, geopolymer, aerogel-foam — all
+silicate/silica-network/aluminosilicate chemistry); POL +1 (ionic-liquid
+as organic/soft-matter extension though formally not a polymer; spec §1
+preserves DES distinction).
 
 ## Phase B — selftest harness ✅ DONE
 

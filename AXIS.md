@@ -2,11 +2,12 @@
 
 > **Created**: 2026-05-13 (Phase A elevation, post-silicon close at 17/17 + 4/4)
 > **Updated**: 2026-05-13 (Phase D, 29/29 + 4/4 — 12 new verbs added across CER/POL/FIB/MET)
+> **Updated**: 2026-05-13 (Phase D follow-on, 33/33 + 4/4 — 4 new verbs: glass-ceramic, geopolymer, aerogel-foam (CER) + ionic-liquid (POL))
 > **Status**: infrastructure doc · groups material verbs into the 7-group lattice
 > **Sibling**: `AXIS_CLOSURE_PLAN.md` (per-group closure roadmap with (a)/(b)/(c) categories)
 > **Companion**: `LIMIT_BREAKTHROUGH.md` (Wave M real-limits audit)
 >
-> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 29 verbs
+> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 33 verbs
 > into 7 material groups. The n=6 invariant lattice is **auxiliary** here —
 > the real grouping criteria are bond character, processing route, and
 > end-product class (ASM/Ashby/MatWeb tradition). Per `LATTICE_POLICY.md
@@ -15,12 +16,12 @@
 
 ---
 
-## §0 The 7 groups (one-line each, post Phase D)
+## §0 The 7 groups (one-line each, post Phase D follow-on)
 
 | # | Group ID  | Verbs                                                     | Bond class            | Processing axis        |
 |---|-----------|-----------------------------------------------------------|-----------------------|------------------------|
-| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon · **compound-semi · perovskite · 2d-materials · mof · carbon** | Ionic + covalent + vdW | High-T sintering / sol-gel / CVD / CZ-FZ pull / exfoliation |
-| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics · **elastomer · adhesive · liquid-crystal · biodegradable-plastics** | Covalent C-C / amide / ester / urea | Polymerization (step / chain) |
+| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon · compound-semi · perovskite · 2d-materials · mof · carbon · **glass-ceramic · geopolymer · aerogel-foam** | Ionic + covalent + vdW | High-T sintering / sol-gel / CVD / CZ-FZ pull / exfoliation / supercritical drying / alkali-activation |
+| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics · elastomer · adhesive · liquid-crystal · biodegradable-plastics · **ionic-liquid** | Covalent C-C / amide / ester / urea / ionic-organic | Polymerization (step / chain) / quaternization |
 | 3 | GROUP_FIB | fabric · paper · **wood-cellulose**                        | Covalent + H-bond     | Spinning / weaving / pulping |
 | 4 | GROUP_MET | metallurgy · lutherie · **superalloy · magnetic-materials** | Metallic              | Casting / forging / heat-treatment |
 | 5 | GROUP_GEM | gemology                                                  | Ionic + covalent      | Crystal habit / cut / polish |
@@ -33,20 +34,28 @@
 - FIB +1: wood-cellulose
 - MET +2: superalloy, magnetic-materials
 
-**Verb count audit (post Phase D)**: CER(10) + POL(10) + FIB(3) + MET(4 incl. lutherie) + GEM(1) + PRC(4) + FAS(2) = **34 verb-slots**, but the **29 ship-grade dispatchable verbs** map as follows:
+**Phase D follow-on (2026-05-13) verb expansion** (4 new verbs, 29→33):
+- CER +3: glass-ceramic (controlled-crystallization), geopolymer
+  (alkali-activated aluminosilicate, low-CO₂ cement alternative),
+  aerogel-foam (silica/carbon/polymer/graphene aerogel)
+- POL +1: ionic-liquid (room-T molten salts; placed in POL as
+  organic/soft-matter extension though formally not a polymer —
+  spec §1 preserves the distinction including DES separation)
 
-- CER: ceramics, concrete, concrete_tech, glass, silicon, compound-semi, perovskite, 2d-materials, mof, carbon → **10**
-- POL: aramid, epoxy, nylon, pet_film, tire_cord, elastomer, adhesive, liquid-crystal, biodegradable-plastics → **9**
+**Verb count audit (post Phase D follow-on)**: CER(13) + POL(11) + FIB(3) + MET(4 incl. lutherie) + GEM(1) + PRC(4) + FAS(2) = **38 verb-slots**, but the **33 ship-grade dispatchable verbs** map as follows:
+
+- CER: ceramics, concrete, concrete_tech, glass, silicon, compound-semi, perovskite, 2d-materials, mof, carbon, glass-ceramic, geopolymer, aerogel-foam → **13**
+- POL: aramid, epoxy, nylon, pet_film, tire_cord, elastomer, adhesive, liquid-crystal, biodegradable-plastics, ionic-liquid → **10**
 - FIB: fabric, paper, wood-cellulose → **3**
 - MET: metallurgy, superalloy, magnetic-materials → **3** (lutherie not in CLI dispatch; sits in culture overlap)
 - GEM: gemology → **1**
 - PRC: synthesis, recycle_n6, recycling → **3** (printing exposed via MATERIAL-SYNTHESIS.md; no dispatcher slot yet)
-- FAS: fashion-textile, textile-dyeing → not in 29-verb CLI dispatch (industrial-textile lineage separately tracked)
+- FAS: fashion-textile, textile-dyeing → not in 33-verb CLI dispatch (industrial-textile lineage separately tracked)
 
-That gives **29 dispatchable verbs** in `hexa.toml [verbs]`:
-- ceramic_inorganic (10), polymer (9), fiber_paper (3), gem_mineral (1), metal (3), synthesis (1), recycle (2) = 29
+That gives **33 dispatchable verbs** in `hexa.toml [verbs]`:
+- ceramic_inorganic (13), polymer (10), fiber_paper (3), gem_mineral (1), metal (3), synthesis (1), recycle (2) = 33
 
-The 17 ship-grade verbs of v1.0.0 + 12 Phase D verbs = 29 verbs total. `hexa.toml [verbs]` is the authoritative scoreboard. The 7 groups are unchanged in count (we did NOT add a `GROUP_2D` despite earlier consideration — 2d-materials stays in CER for taxonomy simplicity).
+The 17 ship-grade verbs of v1.0.0 + 12 Phase D verbs + 4 Phase D follow-on verbs = 33 verbs total. `hexa.toml [verbs]` is the authoritative scoreboard. The 7 groups are unchanged in count (no new group added; CER continues to absorb hybrid silicate / nanoporous / amorphous-network materials).
 
 ---
 

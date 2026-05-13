@@ -1,11 +1,13 @@
 #!hexa strict
 // hexa-matter/cli/hexa-matter.hexa — standalone hexa-matter CLI router
 //
-// 29-verb 소재 substrate (HEXA family) router. Spec-first dispatcher: each
+// 33-verb 소재 substrate (HEXA family) router. Spec-first dispatcher: each
 // verb subcmd resolves its spec doc path and prints headline (head -30).
 // Phase D (2026-05-13) added 12 new verbs: elastomer, compound-semi,
 // perovskite, 2d-materials, adhesive, magnetic-materials, mof,
 // liquid-crystal, superalloy, biodegradable-plastics, wood-cellulose, carbon.
+// Phase D follow-on (2026-05-13) added 4 more verbs (29→33):
+// glass-ceramic, geopolymer, aerogel-foam, ionic-liquid.
 //
 // Cross-link policy (raw#10): chip-grade materials live in hexa-chip;
 // for those, call `hexa-chip materials` directly — do NOT proxy here.
@@ -28,7 +30,7 @@ fn hexa_matter_root() -> str {
 
 let HM = hexa_matter_root()
 
-// 29-verb spec doc registry: verb_name → (subdir, filename)
+// 33-verb spec doc registry: verb_name → (subdir, filename)
 let VERBS = [
     ["ceramics",               "ceramics",               "ceramics.md"],
     ["concrete",               "concrete",               "concrete.md"],
@@ -40,6 +42,9 @@ let VERBS = [
     ["2d-materials",           "2d-materials",           "2d-materials.md"],
     ["mof",                    "mof",                    "mof.md"],
     ["carbon",                 "carbon",                 "carbon.md"],
+    ["glass-ceramic",          "glass-ceramic",          "glass-ceramic.md"],
+    ["geopolymer",             "geopolymer",             "geopolymer.md"],
+    ["aerogel-foam",           "aerogel-foam",           "aerogel-foam.md"],
     ["aramid",                 "aramid",                 "aramid.md"],
     ["epoxy",                  "epoxy",                  "epoxy.md"],
     ["nylon",                  "nylon",                  "nylon.md"],
@@ -49,6 +54,7 @@ let VERBS = [
     ["adhesive",               "adhesive",               "adhesive.md"],
     ["liquid-crystal",         "liquid-crystal",         "liquid-crystal.md"],
     ["biodegradable-plastics", "biodegradable-plastics", "biodegradable-plastics.md"],
+    ["ionic-liquid",           "ionic-liquid",           "ionic-liquid.md"],
     ["fabric",                 "fabric",                 "hexa-fabric.md"],
     ["paper",                  "paper",                  "paper.md"],
     ["wood-cellulose",         "wood-cellulose",         "wood-cellulose.md"],
@@ -94,7 +100,7 @@ fn _print_spec_headline(verb: str, spec_path: str) {
 fn _print_caveats() {
     println("")
     println("--- caveats (raw#10 C3) ---")
-    println("  1. 29/29 verbs ship as SPEC docs (17 v1.0.0 + 12 Phase D 2026-05-13)")
+    println("  1. 33/33 verbs ship as SPEC docs (17 v1.0.0 + 12 Phase D + 4 Phase D follow-on 2026-05-13)")
     println("     — working .hexa numerical sandboxes are TBD per per-verb F-* gates.")
     println("  2. chip-grade semiconductor materials live in hexa-chip:")
     println("     `hexa-chip materials` — do NOT proxy through hexa-matter.")
@@ -105,14 +111,15 @@ fn _print_caveats() {
 }
 
 fn cmd_status(a: [str]) {
-    println("hexa-matter " + VERSION + " status — 29-verb 소재 substrate (HEXA family)")
+    println("hexa-matter " + VERSION + " status — 33-verb 소재 substrate (HEXA family)")
     println("")
     println("  group                verbs")
     println("  -------------------- ------------------------------------------------")
     println("  ceramic_inorganic    ceramics · concrete · concrete_tech · glass · silicon")
     println("                       · compound-semi · perovskite · 2d-materials · mof · carbon")
+    println("                       · glass-ceramic · geopolymer · aerogel-foam")
     println("  polymer              aramid · epoxy · nylon · pet_film · tire_cord")
-    println("                       · elastomer · adhesive · liquid-crystal · biodegradable-plastics")
+    println("                       · elastomer · adhesive · liquid-crystal · biodegradable-plastics · ionic-liquid")
     println("  fiber_paper          fabric · paper · wood-cellulose")
     println("  gem_mineral          gemology")
     println("  metal                metallurgy · superalloy · magnetic-materials")

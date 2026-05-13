@@ -6,10 +6,10 @@ selftest/cross_doc_audit.py — cross-document consistency.
 Beyond registry_consistency_audit.py (which checks verb-name parity), this
 gate verifies semantic-content cross-document consistency:
 
-  (1) README.md "29-verb" / "Phase D" claims match hexa.toml [closure].verbs_total
+  (1) README.md "33-verb" / "Phase D" claims match hexa.toml [closure].verbs_total
   (2) hexa.toml [verify].scripts_passed (4) matches the verify/ count
-  (3) AXIS.md group-counts (CER 10, POL 9, FIB 3, MET 3, GEM 1, PRC 3, FAS 0
-      in-CLI) sum to 29
+  (3) AXIS.md group-counts (CER 13, POL 10, FIB 3, MET 3, GEM 1, PRC 3, FAS 0
+      in-CLI) sum to 33
   (4) AGENTS.md references LATTICE_POLICY.md and LIMIT_BREAKTHROUGH.md by name
 
 Per raw#9 hexa-only: Python stdlib only.
@@ -38,16 +38,16 @@ def main() -> int:
 
     fail = 0
 
-    # (1) README "29-verb" matches hexa.toml
+    # (1) README "33-verb" matches hexa.toml
     readme = read(os.path.join(REPO_ROOT, "README.md"))
     toml = read(os.path.join(REPO_ROOT, "hexa.toml"))
     m = re.search(r"verbs_total\s*=\s*([0-9]+)", toml)
     toml_total = int(m.group(1)) if m else None
-    readme_mentions_29 = "29-verb" in readme or "29_spec" in readme or "29 verb" in readme
-    if toml_total == 29 and readme_mentions_29:
-        print("  [PASS] README 29-verb claim ↔ hexa.toml verbs_total=29")
+    readme_mentions_33 = "33-verb" in readme or "33_spec" in readme or "33 verb" in readme
+    if toml_total == 33 and readme_mentions_33:
+        print("  [PASS] README 33-verb claim ↔ hexa.toml verbs_total=33")
     else:
-        print(f"  [FAIL] README 29-verb={readme_mentions_29}  toml verbs_total={toml_total}")
+        print(f"  [FAIL] README 33-verb={readme_mentions_33}  toml verbs_total={toml_total}")
         fail += 1
 
     # (2) verify scripts count
@@ -61,9 +61,9 @@ def main() -> int:
         print(f"  [FAIL] verify/*.hexa count {n_hexa}  vs  hexa.toml [verify].scripts_total={toml_scripts}")
         fail += 1
 
-    # (3) AXIS.md group sums to 29
+    # (3) AXIS.md group sums to 33
     axis = read(os.path.join(REPO_ROOT, "AXIS.md"))
-    # Pattern: "CER: …, … → **10**" etc.
+    # Pattern: "CER: …, … → **13**" etc.
     # Look for "→ **N**" or "= **N**" markers in AXIS.md §0:
     group_counts = re.findall(r"→ \*\*([0-9]+)\*\*", axis)
     if group_counts:
@@ -72,10 +72,10 @@ def main() -> int:
         # AXIS.md §0 lists 7 groups; tolerate trailing summary numbers.
         # Find the bullet list of per-group counts.
         head_sum = sum(ints[:7]) if len(ints) >= 7 else sum(ints)
-        if 28 <= head_sum <= 30:  # tolerate FAS:0 or FAS:1 wobble + lutherie note
-            print(f"  [PASS] AXIS.md group counts head-sum ≈ 29  (got {head_sum} from {ints[:7]})")
+        if 32 <= head_sum <= 34:  # tolerate FAS:0 or FAS:1 wobble + lutherie note
+            print(f"  [PASS] AXIS.md group counts head-sum ≈ 33  (got {head_sum} from {ints[:7]})")
         else:
-            print(f"  [FAIL] AXIS.md group counts sum = {head_sum}  (expected ≈ 29)")
+            print(f"  [FAIL] AXIS.md group counts sum = {head_sum}  (expected ≈ 33)")
             fail += 1
     else:
         print("  [WARN] AXIS.md — could not parse per-group counts (regex miss); skipping")
