@@ -1,6 +1,6 @@
 # `_absorption_bridge/` — hexa-matter external-system absorption layer
 
-> **Created**: 2026-05-13 (Phase G) · **Updated**: 2026-05-13 (Phase G+1: COD; Phase G+2: OQMD + AFLOW + NOMAD) · **Status**: 14 adapters (9 external systems + 5 universal force-field models)
+> **Created**: 2026-05-13 (Phase G) · **Updated**: 2026-05-13 (Phase G+1: COD; Phase G+2: OQMD + AFLOW + NOMAD; Phase J.3: NIMS-MatNavi + Catalysis-Hub) · **Status**: 16 adapters (11 external systems + 5 universal force-field models)
 > **Pattern reference**: `_python_bridge/module/` (Phase E discipline)
 > **Selftest wiring**: `selftest/absorption_bridge_smoke.sh` → `selftest/run_all.sh`
 > **User directive**: "알파폴드 처럼 흡수할 시스템도 흡수" (absorb systems-that-absorb, AlphaFold-class)
@@ -17,13 +17,15 @@ fixture **offline**; nothing makes a live API call inside the selftest. When
 the optional external dep is missing, the adapter SKIPs cleanly (exit 0,
 counted PASS) per the `NO MOCKED FUNCTIONALITY` rule from `INIT.md`.
 
-The nine external systems plus five universal force fields cover the major
+The eleven external systems plus five universal force fields cover the major
 materials-AI absorption surface as of 2026-05:
 
 | Bucket | Systems |
 |---|---|
-| Database / API (computed) | Materials Project (Berkeley/LBNL) · GNoME (DeepMind) · Matlantis (Preferred Networks) · OMat24 (Meta AI) · OQMD (Wolverton/Northwestern) · AFLOW (Curtarolo/Duke) · NOMAD (Draxl & Scheffler, EU FAIR-data) |
+| Database / API (computed bulk) | Materials Project (Berkeley/LBNL) · GNoME (DeepMind) · Matlantis (Preferred Networks) · OMat24 (Meta AI) · OQMD (Wolverton/Northwestern) · AFLOW (Curtarolo/Duke) · NOMAD (Draxl & Scheffler, EU FAIR-data) |
+| Database / API (computed surface reactions) | Catalysis-Hub (NTNU + Stanford SUNCAT, Winther 2019) — Phase J.3 |
 | Database / API (experimental) | COD (Crystallography Open Database, Gražulis et al. 2009/2012) |
+| Database / API (experimental + computed dual-mode) | NIMS MatNavi / MITS (Japan, ~50k records: alloy + creep + polymer + JIS industrial) — Phase J.3 |
 | Universal force fields | SchNet · MACE · ALIGNN · CHGNet · M3GNet |
 
 This bridge is the materials-substrate analog to AlphaFold absorption in
@@ -82,6 +84,18 @@ _absorption_bridge/
     cache/
       sample_record.json                   # SAMPLE FIXTURE: NOMAD V1 entry schema (Si via VASP-PBE)
   nomad_adapter.md                         # short doc for the NOMAD adapter (Phase G+2)
+  nims_mats/                               # Phase J.3 (2026-05-13)
+    nims_mats_search_smoke.py              # NIMS Materials Database (MatNavi/MITS) adapter (Japan; ~50k records; BOTH experimental AND computed)
+    SOURCES.md                             # MatNavi web-search shape + Xu 2011 / Demura 2019 citation + CC-BY 4.0 (open-data subset)
+    cache/
+      sample_record.json                   # SAMPLE FIXTURE: SUS304 / SS304 austenitic stainless steel mechanical record (ASTM A240 / JIS G4304)
+  nims_mats_adapter.md                     # short doc for the NIMS-MatNavi adapter (Phase J.3)
+  catalysis_hub/                           # Phase J.3 (2026-05-13)
+    catalysis_hub_search_smoke.py          # Catalysis-Hub (NTNU + Stanford SUNCAT) adapter (>100k surface reactions; DFT BEEF-vdW + GPAW/VASP)
+    SOURCES.md                             # Catalysis-Hub GraphQL endpoint + Winther 2019 / Schlexer Lamoureux 2019 citation + CC-BY 4.0
+    cache/
+      sample_record.json                   # SAMPLE FIXTURE: CO2 → CO adsorption-energy record on Cu(111) (BEEF-vdW + GPAW)
+  catalysis_hub_adapter.md                 # short doc for the Catalysis-Hub adapter (Phase J.3)
   universal_ff/
     schnet_call.py                         # SchNet adapter (Schütt et al. 2017)
     mace_call.py                           # MACE adapter (Batatia et al. 2022)
@@ -100,6 +114,8 @@ _absorption_bridge/
     oqmd_smoke.py                          # offline fixture replay (Phase G+2)
     aflow_smoke.py                         # offline fixture replay (Phase G+2)
     nomad_smoke.py                         # offline fixture replay (Phase G+2)
+    nims_mats_smoke.py                     # offline fixture replay (Phase J.3)
+    catalysis_hub_smoke.py                 # offline fixture replay (Phase J.3)
     universal_ff_smoke.py                  # offline fixture replay (all 5 FF adapters)
     sources_audit.py                       # all SOURCES.md present + non-empty + license stated
 ```
@@ -175,6 +191,8 @@ This bridge must NOT:
 | OQMD (Open Quantum Materials Database) | CC-BY 4.0 (data); no API key | $0 | Saal et al. 2013 JOM + Kirklin et al. 2015 npj Comput. Mater.; Wolverton/Northwestern; **DFT-PBE predictions** (~1M entries) |
 | AFLOW (Automatic-FLOW) | CC-BY 4.0 (data); no API key | $0 | Curtarolo et al. 2012 + Toher et al. 2018 + Rose et al. 2017 AFLUX; Duke; **DFT predictions** (3M+ compounds, many prototype-substituted) |
 | NOMAD (NOvel MAterials Discovery) | CC-BY 4.0 (data); no API key for read | $0 | Draxl & Scheffler 2018 MRS Bull. + 2019 J. Phys. Mater.; FAIR-data repository; **multi-code DFT** (VASP/QE/FHI-aims/ABINIT/CP2K/GPAW/…, 19M+ entries) |
+| NIMS MatNavi / MITS (Phase J.3) | CC-BY 4.0 (open-data subset); account-gated subsets retain separate terms | $0 (open-data) | Xu et al. 2011 Procedia Eng. + Demura et al. 2019 Sci. Technol. Adv. Mater.; National Institute for Materials Science, Tsukuba, Japan; **BOTH experimental AND computed** (~50k records; metals/alloys/polymers/ceramics + multi-decade Creep/Fatigue Data Sheet series) |
+| Catalysis-Hub (Phase J.3) | CC-BY 4.0 (data); no API key for read | $0 | Winther et al. 2019 Sci. Data + Schlexer Lamoureux et al. 2019 ChemCatChem; NTNU + Stanford SUNCAT; **DFT surface-reaction PREDICTIONS** (>100k reactions, BEEF-vdW + GPAW/VASP) |
 | SchNet | MIT (schnetpack) | $0 | Schütt et al. 2017 J. Chem. Phys. |
 | MACE | MIT (mace-torch) | $0 | Batatia et al. 2022 NeurIPS |
 | ALIGNN | MIT (NIST jarvis-tools / alignn) | $0 | Choudhary & DeCost 2021 npj Comput. Mater. |
@@ -227,8 +245,16 @@ absorption aggregator.
 Phase G+2 (2026-05-13) adds three more dedicated adapter gates:
 `selftest/oqmd_adapter_smoke.sh` (gate **25**, OQMD),
 `selftest/aflow_adapter_smoke.sh` (gate **26**, AFLOW), and
-`selftest/nomad_adapter_smoke.sh` (gate **27**, NOMAD). Scoreboard:
-**27/27 PASS**.
+`selftest/nomad_adapter_smoke.sh` (gate **27**, NOMAD). Scoreboard at
+Phase G+2 close: **27/27 PASS**.
+
+Phase J.3 (2026-05-13) adds two more dedicated adapter gates for the
+15th and 16th adapters: `selftest/nims_mats_adapter_smoke.sh` (NIMS
+MatNavi, Japan) and `selftest/catalysis_hub_adapter_smoke.sh`
+(Catalysis-Hub, NTNU + Stanford SUNCAT). Gate numbers track the merge
+order of the J.1/J.2/J.3 closure-deepening branches into main —
+defensively claimed as the next available slots after the existing
+30-gate scoreboard.
 
 ---
 

@@ -17,13 +17,15 @@
 #   Research bridge (1): research_bridge_smoke (Phase F aggregator over
 #     arxiv_smoke + web_smoke + sources_audit; offline-replay only)
 #   Absorption bridge (1): absorption_bridge_smoke (Phase G aggregator over
-#     10 selftest modules covering 14 external-system adapters:
+#     12 selftest modules covering 16 external-system adapters:
 #     Materials Project, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet,
-#     COD, OQMD, AFLOW, NOMAD)
-#   Adapter-specific (4): cod_adapter_smoke (Phase G+1, 2026-05-13:
+#     COD, OQMD, AFLOW, NOMAD, NIMS-MatNavi, Catalysis-Hub)
+#   Adapter-specific (6): cod_adapter_smoke (Phase G+1, 2026-05-13:
 #     Crystallography Open Database), oqmd_adapter_smoke / aflow_adapter_smoke /
 #     nomad_adapter_smoke (Phase G+2, 2026-05-13: DFT/FAIR-data direct-adapter
-#     gates, offline-replay only)
+#     gates, offline-replay only), nims_mats_adapter_smoke / catalysis_hub_adapter_smoke
+#     (Phase J.3, 2026-05-13: Japan-industrial dual-mode DB + DFT surface-reaction
+#     DB direct-adapter gates, offline-replay only)
 #   Parity gates (1): parity_gates_smoke (Phase H + Phase I.1, 2026-05-13:
 #     aggregator over tests/*_parity.py — now 20 stdlib-only Category (b)
 #     parity gates (10 Phase H + 10 Phase I.1) anchored to NIST/CRC/ASM/
@@ -113,6 +115,19 @@ run "cod_adapter_smoke"               bash    "$HERE/cod_adapter_smoke.sh"
 run "oqmd_adapter_smoke"              bash    "$HERE/oqmd_adapter_smoke.sh"
 run "aflow_adapter_smoke"             bash    "$HERE/aflow_adapter_smoke.sh"
 run "nomad_adapter_smoke"             bash    "$HERE/nomad_adapter_smoke.sh"
+
+# ── Phase J.3 NIMS-MatNavi / Catalysis-Hub adapters (2) — Japan dual-mode + DFT surface-reaction direct gates ────
+# 2026-05-13: 14→16 adapter expansion. nims_mats_adapter_smoke covers the
+# NIMS Materials Database (MatNavi/MITS) — Japan-focused, ~50k records,
+# carries BOTH experimental AND computed entries; sample fixture is a
+# SUS304 / SS304 austenitic stainless steel mechanical record per ASTM A240 /
+# JIS G4304. catalysis_hub_adapter_smoke covers Catalysis-Hub (NTNU + Stanford
+# SUNCAT), > 100k DFT surface-reaction / adsorption-energy records; sample
+# fixture is a CO2 → CO adsorption energy on Cu(111) per Winther 2019 +
+# Schlexer Lamoureux 2019. Both gates offline-replay only — no live REST /
+# GraphQL hits in CI. License: CC-BY 4.0 on the open-data subsets.
+run "nims_mats_adapter_smoke"         bash    "$HERE/nims_mats_adapter_smoke.sh"
+run "catalysis_hub_adapter_smoke"     bash    "$HERE/catalysis_hub_adapter_smoke.sh"
 
 # ── Phase H parity gates (1) — aggregator over 10 tests/*_parity.py gates ────
 run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"

@@ -32,6 +32,7 @@ User directive (2026-05-13):
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
 | **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
 | **G+2** | `_absorption_bridge/oqmd/` + `aflow/` + `nomad/` (DFT/FAIR-data sources — 12th/13th/14th adapters: OQMD Wolverton, AFLOW Curtarolo, NOMAD Draxl/Scheffler; all CC-BY 4.0) | ✅ DONE | `a54da35` |
+| **J.3** | `_absorption_bridge/nims_mats/` + `catalysis_hub/` (15th + 16th adapters: NIMS MatNavi Japan ~50k dual-mode records + Catalysis-Hub NTNU/SUNCAT > 100k DFT surface-reaction records; both CC-BY 4.0; +2 selftest gates) | ✅ DONE | _(this commit)_ |
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
 | **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
 | **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
@@ -310,12 +311,12 @@ SOURCES.md:
 ## Phase G — `_absorption_bridge/` ✅ DONE (2026-05-13)
 
 External materials-discovery system absorption layer per user directive
-("알파폴드 처럼 흡수할 시스템도 흡수"). **14 adapters** ship under
-`_absorption_bridge/` (10 from Phase G + 1 from Phase G+1 + 3 from Phase G+2,
-2026-05-13): 9 database/API systems plus 5 universal force-field models.
-Each accepts `--selftest`, runs OFFLINE (fixtures replayed from bundled
-`<system>/cache/`; NO live API calls in selftest), and SKIPs cleanly when
-its optional dep is missing.
+("알파폴드 처럼 흡수할 시스템도 흡수"). **16 adapters** ship under
+`_absorption_bridge/` (10 from Phase G + 1 from Phase G+1 + 3 from Phase G+2
++ 2 from Phase J.3, 2026-05-13): 11 database/API systems plus 5 universal
+force-field models. Each accepts `--selftest`, runs OFFLINE (fixtures
+replayed from bundled `<system>/cache/`; NO live API calls in selftest),
+and SKIPs cleanly when its optional dep is missing.
 
 **Phase G+1 (2026-05-13)** added the Crystallography Open Database (COD)
 adapter — the first EXPERIMENTAL-measurement source in the bridge (distinct
@@ -350,6 +351,31 @@ Each Phase G+2 adapter ships with the same shape as the COD adapter:
 
 Selftest scoreboard: 24/24 → **27/27** PASS (gates 25/26/27 =
 `oqmd_adapter_smoke` / `aflow_adapter_smoke` / `nomad_adapter_smoke`).
+
+**Phase J.3 (2026-05-13)** added two more closure-deepening adapters
+(14 → 16):
+- **NIMS MatNavi / MITS** (National Institute for Materials Science,
+  Tsukuba, Japan): ~50,000 records covering metals + alloys + ceramics +
+  polymers + composites + multi-decade Creep / Fatigue Data Sheet series.
+  Unique distinguisher among the 16 sources — carries **BOTH experimental
+  and computed** records. Validator REQUIRES `record_type` to start with
+  `experimental_` or `computed_` so the two flavours cannot be conflated.
+  Sample fixture: SUS304 / SS304 austenitic stainless steel mechanical
+  record at 25 °C per ASTM A240 / JIS G4304 (YS 215 MPa, UTS 505 MPa,
+  E 193 GPa). Xu 2011 Procedia Eng. + Demura 2019 STAM; CC-BY 4.0 on the
+  open-data subset (account-gated subsets retain separate terms; adapter
+  does NOT redistribute).
+- **Catalysis-Hub** (NTNU + Stanford SUNCAT): > 100,000 surface reactions
+  / adsorption energies; DFT-only — GPAW (default) + VASP, mostly BEEF-vdW.
+  Strict-prediction sister: validator REJECTS any record mis-labelled as
+  experimental. Sample fixture: CO₂ → CO adsorption on Cu(111) (ΔE_rxn
+  −0.18 eV, E_a 0.62 eV; BEEF-vdW + GPAW + climbing-image NEB). Winther
+  2019 Sci. Data + Schlexer Lamoureux 2019 ChemCatChem; CC-BY 4.0.
+
+Phase J.3 selftest scoreboard delta: +2 gates (`nims_mats_adapter_smoke` +
+`catalysis_hub_adapter_smoke`). Final count depends on merge order of the
+J.1 / J.2 closure-deepening branches; on stock-main-at-commit-time (30
+gates) this delta lands at **32/32 PASS**.
 
 | Subsystem | Module | Status | Optional dep |
 |---|---|---|---|
@@ -389,6 +415,8 @@ License honesty matrix (per `_absorption_bridge/README.md`):
 | OQMD (Phase G+2) | CC-BY 4.0 (Saal 2013 + Kirklin 2015) — **DFT-PBE PREDICTIONS, ~1M entries** | $0 |
 | AFLOW (Phase G+2) | CC-BY 4.0 (Curtarolo 2012 + Toher 2018) — **DFT PREDICTIONS, 3M+ compounds** | $0 |
 | NOMAD (Phase G+2) | CC-BY 4.0 (Draxl & Scheffler 2018) — **multi-code DFT, 19M+ FAIR entries** | $0 |
+| NIMS MatNavi (Phase J.3) | CC-BY 4.0 open-data subset (Xu 2011 + Demura 2019) — **BOTH experimental AND computed**, ~50k records, Japan/JIS-industrial | $0 (open-data) |
+| Catalysis-Hub (Phase J.3) | CC-BY 4.0 (Winther 2019 + Schlexer Lamoureux 2019) — **DFT surface-reaction predictions**, > 100k reactions, BEEF-vdW + GPAW/VASP | $0 |
 | SchNet / MACE / ALIGNN | MIT | $0 |
 | CHGNet / M3GNet | BSD-3-Clause | $0 |
 

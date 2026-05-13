@@ -117,10 +117,11 @@ Aggregator: `selftest/pyproject_smoke.sh` (gate 21 of selftest harness).
 
 Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
 
-### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 14 adapters)
+### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 16 adapters)
 
-9 external systems + 5 universal force fields (Phase G+1 2026-05-13 added COD;
-Phase G+2 2026-05-13 added OQMD + AFLOW + NOMAD):
+11 external systems + 5 universal force fields (Phase G+1 2026-05-13 added COD;
+Phase G+2 2026-05-13 added OQMD + AFLOW + NOMAD; Phase J.3 2026-05-13 added
+NIMS MatNavi + Catalysis-Hub):
 
 | System | License | Adapter | Notes |
 |---|---|---|---|
@@ -132,6 +133,8 @@ Phase G+2 2026-05-13 added OQMD + AFLOW + NOMAD):
 | **OQMD** (Wolverton/Northwestern, Saal 2013 + Kirklin 2015) | CC-BY 4.0 (data) | `oqmd/oqmd_search_smoke.py` | DFT-PBE PREDICTIONS (~1M entries); cross-DB sister of MP/AFLOW |
 | **AFLOW** (Curtarolo/Duke, 2012 + Toher 2018 + Rose AFLUX 2017) | CC-BY 4.0 (data) | `aflow/aflow_search_smoke.py` | DFT PREDICTIONS (3M+ compounds, many prototype-substituted); largest single computational DB |
 | **NOMAD** (Draxl & Scheffler 2018, EU FAIR-data) | CC-BY 4.0 (data) | `nomad/nomad_search_smoke.py` | Multi-code DFT (VASP/QE/FHI-aims/ABINIT/CP2K/GPAW/…, 19M+ entries); preserves originating-code provenance |
+| **NIMS MatNavi / MITS** (NIMS Tsukuba, Japan, Xu 2011 + Demura 2019) | CC-BY 4.0 open-data subset | `nims_mats/nims_mats_search_smoke.py` | **BOTH experimental AND computed**; ~50k records; metals/alloys/polymers/ceramics + multi-decade Creep / Fatigue Data Sheet series; SUS / JIS-graded industrial — Phase J.3 |
+| **Catalysis-Hub** (NTNU + Stanford SUNCAT, Winther 2019 + Schlexer Lamoureux 2019) | CC-BY 4.0 (data) | `catalysis_hub/catalysis_hub_search_smoke.py` | **DFT surface-reaction predictions** (BEEF-vdW + GPAW/VASP); > 100k reactions; CO₂R / NRR / ORR / OER pathway anchor — Phase J.3 |
 | **SchNet** (Schütt 2017) | MIT | `universal_ff/schnet_call.py` | message-passing NNP |
 | **MACE** (Batatia 2022) | MIT | `universal_ff/mace_call.py` | equivariant NNP |
 | **ALIGNN** (Choudhary 2021) | MIT | `universal_ff/alignn_call.py` | atomistic line graph |
@@ -169,19 +172,22 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **30/30 PASS** (8 cross-cutting + 8 group-specific + 4
-verb-specific + 3 bridge aggregators + 4 adapter-specific gates +
+currently **32/32 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators + 6 adapter-specific gates +
 1 parity-gates aggregator + 2 closure-meta gates: COD added 2026-05-13
 Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2; parity-gates
 aggregator added 2026-05-13 Phase H, extended Phase I.1 + I.2 to sweep
 29 internal parity gates; `selftest/cross_link_integrity_audit.py`
-added 2026-05-13 (gate #29 — boundary discipline + NOVEL invariants);
-`selftest/c_handoff_completeness_audit.py` added 2026-05-13 (gate #30 —
-walks every §C row asserting DEST + LIMIT_BREAKTHROUGH wall classification
-+ raw#10 C3)). Run from repo root:
+added 2026-05-13 (boundary discipline + NOVEL invariants);
+`selftest/c_handoff_completeness_audit.py` added 2026-05-13 (walks every
+§C row asserting DEST + LIMIT_BREAKTHROUGH wall classification + raw#10
+C3); NIMS MatNavi + Catalysis-Hub adapter gates added 2026-05-13 Phase
+J.3 — claimed defensively at the next available slots after the existing
+30-gate scoreboard, in commit order of the J.1 / J.2 / J.3 closure-
+deepening branch merges into main). Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 30/30 PASS
+bash selftest/run_all.sh    # exit 0 = 32/32 PASS (or higher when J.1/J.2 also merged)
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -189,8 +195,8 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "30/30"`, `python_bridge_modules = 12`,
-`research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
+`selftest_pass = "32/32"`, `python_bridge_modules = 12`,
+`research_bridge_modules = 8`, `absorption_bridge_modules = 16`,
 `parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2),
 `category_a_closed = true`, `category_b_closed = true`,
 `category_c_handoff_audited = true`,
@@ -267,7 +273,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  30/30 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
+  32/32 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC/ASM/SEMI/
   ASTM/TAPPI/AATCC/ISO/vendor-datasheet anchored values matched against the
   spec corpus. 29 parity gates total → **ALL 29 ✅ CLOSED 2026-05-13** under
@@ -313,7 +319,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 30/30 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 32/32 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
