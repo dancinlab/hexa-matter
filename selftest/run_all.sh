@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (25 gates total):
+# Gate categories (28 gates total):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -17,11 +17,13 @@
 #   Research bridge (1): research_bridge_smoke (Phase F aggregator over
 #     arxiv_smoke + web_smoke + sources_audit; offline-replay only)
 #   Absorption bridge (1): absorption_bridge_smoke (Phase G aggregator over
-#     7 selftest modules covering 11 external-system adapters:
+#     10 selftest modules covering 14 external-system adapters:
 #     Materials Project, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet,
-#     COD)
-#   Adapter-specific (1): cod_adapter_smoke (Phase G+1, 2026-05-13:
-#     Crystallography Open Database direct-adapter gate, offline-replay only)
+#     COD, OQMD, AFLOW, NOMAD)
+#   Adapter-specific (4): cod_adapter_smoke (Phase G+1, 2026-05-13:
+#     Crystallography Open Database), oqmd_adapter_smoke / aflow_adapter_smoke /
+#     nomad_adapter_smoke (Phase G+2, 2026-05-13: DFT/FAIR-data direct-adapter
+#     gates, offline-replay only)
 #   Parity gates (1): parity_gates_smoke (Phase H, 2026-05-13: aggregator
 #     over tests/*_parity.py — 10 stdlib-only Category (b) parity gates
 #     anchored to NIST/CRC/ASM/TAPPI/GIA snapshots; offline-only)
@@ -91,11 +93,16 @@ run "pyproject_smoke"                 bash    "$HERE/pyproject_smoke.sh"
 # ── Phase F research bridge (1) — aggregator over arxiv + web + audit ────
 run "research_bridge_smoke"           bash    "$HERE/research_bridge_smoke.sh"
 
-# ── Phase G absorption bridge (1) — aggregator over 11 external-system adapters ────
+# ── Phase G absorption bridge (1) — aggregator over 14 external-system adapters ────
 run "absorption_bridge_smoke"         bash    "$HERE/absorption_bridge_smoke.sh"
 
 # ── Phase G+1 COD adapter (1) — Crystallography Open Database direct gate ────
 run "cod_adapter_smoke"               bash    "$HERE/cod_adapter_smoke.sh"
+
+# ── Phase G+2 OQMD / AFLOW / NOMAD adapters (3) — DFT/FAIR-data direct gates ────
+run "oqmd_adapter_smoke"              bash    "$HERE/oqmd_adapter_smoke.sh"
+run "aflow_adapter_smoke"             bash    "$HERE/aflow_adapter_smoke.sh"
+run "nomad_adapter_smoke"             bash    "$HERE/nomad_adapter_smoke.sh"
 
 # ── Phase H parity gates (1) — aggregator over 10 tests/*_parity.py gates ────
 run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"

@@ -118,9 +118,10 @@ Aggregator: `selftest/pyproject_smoke.sh` (gate 21 of selftest harness).
 
 Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
 
-### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 11 adapters)
+### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 14 adapters)
 
-6 external systems + 5 universal force fields (Phase G+1 2026-05-13 added COD):
+9 external systems + 5 universal force fields (Phase G+1 2026-05-13 added COD;
+Phase G+2 2026-05-13 added OQMD + AFLOW + NOMAD):
 
 | System | License | Adapter | Notes |
 |---|---|---|---|
@@ -129,6 +130,9 @@ Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
 | **Matlantis** (Preferred Networks) | **COMMERCIAL** | `matlantis/matlantis_call_smoke.py` | UNVERIFIED at hexa-matter scale economics |
 | **Meta OMat24** | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | `omat24/omat24_dataset_smoke.py` | **110M structures** + MACE-OMat NNP checkpoint |
 | **COD** (Crystallography Open Database, Gražulis 2009/2012) | CC0 / public-domain raw data | `cod/cod_search_smoke.py` | **EXPERIMENTAL XRD measurements** (≥ 500k records); first measurement-source in the bridge |
+| **OQMD** (Wolverton/Northwestern, Saal 2013 + Kirklin 2015) | CC-BY 4.0 (data) | `oqmd/oqmd_search_smoke.py` | DFT-PBE PREDICTIONS (~1M entries); cross-DB sister of MP/AFLOW |
+| **AFLOW** (Curtarolo/Duke, 2012 + Toher 2018 + Rose AFLUX 2017) | CC-BY 4.0 (data) | `aflow/aflow_search_smoke.py` | DFT PREDICTIONS (3M+ compounds, many prototype-substituted); largest single computational DB |
+| **NOMAD** (Draxl & Scheffler 2018, EU FAIR-data) | CC-BY 4.0 (data) | `nomad/nomad_search_smoke.py` | Multi-code DFT (VASP/QE/FHI-aims/ABINIT/CP2K/GPAW/…, 19M+ entries); preserves originating-code provenance |
 | **SchNet** (Schütt 2017) | MIT | `universal_ff/schnet_call.py` | message-passing NNP |
 | **MACE** (Batatia 2022) | MIT | `universal_ff/mace_call.py` | equivariant NNP |
 | **ALIGNN** (Choudhary 2021) | MIT | `universal_ff/alignn_call.py` | atomistic line graph |
@@ -166,13 +170,13 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **25/25 PASS** (8 cross-cutting + 8 group-specific + 4
-verb-specific + 3 bridge aggregators + 1 adapter-specific COD gate
-added 2026-05-13 Phase G+1 + 1 parity-gates aggregator added 2026-05-13
-Phase H). Run from repo root:
+currently **28/28 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators + 4 adapter-specific gates: COD
+added 2026-05-13 Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2
++ 1 parity-gates aggregator added 2026-05-13 Phase H). Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 25/25 PASS
+bash selftest/run_all.sh    # exit 0 = 28/28 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -180,8 +184,8 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "25/25"`, `python_bridge_modules = 12`,
-`research_bridge_modules = 8`, `absorption_bridge_modules = 11`,
+`selftest_pass = "28/28"`, `python_bridge_modules = 12`,
+`research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
 `parity_gates_total = 10`.
 
 ### Parity gates — Phase H (2026-05-13)
@@ -204,7 +208,7 @@ within a published tolerance:
 | `met_b5_os_density` | CRC 105th / NIST — Os rho = 22.59 g/cm^3 (densest stable element) |
 | `gem_b1_corundum_ri` | GIA / NIST gem-RI — corundum n_d 1.762-1.770 |
 
-Aggregator: `selftest/parity_gates_smoke.sh` (gate #25 in
+Aggregator: `selftest/parity_gates_smoke.sh` (gate #28 in
 `selftest/run_all.sh`). Sentinel:
 `__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`.
 
@@ -225,7 +229,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  25/25 selftest + 33/33 verb specs. Closeable by code/doc work in this repo.
+  28/28 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC anchored
   values matched against measured datasets. 29 parity gates total →
   **10 ✅ CLOSED by Phase H (2026-05-13)** under `tests/*_parity.py` +
@@ -261,7 +265,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 25/25 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 28/28 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)

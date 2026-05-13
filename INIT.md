@@ -31,7 +31,8 @@ User directive (2026-05-13):
 | **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
 | **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
-| **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh` (gate #25); ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 25/25 | ✅ DONE | _(this commit)_ |
+| **G+2** | `_absorption_bridge/oqmd/` + `aflow/` + `nomad/` (DFT/FAIR-data sources — 12th/13th/14th adapters: OQMD Wolverton, AFLOW Curtarolo, NOMAD Draxl/Scheffler; all CC-BY 4.0) | ✅ DONE | `a54da35` |
+| **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
 
 ## Phase A — DONE (commit `c55199b`)
 
@@ -295,12 +296,12 @@ SOURCES.md:
 ## Phase G — `_absorption_bridge/` ✅ DONE (2026-05-13)
 
 External materials-discovery system absorption layer per user directive
-("알파폴드 처럼 흡수할 시스템도 흡수"). **11 adapters** ship under
-`_absorption_bridge/` (10 from Phase G + 1 from Phase G+1, 2026-05-13): 6
-database/API systems plus 5 universal force-field models. Each accepts
-`--selftest`, runs OFFLINE (fixtures replayed from bundled `<system>/cache/`;
-NO live API calls in selftest), and SKIPs cleanly when its optional dep is
-missing.
+("알파폴드 처럼 흡수할 시스템도 흡수"). **14 adapters** ship under
+`_absorption_bridge/` (10 from Phase G + 1 from Phase G+1 + 3 from Phase G+2,
+2026-05-13): 9 database/API systems plus 5 universal force-field models.
+Each accepts `--selftest`, runs OFFLINE (fixtures replayed from bundled
+`<system>/cache/`; NO live API calls in selftest), and SKIPs cleanly when
+its optional dep is missing.
 
 **Phase G+1 (2026-05-13)** added the Crystallography Open Database (COD)
 adapter — the first EXPERIMENTAL-measurement source in the bridge (distinct
@@ -313,6 +314,28 @@ Files:
 - `_absorption_bridge/selftest/cod_smoke.py` — wrapper
 - `selftest/cod_adapter_smoke.sh` — dedicated top-level gate 24
 - Selftest scoreboard: 23/23 → **24/24** PASS (gate 24 = `cod_adapter_smoke`).
+
+**Phase G+2 (2026-05-13)** added three more DFT/FAIR-data adapters:
+- **OQMD** (Open Quantum Materials Database, Wolverton/Northwestern): ~1M
+  DFT-PBE entries; Saal 2013 JOM + Kirklin 2015 npj Comput. Mater.; CC-BY 4.0.
+- **AFLOW** (Automatic-FLOW for Materials Discovery, Curtarolo/Duke): 3M+
+  DFT compounds (largest single computational DB); Curtarolo 2012 + Toher
+  2018 + Rose AFLUX 2017; CC-BY 4.0.
+- **NOMAD** (NOvel MAterials Discovery, Draxl & Scheffler, EU FAIR-data):
+  19M+ aggregated multi-code DFT entries (VASP / QE / FHI-aims / ABINIT /
+  CP2K / GPAW / SIESTA / …); preserves originating-code provenance;
+  Draxl & Scheffler 2018 MRS Bull. + 2019 J. Phys. Mater.; CC-BY 4.0.
+
+Each Phase G+2 adapter ships with the same shape as the COD adapter:
+- `_absorption_bridge/<name>/<name>_search_smoke.py` — stdlib-only adapter
+- `_absorption_bridge/<name>/SOURCES.md` — license + citation
+- `_absorption_bridge/<name>/cache/sample_record.json` — sample fixture
+- `_absorption_bridge/<name>_adapter.md` — short adapter doc
+- `_absorption_bridge/selftest/<name>_smoke.py` — wrapper for the aggregator
+- `selftest/<name>_adapter_smoke.sh` — dedicated top-level gate
+
+Selftest scoreboard: 24/24 → **27/27** PASS (gates 25/26/27 =
+`oqmd_adapter_smoke` / `aflow_adapter_smoke` / `nomad_adapter_smoke`).
 
 | Subsystem | Module | Status | Optional dep |
 |---|---|---|---|
@@ -337,6 +360,9 @@ Full selftest scoreboard after Phase G:
 Full selftest scoreboard after Phase G+1 (COD):
 `__HEXA_MATTER_SELFTEST__ PASS (24/24)`.
 
+Full selftest scoreboard after Phase G+2 (OQMD + AFLOW + NOMAD):
+`__HEXA_MATTER_SELFTEST__ PASS (27/27)`.
+
 License honesty matrix (per `_absorption_bridge/README.md`):
 
 | System | License | Cost |
@@ -346,6 +372,9 @@ License honesty matrix (per `_absorption_bridge/README.md`):
 | Matlantis | Commercial (Preferred Networks) — **UNVERIFIED at hexa-matter scale** | $$$ |
 | OMat24 | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | $0 |
 | COD (Phase G+1) | CC0 / public-domain raw data (Gražulis 2009/2012) | $0 |
+| OQMD (Phase G+2) | CC-BY 4.0 (Saal 2013 + Kirklin 2015) — **DFT-PBE PREDICTIONS, ~1M entries** | $0 |
+| AFLOW (Phase G+2) | CC-BY 4.0 (Curtarolo 2012 + Toher 2018) — **DFT PREDICTIONS, 3M+ compounds** | $0 |
+| NOMAD (Phase G+2) | CC-BY 4.0 (Draxl & Scheffler 2018) — **multi-code DFT, 19M+ FAIR entries** | $0 |
 | SchNet / MACE / ALIGNN | MIT | $0 |
 | CHGNet / M3GNet | BSD-3-Clause | $0 |
 
@@ -509,7 +538,9 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `b4ebf8f` — Phase E (`_python_bridge/` — 12 compute modules; `__HEXA_MATTER_PYTHON_BRIDGE__ PASS (12/12, 5 skipped)`)
 - `185ce33` — Phase F (`_research_bridge/` — 8 absorption modules; arxiv + vendor + news + patent; `__HEXA_MATTER_RESEARCH_BRIDGE__ PASS (3/3, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (22/22)`)
 - `e712068` — Phase G (`_absorption_bridge/` — 10 adapters: Materials Project / GNoME / Matlantis / OMat24 + SchNet / MACE / ALIGNN / CHGNet / M3GNet; `__HEXA_MATTER_ABSORPTION_BRIDGE__ PASS (6/6, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (23/23)`)
-- _(this commit)_ — Phase H (10 Category (b) parity gates under `tests/*_parity.py` + 10 vendored snapshots under `tests/snapshots/*.json` + `selftest/parity_gates_smoke.sh` aggregator gate #25; `__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (25/25)`; ledger CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 19)
+- `6993e4a` — Phase G+1 (`_absorption_bridge/cod/` — Crystallography Open Database 11th adapter; CC0 raw data; EXPERIMENTAL XRD measurements; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (24/24)`)
+- `a54da35` — Phase G+2 (`_absorption_bridge/{oqmd,aflow,nomad}/` — 3 DFT/FAIR-data adapters: OQMD Wolverton 1M / AFLOW Curtarolo 3M / NOMAD Draxl-Scheffler 19M multi-code; all CC-BY 4.0)
+- `e12dfb9` — Phase H (10 Category (b) parity gates under `tests/*_parity.py` + 10 vendored snapshots under `tests/snapshots/*.json` + `selftest/parity_gates_smoke.sh` aggregator; `__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (28/28)`; ledger CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 19)
 
 ## If you're picking this up cold
 

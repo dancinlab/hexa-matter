@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # selftest/absorption_bridge_smoke.sh
 #
-# Phase G aggregator: invokes every _absorption_bridge/selftest/*.py with
-# --selftest and aggregates PASS / FAIL / SKIP counts.
+# Phase G/G+1/G+2 aggregator: invokes every _absorption_bridge/selftest/*.py
+# with --selftest and aggregates PASS / FAIL / SKIP counts. As of Phase G+2
+# (2026-05-13) covers 14 adapters: Materials Project + GNoME + Matlantis +
+# OMat24 + 5 universal force fields + COD + OQMD + AFLOW + NOMAD.
 #
 # Behaviour:
 #   - For each script .py file: run `python3 <module>.py --selftest`.

@@ -92,13 +92,13 @@ scripts = [
 ]
 aggregator = "verify/run_all.hexa"
 verdict = "CLOSED"  # 36/36 verbs spec-present · 4/4 verify scripts PASS
-selftest_pass = "25/25"  # Phase B selftest harness + Phase E + Phase F + Phase G + Phase G+1 COD adapter + Phase H parity gates (2026-05-13) — see selftest/run_all.sh
+selftest_pass = "28/28"  # Phase B selftest harness + Phase E + Phase F + Phase G + Phase G+1 COD adapter + Phase G+2 OQMD/AFLOW/NOMAD adapters + Phase H parity gates (2026-05-13) — see selftest/run_all.sh
 selftest_aggregator = "selftest/run_all.sh"
 python_bridge_modules = 12  # Phase E (2026-05-13) — _python_bridge/module/*.py (12 modules: 6 stdlib FUNCTIONAL + 2 RDKit + 2 ASE + 2 pymatgen; SKIP cleanly when optional deps missing)
 python_bridge_aggregator = "selftest/pyproject_smoke.sh"
 research_bridge_modules = 8  # Phase F (2026-05-13) — _research_bridge/ (arxiv 2 + web 3 + selftest 3): arxiv_pull · arxiv_digest · vendor_datasheet_pull · materials_news_feed · patent_search · arxiv_smoke · web_smoke · sources_audit; offline-replay only, --live gated, stdlib + optional requests/feedparser/beautifulsoup4
 research_bridge_aggregator = "selftest/research_bridge_smoke.sh"
-absorption_bridge_modules = 11  # Phase G (2026-05-13) + Phase G+1 (2026-05-13) — _absorption_bridge/ (6 external systems + 5 universal FFs): mp_api_smoke · gnome_dataset_smoke · matlantis_call_smoke · omat24_dataset_smoke · cod_search_smoke · schnet_call · mace_call · alignn_call · chgnet_call · m3gnet_call (+ selftest aggregators); offline fixture replay only, NO LIVE API CALLS in selftest, stdlib + optional mp-api/mace-torch/schnetpack/matgl/alignn/chgnet
+absorption_bridge_modules = 14  # Phase G (2026-05-13) + Phase G+1 (2026-05-13) + Phase G+2 (2026-05-13) — _absorption_bridge/ (9 external systems + 5 universal FFs): mp_api_smoke · gnome_dataset_smoke · matlantis_call_smoke · omat24_dataset_smoke · cod_search_smoke · oqmd_search_smoke · aflow_search_smoke · nomad_search_smoke · schnet_call · mace_call · alignn_call · chgnet_call · m3gnet_call (+ selftest aggregators); offline fixture replay only, NO LIVE API CALLS in selftest, stdlib + optional mp-api/mace-torch/schnetpack/matgl/alignn/chgnet/qmpy_rester/aflow/nomad-lab
 absorption_bridge_aggregator = "selftest/absorption_bridge_smoke.sh"
 parity_gates_total = 10  # Phase H (2026-05-13) — tests/*_parity.py: 10 stdlib-only Category (b) parity gates anchored to NIST/CRC/ASM/TAPPI/GIA vendored snapshots in tests/snapshots/*.json (cer_b2_si_density · cer_b3_si_bandgap · cer_b4_sic_bandgap · cer_b5_si3n4_flexural · pol_b1_aramid_tensile · pol_b4_nylon66_tg_tm · fib_b2_paper_tensile · met_b4_w_melting · met_b5_os_density · gem_b1_corundum_ri); offline only, raw#10 C3 preserved (n6_lattice_fit_applied: false on every snapshot), SPEC_FIRST preserved (gates check spec↔source parity, not measurement)
 parity_gates_aggregator = "selftest/parity_gates_smoke.sh"
