@@ -451,3 +451,22 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §7.10 lattice
+falsifiers above are number-theoretic only. The engineering thresholds below
+are what retire the corresponding *gemological identification* claim on
+measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-GEM-Q1 | Corundum (ruby / sapphire) refractive index n_d in 1.762–1.770 ± 0.002 per GIA / NIST gem-RI standard, refractometer at 589.3 nm Na-D line, 25 °C | Stone returning n_d outside 1.755–1.775 on calibrated refractometer → reject the "natural corundum" identification; flag as glass / synthetic spinel / doublet | OPEN |
+| F-GEM-Q2 | Diamond thermal conductivity ≥ 1800 W/(m·K) on a thermal-probe (e.g. Presidium / GIA gem-thermal-tester) at 25 °C, 1 atm | Stone returning k < 600 W/(m·K) on calibrated thermal probe → reject "natural diamond" without further test (likely moissanite ~ 250 W/(m·K) or CZ ~ 2 W/(m·K)) | OPEN |
+| F-GEM-Q3 | Ruby Cr³⁺ R₁-line fluorescence at 694.3 ± 0.3 nm under 532 nm or 405 nm laser, 25 °C, n ≥ 3 spot acquisitions on a calibrated spectrometer (resolution ≤ 0.2 nm) | Stone showing no R₁ peak in 693–696 nm window OR R₁ shifted > 1.0 nm → flag as synthetic / glass-filled / heat-altered; retire the "untreated natural ruby" attribution | OPEN |
+| F-GEM-Q4 | Natural diamond N₃ defect absorption band at 415 ± 1 nm in UV-Vis (DiamondView / DTC PL spectrometer, 77 K cooling) for natural Type Ia stones | Stone showing no 415 nm N₃ band AND no Type IIa nitrogen feature in FTIR → flag as HPHT/CVD synthetic candidate; require DTC DiamondSure secondary screen | OPEN |
+
+Pass = numeric threshold met at cited GIA / NIST / DTC instrument settings,
+25 °C ambient (or 77 K where specified), n ≥ 3 spot acquisitions per stone.
+Fail = outside threshold → caveat the identification and route to laboratory
+re-certification.

@@ -451,3 +451,19 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §7.10 lattice
+falsifiers above are number-theoretic only. The engineering thresholds below
+are what retire the corresponding *aramid fiber* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-AR-Q1 | Kevlar 49 tensile σ_f ≥ 3.0 GPa and modulus E ≥ 112 GPa per ASTM D885 single-fiber tension, gauge 250 mm, strain rate 50 %/min, 22 °C, 65 % RH | Production lot showing σ_f < 2.6 GPa OR E < 100 GPa at the same ASTM D885 condition with n ≥ 60 fibers (Weibull characteristic) → retire the "Kevlar 49 structural" baseline; rebaseline POL-aramid atlas | OPEN |
+| F-AR-Q2 | Para-aramid yarn UV degradation: σ retention ≥ 50 % after 500 h Xenon-arc per ASTM G155 cycle 1 (340 nm, 0.35 W/m²·nm, 38 °C BPT) | Lot retaining < 30 % σ at 500 h on ASTM G155 → retire the "outdoor para-aramid" suitability claim and rebaseline lifetime | OPEN |
+| F-AR-Q3 | Aramid pulp dimensional stability: thermal shrinkage ≤ 0.3 % after 30 min hold at 200 °C in air (ASTM D5104) | Lot shrinkage > 0.6 % at 200 °C / 30 min → retire the "high-T aramid friction-paper" claim and rebaseline service ceiling | OPEN |
+
+Pass = numeric threshold met at cited ASTM, 22 °C / 65 % RH baseline, n ≥ 60
+filaments for tensile, n ≥ 5 specimens for UV/thermal. Fail = below threshold
+at same condition → caveat the spec and re-baseline the atlas entry.

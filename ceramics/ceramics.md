@@ -558,3 +558,20 @@ This section covers team for the domain. Initial scaffold content -- expand with
 
 This section covers references for the domain. Initial scaffold content -- expand with domain-specific data, references, and verification in subsequent revisions.
 
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3 (no n=6 lattice fit
+on external entities), the §X.5 / §7.10 entries above are number-theoretic
+self-consistency probes only. The engineering falsifiers below are the ones
+that retire the corresponding *material* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-CER-Q1 | HIP α-SiC structural-grade σ_f ≥ 550 MPa per ASTM C1161 4-point bend at 25 °C, dry air | Production HIP α-SiC lot showing σ_f < 450 MPa (Weibull characteristic, n ≥ 30 bars) at the same ASTM C1161 condition → retire the "HIP-SiC structural" baseline; rebaseline ceramics-CER-02 | OPEN |
+| F-CER-Q2 | Al₂O₃ (99.5 %, fine-grain) Vickers HV10 ≥ 1700 kgf/mm² per ASTM C1327 at room T, 1 atm | Lot HV10 < 1400 kgf/mm² at ASTM C1327 → retire the §X.5 hardness ratio claim | OPEN |
+| F-CER-Q3 | Si₃N₄ (HIP) thermal-shock ΔT_c ≥ 700 °C by ASTM C1525 (water quench from T into 25 °C bath, σ retained ≥ 70 %) | Lot ΔT_c < 500 °C at ASTM C1525 → retire the §X SiC/Si₃N₄ first-wall divertor candidacy | OPEN |
+
+Pass = numeric threshold met at the cited ASTM method, ambient (25 °C ± 2 °C),
+1 atm, ≥ 30-bar Weibull sample for σ_f. Fail = below threshold at same
+condition → caveat the spec and re-baseline the §X.6 atlas entry.
+

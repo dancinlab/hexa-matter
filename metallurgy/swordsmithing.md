@@ -451,3 +451,22 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §7.10 lattice
+falsifiers above are number-theoretic only. The engineering thresholds below
+are what retire the corresponding *swordsmithing / blade-steel* claim on
+measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-MET-Q1 | AISI 1080 / 1095 plain-carbon blade quenched + tempered to martensite hardness 58–62 HRC per ASTM E18 Rockwell-C, 25 °C | Production blade returning HRC < 55 OR > 65 at ASTM E18 with n ≥ 5 indentations along the edge → retire the "fully-quenched edge-holding" claim; rebaseline heat-treat schedule | OPEN |
+| F-MET-Q2 | Differentially-hardened katana edge 60–62 HRC and spine 38–42 HRC per ASTM E18 along same blade (Japanese sabi-iro polish line visible) | Blade with edge HRC < 56 or spine HRC > 50 (uniform-hard cross-section) → retire the "differential clay-quench (yaki-ire)" claim; flag as through-hardened or mono-hardness | OPEN |
+| F-MET-Q3 | Wootz / Damascus pattern-welded blade Charpy V-notch impact energy ≥ 20 J at 25 °C on full-cross-section sub-size specimen per ASTM E23 | Blade with Charpy impact < 8 J at 25 °C → retire the "structural sword" / "combat-grade" claim; reclassify as decorative-only | OPEN |
+| F-MET-Q4 | Tamahagane bloomery iron: bulk carbon content 1.0–1.5 wt % C ± 0.2 measured by LECO combustion (ASTM E1019), residual S ≤ 0.010 wt %, P ≤ 0.025 wt % | Bloom carbon outside 0.5–1.8 wt % range OR S > 0.025 wt % at ASTM E1019 → retire the "tamahagane-grade" designation for that bloom batch | OPEN |
+
+Pass = numeric threshold met at cited ASTM method, 25 °C ± 2 °C ambient, n ≥
+5 indentations (HRC) or n ≥ 3 specimens (Charpy / LECO). Fail = outside
+threshold at same condition → caveat the spec and re-baseline the metallurgy
+heat-treat schedule.

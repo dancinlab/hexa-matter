@@ -451,3 +451,21 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §7.10 lattice
+falsifiers above are number-theoretic only. The engineering thresholds below
+are what retire the corresponding *paper* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-PA-Q1 | Bleached softwood kraft (80 g/m² handsheet) tensile index ≥ 70 N·m/g per TAPPI T494, 23 °C, 50 % RH conditioned ≥ 24 h | Lot tensile index < 55 N·m/g at TAPPI T494 / same conditioning with n ≥ 10 strips → retire the "structural kraft" baseline; rebaseline FIB-paper grade | OPEN |
+| F-PA-Q2 | Newsprint (45 g/m²) tear resistance ≥ 280 mN per TAPPI T414 Elmendorf, 23 °C, 50 % RH | Lot tear < 200 mN at TAPPI T414 same condition with n ≥ 16 strips → retire the "press-run newsprint runnability" claim | OPEN |
+| F-PA-Q3 | Brown linerboard (205 g/m²) Concora medium / SCT compression ≥ 2.0 kN/m per TAPPI T826, 23 °C, 50 % RH | Lot SCT < 1.4 kN/m at TAPPI T826 same condition → retire the "ECT-rated corrugated grade" claim; rebaseline packaging tier | OPEN |
+| F-PA-Q4 | Archival paper accelerated-aging brightness loss ≤ 5 % ISO brightness after 72 h at 90 °C, 50 % RH per ISO 5630-3 | Lot losing > 10 % ISO brightness at ISO 5630-3 → retire "archival / acid-free" certification for that lot | OPEN |
+
+Pass = numeric threshold met at cited TAPPI/ISO method, conditioned per
+TAPPI T402 (23 °C ± 1 °C, 50 % ± 2 % RH, ≥ 24 h), n ≥ 10–16 specimens per
+method. Fail = below threshold at same condition → caveat the spec and
+re-baseline the FIB-paper atlas entry.
