@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (29 gates total):
+# Gate categories (33 gates total):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -39,6 +39,14 @@
 #     + no n=6 lattice-fit pattern (raw#10 C3) + row count matches §C
 #     summary table. Software cannot CLOSE (c) — but it CAN guarantee
 #     handoff documentation is complete.)
+#   Phase J.1 deepening (3): falsifier_wellformed_audit (2026-05-13: every
+#     hxm-* candidate falsifier has F-tag + number+unit + FAIL boundary +
+#     DESIGN/SIM-* status), hardwall_provenance_audit (every HARD_WALL /
+#     UNPROVEN token traces to LIMIT_BREAKTHROUGH or a peer-reviewed /
+#     standards / vendor citation within ±12 lines), and
+#     vendor_citation_completeness_audit (every named vendor in the 30-entry
+#     allowlist has year + product/standard ID + no n=6 lattice-fit
+#     attribution per raw#10 C3).
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -141,6 +149,18 @@ run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"
 run "cross_link_integrity_audit"      python3 "$HERE/cross_link_integrity_audit.py"
 # ── Category (c) handoff completeness audit (1) — §C ledger handoff audit ──
 run "c_handoff_completeness_audit"    python3 "$HERE/c_handoff_completeness_audit.py"
+
+# ── Phase J.1 deepening gates (3) — Round-3 invariant audit ───────────────
+# 2026-05-13 (Phase J.1): three structural-invariant gates make the NOVEL.md +
+# verb-spec corpus invariants explicitly checkable post-Round-3 — gate #31 every
+# hxm-* falsifier well-formed (F-tag + quantitative number + FAIL boundary +
+# DESIGN/SIM-* status); gate #32 every HARD_WALL / UNPROVEN / UNVERIFIED token
+# traces to LIMIT_BREAKTHROUGH or a peer-reviewed / standards / vendor citation
+# within ±12 lines; gate #33 every named vendor has a year + product/standard ID
+# anchor + no n=6 lattice-fit attribution (raw#10 C3).
+run "falsifier_wellformed_audit"      python3 "$HERE/falsifier_wellformed_audit.py"
+run "hardwall_provenance_audit"       python3 "$HERE/hardwall_provenance_audit.py"
+run "vendor_citation_completeness_audit" python3 "$HERE/vendor_citation_completeness_audit.py"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

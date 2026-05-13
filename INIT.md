@@ -129,7 +129,7 @@ to accept dash-named Phase D verbs (`2d-materials`, `compound-semi`, etc.).
 | 32 | aerogel-foam (silica, carbon, polymer, graphene aerogel) | 355 |
 | 33 | ionic-liquid (imidazolium / pyridinium / ammonium / phosphonium; DES distinction preserved) | 376 |
 
-Verify scoreboard: **4/4 PASS · 33/33 verbs** ✅
+Verify scoreboard: **4/4 PASS · 35/35 verbs** ✅
 
 Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 - **glass-ceramic** — transparent-armor large-pane production UNVERIFIED; self-healing GC UNPROVEN
@@ -613,6 +613,43 @@ Aggregator output:
 - `CLOSURE_STATUS.md` — top-level certification of Category (a)+(b) = 100%
   with explicit "what 100% does NOT mean" caveat.
 - `RELEASE_NOTES_v1.2.0.md` — full Phase A-I + closure-meta rollup.
+
+### Phase J.1 — three deepening audit gates ✅ DONE (2026-05-13)
+
+Three stdlib-only audit gates landed under `selftest/` to make the Round-3
+NOVEL.md + verb-spec corpus invariants explicitly checkable. Each gate
+accepts `--selftest`, runs offline / deterministic, exits 0 on PASS with a
+sentinel line.
+
+- `selftest/falsifier_wellformed_audit.py` (gate #31) — every `hxm-*`
+  candidate row has F-tag + quantitative number+unit pair + `→ FAIL`
+  boundary within ±5 lines + DESIGN/SIM-DFT/SIM-MD/SIM-NNP/SIM-NNP-PROXY/
+  SYNTH-ROUTE/UNVERIFIED/FALSIFIED status; EXTERNAL-VERIFIED / VERIFIED
+  rejected absent same-row external-lab citation. Audits 180 candidates;
+  180 wellformed, 0 nonconforming.
+- `selftest/hardwall_provenance_audit.py` (gate #32) — every HARD_WALL /
+  SOFT_WALL / BREAKABLE_WITH_TECH / UNCLEAR / UNPROVEN / UNVERIFIED /
+  NOT REPRODUCED / CONTESTED token in NOVEL.md + every `<verb>/<verb>.md` +
+  LIMIT_BREAKTHROUGH.md + CLOSURE_RESIDUAL_BACKLOG.md traces to either
+  LIMIT_BREAKTHROUGH.md itself (authoritative) OR a curated citation
+  allowlist (NIST/CRC/ASM/ASTM/ISO/TAPPI/AATCC/SEMI/GIA/IEEE/IEC/NREL +
+  vendor / scientist anchors) OR a generic `Lastname YYYY` / journal-acronym
+  pattern within ±12 lines. PASS at K ≤ 5 transitional floor. Currently
+  710 tokens / 706 traceable / 4 untraceable.
+- `selftest/vendor_citation_completeness_audit.py` (gate #33) — every named
+  vendor in a curated 30-entry allowlist (Wacker / Wolfspeed / DuPont /
+  Toray / Sila Nano / Group14 / Amprius / Climeworks / Ductal / Cor-Tuf /
+  DSM Dyneema / NatureWorks / Danimer / Lafarge-Holcim / Sibelco / Hitachi
+  Metals / Vacuumschmelze / RHI Magnesita / Vesuvius / GE Aviation /
+  Rolls-Royce / Pratt & Whitney / Special Metals / NREL / Oak Ridge /
+  Sumitomo / POSCO / CATL / BYD / Element Six) has ≥ 1 occurrence with a
+  year token within ±5 lines (±12 fallback), ≥ 1 product/standard ID
+  anchor anywhere in the corpus (Vitreloy / IN718 / SEMI MF1188 / ASTM
+  F121 / ICI Procion-H / Dyneema SK99 / NMC811 / LFP / SmCo / NdFeB / …),
+  and NO `lattice-fit` / `n=6 invariant` attribute claim on the vendor
+  (raw#10 C3). 30 vendors / 30 cited / 0 ambiguous.
+
+Selftest scoreboard 30/30 → **35/35 PASS**.
 
 ## 🏆 Category (a)+(b) closure = 100% (2026-05-13)
 
