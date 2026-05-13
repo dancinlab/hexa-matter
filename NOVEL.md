@@ -137,12 +137,25 @@ sister substrate, this is a SPEC catalog only.
 | `hxm-cath-ni-rich-001`| cath  | LiNi₀.₉Mn₀.₀₅Co₀.₀₅ | Co-minimized NMC variant       | DESIGN        | F-CATH-2: cycle retention < 80% @ 1000 → FAIL |
 | `hxm-cath-disord-001` | cath  | DRX (disordered rocksalt) | Li-Mn-Ti-O / fluorinated     | DESIGN        | F-CATH-3: cap/voltage hysteresis > 15% → FAIL |
 
+**Risk-flags**: Li-rich Mn-based F-substituted oxygen-redox HARD_WALL on
+voltage decay (Manthiram 2020 review); Ni-rich (≥ 0.9 Ni) capacity-fade /
+gas-evolution UNVERIFIED at > 1000 cycles 1C; DRX disordered-rocksalt
+cation-mixing kinetics UNVERIFIED at full-cell; cell engineering (coating,
+calendering, electrolyte) belongs to `hexa-energy` per CROSS_LINK §3.3 —
+no cell-level cycle-life claim made here (raw#10 C3).
+
 ### 3.3 Solid electrolytes
 
 | ID                    | class | target              | brief                          | status        | falsifier                             |
 |-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
 | `hxm-se-argyrod-001`  | se    | Li-PS-Cl argyrodite | room-T σ > 10⁻² S/cm           | DESIGN        | F-SE-1: σ < 1e-3 S/cm @ 25°C → FAIL   |
 | `hxm-se-halide-001`   | se    | Li-In-Cl₆ halide-SE | wide voltage window > 4.5 V    | DESIGN        | F-SE-2: anodic decomp < 4.0 V → FAIL  |
+
+**Risk-flags**: argyrodite Li-PS-Cl ambient-air H₂S evolution HARD_WALL;
+halide-SE cathode-interface oxidation UNVERIFIED above 4.5 V; In-supply
+geopolitical concentration UNVERIFIED; Li-metal compatibility UNVERIFIED
+at ≥ 500 deep cycles (pairs with `hxm-anode-sigr-001` cycle target);
+cell-level integration owned by `hexa-energy` per CROSS_LINK §3.3.
 
 ### 3.4 Photovoltaic absorbers
 
@@ -174,6 +187,13 @@ published numbers govern (raw#10 C3).
 | `hxm-hea-cantor-001`  | hea   | CrMnFeCoNi variant  | optimized strength + ductility | DESIGN        | F-HEA-2: σy/εf trade < benchmark → FAIL |
 | `hxm-hea-light-001`   | hea   | Al-Ti-V-Cr-Mn       | lightweight HEA, ρ < 5 g/cm³   | DESIGN        | F-HEA-3: ρ > 5.5 g/cm³ → FAIL         |
 
+**Risk-flags**: refractory W-Mo-Ta-Nb-V brittle-to-ductile transition
+UNVERIFIED at scale; Cantor σy/εf benchmark fragmented across multiple
+labs (Cantor 2004, Yeh 2004, Senkov 2010 — no single normalized dataset);
+lightweight Al-Ti-V-Cr-Mn phase stability UNVERIFIED above 300 °C;
+arc-melt vs. additive-manufactured microstructure variance HARD_WALL;
+production-scale availability UNVERIFIED.
+
 ### 3.7 MOF for direct-air-capture (DAC)
 
 | ID                    | class | target              | brief                          | status        | falsifier                             |
@@ -191,12 +211,27 @@ amine-on-MOF baseline at $600-1000/t (per [`MOF.md`](MOF.md)).
 | `hxm-2d-mosi2n-001`   | 2d    | MoSi₂N₄             | predicted in MP / GNoME — verify | DESIGN      | F-2D-1: mobility < 100 cm²/V·s → FAIL |
 | `hxm-2d-cri3-stack-001` | 2d  | CrI₃ + hBN + WSe₂   | layered magnetic-2D heterostack | DESIGN       | F-2D-2: T_c < 50 K → FAIL             |
 
+**Risk-flags**: MoSi₂N₄ predicted in MP / GNoME but **PREDICTED ≠ MEASURED**
+per `_absorption_bridge/gnome/SOURCES.md`; CrI₃ stacking moiré-twist
+mobility UNVERIFIED at wafer scale; CVD wafer-scale 2D growth HARD_WALL
+on grain-boundary density; air-stability of CrI₃ HARD_WALL (degrades on
+the order of hours at ambient); device-layer integration belongs to
+`hexa-chip` per CROSS_LINK §3.2.
+
 ### 3.9 Phase-change materials (PCM)
 
 | ID                    | class | target              | brief                          | status        | falsifier                             |
 |-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
 | `hxm-pcm-gst-001`     | pcm   | GST + dopant        | < 1 ns set time, > 10¹² cycles | DESIGN        | F-PCM-1: set > 5 ns → FAIL            |
 | `hxm-pcm-sbte-001`    | pcm   | Sb₂Te variant        | high contrast for photonic switching | DESIGN  | F-PCM-2: optical contrast < 30% → FAIL |
+
+**Risk-flags**: GST resistance drift HARD_WALL (Boniardi 2010 fundamental
+amorphous-state structural relaxation); set-time vs. cycle-endurance
+trade-off UNVERIFIED at < 1 ns set + > 10¹² endurance simultaneously;
+Sb-Te crystallization-temperature window narrow → archival retention
+UNVERIFIED at 85 °C; photonic-switching optical contrast assumes
+short-pulse melt-quench cycle UNVERIFIED at integrated-waveguide scale;
+device-integration belongs to `hexa-chip` per CROSS_LINK §3.2.
 
 ### 3.10 Carbon (CNT yarn / lonsdaleite / carbyne)
 
@@ -216,6 +251,13 @@ diamond-as-semi wafer all UNVERIFIED.
 | `hxm-meta-neg-001`    | meta  | negative-index EM   | n_eff < 0 at λ = 1550 nm       | DESIGN        | F-META-1: loss > 5 dB/wavelength → FAIL |
 | `hxm-meta-cloak-001`  | meta  | partial cloak       | (PLACEHOLDER — visibility ratio TBD) | DESIGN  | F-META-2: cross-section reduction < 50% → FAIL |
 | `hxm-meta-acoustic-001` | meta | phononic crystal   | sub-Hz dispersion engineering  | DESIGN        | F-META-3: bandgap fractional width < 10% → FAIL |
+
+**Risk-flags**: negative-index metamaterial absorption-loss HARD_WALL
+(Pendry-Smith split-ring intrinsic Ohmic loss); broadband cloaking is
+fundamentally narrow-band UNVERIFIED for visible spectrum; phononic
+sub-Hz bandgap requires sample dimension UNVERIFIED at compact form
+factor; fabrication tolerance at sub-wavelength feature size HARD_WALL
+at λ < 500 nm; all entries UNVERIFIED at engineering deployment scale.
 
 ### 3.12 Topological insulators / superconductors
 

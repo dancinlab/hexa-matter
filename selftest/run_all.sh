@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (28 gates total):
+# Gate categories (29 gates total):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -28,6 +28,9 @@
 #     aggregator over tests/*_parity.py — now 20 stdlib-only Category (b)
 #     parity gates (10 Phase H + 10 Phase I.1) anchored to NIST/CRC/ASM/
 #     TAPPI/GIA/Hales/Sugano/ISO snapshots; offline-only)
+#   Closure-meta (1): cross_link_integrity_audit (2026-05-13: boundary
+#     discipline gate — enforces CROSS_LINK.md sister-repo boundaries +
+#     NOVEL.md candidate invariants + doc-reference integrity)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -107,6 +110,14 @@ run "nomad_adapter_smoke"             bash    "$HERE/nomad_adapter_smoke.sh"
 
 # ── Phase H parity gates (1) — aggregator over 10 tests/*_parity.py gates ────
 run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"
+
+# ── Closure-meta cross-link / NOVEL integrity (1) — boundary discipline gate ──
+# 2026-05-13: enforces CROSS_LINK.md sister-repo boundaries + NOVEL.md candidate
+# invariants (status DESIGN, quantitative falsifier, risk-flags, NNN uniqueness)
+# + doc-reference integrity (cited paths exist; sister URLs are
+# github.com/dancinlab/hexa-*). Per LATTICE_POLICY §1.2 / §1.3 / raw#10 C3 +
+# SPEC_FIRST: structure + boundary checks only, no measurement.
+run "cross_link_integrity_audit"      python3 "$HERE/cross_link_integrity_audit.py"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))
