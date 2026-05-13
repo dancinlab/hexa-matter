@@ -523,7 +523,424 @@ STMicro / Infineon / ROHM scale).
 
 ---
 
-## 4. Sim handle convention
+## 4. Round 3 — additional candidates (2026-05-13)
+
+Round-3 expansion per [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md) §3. Each
+candidate ships at status `DESIGN` with a quantitative falsifier and a
+risk-flags paragraph (per `selftest/cross_link_integrity_audit.py` B1–B4
+invariants). raw#10 C3 honored — no n=6 lattice-fit on vendor / lab
+numbers; vendor citations verbatim; UNPROVEN markers preserved.
+Sister-domain hand-offs annotated where the cell-engineering /
+device-integration layer belongs to a sister substrate (per
+[`CROSS_LINK.md`](CROSS_LINK.md)).
+
+### 4.A Energy storage
+
+19 candidates spanning battery cathodes (DRX rock-salt · Li-S · Na-ion ·
+K-ion Prussian-blue), advanced anodes (Li-metal · Na hard-carbon ·
+Wadsley-Roth Nb-oxide), thiophosphate / argyrodite / halide solid
+electrolytes, perovskite-Si and all-perovskite tandems plus kesterite /
+OPV / CdTe single-junction PV, SOFC + AEM fuel-cell membranes, organic
+redox-flow, and MXene supercapacitors. Cell-engineering belongs to
+hexa-energy per CROSS_LINK §3.3 — this ledger owns the active-material
+layer only.
+
+#### 4.A.1 Li-Mn-Nb-Ti DRX rock-salt cathode
+
+Hypothesis: a Li-rich disordered rock-salt cathode of Li₁.₂Mn₀.₅Nb₀.₂Ti₀.₁O₂
+chemistry, sintered at 950 °C in air, can sustain ≥ 280 mAh/g specific
+capacity at 0.1C with average discharge voltage ≥ 3.4 V vs Li/Li⁺ in
+1M LiPF₆ EC/DMC. Vendor authority: Wolverton (Northwestern) for DRX
+design space; CATL / BYD for commodity-cathode scale.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-cath-drx-001` | bat-cath | Li-Mn-Nb-Ti DRX rock-salt | Li-rich disordered rock-salt, Nb/Ti co-substituted | DESIGN | F-BAT-CATH-1: capacity < 280 mAh/g @ 0.1C OR avg V < 3.4 V vs Li/Li+ in 1M LiPF6 EC/DMC → FAIL |
+
+**Risk-flags**: oxygen-loss HARD_WALL on 1st cycle (Lee 2014 + Manthiram
+2020 review — oxygen redox is intrinsic to high-cap DRX); Mn dissolution
+UNVERIFIED at extended cycling above 4.4 V; cation-mixing kinetics
+UNVERIFIED at full-cell; cell engineering belongs to hexa-energy per
+CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.2 S-PAN Li-S cathode
+
+Hypothesis: sulfurized polyacrylonitrile (S-PAN) with covalently bonded
+sulfur in a carbonized PAN matrix can deliver ≥ 4 mAh/cm² areal capacity
+and ≥ 70% cycle-500 retention at 1C in carbonate electrolyte (avoiding
+the shuttle-effect failure of conventional Li-S). Vendor authority: Wang
+(NREL) + Manthiram (UT Austin) S-PAN corpus; CATL Li-S pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-cath-lis-001` | bat-cath | S-PAN Li-S | sulfurized polyacrylonitrile covalent-S cathode | DESIGN | F-BAT-CATH-2: cycle 500 retention < 70% @ 1C OR areal cap < 4 mAh/cm² → FAIL |
+
+**Risk-flags**: polysulfide shuttle effect SOFT_WALL (mitigated, not
+eliminated, by covalent-S architecture); Li-metal anode coupling
+UNVERIFIED at ≥ 500 cycles (pairs with `hxm-bat-anode-li-metal-001`
+SEI HARD_WALL); electrolyte volume / E/S ratio at cell scale UNVERIFIED;
+cell engineering → hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.3 Na₂FeFe(CN)₆ Prussian-blue Na-ion cathode
+
+Hypothesis: a vacancy-free Na₂FeFe(CN)₆ Prussian-blue-analog cathode,
+synthesized via slow citrate-controlled co-precipitation, can retain
+≥ 80% of room-temperature capacity at -20 °C with self-discharge
+< 5%/month — targeted at cold-climate stationary storage. Vendor
+authority: CATL Na-ion (gen-2 PBA) / HiNa Battery / Faradion;
+Goodenough group historical PBA chemistry.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-cath-naion-001` | bat-cath | Na₂FeFe(CN)₆ Prussian-blue Na-ion | vacancy-controlled PBA cathode for Na-ion | DESIGN | F-BAT-CATH-3: cap @ -20°C < 80% RT cap OR self-discharge > 5%/mo → FAIL |
+
+**Risk-flags**: water-content sensitivity UNVERIFIED at production
+(zeolitic water leads to capacity fade); vacancy formation HARD_WALL
+during synthesis (Fe(CN)₆⁴⁻ release); commodity-scale citrate process
+UNVERIFIED. Cell engineering → hexa-energy per CROSS_LINK §3.3. raw#10
+C3 honored.
+
+#### 4.A.4 K-Mn-Fe Prussian-blue K-ion cathode
+
+Hypothesis: a K-rich K-Mn-Fe Prussian-blue-analog cathode (KₓMnFe(CN)₆
+with x ≥ 1.8) processed under controlled humidity can sustain ≥ 140
+mAh/g at 0.1C and ≥ 80% cycle-100 retention in non-aqueous K-ion
+electrolyte. Vendor authority: Cui (Stanford) + Goodenough K-ion PBA
+corpus; HiNa / Altris adjacent PBA know-how.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-cath-kion-001` | bat-cath | K-Mn-Fe Prussian-blue K-ion | KₓMnFe(CN)₆ vacancy-controlled PBA for K-ion | DESIGN | F-BAT-CATH-4: cap < 140 mAh/g @ 0.1C OR cycle-100 retention < 80% → FAIL |
+
+**Risk-flags**: K⁺ ionic radius mismatch vs Mn-Fe lattice spacing
+HARD_WALL on structural strain; humidity stability UNVERIFIED (PBA
+ambient water uptake degrades K-ion plateau); electrolyte chemistry
+UNVERIFIED at full-cell scale. Cell engineering → hexa-energy per
+CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.5 50 µm Li-foil anode on 3D Cu current collector
+
+Hypothesis: pressed 50 µm Li-metal foil laminated to a 3D porous Cu
+current collector can hold Coulombic efficiency ≥ 99.5% over 500
+cycles in carbonate electrolyte without dendrite penetration to the
+separator, given engineered host porosity + LiF-rich SEI from FEC +
+LiNO₃ additives. Vendor authority: SES AI / Cuberg / Solid Power Li-metal
+prototypes; QuantumScape Li-metal anode-free design.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-anode-li-metal-001` | bat-anode | 50µm Li foil on 3D Cu | pressed Li-metal foil + 3D Cu host | DESIGN | F-BAT-ANODE-1: CE < 99.5% after 500 cycles in carbonate OR dendrite penetration → FAIL |
+
+**Risk-flags**: Li-metal SEI HARD_WALL — SEI instability remains the
+dominant failure mode in carbonate electrolyte (Xu 2014 + Cui 2017
+reviews); commercial cell engineering belongs to hexa-energy per
+CROSS_LINK §3.3 (cycling protocol / stack pressure / separator /
+electrolyte volume all out-of-repo); full-cell vs half-cell CE gap
+typically 1–2% — falsifier targets full-cell evidence. raw#10 C3
+honored.
+
+#### 4.A.6 Sucrose-derived hard-carbon Na-ion anode
+
+Hypothesis: sucrose pyrolyzed at 1300 °C in Ar can yield a hard carbon
+with closed nanopore volume sufficient for ≥ 300 mAh/g reversible Na
+capacity at 0.1C and ≥ 80% initial Coulombic efficiency (ICE), beating
+commodity coconut-shell-derived HC. Vendor authority: HiNa Battery /
+Faradion / Altris hard-carbon supply; Stevens & Dahn 2000 original HC
+characterization.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-anode-na-hardcarbon-001` | bat-anode | sucrose-derived hard C, 1300°C pyrolysis | Na-ion hard-carbon anode from sucrose precursor | DESIGN | F-BAT-ANODE-2: reversible cap < 300 mAh/g @ 0.1C OR ICE < 80% → FAIL |
+
+**Risk-flags**: precursor purity drift UNVERIFIED at commodity scale
+(food-grade sucrose lot-to-lot variability changes pore microstructure);
+Na⁺ low-voltage plateau width UNVERIFIED across batches; SEI formation
+on hard carbon consumes 15–25% Na inventory typically. Cell engineering
+→ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.7 TiNb₂O₇ Wadsley-Roth fast-charge anode
+
+Hypothesis: a TiNb₂O₇ Wadsley-Roth shear-structure anode with carbon
+coating + Mo-doping can sustain ≥ 85% capacity retention at 10C with
+voltage hysteresis ≤ 50 mV — targeted at fast-charge cells. Vendor
+authority: Echion Technologies / Nyobolt (UK Wadsley-Roth commercial
+push); Toshiba SCiB LTO incumbent for comparator.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-anode-nbo-001` | bat-anode | TiNb₂O₇ Wadsley-Roth fast-charge | Mo-doped C-coated TiNb₂O₇ for high-rate anode | DESIGN | F-BAT-ANODE-3: 10C retention < 85% OR voltage hysteresis > 50 mV → FAIL |
+
+**Risk-flags**: electronic conductivity HARD_WALL — pristine TiNb₂O₇ is
+a poor electronic conductor (10⁻⁹ S/cm); Ti⁴⁺ → Ti³⁺ reduction
+introduces site-disorder at deep DOD; Nb supply geopolitical concentration
+UNVERIFIED at commodity scale (CBMM Brazil ~ 85% Nb supply). Cell
+engineering → hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.8 Li₁₀GeP₂S₁₂ (LGPS) thiophosphate solid electrolyte
+
+Hypothesis: Li₁₀GeP₂S₁₂ (LGPS) synthesized via mechanochemical milling
++ 550 °C annealing in sealed Ar can sustain σ_ionic ≥ 6 mS/cm at 25 °C
+with electrochemical window ≥ 4.5 V vs Li/Li⁺. Vendor authority: Kanno
+group (Tokyo Tech, 2011 Nat. Mater. LGPS discovery); Solid Power /
+Idemitsu Kosan sulfide-SE pilot lines.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-se-li10gps-001` | se | Li₁₀GeP₂S₁₂ (LGPS) thiophosphate | mechanochemical + annealed LGPS thiophosphate SE | DESIGN | F-SE-3: σ_ionic @ 25°C < 6 mS/cm OR EC window < 4.5 V → FAIL |
+
+**Risk-flags**: H₂S evolution on air-contact HARD_WALL (sulfide SEs
+hydrolyze at ambient RH > 10%); Ge cost UNVERIFIED at scale (Ge is
+co-product of Zn smelting, supply ~ 130 t/yr global); Li-metal interface
+forms Li-Ge alloy → SEI growth at deep cycling UNVERIFIED; dry-room
+processing cost adder. Cell engineering → hexa-energy per CROSS_LINK
+§3.3. raw#10 C3 honored.
+
+#### 4.A.9 Li₆PS₅Cl argyrodite variant solid electrolyte
+
+Hypothesis: a Li₆PS₅Cl argyrodite synthesized via wet-chemical route
+with controlled Cl⁻/S²⁻ anion ordering can sustain σ ≥ 4 mS/cm at RT
+and support Li-metal stripping current density ≥ 1 mA/cm² without
+short-circuit — variant complementing the established Phase A
+`hxm-se-argyrod-001` (extends 001 design space with the wet-chemical
+synthesis route). Vendor authority: Solid Power / Samsung SDI argyrodite
+pilots; Mitsui Kinzoku argyrodite supply; Janek group (Giessen) interface
+corpus.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-se-argyrodite-002` | se | Li₆PS₅Cl argyrodite (variant of existing 001) | wet-chemical Cl-ordered Li₆PS₅Cl variant | DESIGN | F-SE-4: σ < 4 mS/cm @ RT OR Li-metal stripping J < 1 mA/cm² → FAIL |
+
+**Risk-flags**: H₂S evolution on ambient HARD_WALL (same as LGPS);
+cathode oxidation interface UNVERIFIED above 4.0 V (argyrodite anodic
+window narrower than halide-SE); Li-metal compatibility UNVERIFIED at
+≥ 500 deep cycles; wet-chemical scale-up UNVERIFIED (mainstream is
+solid-state milling). Cell engineering → hexa-energy per CROSS_LINK
+§3.3. raw#10 C3 honored.
+
+#### 4.A.10 Li₃YCl₆ halide solid electrolyte variant
+
+Hypothesis: Li₃YCl₆ halide-SE prepared via ball-milling of LiCl + YCl₃
+followed by 350 °C anneal can deliver σ ≥ 1 mS/cm at RT with oxidation
+onset ≥ 4.2 V vs Li — variant complementing the established Phase A
+`hxm-se-halide-001` (extends 001 design space toward Y-based halide
+chemistry vs the In-based variant). Vendor authority: Asano group
+(Panasonic, 2018 halide-SE class discovery); Wang group (Maryland)
+halide corpus; Mitsui Kinzoku.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-se-halide-002` | se | Li₃YCl₆ halide SE (variant) | Y-based halide SE complementing Li-In-Cl₆ 001 | DESIGN | F-SE-5: σ < 1 mS/cm OR oxidation onset < 4.2 V vs Li → FAIL |
+
+**Risk-flags**: Li-metal compatibility UNVERIFIED — halide SEs reduce
+at Li-metal interface (typical reduction onset ~ 0.6 V vs Li); Y supply
+not a bottleneck but separation cost UNVERIFIED at battery-grade purity;
+moisture sensitivity SOFT_WALL (less aggressive than sulfide but still
+requires dry-room). Cell engineering → hexa-energy per CROSS_LINK §3.3.
+raw#10 C3 honored.
+
+#### 4.A.11 Perovskite-Si 2T tandem photovoltaic (32% target)
+
+Hypothesis: a 2-terminal monolithic perovskite-Si tandem (1.68 eV
+perovskite top / 1.12 eV Si bottom) using a wide-bandgap mixed-halide
+perovskite with SAM (self-assembled monolayer) contacts can reach
+certified-aperture PCE ≥ 32% with T80 ≥ 1000 h under ISOS-L1 stress —
+extends the existing `hxm-pv-tandem-001` 33% PCE design with explicit
+ISOS-L1 lifetime gate. Vendor authority: Oxford PV (commercial 2T
+perovskite-Si pilot); KAUST / EPFL / HZB perovskite-Si records; NREL
+chart authority.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pv-tandem-002` | pv | perovskite-Si 2T tandem (1.68/1.12 eV) (extends existing 001) | 2T monolithic perovskite-Si with SAM contacts | DESIGN | F-PV-3: certified-aperture PCE < 32% OR T80 < 1000h @ ISOS-L1 → FAIL |
+
+**Risk-flags**: Br/I segregation in mixed-halide wide-bandgap perovskite
+HARD_WALL under operating light (Hoke effect); SAM contact ageing
+UNVERIFIED at 25-yr field deployment (25-yr lifetime UNPROVEN for any
+perovskite cell at commodity scale); Pb halide migration to encapsulant
+HARD_WALL on environmental regulation; module-level CTM ratio loss
+UNVERIFIED. raw#10 C3 honored.
+
+#### 4.A.12 All-perovskite 4T tandem photovoltaic (29% target)
+
+Hypothesis: an all-perovskite 4-terminal tandem (1.78 eV wide-gap top
+sub-cell + 1.25 eV Sn-Pb mixed narrow-gap bottom sub-cell) with
+SnF₂-stabilized Sn²⁺ + ALD-encap can reach certified PCE ≥ 29% with
+T80 ≥ 800 h. Vendor authority: McGehee group (CU Boulder, Sn-Pb perovskite
+lead); Yan group (Toledo) all-perovskite tandem corpus; Saule
+Technologies / Microquanta (commercial scaling attempts).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pv-allper-001` | pv | all-perovskite 4T tandem (1.78/1.25 eV) | wide-gap + Sn-Pb narrow-gap stacked perovskite | DESIGN | F-PV-4: certified PCE < 29% OR T80 < 800h → FAIL |
+
+**Risk-flags**: Sn²⁺ → Sn⁴⁺ oxidation HARD_WALL — narrow-gap Sn-Pb
+perovskite is the dominant Achilles' heel of all-perovskite tandems
+(Sn²⁺ oxidizes at trace O₂/H₂O even with SnF₂); Pb halide migration
+HARD_WALL on encapsulation; 25-yr operational lifetime UNVERIFIED at
+commercial scale (preserved from §3.4). raw#10 C3 honored.
+
+#### 4.A.13 Cu₂ZnSn(S,Se)₄ kesterite thin-film photovoltaic
+
+Hypothesis: a Cu₂ZnSn(S,Se)₄ (CZTSSe) kesterite thin-film absorber with
+Ag-substitution and Ge-alloying at the Sn site can break the persistent
+13% PCE ceiling and the > 0.5 V V_oc-deficit limit that has plagued
+kesterite since 2013. Vendor authority: Mitra (IBM, 2013 12.6% record);
+Hages (Purdue) Ag-substituted kesterite; Siebentritt (Luxembourg)
+defect-chemistry corpus.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pv-csts-001` | pv | Cu₂ZnSn(S,Se)₄ kesterite thin-film | Ag/Ge-alloyed CZTSSe targeting V_oc-deficit fix | DESIGN | F-PV-5: certified PCE < 13% OR V_oc deficit > 0.5V → FAIL |
+
+**Risk-flags**: Cu/Zn antisite disorder HARD_WALL — Cu_Zn and Zn_Cu
+antisites with ~ 100 meV formation energy are intrinsic to kesterite
+crystal chemistry and pin V_oc; secondary phases (Cu₂SnSe₃, ZnSe)
+UNVERIFIED to fully suppress at scale; Se losses during selenization
+UNVERIFIED. raw#10 C3 honored.
+
+#### 4.A.14 Y6-class small-molecule organic photovoltaic
+
+Hypothesis: a Y6-class small-molecule non-fullerene acceptor (NFA)
+binary or ternary blend (e.g., PM6:Y6:BTP-eC9) can achieve certified
+PCE ≥ 19% and T80 ≥ 5000 h under 1-sun AM1.5G with engineered
+morphology + UV-cut encapsulation. Vendor authority: Zou group (CSU,
+Y6 discovery 2019 Joule); Yan group (HKUST) NFA corpus; Heliatek
+(commercial OPV module).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pv-organic-001` | pv | Y6-class small-molecule OPV | PM6:Y6 (and BTP-eC9 ternary) NFA OPV | DESIGN | F-PV-6: certified PCE < 19% OR T80 1-sun AM1.5 < 5000h → FAIL |
+
+**Risk-flags**: morphology drift UNVERIFIED at 5000 h continuous
+illumination (NFA bulk-heterojunction phase separation under thermal
+stress); encapsulation HARD_WALL required for any > 5 yr operation
+(O₂/H₂O permeation degrades NFA); large-area uniformity UNVERIFIED at
+> 100 cm². raw#10 C3 honored.
+
+#### 4.A.15 CdTe + Se grading thin-film photovoltaic
+
+Hypothesis: a CdTe + Se grading photovoltaic (NREL-style, Se-graded
+front interface, with CdSeTe alloy at the absorber surface) can sustain
+certified PCE ≥ 23% — pushing above the long-time CdTe ceiling that
+First Solar Series-7 modules have probed. Vendor authority: First Solar
+(commercial CdTe authority — Series-7 module ~ 22% cert. cell); NREL
+CdTe device team; Wolden group (CSM) CdSeTe absorber engineering.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pv-thinfilm-cdte-001` | pv | CdTe + Se grading (NREL-style) | CdSeTe-graded CdTe thin-film absorber | DESIGN | F-PV-7: certified PCE < 23% → FAIL |
+
+**Risk-flags**: Cd regulatory headwinds UNVERIFIED — EU RoHS / WEEE
+end-of-life handling adds cost; Cd toxicity UNPROVEN to be a
+field-deployment blocker (First Solar take-back programs handle it but
+geographic regulatory variance UNVERIFIED); Te supply (co-product of Cu
+refining, ~ 600 t/yr globally) UNVERIFIED at TW-scale deployment.
+raw#10 C3 honored.
+
+#### 4.A.16 (Ba,Sr)(Co,Fe)O₃ SOFC cathode @ 600 °C
+
+Hypothesis: a (Ba₀.₅Sr₀.₅)(Co₀.₈Fe₀.₂)O₃₋δ (BSCF) perovskite cathode
+with infiltrated nano-CeO₂ catalyst on a 8YSZ-GDC bilayer electrolyte
+can sustain area-specific resistance (ASR) ≤ 0.15 Ω·cm² at 600 °C
+with ≤ 30% Cr poisoning loss over 1000 h on a Crofer-22-APU
+interconnect. Vendor authority: Bloom Energy / Ceres Power /
+SOLIDpower (commercial intermediate-T SOFC); Shao + Haile (Berkeley,
+2008 Nature BSCF cathode discovery).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-fc-sofc-bscf-001` | fc-sofc | (Ba,Sr)(Co,Fe)O₃ SOFC cathode @ 600°C | BSCF + CeO₂ infiltrated cathode on bilayer electrolyte | DESIGN | F-FC-1: ASR > 0.15 Ω·cm² @ 600°C OR Cr poisoning loss > 30% over 1000h → FAIL |
+
+**Risk-flags**: Cr poisoning HARD_WALL — volatile CrO₂(OH)₂ from
+Crofer-22-APU interconnect is the dominant degradation mode for
+Co-bearing SOFC cathodes (Hilpert 1996 thermochemistry); thermal cycling
+UNVERIFIED at ≥ 100 cycles (CTE mismatch BSCF vs YSZ); cell-level
+balance-of-plant integration → hexa-energy per CROSS_LINK §3.3.
+raw#10 C3 honored.
+
+#### 4.A.17 Poly(arylpiperidinium) AEM (PAP-TP)
+
+Hypothesis: a poly(arylpiperidinium) anion-exchange membrane (PAP-TP
+backbone with terphenyl spacer, N-piperidinium cation) cast at 30–50 µm
+can sustain σ_OH⁻ ≥ 0.1 S/cm at 60 °C and durability ≥ 1000 h at 200
+mA/cm² in AEM water electrolysis. Vendor authority: Bae group (KAIST,
+PAP-TP corpus 2017 onward); Hickner (Penn State) AEM characterization;
+Versogen / Ionomr Innovations (commercial AEM supply).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-fc-aem-pap-tp-001` | fc-aem | poly(arylpiperidinium) AEM | PAP-TP terphenyl-spacer piperidinium AEM | DESIGN | F-FC-2: σ_OH⁻ < 0.1 S/cm @ 60°C OR durability < 1000h @ 200 mA/cm² → FAIL |
+
+**Risk-flags**: cationic group degradation under alkaline conditions
+HARD_WALL — piperidinium > imidazolium > benzyltrimethylammonium for
+alkaline stability but no AEM cation is HF-free indefinitely under
+0.1 M KOH; carbonate uptake from ambient CO₂ reduces σ_OH⁻ in real
+electrolyzer stacks; commercial scale UNVERIFIED at MEA level (lab
+samples ~ 25 cm², stacks UNVERIFIED). Cell engineering → hexa-energy
+per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.18 2,6-DHAQ + methyl-viologen organic redox flow
+
+Hypothesis: a 2,6-DHAQ (negolyte) + methyl-viologen (posolyte) aqueous
+organic redox-flow chemistry at pH ~ 12 with size-selective AEM separator
+can deliver energy density ≥ 30 Wh/L with capacity fade ≤ 0.05%/day
+over 30-day cycling. Vendor authority: Aziz group (Harvard, 2014 Nature
+DHAQ); Gentry group (CMU) viologen corpus; CMBlu / Quino Energy
+(commercial organic flow scaling).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bat-flow-org-001` | bat-flow | 2,6-DHAQ + methyl viologen organic flow | DHAQ negolyte + MV posolyte aqueous flow | DESIGN | F-BAT-FLOW-1: energy density < 30 Wh/L OR cap fade > 0.05%/day → FAIL |
+
+**Risk-flags**: organic active-material crossover SOFT_WALL — size-
+selective AEM mitigates but does not eliminate; pH window UNVERIFIED at
+extended operation (DHAQ disproportionation accelerates above pH 13);
+$/kWh parity to vanadium-flow UNVERIFIED at MW-scale (organic chemistry
+synthesis cost UNVERIFIED at 10 kt/yr); cell engineering / stack design
+→ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 4.A.19 Ti₃C₂T_x MXene supercapacitor electrode
+
+Hypothesis: a Ti₃C₂T_x MXene supercapacitor electrode with mixed -O/-F/
+-OH surface terminations and intercalated H₂SO₄ can deliver gravimetric
+capacitance ≥ 350 F/g at 1 A/g in 1 M H₂SO₄ with ≥ 90% retention over
+10,000 cycles. Vendor authority: Gogotsi group (Drexel, MXene discovery
+2011 + supercap corpus); Murata MXene films (commercial pilot).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cap-mxene-001` | cap | Ti₃C₂T_x MXene supercap | T_x-terminated Ti₃C₂ in 1 M H₂SO₄ | DESIGN | F-CAP-1: C_grav < 350 F/g @ 1 A/g in 1M H₂SO₄ OR cycle-10k retention < 90% → FAIL |
+
+**Risk-flags**: oxidation in ambient HARD_WALL — Ti₃C₂ → TiO₂ + amorphous
+C pathway accelerates above 60% RH (Gogotsi 2023 review surfaced via
+`_research_bridge/arxiv/`); flake-restacking UNVERIFIED at thick-film
+electrodes (> 100 µm loses accessible surface); HF-free etching route
+UNVERIFIED at gram scale (companion of §3.15 `hxm-mxene-ti3c2-001`
+risk-flags). Cell engineering → hexa-energy per CROSS_LINK §3.3.
+raw#10 C3 honored.
+
+---
+
+## 5. Sim handle convention
 
 When `status >= SIM-*`, the entry must reference the actual sim handle.
 Format: `<bridge>/<adapter>/<output-hash>`
@@ -540,7 +957,7 @@ discipline).
 
 ---
 
-## 5. Honesty roll-up (per LATTICE_POLICY.md §1.2)
+## 6. Honesty roll-up (per LATTICE_POLICY.md §1.2)
 
 Every entry in §3 above is currently `DESIGN`-only. **No entry has
 external measurement evidence.** Production-scale verification belongs to
@@ -570,7 +987,7 @@ real foundries / labs / mills (raw#10 C3):
 
 ---
 
-## 6. Entry workflow
+## 7. Entry workflow
 
 To add a new candidate:
 
@@ -593,7 +1010,7 @@ Per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) Category (a) discipline.
 
 ---
 
-## 7. Cross-references
+## 8. Cross-references
 
 - Working ledger sibling: [`hexa-bio/.roadmap.novel_drugs`](https://github.com/dancinlab/hexa-bio/blob/main/.roadmap.novel_drugs)
 - Per-verb specs: [`AXIS.md`](AXIS.md)
