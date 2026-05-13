@@ -228,6 +228,113 @@ diamond-as-semi wafer all UNVERIFIED.
 **HARD_WALL**: Majorana fermion identification HOTLY DEBATED (Microsoft
 Station Q retractions 2018-2024). Preserved as UNVERIFIED.
 
+### 3.13 Bulk metallic glasses (BMG)
+
+Hypothesis: amorphous Zr-Cu-Al-Ni glass-formers can extend supercooled
+liquid region ΔTx and reach larger critical casting thickness Dc than
+Vitreloy-1 (Zr₄₁.₂Ti₁₃.₈Cu₁₂.₅Ni₁₀Be₂₂.₅, Dc ~ 25 mm, Johnson 1996 Caltech).
+Be-free chemistries with minor lanthanide micro-alloying are the open
+search axis. Status starts at DESIGN.
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-bmg-zr-001`      | bmg   | Zr-Cu-Al-Ni-Y       | Be-free Vitreloy alternative; Dc > 30 mm at Y ~ 0.5 at% | DESIGN | F-BMG-1: Dc < 10 mm in arc-melt + suction-cast → FAIL |
+
+**Risk-flags**: thermodynamic GFA (γ, Δ, Trg) not yet computed via
+`_python_bridge/metallurgy_alloy_composition.py`; oxide-pickup during
+arc-melt UNVERIFIED; cyclic-fatigue / shear-band cracking statistics
+UNVERIFIED. SPEC_FIRST only.
+
+### 3.14 Aerogels (ultralow-density solids)
+
+Hypothesis: graphene-oxide / cellulose-nanofiber hybrid aerogels can
+combine sub-10 mg/cm³ density with > 1 MPa compressive recovery, beating
+classic silica aerogel (ρ ~ 3-150 mg/cm³ but brittle; Kistler 1931 / NASA
+JPL). Open question: can the cellulose-nanofiber scaffold survive
+supercritical-CO₂ drying without densification > 20%? Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-aero-graphene-001`  | aero  | rGO + CNF hybrid    | ρ < 10 mg/cm³; recoverable > 80% strain | DESIGN | F-AERO-1: density > 30 mg/cm³ OR recovery < 50% after 10⁴ cycles → FAIL |
+
+**Risk-flags**: SCD shrinkage UNVERIFIED; thermal-conductivity target
+< 25 mW/m·K UNVERIFIED; fire-retardancy via phytate cross-linker
+UNVERIFIED; not in MP/GNoME (amorphous network outside crystalline
+prediction scope per [`_absorption_bridge/gnome/SOURCES.md`](_absorption_bridge/gnome/SOURCES.md)).
+
+### 3.15 MXenes (2D transition-metal carbides/nitrides)
+
+Hypothesis: Ti₃C₂Tₓ MXenes with mixed -O/-F/-OH surface terminations,
+processed via fluorine-free LiF/HCl etching, can sustain EMI shielding
+effectiveness > 80 dB at < 100 µm thickness while resisting oxidative
+degradation longer than vanilla Ti₃C₂Tₓ (which dies in days at ambient
+RH). Open: terminations after MAX-phase etching are
+stoichiometry-controlled? Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-mxene-ti3c2-001`    | mxene | Ti₃C₂Tₓ (-O,-F,-OH) | EMI SE > 80 dB; 6-month ambient RH oxidative stability | DESIGN | F-MXENE-1: σ loss > 50% after 30 d @ 25 °C / 60% RH → FAIL |
+| `hxm-mxene-mo2c-001`     | mxene | Mo₂CTₓ              | HER catalyst, η < 100 mV @ 10 mA/cm² | DESIGN | F-MXENE-2: η > 200 mV @ 10 mA/cm² in 0.5 M H₂SO₄ → FAIL |
+
+**Risk-flags**: HF-free synthesis route UNVERIFIED at gram scale;
+terminations not deterministic post-etch; long-term oxidative pathway
+(Ti₃C₂ → TiO₂ + amorphous C) HARD_WALL at high RH per Gogotsi 2023
+preprint corpus surfaced by `_research_bridge/arxiv/`.
+
+### 3.16 Biomaterials / biodegradable polymers
+
+Hypothesis: PHA copolymer (P3HB-co-3HHx) blended with chitin nanowhiskers
+can pass ASTM D7081 marine-biodegradability AND ASTM D6400 industrial
+compost simultaneously while keeping film tensile strength > 25 MPa.
+Open: chitin filler typically reduces tensile by 20-40%; biodegradation
+rate in marine vs. compost is a known trade-off (NatureWorks / Danimer
+empirical curves, not lab-replicated here). Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-bio-pha-marine-001` | bio   | P3HB-co-3HHx + chitin nano | marine + compost dual-cert film | DESIGN | F-BIO-1: marine BOD₂₈ < 60% OR tensile < 15 MPa → FAIL |
+
+**Risk-flags**: marine-biodegradability UNVERIFIED for most blends (only
+specific PHA grades carry D7081); chitin filler dispersion may collapse
+to micro-agglomerates above 5 wt%; melt-processing window narrows;
+mass-balance vs. additive leaching UNVERIFIED. NatureWorks PLA / Danimer
+PHA vendor authority preserved (raw#10 C3).
+
+### 3.17 Liquid-metal alloys (room-T gallium-based)
+
+Hypothesis: a Ga-In-Sn-Bi quaternary can depress Tm below 0 °C while
+keeping surface tension < 500 mN/m and oxide-skin thickness < 5 nm under
+ambient. EGaIn baseline: Ga₇₅In₂₅ Tm ≈ 15.5 °C; Galinstan (Ga₆₈In₂₂Sn₁₀)
+Tm ≈ -19 °C, σ ≈ 533 mN/m (vendor: Geratherm Medical / RGMD). Open: Bi
+addition risks segregation. Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-liq-gain-001`       | liq   | Ga-In-Sn-Bi         | Tm < -25 °C; σ < 450 mN/m; recovery > 95% on stretch-test | DESIGN | F-LIQ-1: Tm > -10 °C OR Bi segregation > 5 vol% on DSC → FAIL |
+
+**Risk-flags**: GaAl-Au amalgamation contamination of test fixtures
+known issue; oxide-skin (Ga₂O₃) re-forms < 1 s in air — wettability vs.
+substrate UNVERIFIED; biocompatibility UNVERIFIED for skin contact;
+Galinstan vendor (Geratherm) sole-source pricing UNVERIFIED at scale.
+
+### 3.18 Lithium-ion anodes (Si-graphite composite)
+
+Hypothesis: nano-Si (D₅₀ ~ 100 nm) embedded in graphite matrix with
+in-situ-grown elastic SEI from FEC + VC additives can hold > 600 mAh/g
+reversible capacity for > 500 cycles at 1C without > 30% volume swelling
+at electrode level. Vendor authority: Sila Nanotechnologies / Group14 /
+Amprius (their published numbers govern at production).
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-anode-sigr-001`     | anode | Si-graphite + FEC-SEI | capacity > 600 mAh/g @ 1C for > 500 cycles | DESIGN | F-ANODE-1: cap retention < 70% after 500 cyc @ 1C → FAIL |
+
+**Risk-flags**: SEI re-formation rate vs. FEC consumption UNVERIFIED at
+cell level; nano-Si pulverization at > 15 wt% Si still open; cost-parity
+to graphite ($/kWh) HARD_WALL; full-cell vs. half-cell discrepancy
+typically 20-30% in cycle life. Pairs with `hxm-cath-*` for full-cell
+spec (out-of-repo per Category (c)).
+
 ---
 
 ## 4. Sim handle convention
