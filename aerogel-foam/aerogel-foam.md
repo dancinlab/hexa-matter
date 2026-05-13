@@ -256,6 +256,8 @@ Cellulose aerogel branch:
   UNPROVEN at large-pane production; <m² typical
 - ✗ "Self-healing aerogel is production-ready" — UNPROVEN
 
+**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-aero-polyimide-001` — see [NOVEL.md §4.D.12](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Polyimide aerogel (BPDA-PPDA / BPDA-ODA dianhydride-diamine route, Meador / NASA-Glenn corpus) for aerospace cryogenic-to-elevated-T insulation; cost-per-kg UNPROVEN at commodity-foam parity.
+
 ---
 
 ## §9 Honest scope + caveats

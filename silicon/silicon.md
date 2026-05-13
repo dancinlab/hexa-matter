@@ -232,6 +232,10 @@ are **real engineering / physical limits**, not n=6 lattice fits.
 - ✗ "Si T_m 1687 K relates to σ·τ=48" — no; T_m is bond-energy + entropy
 - ✗ "Wacker / GCL capacity follows n=6 lattice" — they have not heard of it
 
+**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-pv-tandem-002` — see [NOVEL.md §4.A.11](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Si bottom-cell (1.12 eV E_g, CZ/FZ Si wafer) is the substrate layer of the perovskite-Si 2T tandem; the perovskite top-cell + tandem stack lives in [`perovskite/perovskite.md`](../perovskite/perovskite.md) (primary home).
+
+**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-quantum-si-donor-001` — see [NOVEL.md §4.C.1](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. ²⁸Si-enriched (≥ 99.99 %) host with ³¹P donor for Kane-scheme qubit — Si material-layer chemistry only (isotope enrichment + 9N purity); device-layer qubit-array routing → hexa-chip per CROSS_LINK §3.2.
+
 ---
 
 ## §9 Honest scope + caveats

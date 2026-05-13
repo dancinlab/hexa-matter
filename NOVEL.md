@@ -564,6 +564,7 @@ Status DESIGN.
 UNVERIFIED at extended cycling above 4.4 V; cation-mixing kinetics
 UNVERIFIED at full-cell; cell engineering belongs to hexa-energy per
 CROSS_LINK §3.3. raw#10 C3 honored.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
 #### 4.A.2 S-PAN Li-S cathode
 
@@ -644,6 +645,7 @@ CROSS_LINK §3.3 (cycling protocol / stack pressure / separator /
 electrolyte volume all out-of-repo); full-cell vs half-cell CE gap
 typically 1–2% — falsifier targets full-cell evidence. raw#10 C3
 honored.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
 #### 4.A.6 Sucrose-derived hard-carbon Na-ion anode
 
@@ -771,6 +773,7 @@ UNVERIFIED at 25-yr field deployment (25-yr lifetime UNPROVEN for any
 perovskite cell at commodity scale); Pb halide migration to encapsulant
 HARD_WALL on environmental regulation; module-level CTM ratio loss
 UNVERIFIED. raw#10 C3 honored.
+**Verb spec link**: see [`perovskite/perovskite.md`](perovskite/perovskite.md) (primary — top-cell perovskite material layer) and [`silicon/silicon.md`](silicon/silicon.md) (Si bottom-cell substrate, 1.12 eV E_g) — material-layer authorities for this candidate's chemistry.
 
 #### 4.A.12 All-perovskite 4T tandem photovoltaic (29% target)
 
@@ -1060,6 +1063,7 @@ UNVERIFIED above 50 000 h commercial-warranty target; loading-reduction
 to 0.1 mg/cm² is an active research target but NOT a closed milestone
 (Strasser 2023 Chem. Rev.); cell-level integration owned by
 `hexa-energy` per CROSS_LINK §3.3.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) (electrocatalysis sub-section: EM-L15 IrO₂ OER + Pt-ORR anchors) — material-layer authority for this candidate's chemistry.
 
 Hypothesis (`hxm-n2-red-ru-cluster-001`): Ru subnano-cluster (≤ 1 nm)
 on N-doped carbon support for electrocatalytic N₂ reduction reaction
@@ -1141,6 +1145,7 @@ Vendor authority: **Marlow Industries** (Bi-Te modules, not half-Heusler
 — half-Heusler modules NOT yet commercial); **Phononic / Komatsu** (TE
 module integration). half-Heusler MODULES NOT YET COMMERCIAL at any
 vendor as of 2026 — production-scale UNVERIFIED.
+**Verb spec link**: see [`metallurgy/swordsmithing.md`](metallurgy/swordsmithing.md) — material-layer authority for this candidate's chemistry (ZrNiSn-based half-Heusler is an intermetallic / metallurgical material; the verb dir hosts the metallurgy spec).
 
 Hypothesis (`hxm-te-skutt-cosb3-001`): Filled CoSb₃ skutterudite —
 Yb_x Ba_y Co₄Sb₁₂ with multi-filler rattler concept (Yb + Ba + La
@@ -1392,6 +1397,7 @@ deposition control of molecular orientation HARD_WALL at sub-monolayer
 coverage. Device-layer integration (qubit array routing, on-chip
 microwave delivery) belongs to **hexa-chip** per CROSS_LINK §3.2 — this
 ledger owns the MATERIAL layer only.
+**Verb spec link** (Tier-2, `hxm-quantum-si-donor-001`): see [`silicon/silicon.md`](silicon/silicon.md) — material-layer authority for ²⁸Si-enriched host chemistry (isotope enrichment + ³¹P donor incorporation = Si material layer; qubit device integration → hexa-chip).
 
 ### 4.C.2 Skyrmions / antiferromagnetic memory (Mn₁.₄PtSn, Mn₃Sn)
 
@@ -1674,6 +1680,7 @@ porosity + powder oxygen pickup HARD_WALL at gas-atomized
 UNVERIFIED for fine-equiax retention; production-scale SX casting
 yield to single-crystal grain selector belongs to Category (c)
 (Cannon-Muskegon / PCC Airfoils).
+**Verb spec link** (Tier-2, `hxm-ni-4gen-re-free-001`): see [`superalloy/superalloy.md`](superalloy/superalloy.md) — material-layer authority for Re-free 4th-gen SX chemistry (UNVERIFIED-at-parity marker preserved in superalloy.md).
 
 #### 4.D.3 Carbon fiber precursors (`cf-*`) — 2 candidates
 
@@ -1808,6 +1815,7 @@ HARD_WALL — Solidia + CarbonCure combined < 0.1% market share
 2024; reinforcement steel passivation requires pH > 12.5, MgO-
 HMC binder pH ~ 10–11 ⇒ rebar corrosion HARD_WALL ⇒ glass-fiber
 + basalt-fiber reinforcement (out-of-software, Category (c)).
+**Verb spec link**: see [`concrete_tech/concrete-technology.md`](concrete_tech/concrete-technology.md) — material-layer authority for this candidate's chemistry (novel binder chemistry home; distinct from `concrete/concrete.md` which anchors OPC mix-design F-CON-Q* falsifiers).
 
 #### 4.D.7 Foams + transparent armor — 2 candidates
 
@@ -2006,6 +2014,7 @@ to prevent; biodegradability claim limited to lab-soil-burial —
 ASTM D5511 industrial-compost certification UNVERIFIED at panel
 scale; freeze-drying scale-up beyond 30 cm × 30 cm panels
 UNVERIFIED.
+**Verb spec link** (Tier-2, `hxm-aero-polyimide-001`): see [`aerogel-foam/aerogel-foam.md`](aerogel-foam/aerogel-foam.md) — material-layer authority for polyimide aerogel chemistry (BPDA-PPDA / BPDA-ODA dianhydride-diamine route; supercritical-CO₂ drying; commodity-cost UNPROVEN preserved verbatim in aerogel-foam.md).
 
 #### 4.D.13 MOFs (extends §3.7 `mof`) — 3 candidates
 
@@ -2052,6 +2061,7 @@ UNVERIFIED (catechol-derived azaaromatic prone to oxidation);
 DAC system engineering (sorbent contactor, regen heat
 integration) → out-of-software / Category (c) (Climeworks /
 Carbon Engineering / Heirloom).
+**Verb spec link** (Tier-2, `hxm-mof-h2o-stable-uio66-001`): see [`mof/mof.md`](mof/mof.md) — material-layer authority for water-stable Zr₆-cluster UiO-66 chemistry (MOF-L12 UiO-66 water-stability anchor preserved verbatim; Cavka-Lillerud 2008 reference).
 
 #### 4.D.14 High-strength fiber (`fiber`) — 1 candidate
 
@@ -2456,6 +2466,7 @@ O₂ HARD_WALL on calendar-life durability; volumetric throughput at
 ambient 400 ppm (~ 1.5 kg-CO₂/h per m³ sorbent best-case) UNVERIFIED at
 plant scale; balance-of-plant heat-exchange energy NOT included in the
 regen-MJ/kg target. Pairs with §3.7 `hxm-mof-dac-*` ledger.
+**Verb spec link**: see [`mof/mof.md`](mof/mof.md) — material-layer authority for this candidate's chemistry (UNPROVEN $100/t DAC-economics marker home; Climeworks $600–1000/t baseline preserved in §9 anti-claims).
 
 ### 4.F.2 Environmental — H₂ storage (`h2-store`)
 

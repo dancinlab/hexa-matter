@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (33 gates total):
+# Gate categories (36 gates total; Phase J.1 +3 audit + J.3 +2 adapter + J.5 +1 xref):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -152,15 +152,24 @@ run "c_handoff_completeness_audit"    python3 "$HERE/c_handoff_completeness_audi
 
 # ── Phase J.1 deepening gates (3) — Round-3 invariant audit ───────────────
 # 2026-05-13 (Phase J.1): three structural-invariant gates make the NOVEL.md +
-# verb-spec corpus invariants explicitly checkable post-Round-3 — gate #31 every
+# verb-spec corpus invariants explicitly checkable post-Round-3 — gate #33 every
 # hxm-* falsifier well-formed (F-tag + quantitative number + FAIL boundary +
-# DESIGN/SIM-* status); gate #32 every HARD_WALL / UNPROVEN / UNVERIFIED token
+# DESIGN/SIM-* status); gate #34 every HARD_WALL / UNPROVEN / UNVERIFIED token
 # traces to LIMIT_BREAKTHROUGH or a peer-reviewed / standards / vendor citation
-# within ±12 lines; gate #33 every named vendor has a year + product/standard ID
+# within ±12 lines; gate #35 every named vendor has a year + product/standard ID
 # anchor + no n=6 lattice-fit attribution (raw#10 C3).
 run "falsifier_wellformed_audit"      python3 "$HERE/falsifier_wellformed_audit.py"
 run "hardwall_provenance_audit"       python3 "$HERE/hardwall_provenance_audit.py"
 run "vendor_citation_completeness_audit" python3 "$HERE/vendor_citation_completeness_audit.py"
+
+# ── Phase J.5 NOVEL ↔ verb spec xref audit (1) — Tier-1 bidirectional links ──
+# 2026-05-13 (gate #36): enforces bidirectional cross-link discipline for the 7
+# Tier-1 NOVEL candidates per NOVEL_ROADMAP.md §5. Forward: each Tier-1
+# candidate's NOVEL.md subsection carries a `Verb spec link:` line; back: that
+# verb-spec file carries a `Related NOVEL candidate` line + matching hxm-* ID.
+# Per raw#10 C3 + SPEC_FIRST: cross-link annotations are nav links, NOT
+# promotion to EXTERNAL-VERIFIED; UNPROVEN/UNVERIFIED markers stay untouched.
+run "novel_verb_xref_audit"           python3 "$HERE/novel_verb_xref_audit.py"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

@@ -211,6 +211,8 @@ treatment / TBC**. Engine integration is `hexa-energy` / `hexa-mobility`.
 - ✗ "Special Metals / Haynes / ATI revenue follows n=6" — they have not heard of it
 - ✗ "Re content 3-6 wt % equals n=6 / 2" — coincidence
 
+**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-ni-4gen-re-free-001` — see [NOVEL.md §4.D.2](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Re-free 4th-gen SX UNVERIFIED at parity preserved verbatim (F-SA-1 OPEN); CMSX-10 / René N6 Re-bearing incumbents govern the parity bar.
+
 ---
 
 ## §8 Honest scope + caveats

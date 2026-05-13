@@ -470,3 +470,5 @@ Pass = numeric threshold met at cited ASTM method, 25 °C ± 2 °C ambient, n �
 5 indentations (HRC) or n ≥ 3 specimens (Charpy / LECO). Fail = outside
 threshold at same condition → caveat the spec and re-baseline the metallurgy
 heat-treat schedule.
+
+**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-te-half-zrnisn-001` — see [NOVEL.md §4.B.2](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. ZrNiSn-based half-Heusler intermetallic (Zr₀.₅Hf₀.₅NiSn₀.₉₈Sb₀.₀₂) for mid-T (500–800 K) waste-heat thermoelectric recovery is an intermetallic / metallurgical material — half-Heusler modules NOT yet commercial at any vendor as of 2026 (Marlow Industries Bi-Te modules govern commodity TE; half-Heusler module-level integration owned by `hexa-energy` / `hexa-mobility` waste-heat per CROSS_LINK §3.3 / §3.7).

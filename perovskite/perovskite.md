@@ -201,6 +201,8 @@ Antiperovskite branch:
 - ✗ "MAPbI₃ E_g 1.55 eV fits n=6 lattice" — coincidence; do not write
 - ✗ "BaTiO₃ T_curie 393 K equals σ·τ × 8.2" — coincidence; do not write
 
+**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-pv-tandem-002` — see [NOVEL.md §4.A.11](NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Primary verb-spec home for perovskite-Si 2T tandem material layer; bottom-cell Si chemistry cross-linked to [`silicon/silicon.md`](../silicon/silicon.md).
+
 ---
 
 ## §9 Honest scope + caveats

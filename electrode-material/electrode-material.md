@@ -342,6 +342,16 @@ Johnson Matthey, Umicore).
   (EM-L18 / EM-L19) is vendor-published context; the cell engineering claim belongs
   to hexa-energy. This verb's primary metric is mAh/g of active material.
 
+**Related NOVEL candidates** (Tier-1 hypotheses, status as of 2026-05-13):
+`hxm-bat-cath-drx-001` — see [NOVEL.md §4.A.1](../NOVEL.md) (Li-Mn-Nb-Ti DRX
+rock-salt cathode); `hxm-bat-anode-li-metal-001` — see [NOVEL.md §4.A.5](../NOVEL.md)
+(50 µm Li-foil anode on 3D Cu host); `hxm-h2-elec-iro2-doped-001` — see
+[NOVEL.md §4.B.1](../NOVEL.md) (Ir-Ru oxide OER PEM electrocatalyst,
+electrocatalysis sub-section). All three UNPROVEN at commodity scale; raw#10 C3 —
+proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to
+EXTERNAL-VERIFIED. This verb is the material-layer authority for all three
+chemistries; cell engineering boundary → `hexa-energy` per CROSS_LINK §3.3.
+
 ---
 
 ## §9 Honest scope + caveats
