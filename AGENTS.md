@@ -52,3 +52,181 @@ lattice-fit assertions. Use that entity's *own* invariants.
 Project-specific agent guidance may be appended below as separate
 sections. The lattice-policy registration above is canonical and
 should not be removed.*
+
+---
+
+## 📋 Documentation ledger (hexa-matter project-specific)
+
+Working-state and architecture ledger — read these first if you're picking
+up the repo cold. All at root in UPPERCASE following the
+[`hexa-bio`](https://github.com/dancinlab/hexa-bio) convention.
+
+**Pick-it-up-cold entry** — single source of truth:
+- [`INIT.md`](INIT.md) — Phase A-G status table, commit log, hard
+  constraints, pick-it-up-cold guide. **READ THIS FIRST.**
+
+**Architecture & lifecycle (10 infra docs, Phase A 2026-05-13)**:
+- [`AXIS.md`](AXIS.md) — 7-group taxonomy (CER · POL · FIB · MET · GEM · PRC · FAS)
+- [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) — per-group closure roadmap, Category (a)/(b)/(c) framework
+- [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) — 29 (b) parity gates + 15 (c) wet-lab/HW deferral ledger
+- [`DECOMPOSITION_PLAN.md`](DECOMPOSITION_PLAN.md) — 7 groups → 29 verbs taxonomy
+- [`LESSONS.md`](LESSONS.md) — construction journal
+- [`RELEASE_NOTES_v1.0.0.md`](RELEASE_NOTES_v1.0.0.md) · [`RELEASE_NOTES_v1.1.0.md`](RELEASE_NOTES_v1.1.0.md)
+- [`V1_2_0_HANDOFF.md`](V1_2_0_HANDOFF.md) — forward-facing handoff
+- [`USER_ACTION_REQUIRED.md`](USER_ACTION_REQUIRED.md) — open asks for the user
+- [`IMPORTED_FROM_CANON.md`](IMPORTED_FROM_CANON.md) — file-by-file canon provenance
+
+**Working ledgers**:
+- [`NOVEL.md`](NOVEL.md) — de-novo-designed novel material candidate ledger
+  (`hxm-<class>-<target>-<NNN>` IDs, sister of `hexa-bio/.roadmap.novel_drugs`).
+  Agents adding new candidates: status starts at `DESIGN`, **must** define
+  quantitative falsifier, and **CANNOT** claim `EXTERNAL-VERIFIED` without
+  attributed external lab/vendor citation (raw#10 C3).
+
+**Deep expansion (5 chapters)**:
+- [`SILICON.md`](SILICON.md) · [`CERAMIC-ENGINEERING.md`](CERAMIC-ENGINEERING.md) ·
+  [`METALLURGY-DEEP.md`](METALLURGY-DEEP.md) · [`POLYMER-CHEMISTRY.md`](POLYMER-CHEMISTRY.md) ·
+  [`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md)
+
+---
+
+## 🌉 External tool bridges — Phase E / F / G
+
+Three bridges absorb external systems while preserving raw#10 C3. Each
+ships **offline-replay fixtures** for `--selftest`; live API gated behind
+`--live` flag (where applicable); optional deps SKIP cleanly when missing.
+
+### Phase E — `_python_bridge/` (scientific compute, 12 modules)
+
+| Tool | License | Adapter(s) | Purpose |
+|---|---|---|---|
+| **RDKit** | BSD-3 | `rdkit_smiles_audit.py` · `rdkit_descriptor_calc.py` | SMILES canon · MolWt · LogP · TPSA · HBA/HBD |
+| **ASE** (DTU) | LGPL-2.1 | `ase_atoms_construct.py` · `ase_relaxation_check.py` | Crystal builders · EMT relaxation smoke |
+| **pymatgen** (LBNL) | MIT | `pymatgen_structure_io.py` · `pymatgen_phasediagram_smoke.py` | CIF I/O + MP-ID · binary phase diagram |
+| (stdlib only) | — | 6 modules: `silicon_purity_compute` · `polymer_mw_distribution` · `metallurgy_alloy_composition` · `carbon_form_factor_classifier` · `cross_doc_consistency_compute` · `nist_anchor_resolver` | 9N→ppba · MW/PDI · wt%↔at% · CNT class · audit · NIST anchor parse |
+
+Aggregator: `selftest/pyproject_smoke.sh` (gate 21 of selftest harness).
+
+### Phase F — `_research_bridge/` (external literature absorption, 8 modules)
+
+| Source | License | Adapter | Rate-limit |
+|---|---|---|---|
+| **arxiv API** | open (paper licenses vary) | `arxiv/arxiv_pull.py` · `arxiv/arxiv_digest.py` | 3-sec backoff |
+| **Vendor datasheet crawl** | per-vendor robots.txt | `web/vendor_datasheet_pull.py` | robots.txt respected |
+| **Materials industry RSS** | RSS public | `web/materials_news_feed.py` | feed cadence |
+| **USPTO PatFT / EPO Espacenet** | public search API | `web/patent_search.py` | 1 req / 10s |
+
+Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
+
+### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 10 adapters)
+
+5 external systems + 5 universal force fields:
+
+| System | License | Adapter | Notes |
+|---|---|---|---|
+| **Materials Project** (LBNL/Berkeley) | CC-BY 4.0 (data) | `materials_project/mp_api_smoke.py` | Free API key; ~150k materials w/ DFT |
+| **DeepMind GNoME** (2023 Nature) | CC-BY 4.0 (Zenodo DOI `10.5281/zenodo.10371563`) | `gnome/gnome_dataset_smoke.py` | **2.2M PREDICTED stable crystals — NOT synthesized** |
+| **Matlantis** (Preferred Networks) | **COMMERCIAL** | `matlantis/matlantis_call_smoke.py` | UNVERIFIED at hexa-matter scale economics |
+| **Meta OMat24** | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | `omat24/omat24_dataset_smoke.py` | **110M structures** + MACE-OMat NNP checkpoint |
+| **SchNet** (Schütt 2017) | MIT | `universal_ff/schnet_call.py` | message-passing NNP |
+| **MACE** (Batatia 2022) | MIT | `universal_ff/mace_call.py` | equivariant NNP |
+| **ALIGNN** (Choudhary 2021) | MIT | `universal_ff/alignn_call.py` | atomistic line graph |
+| **CHGNet** (Deng 2023) | BSD-3 | `universal_ff/chgnet_call.py` | crystal Hamiltonian graph |
+| **M3GNet** (Chen & Ong 2022) | BSD-3 | `universal_ff/m3gnet_call.py` | via MatGL |
+
+Aggregator: `selftest/absorption_bridge_smoke.sh` (gate 23).
+
+License + cite detail per subsystem: `<subsystem>/SOURCES.md`.
+
+**Mirror in `hexa-bio/_absorption_bridge/`** (commit `199949f`, 2026-05-13):
+backport for protein-structure ML — AlphaFold-3 · RoseTTAFold(+AA) ·
+ESMFold · OpenFold · ColabFold · Foldseek · MMseqs2 · UniProt · PDB (9
+adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
+
+### Bridge rules (agents — observe ALL)
+
+1. **stdlib fallback** — every adapter MUST work on stock Python 3.9+ via
+   stdlib OR cleanly SKIP with `SKIP: <dep> not installed` (exit 0).
+   No mocked functionality disguised as real.
+2. **OFFLINE selftest only** — `--selftest` mode MUST NOT make live API
+   calls. Use bundled cache fixture for replay. Fixtures tagged
+   `SAMPLE FIXTURE — not real data, for selftest replay only`.
+3. **License honesty** — every adapter `SOURCES.md` MUST cite license,
+   cite paper, cite version. Commercial/non-commercial restrictions
+   flagged loudly (Matlantis commercial; AlphaFold-3 non-commercial).
+4. **Predictions ≠ measurements** — GNoME / OMat24 / Matlantis / NNP
+   outputs are PREDICTIONS. Every adapter must preserve this in its
+   smoke output and `SOURCES.md`.
+5. **No n=6 lattice-fit on absorbed data** (raw#10 C3) — external metrics
+   stay as the vendor / lab / consortium published them.
+
+---
+
+## 🧪 Selftest authority
+
+The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
+currently **23/23 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators). Run from repo root:
+
+```bash
+bash selftest/run_all.sh    # exit 0 = 23/23 PASS
+```
+
+The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
+closure layer (file presence + lattice arithmetic + real-limits anchor +
+scoreboard cross-check). Selftest is the content layer on top.
+
+`hexa.toml [closure]` records: `verify_pass = "4/4"`,
+`selftest_pass = "23/23"`, `python_bridge_modules = 12`,
+`research_bridge_modules = 8`, `absorption_bridge_modules = 10`.
+
+---
+
+## 🚧 Closure framework — Category (a) / (b) / (c)
+
+Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
+
+- **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
+  23/23 selftest + 29/29 verb specs. Closeable by code/doc work in this repo.
+- **(b) formal / empirical material-property parity** — NIST/CRC anchored
+  values matched against measured datasets. 29 parity gates currently
+  **UNVERIFIED** (enumerated in `CLOSURE_RESIDUAL_BACKLOG.md` §B). Phase B
+  selftest is the implementation layer.
+- **(c) wet-lab synthesis / manufacturing scale closure** — **OUT-OF-REPO
+  BY DESIGN**. Vendors (Wacker poly-Si · Wolfspeed SiC · Hitachi Metals
+  NdFeB · Stora Enso CLT · Climeworks DAC · NatureWorks PLA · Danimer PHA
+  · Element Six diamond · Merck KGaA LC) carry this layer with their own
+  published numbers. 15 (c) items in `CLOSURE_RESIDUAL_BACKLOG.md` §C.
+
+**"100% closure" claims here are Category (a) only** — agents must
+preserve this scoping in any new docs / commits / release notes. C2 / C3+
+require external wet-lab evidence and are explicitly out-of-scope for the
+`hxm-*` ledger in `NOVEL.md`.
+
+---
+
+## 🔌 Sister-substrate cross-links
+
+- [`hexa-rtsc`](https://github.com/dancinlab/hexa-rtsc) — room-temp SC sister; `hxm-sc-*` candidates in `NOVEL.md` are research-hypothesis only, **not** RT-SC claims
+- [`hexa-chip`](https://github.com/dancinlab/hexa-chip) — semiconductor device + fab process layer; `silicon/` here covers MATERIAL layer only
+- [`hexa-energy`](https://github.com/dancinlab/hexa-energy) — energy axis; battery cathode + solid electrolyte candidates in `NOVEL.md` are material-layer
+- [`hexa-bio`](https://github.com/dancinlab/hexa-bio) — molecular toolkit; `_absorption_bridge/` pattern and `NOVEL.md` ledger pattern were imported from here
+- Full sibling list + sister-of-substrates relationship: `IMPORTED_FROM_CANON.md` §"Sister-of-substrates extraction template" + `INIT.md` §"Sister-substrate cross-links"
+
+---
+
+## ✅ Quick agent checklist (before commit)
+
+When making changes in this repo, an AI agent SHOULD:
+
+- [ ] Read `INIT.md` first to know the current Phase state
+- [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
+- [ ] Run `bash selftest/run_all.sh` — confirm 23/23 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
+- [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
+- [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
+- [ ] If touching `NOVEL.md`: define quantitative falsifier per candidate; don't self-validate
+- [ ] If touching a bridge: stdlib fallback or clean SKIP; offline selftest only
+- [ ] Author: `박민우 <nerve011235@gmail.com>` (env-var override if local git config empty)
+- [ ] Trailer: `Co-Authored-By: <model> <noreply@anthropic.com>`
+- [ ] Update `INIT.md` if your change shifts Phase status
