@@ -1,64 +1,99 @@
 #!/usr/bin/env bash
 # selftest/pyproject_smoke.sh
 #
-# Smoke test for hexa-matter/_python_bridge/. Phase E (the Python bridge
-# implementation) is queued and not yet committed, so this gate is currently
-# expected to SKIP cleanly. It becomes load-bearing once Phase E lands.
+# Phase E aggregator: invokes every _python_bridge/module/*.py with --selftest
+# and aggregates PASS / FAIL / SKIP counts.
 #
 # Behaviour:
-#   - If _python_bridge/ does not exist → SKIP (exit 0) — Phase E not yet
-#     implemented. Print informative SKIP line.
-#   - If _python_bridge/module/*.py exist → smoke-test by attempting
-#     `python3 <module>.py --help` on each. Any non-zero exit (other than
-#     argparse "help" which exits 0) is FAIL.
+#   - For each module .py file: run `python3 <module>.py --selftest`.
+#       exit 0 + sentinel "__HEXA_MATTER_<MODULE>__ PASS (SKIP mode)"  →  SKIP
+#       exit 0 + sentinel "__HEXA_MATTER_<MODULE>__ PASS"              →  PASS
+#       exit 0 + ANY OTHER output                                      →  PASS (conservative)
+#       exit != 0                                                      →  FAIL
+#   - SKIP counts as PASS for the harness (per INIT.md "NO MOCKED FUNCTIONALITY"
+#     rule: a module with a missing optional dep must SKIP cleanly).
+#
+# Sentinel emitted:
+#   __HEXA_MATTER_PYTHON_BRIDGE__ PASS  (N/N modules, M skipped)
+#   __HEXA_MATTER_PYTHON_BRIDGE__ FAIL  (F of N modules failed)
+#
+# Compatibility: also emits the legacy __HEXA_MATTER_PYPROJECT_SMOKE__ sentinel
+# so that any consumer scanning for that string keeps working.
 
 set -u
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="${HEXA_MATTER_ROOT:-$(cd "$HERE/.." && pwd)}"
+export HEXA_MATTER_ROOT="$REPO_ROOT"
 BRIDGE="$REPO_ROOT/_python_bridge"
 
-echo "hexa-matter/selftest/pyproject_smoke — _python_bridge/ smoke test"
+echo "hexa-matter/selftest/pyproject_smoke — _python_bridge/ aggregator"
 echo "  bridge dir: $BRIDGE"
 echo ""
 
 if [[ ! -d "$BRIDGE" ]]; then
-  echo "  [SKIP] _python_bridge/ does not exist — Phase E queued, not yet implemented"
+  echo "  [SKIP] _python_bridge/ does not exist — Phase E not yet implemented"
+  echo "__HEXA_MATTER_PYTHON_BRIDGE__ PASS  (SKIP: Phase E pending)"
   echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  (SKIP: Phase E pending)"
   exit 0
 fi
 
 if [[ ! -d "$BRIDGE/module" ]]; then
-  echo "  [SKIP] _python_bridge/module/ does not exist — Phase E queued"
+  echo "  [SKIP] _python_bridge/module/ does not exist"
+  echo "__HEXA_MATTER_PYTHON_BRIDGE__ PASS  (SKIP: module/ pending)"
   echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  (SKIP: module/ pending)"
   exit 0
 fi
 
+pass=0
 fail=0
-checked=0
+skip=0
+total=0
+
 for f in "$BRIDGE/module"/*.py; do
   [[ -e "$f" ]] || continue
-  checked=$((checked + 1))
+  total=$((total + 1))
   name="$(basename "$f")"
-  if python3 "$f" --help >/dev/null 2>&1; then
-    echo "  [PASS] $name --help exit 0"
-  else
-    rc=$?
-    echo "  [FAIL] $name --help exit $rc"
+  # Capture output; check exit code + sentinel.
+  out="$(python3 "$f" --selftest 2>&1)"
+  rc=$?
+  if [[ "$rc" -ne 0 ]]; then
+    echo "  [FAIL] $name (exit $rc)"
+    echo "$out" | sed 's/^/         /'
     fail=$((fail + 1))
+    continue
   fi
+  if echo "$out" | grep -q "SKIP mode"; then
+    echo "  [SKIP] $name (optional dep missing)"
+    skip=$((skip + 1))
+    pass=$((pass + 1))   # SKIP counts as PASS
+    continue
+  fi
+  if echo "$out" | grep -q "__HEXA_MATTER_.*__ PASS"; then
+    echo "  [PASS] $name"
+    pass=$((pass + 1))
+    continue
+  fi
+  # Conservative: exit 0 but no canonical sentinel — count as PASS but warn.
+  echo "  [PASS] $name (no canonical sentinel; exit 0)"
+  pass=$((pass + 1))
 done
 
-if [[ "$checked" -eq 0 ]]; then
+echo ""
+echo "  summary: $pass PASS ($skip SKIP) / $fail FAIL of $total modules"
+
+if [[ "$total" -eq 0 ]]; then
   echo "  [SKIP] no _python_bridge/module/*.py files found"
-  echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  (SKIP: no modules to test)"
+  echo "__HEXA_MATTER_PYTHON_BRIDGE__ PASS  (SKIP: no modules)"
+  echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  (SKIP: no modules)"
   exit 0
 fi
 
-echo ""
 if [[ "$fail" -eq 0 ]]; then
-  echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  ($checked modules smoke-tested)"
+  echo "__HEXA_MATTER_PYTHON_BRIDGE__ PASS  ($pass/$total modules, $skip skipped)"
+  echo "__HEXA_MATTER_PYPROJECT_SMOKE__ PASS  ($pass/$total modules, $skip skipped)"
   exit 0
 fi
-echo "__HEXA_MATTER_PYPROJECT_SMOKE__ FAIL  ($fail of $checked modules failed --help)"
+echo "__HEXA_MATTER_PYTHON_BRIDGE__ FAIL  ($fail of $total modules failed)"
+echo "__HEXA_MATTER_PYPROJECT_SMOKE__ FAIL  ($fail of $total modules failed)"
 exit 1

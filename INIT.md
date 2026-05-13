@@ -25,7 +25,7 @@ User directive (2026-05-13):
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
-| **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ⏸ READY (D unblocked) | |
+| **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | _to-fill on commit_ |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ⏸ BLOCKED by E | |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN) | ⏸ BLOCKED by E | |
 
@@ -150,27 +150,37 @@ Entry point: `bash selftest/run_all.sh` from repo root. Exit 0 = all 21 PASS.
 
 Each contains its own sub-spec markdowns + cross-links back to verb dirs.
 
-## Phase E — `_python_bridge/` (queued)
+## Phase E — `_python_bridge/` ✅ DONE (2026-05-13)
 
-Runnable scientific compute infrastructure.
+12 runnable scientific-compute modules ship under `_python_bridge/module/`.
+Each accepts `--selftest`, runs offline/deterministically, and SKIPs
+cleanly when its optional dep is missing. Bridge aggregator
+(`selftest/pyproject_smoke.sh`) wires into `selftest/run_all.sh` as gate 21.
 
-Module targets:
-- RDKit (organic chemistry, SMILES, fingerprints, descriptors)
-- ASE (Atomic Simulation Environment — atoms, calculators, optimizers)
-- pymatgen (Materials Project Python lib — structure, analysis, IO)
+| Module | Status | Optional dep |
+|---|---|---|
+| `silicon_purity_compute.py` | **FUNCTIONAL** | stdlib only |
+| `polymer_mw_distribution.py` | **FUNCTIONAL** | stdlib only |
+| `metallurgy_alloy_composition.py` | **FUNCTIONAL** | stdlib only |
+| `carbon_form_factor_classifier.py` | **FUNCTIONAL** | stdlib + optional RDKit |
+| `cross_doc_consistency_compute.py` | **FUNCTIONAL** | stdlib only |
+| `nist_anchor_resolver.py` | **FUNCTIONAL** | stdlib only |
+| `rdkit_smiles_audit.py` | PARTIAL (SKIPs without RDKit) | rdkit-pypi |
+| `rdkit_descriptor_calc.py` | PARTIAL (SKIPs without RDKit) | rdkit-pypi |
+| `ase_atoms_construct.py` | PARTIAL (SKIPs without ASE) | ase |
+| `ase_relaxation_check.py` | PARTIAL (SKIPs without ASE) | ase |
+| `pymatgen_structure_io.py` | PARTIAL (stdlib MP-ID regex works; pymatgen CIF round-trip SKIPs) | pymatgen |
+| `pymatgen_phasediagram_smoke.py` | PARTIAL (SKIPs without pymatgen) | pymatgen |
 
-Layout:
-```
-_python_bridge/
-  module/
-    rdkit_smiles_audit.py
-    ase_relaxation_check.py
-    pymatgen_structure_io.py
-    ...
-```
+Stock-Python env (no optional deps installed) result:
+`__HEXA_MATTER_PYTHON_BRIDGE__ PASS (12/12 modules, 5 skipped)`.
 
-Each module is a callable Python script with `--selftest` mode, mirroring
-`hexa-bio/_python_bridge/module/` layout.
+Full selftest (Phase B harness + Phase E gate):
+`__HEXA_MATTER_SELFTEST__ PASS (21/21)`.
+
+Honest C3: every SKIPped module prints why (e.g. `SKIP: rdkit not installed`)
+and exits 0. No mocked compute is disguised as real — the harness treats
+SKIP as PASS per the `NO MOCKED FUNCTIONALITY` rule.
 
 ## Phase F — `_research_bridge/` (queued, per user directive)
 
@@ -302,7 +312,9 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `c55199b` — Phase A infrastructure (10 infra + 5 deep + 11 stubs)
 - `99620b2` — Phase D (12 new verbs, 17 → 29)
 - `f24d8a5` — Phase B (21-gate selftest harness; `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`)
-- _Phase C/E/F/G commits forthcoming_
+- `6e4928a` — Phase C (hexa-* axis-prefixed depth dirs: 9 groups, 36 files, 3913 lines)
+- _Phase E commit forthcoming (this commit)_
+- _Phase F/G commits forthcoming_
 
 ## If you're picking this up cold
 

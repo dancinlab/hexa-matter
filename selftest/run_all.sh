@@ -12,7 +12,8 @@
 #     prc_yield, fas_dyeing_chemistry, silicon_purity
 #   Verb-specific (4): compound_semi_bandgap, magnetic_materials_curie,
 #     carbon_cnt_strength_honesty, mof_dac_economics_honesty
-#   Optional bonus (1): pyproject_smoke (SKIP until Phase E lands)
+#   Python bridge (1): pyproject_smoke (Phase E aggregator over 12 modules;
+#     SKIPs optional-dep modules cleanly when RDKit/ASE/pymatgen missing)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -73,7 +74,7 @@ run "magnetic_materials_curie_audit"  python3 "$HERE/magnetic_materials_curie_au
 run "carbon_cnt_strength_honesty_audit" python3 "$HERE/carbon_cnt_strength_honesty_audit.py"
 run "mof_dac_economics_honesty_audit" python3 "$HERE/mof_dac_economics_honesty_audit.py"
 
-# ── Optional bonus (1) — SKIP until Phase E ───────────────────
+# ── Phase E python bridge (1) — aggregator over 12 modules ────
 run "pyproject_smoke"                 bash    "$HERE/pyproject_smoke.sh"
 
 # ── Summary ──────────────────────────────────────────────────

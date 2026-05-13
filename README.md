@@ -11,6 +11,7 @@
 [![Verbs: 29 spec](https://img.shields.io/badge/verbs-29_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
 [![Selftest: 21/21 PASS](https://img.shields.io/badge/selftest-21%2F21_PASS-brightgreen.svg)](selftest/run_all.sh)
+[![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
 
 ---
 
@@ -148,7 +149,7 @@ bash selftest/run_all.sh                # exit 0 = all 21 gates PASS
 | Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
 | Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
 | Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
-| Bonus | 1 | `pyproject_smoke` (SKIP until Phase E lands) |
+| Bonus | 1 | `pyproject_smoke` — Phase E `_python_bridge/` aggregator (12 modules; SKIPs optional-dep modules cleanly) |
 
 Honesty constraints enforced by the selftest harness:
 - `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
@@ -157,6 +158,51 @@ Honesty constraints enforced by the selftest harness:
   "lab mm-scale, commercial 1–3 GPa"
 - `mof_dac_economics_honesty_audit` — magic-MOF $100/t must stay UNPROVEN
   with Climeworks $600–1000/t baseline cited
+
+## Python bridge (Phase E)
+
+`_python_bridge/` ships 12 runnable scientific-compute modules (Phase E,
+2026-05-13) backing material specs. Each module has a `--selftest` mode
+that runs offline / deterministically; modules with optional deps
+(RDKit / ASE / pymatgen) SKIP cleanly when the dep is missing.
+
+```
+_python_bridge/
+├── pyproject.toml                          # optional-dep declaration
+├── README.md                               # bridge overview
+└── module/
+    ├── rdkit_smiles_audit.py               # SMILES canonicalization (RDKit)
+    ├── rdkit_descriptor_calc.py            # MolWt / LogP / TPSA / HBA / HBD (RDKit)
+    ├── ase_atoms_construct.py              # Si / Fe / Cu crystal builders (ASE)
+    ├── ase_relaxation_check.py             # EMT relaxation smoke (ASE)
+    ├── pymatgen_structure_io.py            # CIF round-trip + MP-ID regex (pymatgen)
+    ├── pymatgen_phasediagram_smoke.py      # binary phase diagram smoke (pymatgen)
+    ├── silicon_purity_compute.py           # 9N → ppba arithmetic (stdlib)
+    ├── polymer_mw_distribution.py          # M_n / M_w / M_z / PDI (stdlib)
+    ├── metallurgy_alloy_composition.py     # wt-% ↔ at-% conversion (stdlib)
+    ├── carbon_form_factor_classifier.py    # CNT / diamond / fiber / etc. (stdlib + optional RDKit)
+    ├── cross_doc_consistency_compute.py    # README ↔ AXIS.md ↔ hexa.toml count check (stdlib)
+    └── nist_anchor_resolver.py             # NIST/CRC/ASM citation pattern parse (stdlib, offline)
+```
+
+Install optional deps:
+
+```bash
+pip install -e "_python_bridge[all]"        # RDKit + ASE + pymatgen
+pip install -e "_python_bridge[chem]"       # RDKit only
+pip install -e "_python_bridge[atomic]"     # ASE only
+pip install -e "_python_bridge[materials]"  # pymatgen only
+```
+
+Run the bridge aggregator (also wired into `selftest/run_all.sh`):
+
+```bash
+bash selftest/pyproject_smoke.sh    # exit 0 = all 12 modules PASS or SKIP-clean
+```
+
+raw#10 C3: no module applies n=6 lattice formulas to vendor / NIST / external
+data. Selftests are offline + deterministic; live external-DB fetch is
+Phase F (`_research_bridge/`, queued).
 
 ## Provenance
 
