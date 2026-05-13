@@ -24,7 +24,7 @@ User directive (2026-05-13):
 | **A** | 10 infra docs + 5 deep expansion + 11 stubs | ✅ DONE | `c55199b` |
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
-| **C** | `hexa-*` axis-prefixed depth dirs (9 groups) | ⏸ READY (D unblocked) | |
+| **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ⏸ READY (D unblocked) | |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ⏸ BLOCKED by E | |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN) | ⏸ BLOCKED by E | |
