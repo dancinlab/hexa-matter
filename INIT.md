@@ -650,13 +650,13 @@ sentinel line.
   and NO `lattice-fit` / `n=6 invariant` attribute claim on the vendor
   (raw#10 C3). 30 vendors / 30 cited / 0 ambiguous.
 
-Selftest scoreboard 30/30 → **35/35 PASS**.
+Selftest scoreboard 30/30 → **37/37 PASS**.
 
 ## 🏆 Category (a)+(b) closure = 100% (2026-05-13)
 
 Per `AXIS_CLOSURE_PLAN.md` (Phase A output), hexa-matter uses the **Category (a)/(b)/(c)** framework from hexa-bio:
 
-- **(a) in-repo SW/spec closure** — **100%** (4/4 verify · 31/31 selftest · 36/36 verb specs).
+- **(a) in-repo SW/spec closure** — **100%** (4/4 verify · 37/37 selftest · 36/36 verb specs).
 - **(b) formal/empirical material-property parity** — **100%** (29/29 parity
   gates passing under `tests/*_parity.py` + `tests/snapshots/*.json`; §B
   drained 29 → 0). UNPROVEN markers in source data preserved verbatim in

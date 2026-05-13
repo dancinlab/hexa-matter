@@ -191,7 +191,7 @@ is_external_verification: false + n6_lattice_fit_applied: false)). Run
 from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 31/31 PASS
+bash selftest/run_all.sh    # exit 0 = 37/37 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -199,7 +199,7 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "31/31"`, `python_bridge_modules = 12`,
+`selftest_pass = "37/37"`, `python_bridge_modules = 12`,
 `research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
 `parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2),
 `category_a_closed = true`, `category_b_closed = true`,
@@ -277,7 +277,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  31/31 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
+  37/37 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC/ASM/SEMI/
   ASTM/TAPPI/AATCC/ISO/vendor-datasheet anchored values matched against the
   spec corpus. 29 parity gates total → **ALL 29 ✅ CLOSED 2026-05-13** under

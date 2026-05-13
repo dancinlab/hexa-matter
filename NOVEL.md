@@ -567,6 +567,8 @@ UNVERIFIED at full-cell; cell engineering belongs to hexa-energy per
 CROSS_LINK §3.3. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13**
 — predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-bat-cath-drx-001.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+CROSS_LINK §3.3. raw#10 C3 honored.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
 #### 4.A.2 S-PAN Li-S cathode
 
@@ -649,6 +651,8 @@ typically 1–2% — falsifier targets full-cell evidence. raw#10 C3
 honored. **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored
 as `_absorption_bridge/universal_ff/predictions/hxm-bat-anode-li-metal-001.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+honored.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
 #### 4.A.6 Sucrose-derived hard-carbon Na-ion anode
 
@@ -778,6 +782,8 @@ HARD_WALL on environmental regulation; module-level CTM ratio loss
 UNVERIFIED. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13** —
 predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-pv-tandem-002.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+UNVERIFIED. raw#10 C3 honored.
+**Verb spec link**: see [`perovskite/perovskite.md`](perovskite/perovskite.md) (primary — top-cell perovskite material layer) and [`silicon/silicon.md`](silicon/silicon.md) (Si bottom-cell substrate, 1.12 eV E_g) — material-layer authorities for this candidate's chemistry.
 
 #### 4.A.12 All-perovskite 4T tandem photovoltaic (29% target)
 
@@ -1069,6 +1075,8 @@ to 0.1 mg/cm² is an active research target but NOT a closed milestone
 `hexa-energy` per CROSS_LINK §3.3. **SIM-NNP-PROXY status 2026-05-13** —
 predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-h2-elec-iro2-doped-001.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+`hexa-energy` per CROSS_LINK §3.3.
+**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) (electrocatalysis sub-section: EM-L15 IrO₂ OER + Pt-ORR anchors) — material-layer authority for this candidate's chemistry.
 
 Hypothesis (`hxm-n2-red-ru-cluster-001`): Ru subnano-cluster (≤ 1 nm)
 on N-doped carbon support for electrocatalytic N₂ reduction reaction
@@ -1153,6 +1161,8 @@ vendor as of 2026 — production-scale UNVERIFIED. **SIM-NNP-PROXY status
 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-te-half-zrnisn-001.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+vendor as of 2026 — production-scale UNVERIFIED.
+**Verb spec link**: see [`metallurgy/swordsmithing.md`](metallurgy/swordsmithing.md) — material-layer authority for this candidate's chemistry (ZrNiSn-based half-Heusler is an intermetallic / metallurgical material; the verb dir hosts the metallurgy spec).
 
 Hypothesis (`hxm-te-skutt-cosb3-001`): Filled CoSb₃ skutterudite —
 Yb_x Ba_y Co₄Sb₁₂ with multi-filler rattler concept (Yb + Ba + La
@@ -1825,6 +1835,7 @@ HMC binder pH ~ 10–11 ⇒ rebar corrosion HARD_WALL ⇒ glass-fiber
 **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-cement-mgo-co2neg-001.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link**: see [`concrete_tech/concrete-technology.md`](concrete_tech/concrete-technology.md) — material-layer authority for this candidate's chemistry (novel binder chemistry home; distinct from `concrete/concrete.md` which anchors OPC mix-design F-CON-Q* falsifiers).
 
 #### 4.D.7 Foams + transparent armor — 2 candidates
 
@@ -2478,6 +2489,7 @@ regen-MJ/kg target. Pairs with §3.7 `hxm-mof-dac-*` ledger.
 **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-co2-cap-mof-mfm-002.json`;
 per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link**: see [`mof/mof.md`](mof/mof.md) — material-layer authority for this candidate's chemistry (UNPROVEN $100/t DAC-economics marker home; Climeworks $600–1000/t baseline preserved in §9 anti-claims).
 
 ### 4.F.2 Environmental — H₂ storage (`h2-store`)
 
