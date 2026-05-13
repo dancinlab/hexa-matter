@@ -81,7 +81,7 @@ VERB_SPECS = (
 
 CANDIDATE_RE = re.compile(r"hxm-([a-z0-9]+)-([a-zA-Z0-9_-]+?)-([0-9]{3})")
 ROW_RE = re.compile(r"^\|\s*`(hxm-[a-zA-Z0-9_-]+)`\s*\|(.+)$")
-SECTION_RE = re.compile(r"^###\s+(3\.\d+)\s+(.*)$")
+SECTION_RE = re.compile(r"^###\s+(3\.\d+|4\.[A-Z](?:\.\d+)?)\s+(.*)$")
 PATH_REF_RE = re.compile(r"`([a-z0-9_-][a-z0-9_/.-]*\.md)`")
 SISTER_URL_RE = re.compile(r"https?://([^/\s)]+)/([^/\s)]+)/(hexa-[a-z0-9-]+)")
 
