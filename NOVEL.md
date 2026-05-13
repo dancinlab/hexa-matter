@@ -90,6 +90,7 @@ Status tags:
 | `SIM-DFT`            | DFT-level band structure / formation energy via pymatgen + MP comparison     |
 | `SIM-MD`             | MD relaxation (ASE / LAMMPS-handle) — structural stability check            |
 | `SIM-NNP`            | Universal force-field (MACE / SchNet / ALIGNN / CHGNet / M3GNet) verdict via `_absorption_bridge/universal_ff/` |
+| `SIM-NNP-PROXY`      | Universal-FF predicted value vendored from peer-reviewed proxy literature; NOT measurement (raw#10 C3); status does NOT promote to EXTERNAL-VERIFIED |
 | `SYNTH-ROUTE`        | Retrosynthesis path proposed (literature precedent or de-novo path)          |
 | `UNVERIFIED`         | Default state — Category (c) wet-lab verification not performed              |
 | `WET-LAB-PROPOSED`   | Synthesis bench parameters drafted; awaiting external partner                |
@@ -557,14 +558,15 @@ Status DESIGN.
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-bat-cath-drx-001` | bat-cath | Li-Mn-Nb-Ti DRX rock-salt | Li-rich disordered rock-salt, Nb/Ti co-substituted | DESIGN | F-BAT-CATH-1: capacity < 280 mAh/g @ 0.1C OR avg V < 3.4 V vs Li/Li+ in 1M LiPF6 EC/DMC → FAIL |
+| `hxm-bat-cath-drx-001` | bat-cath | Li-Mn-Nb-Ti DRX rock-salt | Li-rich disordered rock-salt, Nb/Ti co-substituted | SIM-NNP-PROXY | F-BAT-CATH-1: capacity < 280 mAh/g @ 0.1C OR avg V < 3.4 V vs Li/Li+ in 1M LiPF6 EC/DMC → FAIL |
 
 **Risk-flags**: oxygen-loss HARD_WALL on 1st cycle (Lee 2014 + Manthiram
 2020 review — oxygen redox is intrinsic to high-cap DRX); Mn dissolution
 UNVERIFIED at extended cycling above 4.4 V; cation-mixing kinetics
 UNVERIFIED at full-cell; cell engineering belongs to hexa-energy per
-CROSS_LINK §3.3. raw#10 C3 honored.
-**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
+CROSS_LINK §3.3. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13**
+— predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-bat-cath-drx-001.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.A.2 S-PAN Li-S cathode
 
@@ -636,7 +638,7 @@ Status DESIGN.
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-bat-anode-li-metal-001` | bat-anode | 50µm Li foil on 3D Cu | pressed Li-metal foil + 3D Cu host | DESIGN | F-BAT-ANODE-1: CE < 99.5% after 500 cycles in carbonate OR dendrite penetration → FAIL |
+| `hxm-bat-anode-li-metal-001` | bat-anode | 50µm Li foil on 3D Cu | pressed Li-metal foil + 3D Cu host | SIM-NNP-PROXY | F-BAT-ANODE-1: CE < 99.5% after 500 cycles in carbonate OR dendrite penetration → FAIL |
 
 **Risk-flags**: Li-metal SEI HARD_WALL — SEI instability remains the
 dominant failure mode in carbonate electrolyte (Xu 2014 + Cui 2017
@@ -644,8 +646,9 @@ reviews); commercial cell engineering belongs to hexa-energy per
 CROSS_LINK §3.3 (cycling protocol / stack pressure / separator /
 electrolyte volume all out-of-repo); full-cell vs half-cell CE gap
 typically 1–2% — falsifier targets full-cell evidence. raw#10 C3
-honored.
-**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
+honored. **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored
+as `_absorption_bridge/universal_ff/predictions/hxm-bat-anode-li-metal-001.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.A.6 Sucrose-derived hard-carbon Na-ion anode
 
@@ -765,15 +768,16 @@ Status DESIGN.
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-pv-tandem-002` | pv | perovskite-Si 2T tandem (1.68/1.12 eV) (extends existing 001) | 2T monolithic perovskite-Si with SAM contacts | DESIGN | F-PV-3: certified-aperture PCE < 32% OR T80 < 1000h @ ISOS-L1 → FAIL |
+| `hxm-pv-tandem-002` | pv | perovskite-Si 2T tandem (1.68/1.12 eV) (extends existing 001) | 2T monolithic perovskite-Si with SAM contacts | SIM-NNP-PROXY | F-PV-3: certified-aperture PCE < 32% OR T80 < 1000h @ ISOS-L1 → FAIL |
 
 **Risk-flags**: Br/I segregation in mixed-halide wide-bandgap perovskite
 HARD_WALL under operating light (Hoke effect); SAM contact ageing
 UNVERIFIED at 25-yr field deployment (25-yr lifetime UNPROVEN for any
 perovskite cell at commodity scale); Pb halide migration to encapsulant
 HARD_WALL on environmental regulation; module-level CTM ratio loss
-UNVERIFIED. raw#10 C3 honored.
-**Verb spec link**: see [`perovskite/perovskite.md`](perovskite/perovskite.md) (primary — top-cell perovskite material layer) and [`silicon/silicon.md`](silicon/silicon.md) (Si bottom-cell substrate, 1.12 eV E_g) — material-layer authorities for this candidate's chemistry.
+UNVERIFIED. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13** —
+predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-pv-tandem-002.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.A.12 All-perovskite 4T tandem photovoltaic (29% target)
 
@@ -1052,7 +1056,7 @@ Power / Plug Power / Cummins vendor baselines).
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
 |--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
-| `hxm-h2-elec-iro2-doped-001` | cat | Ir-Ru oxide OER PEM | Ir₀.₇Ru₀.₃O₂ on Ti mesh; ≤ 1 mg-Ir/cm² | DESIGN | F-H2-ELEC-IRO2-1: η @ 10 mA/cm² > 250 mV OR Ir loading > 1 mg/cm² for commodity scale → FAIL |
+| `hxm-h2-elec-iro2-doped-001` | cat | Ir-Ru oxide OER PEM | Ir₀.₇Ru₀.₃O₂ on Ti mesh; ≤ 1 mg-Ir/cm² | SIM-NNP-PROXY | F-H2-ELEC-IRO2-1: η @ 10 mA/cm² > 250 mV OR Ir loading > 1 mg/cm² for commodity scale → FAIL |
 
 **Risk-flags**: **Ir scarcity HARD_WALL** — global Ir production ~ 8
 t/yr, PEM electrolyzer roll-out to 100 GW would require ≥ 30 t-Ir/yr
@@ -1062,8 +1066,9 @@ volatile loss); long-term oxide-support corrosion at j > 2 A/cm²
 UNVERIFIED above 50 000 h commercial-warranty target; loading-reduction
 to 0.1 mg/cm² is an active research target but NOT a closed milestone
 (Strasser 2023 Chem. Rev.); cell-level integration owned by
-`hexa-energy` per CROSS_LINK §3.3.
-**Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) (electrocatalysis sub-section: EM-L15 IrO₂ OER + Pt-ORR anchors) — material-layer authority for this candidate's chemistry.
+`hexa-energy` per CROSS_LINK §3.3. **SIM-NNP-PROXY status 2026-05-13** —
+predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-h2-elec-iro2-doped-001.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 Hypothesis (`hxm-n2-red-ru-cluster-001`): Ru subnano-cluster (≤ 1 nm)
 on N-doped carbon support for electrocatalytic N₂ reduction reaction
@@ -1133,7 +1138,7 @@ spec).
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
 |--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
-| `hxm-te-half-zrnisn-001` | thermo | ZrNiSn half-Heusler | Zr/Hf mass-fluctuation + Sb dop; mid-T waste-heat | DESIGN | F-TE-HALF-ZRNISN-1: ZT @ 800 K < 1.5 OR 1000 K stability < 100 h → FAIL |
+| `hxm-te-half-zrnisn-001` | thermo | ZrNiSn half-Heusler | Zr/Hf mass-fluctuation + Sb dop; mid-T waste-heat | SIM-NNP-PROXY | F-TE-HALF-ZRNISN-1: ZT @ 800 K < 1.5 OR 1000 K stability < 100 h → FAIL |
 
 **Risk-flags**: Sn-vacancy concentration drift at high-T HARD_WALL
 (volatilization above 1000 K → composition shift → ZT drop per Berry
@@ -1144,8 +1149,10 @@ contact resistance (matching `hxm-thermo-snse-001` discussion at §3.21).
 Vendor authority: **Marlow Industries** (Bi-Te modules, not half-Heusler
 — half-Heusler modules NOT yet commercial); **Phononic / Komatsu** (TE
 module integration). half-Heusler MODULES NOT YET COMMERCIAL at any
-vendor as of 2026 — production-scale UNVERIFIED.
-**Verb spec link**: see [`metallurgy/swordsmithing.md`](metallurgy/swordsmithing.md) — material-layer authority for this candidate's chemistry (ZrNiSn-based half-Heusler is an intermetallic / metallurgical material; the verb dir hosts the metallurgy spec).
+vendor as of 2026 — production-scale UNVERIFIED. **SIM-NNP-PROXY status
+2026-05-13** — predicted value vendored as
+`_absorption_bridge/universal_ff/predictions/hxm-te-half-zrnisn-001.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 Hypothesis (`hxm-te-skutt-cosb3-001`): Filled CoSb₃ skutterudite —
 Yb_x Ba_y Co₄Sb₁₂ with multi-filler rattler concept (Yb + Ba + La
@@ -1797,7 +1804,7 @@ promotion per `NOVEL_ROADMAP.md` §5.
 
 | ID                              | class  | target             | brief                          | status | falsifier                             |
 |---------------------------------|--------|--------------------|--------------------------------|--------|---------------------------------------|
-| `hxm-cement-mgo-co2neg-001`     | cement | MgO-based, CO₂-neg | reactive-MgO + HMC binder (TIER-1) | DESIGN | F-CEMENT-1: net CO₂ emission per m³ cured > -0.1 t OR 28-day σ_c < 30 MPa → FAIL |
+| `hxm-cement-mgo-co2neg-001`     | cement | MgO-based, CO₂-neg | reactive-MgO + HMC binder (TIER-1) | SIM-NNP-PROXY | F-CEMENT-1: net CO₂ emission per m³ cured > -0.1 t OR 28-day σ_c < 30 MPa → FAIL |
 | `hxm-cement-ccs-cured-001`      | cement | Solidia-class      | CO₂-cured wollastonite calcium silicate | DESIGN | F-CEMENT-2: 28-day σ_c < 40 MPa OR CO₂ uptake < 100 kg/m³ → FAIL |
 
 **Risk-flags**: **MgO source carbon-footprint accounting UNVERIFIED**
@@ -1815,7 +1822,9 @@ HARD_WALL — Solidia + CarbonCure combined < 0.1% market share
 2024; reinforcement steel passivation requires pH > 12.5, MgO-
 HMC binder pH ~ 10–11 ⇒ rebar corrosion HARD_WALL ⇒ glass-fiber
 + basalt-fiber reinforcement (out-of-software, Category (c)).
-**Verb spec link**: see [`concrete_tech/concrete-technology.md`](concrete_tech/concrete-technology.md) — material-layer authority for this candidate's chemistry (novel binder chemistry home; distinct from `concrete/concrete.md` which anchors OPC mix-design F-CON-Q* falsifiers).
+**SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
+`_absorption_bridge/universal_ff/predictions/hxm-cement-mgo-co2neg-001.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.7 Foams + transparent armor — 2 candidates
 
@@ -2456,7 +2465,7 @@ cheapest sorbent class but bottlenecked on oxidative-amine decomposition
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-co2-cap-mof-mfm-002` | co2-cap | MFM-MOF DAC variant | functionalized MOF-MFM, distinct from `hxm-mof-dac-001`; cap > 1.5 mmol/g @ 400 ppm, regen < 2 MJ/kg-CO₂ | DESIGN | F-DAC-MOF-1: capacity @ 400 ppm < 1.5 mmol/g OR regen energy > 2 MJ/kg-CO₂ → FAIL |
+| `hxm-co2-cap-mof-mfm-002` | co2-cap | MFM-MOF DAC variant | functionalized MOF-MFM, distinct from `hxm-mof-dac-001`; cap > 1.5 mmol/g @ 400 ppm, regen < 2 MJ/kg-CO₂ | SIM-NNP-PROXY | F-DAC-MOF-1: capacity @ 400 ppm < 1.5 mmol/g OR regen energy > 2 MJ/kg-CO₂ → FAIL |
 | `hxm-co2-cap-amine-002` | co2-cap | TEPA / mesoporous silica | tetraethylenepentamine-grafted SBA-15-class silica DAC sorbent | DESIGN | F-DAC-AMINE-1: CO₂ capacity < 2 mmol/g OR amine oxidation > 5%/cycle → FAIL |
 
 **Risk-flags**: magic-MOF DAC $100/t UNPROVEN preserved verbatim
@@ -2466,7 +2475,9 @@ O₂ HARD_WALL on calendar-life durability; volumetric throughput at
 ambient 400 ppm (~ 1.5 kg-CO₂/h per m³ sorbent best-case) UNVERIFIED at
 plant scale; balance-of-plant heat-exchange energy NOT included in the
 regen-MJ/kg target. Pairs with §3.7 `hxm-mof-dac-*` ledger.
-**Verb spec link**: see [`mof/mof.md`](mof/mof.md) — material-layer authority for this candidate's chemistry (UNPROVEN $100/t DAC-economics marker home; Climeworks $600–1000/t baseline preserved in §9 anti-claims).
+**SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
+`_absorption_bridge/universal_ff/predictions/hxm-co2-cap-mof-mfm-002.json`;
+per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 ### 4.F.2 Environmental — H₂ storage (`h2-store`)
 

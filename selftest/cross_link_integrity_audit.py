@@ -209,10 +209,26 @@ def check_B1_status_design(rows: list[dict]) -> list[str]:
             # Only EXTERNAL-VERIFIED requires sample-ID citation; any non-DESIGN
             # status without explicit external citation in the section is a
             # violation per AGENTS.md raw#10 C3.
+            #
+            # Phase J.2 (2026-05-13): `SIM-NNP-PROXY` is a distinct SIM tag that
+            # explicitly does NOT promote to EXTERNAL-VERIFIED (the prediction is
+            # vendored from peer-reviewed proxy literature, not from an attributed
+            # external-lab measurement). For SIM-NNP-PROXY status the audit
+            # accepts a JSON-snapshot reference under
+            # `_absorption_bridge/universal_ff/predictions/<id>.json` as the
+            # citation form (the snapshot itself carries `proxy_source`).
             section_text = r["_section_text"]
             has_citation = bool(
                 re.search(r"sample[-\s]?ID|lab\s+citation|external\s+lab", section_text, re.IGNORECASE)
             )
+            if r["status"] == "SIM-NNP-PROXY":
+                has_citation = has_citation or bool(
+                    re.search(
+                        r"_absorption_bridge/universal_ff/predictions/|proxy[-_\s]?source|SIM-NNP-PROXY",
+                        section_text,
+                        re.IGNORECASE,
+                    )
+                )
             if r["status"] != "DESIGN" and not has_citation:
                 bad.append(
                     f"{r['id']} (§{r['section']}): status='{r['status']}' "

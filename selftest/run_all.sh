@@ -170,6 +170,16 @@ run "vendor_citation_completeness_audit" python3 "$HERE/vendor_citation_complete
 # Per raw#10 C3 + SPEC_FIRST: cross-link annotations are nav links, NOT
 # promotion to EXTERNAL-VERIFIED; UNPROVEN/UNVERIFIED markers stay untouched.
 run "novel_verb_xref_audit"           python3 "$HERE/novel_verb_xref_audit.py"
+# ── Phase J.2 universal-FF proxy predictions (1) — Tier-1 NOVEL promotion gate ──
+# 2026-05-13: validates `_absorption_bridge/universal_ff/predictions/*.json`
+# snapshots that pin Tier-1 NOVEL candidates at status SIM-NNP-PROXY (raw#10
+# C3: is_measurement: false + is_external_verification: false +
+# n6_lattice_fit_applied: false on every snapshot). 7 Tier-1 IDs required:
+# hxm-pv-tandem-002 · hxm-bat-cath-drx-001 · hxm-bat-anode-li-metal-001 ·
+# hxm-co2-cap-mof-mfm-002 · hxm-te-half-zrnisn-001 · hxm-cement-mgo-co2neg-001
+# · hxm-h2-elec-iro2-doped-001. Defensive: numbered "next available" — if
+# Phase J.1 (gates #31-33) has already merged, integrator reconciles.
+run "uff_predictions_smoke"           bash    "$HERE/uff_predictions_smoke.sh"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

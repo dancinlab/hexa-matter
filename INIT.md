@@ -36,6 +36,7 @@ User directive (2026-05-13):
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
 | **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
 | **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
+| **J.2** | 7 Tier-1 NOVEL DESIGN → SIM-NNP-PROXY promotion (`hxm-pv-tandem-002` · `hxm-bat-cath-drx-001` · `hxm-bat-anode-li-metal-001` · `hxm-co2-cap-mof-mfm-002` · `hxm-te-half-zrnisn-001` · `hxm-cement-mgo-co2neg-001` · `hxm-h2-elec-iro2-doped-001`); 7 `_absorption_bridge/universal_ff/predictions/*.json` snapshots vendored from peer-reviewed proxy literature (raw#10 C3: `is_measurement: false` + `is_external_verification: false` + `n6_lattice_fit_applied: false` on every snapshot); new `SIM-NNP-PROXY` status tag added to NOVEL.md §2 (distinct from EXTERNAL-VERIFIED); UNPROVEN markers verbatim (magic-MOF DAC $100/t · SEI HARD_WALL · Cr poisoning · Ir scarcity); new top-level selftest gate `selftest/uff_predictions_smoke.sh` (defensive numbering — next available slot) | ✅ DONE | _(this commit)_ |
 
 ### 🏆 100% (a)+(b) closure reached 2026-05-13
 
@@ -655,7 +656,7 @@ Selftest scoreboard 30/30 → **35/35 PASS**.
 
 Per `AXIS_CLOSURE_PLAN.md` (Phase A output), hexa-matter uses the **Category (a)/(b)/(c)** framework from hexa-bio:
 
-- **(a) in-repo SW/spec closure** — **100%** (4/4 verify · 30/30 selftest · 36/36 verb specs).
+- **(a) in-repo SW/spec closure** — **100%** (4/4 verify · 31/31 selftest · 36/36 verb specs).
 - **(b) formal/empirical material-property parity** — **100%** (29/29 parity
   gates passing under `tests/*_parity.py` + `tests/snapshots/*.json`; §B
   drained 29 → 0). UNPROVEN markers in source data preserved verbatim in

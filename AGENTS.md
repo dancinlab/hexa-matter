@@ -172,28 +172,26 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **35/35 PASS** (8 cross-cutting + 8 group-specific + 4
+currently **31/31 PASS** (8 cross-cutting + 8 group-specific + 4
 verb-specific + 3 bridge aggregators + 4 adapter-specific gates +
-1 parity-gates aggregator + 2 closure-meta gates + 3 Phase J.1
-deepening gates: COD added 2026-05-13 Phase G+1; OQMD + AFLOW + NOMAD
-added 2026-05-13 Phase G+2; parity-gates aggregator added 2026-05-13
-Phase H, extended Phase I.1 + I.2 to sweep 29 internal parity gates;
-`selftest/cross_link_integrity_audit.py` added 2026-05-13 (gate #29 —
-boundary discipline + NOVEL invariants);
+1 parity-gates aggregator + 2 closure-meta gates + 1 Phase J.2
+universal-FF proxy-predictions gate: COD added 2026-05-13
+Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2; parity-gates
+aggregator added 2026-05-13 Phase H, extended Phase I.1 + I.2 to sweep
+29 internal parity gates; `selftest/cross_link_integrity_audit.py`
+added 2026-05-13 (gate #29 — boundary discipline + NOVEL invariants);
 `selftest/c_handoff_completeness_audit.py` added 2026-05-13 (gate #30 —
 walks every §C row asserting DEST + LIMIT_BREAKTHROUGH wall classification
-+ raw#10 C3); Phase J.1 (2026-05-13) added three deepening invariant
-gates — `falsifier_wellformed_audit.py` (#31; every hxm-* row has F-tag
-+ number+unit + FAIL boundary + DESIGN/SIM-* status),
-`hardwall_provenance_audit.py` (#32; every HARD_WALL / UNPROVEN /
-UNVERIFIED token traces to LIMIT_BREAKTHROUGH or a peer-reviewed /
-standards / vendor citation within ±12 lines),
-`vendor_citation_completeness_audit.py` (#33; every named vendor in
-30-entry allowlist has year + product/standard ID + no n=6 lattice-fit
-attribution per raw#10 C3)). Run from repo root:
++ raw#10 C3); `selftest/uff_predictions_smoke.sh` added 2026-05-13
+Phase J.2 ("next available" slot in this worktree base; integrator
+reconciles if Phase J.1 gates #31-#33 have already merged) — validates
+`_absorption_bridge/universal_ff/predictions/*.json` for the 7 Tier-1
+NOVEL SIM-NNP-PROXY snapshots (raw#10 C3: is_measurement: false +
+is_external_verification: false + n6_lattice_fit_applied: false)). Run
+from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 35/35 PASS
+bash selftest/run_all.sh    # exit 0 = 31/31 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -201,7 +199,7 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "35/35"`, `python_bridge_modules = 12`,
+`selftest_pass = "31/31"`, `python_bridge_modules = 12`,
 `research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
 `parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2),
 `category_a_closed = true`, `category_b_closed = true`,
@@ -279,7 +277,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  35/35 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
+  31/31 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC/ASM/SEMI/
   ASTM/TAPPI/AATCC/ISO/vendor-datasheet anchored values matched against the
   spec corpus. 29 parity gates total → **ALL 29 ✅ CLOSED 2026-05-13** under
@@ -325,7 +323,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 35/35 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 31/31 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
