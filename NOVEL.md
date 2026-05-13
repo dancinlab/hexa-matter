@@ -51,7 +51,7 @@ hxm-<class>-<target>-<NNN>
 | Component   | Values                                                                |
 |-------------|-----------------------------------------------------------------------|
 | prefix      | `hxm-` (hexa-matter)                                                  |
-| class-tag   | `sc` (superconductor) · `cath` (cathode) · `anode` · `se` (solid electrolyte) · `pv` (photovoltaic) · `hea` (high-entropy alloy) · `bmg` (bulk metallic glass) · `mof` · `2d` · `pero` (perovskite) · `mag` (magnetic) · `ela` (elastomer) · `adh` (adhesive) · `pol` (polymer) · `cer` (ceramic) · `cnt` (carbon nanotube) · `bio` (biodegradable polymer) · `mxene` · `meta` (metamaterial) · `top` (topological) · `aero` (aerogel) · `pcm` (phase-change material) · `liq` (liquid metal) |
+| class-tag   | `sc` (superconductor) · `cath` (cathode) · `anode` · `se` (solid electrolyte) · `pv` (photovoltaic) · `hea` (high-entropy alloy) · `bmg` (bulk metallic glass) · `mof` · `2d` · `pero` (perovskite) · `mag` (magnetic) · `ela` (elastomer) · `adh` (adhesive) · `pol` (polymer) · `cer` (ceramic) · `cnt` (carbon nanotube) · `bio` (biodegradable polymer) · `mxene` · `meta` (metamaterial) · `top` (topological) · `aero` (aerogel) · `pcm` (phase-change material) · `liq` (liquid metal) · `cat` (catalyst) · `ferro` (ferroelectric) · `thermo` (thermoelectric) · `membrane` (gas-separation / desalination membrane) · `piezo` (piezoelectric) · `spin` (spintronic) · `quantum` (quantum-defect host) · `photovoltaic` (alias of `pv` for tandem / multi-junction stacks) |
 | target-tag  | 3-6 char target identifier (composition / property goal)              |
 | NNN         | 3-digit serial number per (class, target)                             |
 
@@ -334,6 +334,150 @@ cell level; nano-Si pulverization at > 15 wt% Si still open; cost-parity
 to graphite ($/kWh) HARD_WALL; full-cell vs. half-cell discrepancy
 typically 20-30% in cycle life. Pairs with `hxm-cath-*` for full-cell
 spec (out-of-repo per Category (c)).
+
+### 3.19 Non-PGM ORR catalysts (Fe-N-C atomically-dispersed)
+
+Hypothesis: an Fe-N-C catalyst with atomically-dispersed Fe-N₄ sites on
+hierarchical porous carbon, derived from a Zn/Fe bimetallic ZIF precursor
+pyrolyzed at 950 °C under Ar then NH₃-activated, can reach acid-PEMFC
+ORR half-wave potential E₁/₂ ≥ 0.85 V vs. RHE in 0.5 M H₂SO₄ while
+keeping ≤ 30 mV degradation after 30 k AST cycles (0.6–1.0 V, O₂).
+Vendor / lab authority: Zelenay group (LANL), Wu group (UB), Pivovar
+(NREL), Atanassov (UC Irvine), Dodelet (INRS, pioneering Fe-N-C corpus
+since 2009 Science) — their published EXAFS / Mössbauer / RDE data
+govern (raw#10 C3, NOT lattice-fit). Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-cat-fenc-001`       | cat   | Fe-N₄/C (Zn-Fe-ZIF derived) | acid-PEMFC ORR E₁/₂ ≥ 0.85 V vs. RHE; ≤ 30 mV loss @ 30k AST | DESIGN | F-CAT-1: E₁/₂ < 0.80 V vs. RHE in 0.5 M H₂SO₄ rotating-disk at 1600 rpm OR EXAFS-falsifier — Fe K-edge first-shell coordination ≠ 4 N at R ≈ 2.0 Å, or Fe-Fe scatter > 5% of Fe-N intensity (indicates clustered Fe rather than atomically-dispersed Fe-N₄) → FAIL |
+
+**Risk-flags**: Fenton-active Fe leaching under operating PEM conditions
+HARD_WALL (degrades ionomer); MEA-level vs. RDE half-cell discrepancy
+typically 30–50% in mass activity (Pivovar 2020 J. Electrochem. Soc.);
+NH₃-activation step adds N-content but can volatilize active sites;
+$/kW parity to Pt/C UNPROVEN at MEA stack scale. Anti-claim preserved:
+no atomically-dispersed Fe-N-C has yet matched Pt/C 4-electron ORR
+selectivity (1–2% H₂O₂ yield) at long-term stability per DOE 2025
+hydrogen-fuel-cell milestone.
+
+### 3.20 Ferroelectric thin films (HfO₂-ZrO₂)
+
+Hypothesis: a Hf₀.₅Zr₀.₅O₂ (HZO) thin film, ALD-deposited at 280 °C
+between TiN electrodes with a 10-nm film thickness and rapid thermal
+anneal at 500 °C in N₂, can stabilize the metastable orthorhombic
+Pca2₁ (o-phase) ferroelectric phase with remanent polarization
+P_r ≥ 25 µC/cm² AND endurance ≥ 10¹¹ cycles at ±3 V before wake-up /
+fatigue degrades P_r by > 30%. Vendor / lab authority: Böscke (NaMLab/
+Dresden 2011, original HZO ferroelectric discovery), Mikolajick group
+(NaMLab/TU Dresden), Tsinghua HfZrO ferroelectric memory group,
+GlobalFoundries 22FDX FeFET, Ferroelectric Memory Company (FMC) —
+their published P-E loops + retention numbers govern (raw#10 C3).
+Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-ferro-hzo-001`      | ferro | Hf₀.₅Zr₀.₅O₂ / TiN | 10-nm o-phase HZO; P_r ≥ 25 µC/cm²; endurance ≥ 10¹¹ cyc @ ±3 V | DESIGN | F-FERRO-1: P_r < 15 µC/cm² at 10 nm OR endurance < 10⁹ cycles before P_r fatigues > 30% OR 10-yr retention extrapolation falls < 60% of initial P_r at 85 °C → FAIL |
+
+**Risk-flags**: o-phase stabilization is geometry / electrode /
+thickness / cap-layer dependent — thinning < 5 nm or thickening > 30 nm
+loses ferroelectricity (NaMLab 2018 review); wake-up effect (P_r grows
+in first 10³–10⁵ cycles) NOT a defect but precursor distinction, can
+mask early fatigue; imprint shift > 0.3 V after 10⁸ cycles common; CMOS
+back-end thermal-budget compatibility (≤ 500 °C) UNVERIFIED for
+high-volume embedded-FeRAM nodes. Tsinghua HZO group's published P_r ~
+20–30 µC/cm² typical; this candidate's ≥ 25 µC/cm² is an aspirational
+upper-quartile target, not a record claim.
+
+### 3.21 Thermoelectrics (SnSe polycrystalline)
+
+Hypothesis: a Na-doped polycrystalline SnSe (Sn₀.₉₈Na₀.₀₂Se) with
+controlled grain orientation along the b-axis via hot-pressing of
+mechanically-alloyed nanoparticles can sustain dimensionless figure-
+of-merit ZT ≥ 2.0 at 800 K along the in-plane direction, while keeping
+mechanical strength σ_compressive ≥ 50 MPa (single-crystal SnSe is too
+brittle for module integration; Zhao 2014 Nature single-crystal ZT ~
+2.6 at 923 K is UNREPRODUCED at polycrystalline scale per multiple
+retraction/reanalysis cycles 2016–2021). Lab authority: Kanatzidis
+group (Northwestern), Zhao/Tian-Xiang SnSe group (SUSTech / Beihang),
+Snyder group (Northwestern), Pei group (Tongji), Wuttig group (Aachen)
+— their published ZT(T) curves with explicit κ_lat ± error bars govern
+(raw#10 C3). Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-thermo-snse-001`    | thermo| Sn₀.₉₈Na₀.₀₂Se polycrystal | b-axis textured hot-pressed; ZT ≥ 2.0 @ 800 K | DESIGN | F-THERMO-1: in-plane ZT < 1.5 @ 800 K via 4-probe + laser-flash on independently-measured pellet (≥ 3 labs, ZT_avg) OR thermal conductivity κ_total > 0.8 W/m·K @ 800 K (indicates phonon-scattering target missed) OR mechanical σ_compressive < 30 MPa → FAIL |
+
+**Risk-flags**: SnSe single-crystal ZT > 2.5 record HARD_WALL not
+reproduced at polycrystal; ultra-low κ_lat ~ 0.2 W/m·K in single
+crystals often turns into 0.5–0.7 W/m·K polycrystal (grain-boundary
+phonons added); Se volatilization above 700 K in air UNVERIFIED for
+long-duration modules (oxidation to SnO₂ + SeO₂ at hot-end); module-
+level ZT typically 30–50% below pellet ZT due to contact resistance
+(Cu/Ni metallization to SnSe interfacial layer UNVERIFIED at MTBF
+scale). Vendor authority: Marlow Industries / Ferrotec / European
+Thermodynamics on Bi₂Te₃ modules — SnSe modules NOT yet commercial.
+
+### 3.22 Gas-separation membranes (MOF mixed-matrix)
+
+Hypothesis: a ZIF-8 / 6FDA-DAM mixed-matrix membrane (MMM) with 30
+wt% ZIF-8 loading, prepared by in-situ ZIF growth in polymer dope
+followed by phase-inversion casting, can simultaneously achieve H₂
+permeance ≥ 500 GPU AND H₂/N₂ selectivity ≥ 100 at 35 °C, 4 bar
+feed pressure, while resisting plasticization at CO₂ partial pressure
+up to 10 bar (CO₂/CH₄ selectivity loss < 20%). Vendor / lab authority:
+KAUST advanced membranes group (Pinnau, Han, Lai), MTR Inc. (Membrane
+Technology and Research) polyimide membranes, Air Products /
+Helmholtz-Zentrum Geesthacht MMM corpus, Sandia ZIF-8 membrane group
+— their published Robeson-plot positions govern (raw#10 C3).
+Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-membrane-zif8-001`  | membrane | ZIF-8 / 6FDA-DAM MMM | 30 wt% loading; H₂ permeance ≥ 500 GPU; H₂/N₂ sel ≥ 100 | DESIGN | F-MEMBRANE-1: H₂ permeance < 200 GPU at 35 °C 4 bar OR H₂/N₂ selectivity < 50 (below 2008 Robeson upper bound) OR ZIF-8 sieve-in-cage interface void (revealed by SEM cross-section or filler-polymer adhesion via gas-permeance pressure-decay deviation > 25%) → FAIL |
+
+**Risk-flags**: MMM filler-polymer interface void is the #1 failure
+mode — voids destroy selectivity by Knudsen short-circuit; ZIF-8
+aperture 3.4 Å is gate-flexible (CO₂ ~ 3.3 Å, N₂ ~ 3.64 Å can both
+pass under elevated pressure breathing); long-term plasticization at
+high-pressure CO₂ HARD_WALL for glassy polyimide hosts (Koros 2017
+review); scale-up from coupon to hollow-fiber module loses ~ 50% flux
+typically. KAUST membrane group is reference for top-quartile MMM
+fabrication; commercial vendor (MTR, Air Liquide MEDAL) hollow-fiber
+polyimide selectivity baseline H₂/N₂ ~ 50–80.
+
+### 3.23 Quantum-defect hosts (4H-SiC silicon-vacancy color center)
+
+Hypothesis: the negatively-charged silicon vacancy V_Si⁻ in 4H-SiC,
+generated by 2 MeV electron irradiation (10¹³ e⁻/cm²) of
+isotopically-purified ²⁸Si ²⁹Si-depleted ¹²C ¹³C-depleted 4H-SiC,
+followed by 600 °C anneal in Ar, can sustain spin-coherence time
+T₂ ≥ 1 ms at 300 K under dynamical-decoupling (CPMG-N, N up to 256
+pulses) while preserving optically-detected magnetic resonance
+contrast ≥ 1%. Lab authority: Awschalom group (U. Chicago / Argonne
+QIS center) — original V_Si⁻ qubit demonstrations in 4H-SiC at room
+temperature 2015 Nat. Mater.; Wrachtrup group (Stuttgart) — NV-center
+comparison; Son/Janzen group (Linköping) for SiC growth; STMicro and
+Coherent (II-VI) for commercial 4H-SiC wafer authority (raw#10 C3).
+Status DESIGN.
+
+| ID                       | class | target              | brief                          | status   | falsifier                             |
+|--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
+| `hxm-quantum-sicvv-001`  | quantum | V_Si⁻ in ²⁸Si/¹²C-enriched 4H-SiC | room-T spin qubit; T₂ ≥ 1 ms @ 300 K with CPMG-N=256 | DESIGN | F-QUANTUM-1: Hahn-echo T₂ < 100 µs at 300 K OR CPMG-256 T₂ < 1 ms OR ODMR contrast < 0.3% at 300 K OR isotopic enrichment fails to suppress nuclear-spin bath below natural-abundance baseline (¹³C 1.1%, ²⁹Si 4.7%) → FAIL |
+
+**Risk-flags**: room-T T₂ in natural-abundance 4H-SiC currently ~ 70
+µs (Soltamov 2019 Nat. Commun.); reaching ms requires both isotopic
+enrichment (²⁸Si, ¹²C) AND dynamical-decoupling — neither is
+commercially turn-key; isotopically-enriched ²⁸SiC growth UNVERIFIED
+at wafer scale (Si ²⁸Si CVD precursors available from Urenco/Eagle
+Picher but ¹²C feedstock for SiC growth is research-scale only);
+electron-irradiation damage at 2 MeV introduces unwanted V_C and
+divacancy defects competing with V_Si⁻; integrated-photonic coupling
+to V_Si⁻ ZPL at 916 nm HARD_WALL — only ~ 6% photons in zero-phonon
+line vs. NV-diamond ~ 3%, comparable but still small. NV-diamond
+sister candidate (not yet in ledger) would target T₂ > 1 ms at 300 K
+already demonstrated (Bar-Gill 2013) — SiC is preferred here for
+CMOS-compatibility (4H-SiC power-device wafers from Wolfspeed /
+STMicro / Infineon / ROHM scale).
 
 ---
 
