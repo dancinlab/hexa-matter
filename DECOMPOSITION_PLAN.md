@@ -1,12 +1,12 @@
 # DECOMPOSITION_PLAN — hexa-matter material taxonomy decomposition
 
-> **Created**: 2026-05-13 (Phase A elevation) · **Status**: PROPOSAL — Phase D execution queued
+> **Created**: 2026-05-13 (Phase A elevation) · **Status**: Phase D IMPLEMENTED 2026-05-13
 > **Sibling**: `AXIS.md` (7-group taxonomy) · `AXIS_CLOSURE_PLAN.md` (per-group closure)
 >
 > This document lays out how the 7 material groups decompose into the
-> current 17 verbs and the queued 12+ Phase D verbs. **No git moves
-> executed beyond v1.x scope** — Phase B (selftest), C (depth dirs),
-> D (new verbs) are sequenced after Phase A.
+> 17 v1.0.0 verbs and the 12 Phase D verbs (now **landed 2026-05-13**,
+> bringing total to **29 verbs**). Phase B (selftest), C (depth dirs)
+> remain queued; Phase D moved from PROPOSAL to IMPLEMENTED in this commit.
 
 ---
 
@@ -102,57 +102,51 @@ GROUP_FAS (2): fashion-textile, textile-dyeing
 
 ---
 
-## §3 Phase D — 12+ new verbs queued
+## §3 Phase D — 12 new verbs **IMPLEMENTED 2026-05-13**
 
-These are the candidate new verbs for Phase D (NOT in this Phase A commit; documented here for visibility):
+These are the Phase D verbs **now landed** (17 + 12 = **29 verbs**). Each spec lives at `<verb>/<verb>.md` and follows the silicon.md real-limits-first template (~ 250–310 lines per spec).
 
-### §3.1 GROUP_CER expansion (Phase D)
+### §3.1 GROUP_CER expansion (Phase D — IMPLEMENTED)
 
-| Verb | Why | Phase D priority |
-|------|-----|------------------|
-| compound-semi | GaN, SiC (device side), GaAs, InP, AlN — wide-bandgap cluster | HIGH (1 of 3) |
-| perovskite | ABO₃ structure family (BaTiO₃, PbZrO₃, LK-99 candidate, MAPbI₃ solar) | HIGH (2 of 3) — overlaps LIMIT_BREAKTHROUGH HARD_WALL row |
-| 2d-materials | graphene, h-BN, MoS₂, WSe₂, phosphorene | HIGH (3 of 3) |
+| Verb | Why | Status |
+|------|-----|--------|
+| compound-semi | GaN, SiC (material side), GaAs, InP, AlN — wide-bandgap cluster | ✅ IMPLEMENTED `compound-semi/compound-semi.md` |
+| perovskite | ABX₃ structure family (BaTiO₃, PZT, MAPbI₃ solar); LK-99 HARD_WALL UNPROVEN preserved | ✅ IMPLEMENTED `perovskite/perovskite.md` |
+| 2d-materials | non-carbon 2D (MoS₂, WSe₂, h-BN, phosphorene, MXene); carbon 2D in `carbon/` | ✅ IMPLEMENTED `2d-materials/2d-materials.md` |
+| mof | metal-organic frameworks (HKUST-1, ZIF-8, MOF-74, UiO-66, MIL-101, MOF-210); DAC economics UNPROVEN | ✅ IMPLEMENTED `mof/mof.md` |
+| carbon | activated C, glassy C, pyrolytic graphite, carbon fiber, CNT, diamond, fullerene; graphene depth in GRAPHENE-CARBON.md | ✅ IMPLEMENTED `carbon/carbon.md` |
 
-### §3.2 GROUP_POL expansion (Phase D)
+### §3.2 GROUP_POL expansion (Phase D — IMPLEMENTED)
 
-| Verb | Why | Phase D priority |
-|------|-----|------------------|
-| elastomer | natural rubber, SBR, EPDM, silicone, fluorosilicone — distinct from rigid POL | MEDIUM |
-| adhesive | adhesion mechanisms, cyanoacrylate, polyurethane structural | MEDIUM |
-| biodegradable-plastics | PLA, PHA, PBS, PHB, PCL | LOW (overlaps hexa-bio fermentation) |
+| Verb | Why | Status |
+|------|-----|--------|
+| elastomer | NR, SBR, EPDM, NBR, silicone (VMQ), FKM/FFKM, TPU | ✅ IMPLEMENTED `elastomer/elastomer.md` |
+| adhesive | PSA, structural (epoxy, PU), cyanoacrylate, anaerobic, hot-melt, silicone RTV; aerospace film (AF-555M) | ✅ IMPLEMENTED `adhesive/adhesive.md` |
+| liquid-crystal | nematic + smectic + cholesteric + LCP (Vectran, PPTA dope); LCD/SLM scope | ✅ IMPLEMENTED `liquid-crystal/liquid-crystal.md` |
+| biodegradable-plastics | PLA, PHA, PBS, PCL, starch blends, cellulose acetate; marine-biodegradable UNVERIFIED | ✅ IMPLEMENTED `biodegradable-plastics/biodegradable-plastics.md` |
 
-### §3.3 GROUP_FIB expansion (Phase D)
+### §3.3 GROUP_FIB expansion (Phase D — IMPLEMENTED)
 
-| Verb | Why | Phase D priority |
-|------|-----|------------------|
-| wood-cellulose | wood + lignocellulose + nanocellulose (CNC, CNF) | MEDIUM |
+| Verb | Why | Status |
+|------|-----|--------|
+| wood-cellulose | engineered wood (CLT, glulam, LVL), nanocellulose (CNC, CNF), regenerated cellulose, cellulose acetate | ✅ IMPLEMENTED `wood-cellulose/wood-cellulose.md` |
 
-### §3.4 GROUP_MET expansion (Phase D)
+### §3.4 GROUP_MET expansion (Phase D — IMPLEMENTED)
 
-| Verb | Why | Phase D priority |
-|------|-----|------------------|
-| superalloy | Ni-based Inconel 718, Hastelloy, single-crystal turbine blade — distinct from `metallurgy.md` general scope | HIGH |
+| Verb | Why | Status |
+|------|-----|--------|
+| superalloy | Ni-based Inconel 718 / René / CMSX, Co-based Haynes, single-crystal turbine blade, TBC cross-link | ✅ IMPLEMENTED `superalloy/superalloy.md` |
+| magnetic-materials | NdFeB / SmCo / AlNiCo / ferrite hard magnets + Si-Fe / permalloy / Metglas / Finemet soft magnets | ✅ IMPLEMENTED `magnetic-materials/magnetic-materials.md` |
 
 ### §3.5 GROUP_GEM expansion (Phase D)
 
-(no new verbs queued; gemology covers the gem family)
+(no new verbs landed; gemology covers the gem family. Single-crystal lab-grown diamond cross-links to `carbon/carbon.md`.)
 
 ### §3.6 GROUP_PRC expansion (Phase D)
 
-| Verb | Why | Phase D priority |
-|------|-----|------------------|
-| printing | additive manufacturing (FDM, SLS, SLA, DLP, MJF, binder-jet) — currently inside `synthesis` | HIGH |
+`printing` verb was originally queued but **deferred** — printing remains exposed via MATERIAL-SYNTHESIS.md chapter. Reason: AM-process additive deserves its own verb but Phase D scope prioritized chemistry-class verbs.
 
-### §3.7 New cross-cutting verbs (Phase D)
-
-| Verb | Group | Why |
-|------|-------|------|
-| magnetic-materials | CER / MET hybrid | hard/soft magnets (NdFeB, SmCo, ferrite, electrical steel) |
-| MOF | CER / POL hybrid | metal-organic frameworks (HKUST-1, ZIF-8, MOF-74) |
-| liquid-crystal | POL | LCD / OLED display side; nematic, smectic, cholesteric |
-
-**Phase D verb count**: 12 new verbs queued. After Phase D execution, hexa-matter would be at **17 + 12 = 29 verbs**, with 7 groups likely expanded to 8-9 (adding e.g. `GROUP_2D` for 2d-materials + graphene + h-BN as a fundamentally distinct dimensional class).
+**Phase D verb count**: **12 new verbs landed**. hexa-matter is now at **17 + 12 = 29 verbs**. The 7-group taxonomy is **unchanged** — we did NOT add `GROUP_2D` despite earlier consideration; 2d-materials stays in CER for simplicity (decision: dimensional reduction is an axis, not a separate group).
 
 ---
 
@@ -195,10 +189,10 @@ This is the right call. Trying to force hexa-bio-style σ(6)=12 claims onto mate
 
 | Phase | Scope | Status |
 |-------|-------|--------|
-| **A** | Infrastructure docs (this commit): AXIS · AXIS_CLOSURE_PLAN · CLOSURE_RESIDUAL_BACKLOG · DECOMPOSITION_PLAN · LESSONS · RELEASE_NOTES_v1.0.0 · RELEASE_NOTES_v1.1.0 · V1_2_0_HANDOFF · USER_ACTION_REQUIRED · IMPORTED_FROM_CANON | ✅ **IN PROGRESS 2026-05-13** |
+| **A** | Infrastructure docs: AXIS · AXIS_CLOSURE_PLAN · CLOSURE_RESIDUAL_BACKLOG · DECOMPOSITION_PLAN · LESSONS · RELEASE_NOTES_v1.0.0 · RELEASE_NOTES_v1.1.0 · V1_2_0_HANDOFF · USER_ACTION_REQUIRED · IMPORTED_FROM_CANON | ✅ **COMPLETE 2026-05-13** |
 | **B** | Selftest gates: per-group spec-presence + per-verb cross-link sanity (raw#10 C3 — vendor numbers carry no lattice fit); B-CER-1..B-FAS-2 parity gates landing | Queued |
-| **C** | Per-group depth dirs (silicon/, microplastics/ already exist; phase C adds superalloy/, 2d-materials/, etc.) | Queued |
-| **D** | New verbs (12+): compound-semi, perovskite, 2d-materials, elastomer, adhesive, biodegradable-plastics, wood-cellulose, superalloy, printing, magnetic-materials, MOF, liquid-crystal | Queued |
+| **C** | Per-group depth dirs (silicon/, microplastics/ already exist; phase C adds further depth on superalloy/ + 2d-materials/ chapters created by Phase D) | Partially overlapped with Phase D |
+| **D** | New verbs (12 landed): compound-semi, perovskite, 2d-materials, elastomer, adhesive, biodegradable-plastics, wood-cellulose, superalloy, magnetic-materials, mof, liquid-crystal, carbon | ✅ **COMPLETE 2026-05-13** (17 → 29) |
 | **E** | Python bridge `_python_bridge/module/` — Hales-anchored packing calc, Frenkel-anchored σ_th calc, mirror to hexa-bio pattern | Queued |
 | **F** | Research bridge to live databases: MatWeb, NIST SRD, ASTM, SEMI, CRC | Queued |
 | **G** | AlphaFold-class absorption: CALPHAD-class thermodynamic assessment, MatBench / Materials Project integration | Queued (long horizon) |

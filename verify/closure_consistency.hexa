@@ -1,10 +1,10 @@
 #!hexa strict
 // hexa-matter/verify/closure_consistency.hexa — scoreboard cross-check.
 //
-// Confirms three sources agree on the 17-verb count:
+// Confirms three sources agree on the 29-verb count (17 v1.0.0 + 12 Phase D):
 //   1. cli/hexa-matter.hexa VERBS table  (registry of record)
 //   2. hexa.toml [closure] verbs_total / verbs_spec
-//   3. README.md badge "verbs-17_spec"
+//   3. README.md badge "verbs-29_spec"
 //
 // Per LATTICE_POLICY §1.3 rule 4: this is *internal* self-consistency
 // (own substrate's own scoreboard), NOT a claim about external entities.
@@ -33,7 +33,8 @@ fn _resolve_root() -> str {
 
 fn _count_verb_rows(root: str) -> int {
     let cli = root + "/cli/hexa-matter.hexa"
-    let raw = exec("grep -cE '^    \\[\"[a-z_0-9]+\",' " + shq(cli)).trim()
+    // Allow alphanumeric + underscore + dash (Phase D verbs use dashes: 2d-materials, compound-semi, etc.)
+    let raw = exec("grep -cE '^    \\[\"[a-z_0-9-]+\",' " + shq(cli)).trim()
     if raw.len() == 0 { return -1 }
     return int(raw)
 }
@@ -79,32 +80,32 @@ fn main() {
     println("  README badge verbs-N_spec:       " + str(readme_n))
     println("")
 
-    if cli_n == 17 {
-        println("  [PASS] CLI registry has 17 verbs")
+    if cli_n == 29 {
+        println("  [PASS] CLI registry has 29 verbs")
         ok = ok + 1
     } else {
-        println("  [FAIL] CLI registry has " + str(cli_n) + " verbs (expected 17)")
+        println("  [FAIL] CLI registry has " + str(cli_n) + " verbs (expected 29)")
         bad = bad + 1
     }
-    if toml_total == 17 {
-        println("  [PASS] hexa.toml verbs_total = 17")
+    if toml_total == 29 {
+        println("  [PASS] hexa.toml verbs_total = 29")
         ok = ok + 1
     } else {
         println("  [FAIL] hexa.toml verbs_total = " + str(toml_total))
         bad = bad + 1
     }
-    if toml_spec == 17 {
-        println("  [PASS] hexa.toml verbs_spec = 17")
+    if toml_spec == 29 {
+        println("  [PASS] hexa.toml verbs_spec = 29")
         ok = ok + 1
     } else {
         println("  [FAIL] hexa.toml verbs_spec = " + str(toml_spec))
         bad = bad + 1
     }
-    if readme_n == 17 {
-        println("  [PASS] README badge verbs-17_spec")
+    if readme_n == 29 {
+        println("  [PASS] README badge verbs-29_spec")
         ok = ok + 1
     } else {
-        println("  [FAIL] README badge verbs-" + str(readme_n) + "_spec (expected 17)")
+        println("  [FAIL] README badge verbs-" + str(readme_n) + "_spec (expected 29)")
         bad = bad + 1
     }
 

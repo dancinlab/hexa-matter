@@ -1,10 +1,11 @@
 #!hexa strict
-// hexa-matter/verify/spec_presence.hexa — 17-verb spec doc presence verifier.
+// hexa-matter/verify/spec_presence.hexa — 29-verb spec doc presence verifier.
 //
 // Closure anchor #1 for hexa-matter (spec-first substrate):
-// each of the 17 verbs declared in hexa.toml [verbs] must resolve to a
-// real spec markdown at <subdir>/<filename>. This is the *honest* closure
-// check for a spec-first repo — file presence, not behavioural promise.
+// each of the 29 verbs (17 v1.0.0 + 12 Phase D 2026-05-13) declared in
+// hexa.toml [verbs] must resolve to a real spec markdown at
+// <subdir>/<filename>. This is the *honest* closure check for a
+// spec-first repo — file presence, not behavioural promise.
 //
 // Per LATTICE_POLICY §1.3: spec-presence is real engineering verification
 // (files exist on disk); not a lattice tautology.
@@ -36,30 +37,42 @@ fn _file_exists(p: str) -> bool {
     return r == "yes"
 }
 
-// 17-verb spec registry — must match cli/hexa-matter.hexa VERBS and hexa.toml [verbs].
+// 29-verb spec registry — must match cli/hexa-matter.hexa VERBS and hexa.toml [verbs].
 let VERBS = [
-    ["ceramics",      "ceramics/ceramics.md"],
-    ["concrete",      "concrete/concrete.md"],
-    ["concrete_tech", "concrete_tech/concrete-technology.md"],
-    ["glass",         "glass/hexa-glass.md"],
-    ["silicon",       "silicon/silicon.md"],
-    ["aramid",        "aramid/aramid.md"],
-    ["epoxy",         "epoxy/epoxy.md"],
-    ["nylon",         "nylon/nylon.md"],
-    ["pet_film",      "pet_film/pet-film.md"],
-    ["tire_cord",     "tire_cord/tire-cord.md"],
-    ["fabric",        "fabric/hexa-fabric.md"],
-    ["paper",         "paper/paper.md"],
-    ["gemology",      "gemology/gemology.md"],
-    ["metallurgy",    "metallurgy/swordsmithing.md"],
-    ["synthesis",     "synthesis/material-synthesis.md"],
-    ["recycle_n6",    "recycle_n6/hexa-recycle.md"],
-    ["recycling",     "recycling/recycling.md"],
+    ["ceramics",               "ceramics/ceramics.md"],
+    ["concrete",               "concrete/concrete.md"],
+    ["concrete_tech",          "concrete_tech/concrete-technology.md"],
+    ["glass",                  "glass/hexa-glass.md"],
+    ["silicon",                "silicon/silicon.md"],
+    ["compound-semi",          "compound-semi/compound-semi.md"],
+    ["perovskite",             "perovskite/perovskite.md"],
+    ["2d-materials",           "2d-materials/2d-materials.md"],
+    ["mof",                    "mof/mof.md"],
+    ["carbon",                 "carbon/carbon.md"],
+    ["aramid",                 "aramid/aramid.md"],
+    ["epoxy",                  "epoxy/epoxy.md"],
+    ["nylon",                  "nylon/nylon.md"],
+    ["pet_film",               "pet_film/pet-film.md"],
+    ["tire_cord",              "tire_cord/tire-cord.md"],
+    ["elastomer",              "elastomer/elastomer.md"],
+    ["adhesive",               "adhesive/adhesive.md"],
+    ["liquid-crystal",         "liquid-crystal/liquid-crystal.md"],
+    ["biodegradable-plastics", "biodegradable-plastics/biodegradable-plastics.md"],
+    ["fabric",                 "fabric/hexa-fabric.md"],
+    ["paper",                  "paper/paper.md"],
+    ["wood-cellulose",         "wood-cellulose/wood-cellulose.md"],
+    ["gemology",               "gemology/gemology.md"],
+    ["metallurgy",             "metallurgy/swordsmithing.md"],
+    ["superalloy",             "superalloy/superalloy.md"],
+    ["magnetic-materials",     "magnetic-materials/magnetic-materials.md"],
+    ["synthesis",              "synthesis/material-synthesis.md"],
+    ["recycle_n6",             "recycle_n6/hexa-recycle.md"],
+    ["recycling",              "recycling/recycling.md"],
 ]
 
 fn main() {
     let root = _resolve_root()
-    println("hexa-matter/verify/spec_presence — 17-verb spec doc presence")
+    println("hexa-matter/verify/spec_presence — 29-verb spec doc presence")
     println("  root: " + root)
     println("")
     let mut ok = 0
@@ -77,7 +90,7 @@ fn main() {
         }
     }
     println("")
-    println("  spec docs present: " + str(ok) + " / 17")
+    println("  spec docs present: " + str(ok) + " / 29")
     if bad > 0 {
         println("__HEXA_MATTER_SPEC_PRESENCE__ FAIL")
         exit(1)

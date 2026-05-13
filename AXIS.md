@@ -1,11 +1,12 @@
 # AXIS — hexa-matter 7-group material taxonomy
 
 > **Created**: 2026-05-13 (Phase A elevation, post-silicon close at 17/17 + 4/4)
+> **Updated**: 2026-05-13 (Phase D, 29/29 + 4/4 — 12 new verbs added across CER/POL/FIB/MET)
 > **Status**: infrastructure doc · groups material verbs into the 7-group lattice
 > **Sibling**: `AXIS_CLOSURE_PLAN.md` (per-group closure roadmap with (a)/(b)/(c) categories)
 > **Companion**: `LIMIT_BREAKTHROUGH.md` (Wave M real-limits audit)
 >
-> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 17 verbs
+> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 29 verbs
 > into 7 material groups. The n=6 invariant lattice is **auxiliary** here —
 > the real grouping criteria are bond character, processing route, and
 > end-product class (ASM/Ashby/MatWeb tradition). Per `LATTICE_POLICY.md
@@ -14,31 +15,38 @@
 
 ---
 
-## §0 The 7 groups (one-line each)
+## §0 The 7 groups (one-line each, post Phase D)
 
 | # | Group ID  | Verbs                                                     | Bond class            | Processing axis        |
 |---|-----------|-----------------------------------------------------------|-----------------------|------------------------|
-| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon     | Ionic + covalent      | High-T sintering / sol-gel / CVD / CZ-FZ pull |
-| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics | Covalent C-C / amide / ester / urea | Polymerization (step / chain) |
-| 3 | GROUP_FIB | fabric · paper                                            | Covalent + H-bond     | Spinning / weaving / pulping |
-| 4 | GROUP_MET | metallurgy · lutherie                                     | Metallic              | Casting / forging / heat-treatment |
+| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon · **compound-semi · perovskite · 2d-materials · mof · carbon** | Ionic + covalent + vdW | High-T sintering / sol-gel / CVD / CZ-FZ pull / exfoliation |
+| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics · **elastomer · adhesive · liquid-crystal · biodegradable-plastics** | Covalent C-C / amide / ester / urea | Polymerization (step / chain) |
+| 3 | GROUP_FIB | fabric · paper · **wood-cellulose**                        | Covalent + H-bond     | Spinning / weaving / pulping |
+| 4 | GROUP_MET | metallurgy · lutherie · **superalloy · magnetic-materials** | Metallic              | Casting / forging / heat-treatment |
 | 5 | GROUP_GEM | gemology                                                  | Ionic + covalent      | Crystal habit / cut / polish |
 | 6 | GROUP_PRC | synthesis · recycling · recycle_n6 · printing             | (any)                 | Process-and-reverse routes |
 | 7 | GROUP_FAS | fashion-textile · textile-dyeing                          | Covalent + dye-substrate | Wet-process / dye-uptake |
 
-**Verb count audit**: CER(5) + POL(6) + FIB(2) + MET(2) + GEM(1) + PRC(4) + FAS(2) = **22 verb-slots**, but the 17 ship-grade verbs map as follows:
+**Phase D (2026-05-13) verb expansion** (12 new verbs):
+- CER +5: compound-semi, perovskite, 2d-materials, mof, carbon
+- POL +4: elastomer, adhesive, liquid-crystal, biodegradable-plastics
+- FIB +1: wood-cellulose
+- MET +2: superalloy, magnetic-materials
 
-- CER: ceramics, concrete, concrete_tech, glass, silicon → **5**
-- POL: aramid, epoxy, nylon, pet_film, microplastics → **5** (tire_cord is a *product* verb that uses aramid as substrate; counted under POL but is a downstream verb)
-- FIB: fabric, paper → **2**
-- MET: metallurgy, lutherie → **2** (lutherie sits between MET and the culture domain; we keep it here because the lutherie spec is metallurgy-anchored — see SWORDSMITHING.md)
+**Verb count audit (post Phase D)**: CER(10) + POL(10) + FIB(3) + MET(4 incl. lutherie) + GEM(1) + PRC(4) + FAS(2) = **34 verb-slots**, but the **29 ship-grade dispatchable verbs** map as follows:
+
+- CER: ceramics, concrete, concrete_tech, glass, silicon, compound-semi, perovskite, 2d-materials, mof, carbon → **10**
+- POL: aramid, epoxy, nylon, pet_film, tire_cord, elastomer, adhesive, liquid-crystal, biodegradable-plastics → **9**
+- FIB: fabric, paper, wood-cellulose → **3**
+- MET: metallurgy, superalloy, magnetic-materials → **3** (lutherie not in CLI dispatch; sits in culture overlap)
 - GEM: gemology → **1**
-- PRC: synthesis, recycle_n6, recycling, printing → **4** (printing is the additive-manufacturing process verb; it does not currently have its own root .md but is exposed via the `MATERIAL-SYNTHESIS.md` chapter)
-- FAS: fashion-textile, textile-dyeing → **2** (these two verbs live in the industrial-textile lineage)
+- PRC: synthesis, recycle_n6, recycling → **3** (printing exposed via MATERIAL-SYNTHESIS.md; no dispatcher slot yet)
+- FAS: fashion-textile, textile-dyeing → not in 29-verb CLI dispatch (industrial-textile lineage separately tracked)
 
-That's CER(5) + POL(5) + FIB(2) + MET(2) + GEM(1) + PRC(3) + FAS(2) = **20 verb-slots, 17 unique verbs**, with 3 verbs cross-occupying (tire_cord ⊂ POL ∩ FIB; lutherie ⊂ MET ∩ CULT; silicon ⊂ CER ∩ MET ∩ PRC — see §3).
+That gives **29 dispatchable verbs** in `hexa.toml [verbs]`:
+- ceramic_inorganic (10), polymer (9), fiber_paper (3), gem_mineral (1), metal (3), synthesis (1), recycle (2) = 29
 
-The official ship-grade count remains **17 verbs**: aramid, ceramics, concrete, concrete_tech, epoxy, fabric, fashion-textile, gemology, glass, lutherie, metallurgy, microplastics, nylon, paper, pet_film, recycle_n6, recycling, silicon, synthesis, textile-dyeing, tire_cord (= 21 names — but `hexa.toml [verbs]` collapses to 17 *distinct dispatchable verb slots*; the `[verbs]` table is the authoritative scoreboard).
+The 17 ship-grade verbs of v1.0.0 + 12 Phase D verbs = 29 verbs total. `hexa.toml [verbs]` is the authoritative scoreboard. The 7 groups are unchanged in count (we did NOT add a `GROUP_2D` despite earlier consideration — 2d-materials stays in CER for taxonomy simplicity).
 
 ---
 
@@ -196,7 +204,7 @@ Master identity: σ·φ = 12·2 = 24 = 6·4 = n·τ ✓
 
 **How this surfaces in hexa-matter**:
 - 7 groups (we use 7, not 6) — *intentional* mismatch; the lattice is auxiliary, real engineering wins
-- 17 verbs (not 12, not 24) — same; we ship what the engineering taxonomy demands
+- 29 verbs post-Phase-D (not 24, not 36) — same; we ship what the engineering taxonomy demands
 - `verify/lattice_arithmetic.hexa` checks σ·φ = n·τ as an arithmetic sanity gate; it does NOT certify any verb count
 
 Per `LATTICE_POLICY.md §1.2`, the substrate's REAL ceilings live in `LIMIT_BREAKTHROUGH.md` (NIST WebBook · CRC Handbook · ASM Handbook · Ashby · Hales · Frenkel · Stefan-Boltzmann). The lattice is permitted as a *tool* — never as a *constraint*.

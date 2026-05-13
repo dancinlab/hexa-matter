@@ -9,7 +9,7 @@
 name = "hexa-matter"
 version = "1.0.0"
 entry = "cli/hexa-matter.hexa"
-description = "n=6 소재 substrate (HEXA family) — 17-verb materials toolkit (ceramic·polymer·glass·silicon·gem·metal·recycle). Spec-first; 작동 .hexa CLI는 spec headline dispatcher. silicon은 material layer only (wafer/poly-Si/SiO₂/SiC); semiconductor device + fab process는 hexa-chip 도메인 — `hexa-chip materials` 직접 호출."
+description = "n=6 소재 substrate (HEXA family) — 29-verb materials toolkit (17 v1.0.0 + 12 Phase D 2026-05-13: elastomer · compound-semi · perovskite · 2d-materials · adhesive · magnetic-materials · mof · liquid-crystal · superalloy · biodegradable-plastics · wood-cellulose · carbon). Spec-first; 작동 .hexa CLI는 spec headline dispatcher. silicon은 material layer only (wafer/poly-Si/SiO₂/SiC); semiconductor device + fab process는 hexa-chip 도메인 — `hexa-chip materials` 직접 호출."
 license = "MIT"
 authors = ["박민우 <nerve011235@gmail.com>"]
 repository = "https://github.com/dancinlab/hexa-matter"
@@ -31,17 +31,18 @@ files = [
 [scripts]
 install = "install.hexa"
 
-# ── Verb manifest (17-verb materials substrate) ───────────
+# ── Verb manifest (29-verb materials substrate, 17 v1.0.0 + 12 Phase D) ──
 # silicon joins the ceramic_inorganic group: elemental Si (poly / mono / wafer)
 # plus SiO₂ / SiC / SiN / Si₃N₄ cross-links to glass + ceramics. Material layer
 # only; semiconductor device + fab process stay in hexa-chip (see [crosslink]).
+# Phase D (2026-05-13) added 12 verbs across CER / POL / FIB / MET groups.
 verb_parent = "."
 [verbs]
-ceramic_inorganic = ["ceramics", "concrete", "concrete_tech", "glass", "silicon"]
-polymer           = ["aramid", "epoxy", "nylon", "pet_film", "tire_cord"]
-fiber_paper       = ["fabric", "paper"]
+ceramic_inorganic = ["ceramics", "concrete", "concrete_tech", "glass", "silicon", "compound-semi", "perovskite", "2d-materials", "mof", "carbon"]
+polymer           = ["aramid", "epoxy", "nylon", "pet_film", "tire_cord", "elastomer", "adhesive", "liquid-crystal", "biodegradable-plastics"]
+fiber_paper       = ["fabric", "paper", "wood-cellulose"]
 gem_mineral       = ["gemology"]
-metal             = ["metallurgy"]
+metal             = ["metallurgy", "superalloy", "magnetic-materials"]
 synthesis         = ["synthesis"]
 recycle           = ["recycle_n6", "recycling"]
 
@@ -56,12 +57,12 @@ chip = "dancinlab/hexa-chip (semiconductor device + fab process — call `hexa-c
 
 # ── Closure provenance (raw#10 honest C3) ─────────────────
 [closure]
-verbs_total = 17
+verbs_total = 29
 groups_total = 7
 verbs_wired = 0
-verbs_spec = 17
+verbs_spec = 29
 verdict = "SPEC_FIRST"
-extracted_from = "canon/domains/materials/ @ 47c70cbf (+ silicon authored 2026-05-13 in-repo, not extracted)"
+extracted_from = "canon/domains/materials/ @ 47c70cbf (+ silicon authored 2026-05-13 in-repo, not extracted; + 12 Phase D verbs authored 2026-05-13 in-repo: elastomer, compound-semi, perovskite, 2d-materials, adhesive, magnetic-materials, mof, liquid-crystal, superalloy, biodegradable-plastics, wood-cellulose, carbon)"
 
 # ── Verify scoreboard (Wave closure, 2026-05-13) ──────────
 # All four verify/*.hexa scripts must PASS for the substrate to claim closure.
@@ -70,17 +71,17 @@ extracted_from = "canon/domains/materials/ @ 47c70cbf (+ silicon authored 2026-0
 scripts_total = 4
 scripts_passed = 4
 scripts = [
-    "verify/spec_presence.hexa",       # 17/17 verb spec docs present at declared paths
+    "verify/spec_presence.hexa",       # 29/29 verb spec docs present at declared paths
     "verify/lattice_arithmetic.hexa",  # n=6 self-consistency (aux per LATTICE_POLICY §1.3)
     "verify/real_limits_anchor.hexa",  # LIMIT_BREAKTHROUGH.md anchors (NIST/CRC/Hales)
     "verify/closure_consistency.hexa", # scoreboard cross-check (CLI · toml · README · AGENTS)
 ]
 aggregator = "verify/run_all.hexa"
-verdict = "CLOSED"  # 17/17 verbs spec-present · 4/4 verify scripts PASS
+verdict = "CLOSED"  # 29/29 verbs spec-present · 4/4 verify scripts PASS
 
 # ── Scope honesty (raw#10 C3) ─────────────────────────────
 [scope]
-honest_scope = "17-verb 통합 substrate (7 그룹). spec-first markdown only at v1.0.0 — 작동 .hexa CLI는 spec headline dispatcher. silicon 추가 (2026-05-13): material layer만 — poly-Si / mono-Si wafer / SiO₂ / SiC / SiN. semiconductor device + fab process는 hexa-chip 도메인 그대로 유지."
+honest_scope = "29-verb 통합 substrate (7 그룹; 17 v1.0.0 + 12 Phase D 2026-05-13). spec-first markdown only — 작동 .hexa CLI는 spec headline dispatcher. silicon 추가 (2026-05-13): material layer만 — poly-Si / mono-Si wafer / SiO₂ / SiC / SiN. Phase D verbs (elastomer · compound-semi · perovskite · 2d-materials · adhesive · magnetic-materials · mof · liquid-crystal · superalloy · biodegradable-plastics · wood-cellulose · carbon) — material layer만; device 통합은 hexa-chip / hexa-energy / hexa-mobility / hexa-bio cross-link."
 not_scope = ["semiconductor device + fab process (→ hexa-chip CLI; silicon HERE는 material layer만)", "lutherie / instrument-craft (culture 결)", "fashion-textile / textile-dyeing (industrial-textile 별도 묶음 후보)", "in-situ pilot batch validation"]
 
 # ── Cost profile ──────────────────────────────────────────

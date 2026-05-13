@@ -2,9 +2,10 @@
 // hexa-matter/tests/test_selftest.hexa — CLI selftest equivalent.
 //
 // Referenced by hexa.toml [test] files list. Mirrors the production
-// `cli/hexa-matter.hexa selftest` 17-verb spec-doc presence check (the
+// `cli/hexa-matter.hexa selftest` 29-verb spec-doc presence check (the
 // CLI dispatcher's canonical PASS path) using the same VERBS registry,
-// driven independently from this test file.
+// driven independently from this test file. Phase D (2026-05-13) added
+// 12 new verbs (17 → 29).
 //
 // Why not exec the CLI? The hexa 0.1.0-dispatch runtime does not
 // forward args to scripts invoked via `hexa run <script> <subcmd>`,
@@ -39,30 +40,42 @@ fn _file_exists(p: str) -> bool {
     return r == "yes"
 }
 
-// Mirror of cli/hexa-matter.hexa VERBS table.
+// Mirror of cli/hexa-matter.hexa VERBS table (29-verb, 17 v1.0.0 + 12 Phase D).
 let VERBS = [
-    ["ceramics",      "ceramics",      "ceramics.md"],
-    ["concrete",      "concrete",      "concrete.md"],
-    ["concrete_tech", "concrete_tech", "concrete-technology.md"],
-    ["glass",         "glass",         "hexa-glass.md"],
-    ["silicon",       "silicon",       "silicon.md"],
-    ["aramid",        "aramid",        "aramid.md"],
-    ["epoxy",         "epoxy",         "epoxy.md"],
-    ["nylon",         "nylon",         "nylon.md"],
-    ["pet_film",      "pet_film",      "pet-film.md"],
-    ["tire_cord",     "tire_cord",     "tire-cord.md"],
-    ["fabric",        "fabric",        "hexa-fabric.md"],
-    ["paper",         "paper",         "paper.md"],
-    ["gemology",      "gemology",      "gemology.md"],
-    ["metallurgy",    "metallurgy",    "swordsmithing.md"],
-    ["synthesis",     "synthesis",     "material-synthesis.md"],
-    ["recycle_n6",    "recycle_n6",    "hexa-recycle.md"],
-    ["recycling",     "recycling",     "recycling.md"],
+    ["ceramics",               "ceramics",               "ceramics.md"],
+    ["concrete",               "concrete",               "concrete.md"],
+    ["concrete_tech",          "concrete_tech",          "concrete-technology.md"],
+    ["glass",                  "glass",                  "hexa-glass.md"],
+    ["silicon",                "silicon",                "silicon.md"],
+    ["compound-semi",          "compound-semi",          "compound-semi.md"],
+    ["perovskite",             "perovskite",             "perovskite.md"],
+    ["2d-materials",           "2d-materials",           "2d-materials.md"],
+    ["mof",                    "mof",                    "mof.md"],
+    ["carbon",                 "carbon",                 "carbon.md"],
+    ["aramid",                 "aramid",                 "aramid.md"],
+    ["epoxy",                  "epoxy",                  "epoxy.md"],
+    ["nylon",                  "nylon",                  "nylon.md"],
+    ["pet_film",               "pet_film",               "pet-film.md"],
+    ["tire_cord",              "tire_cord",              "tire-cord.md"],
+    ["elastomer",              "elastomer",              "elastomer.md"],
+    ["adhesive",               "adhesive",               "adhesive.md"],
+    ["liquid-crystal",         "liquid-crystal",         "liquid-crystal.md"],
+    ["biodegradable-plastics", "biodegradable-plastics", "biodegradable-plastics.md"],
+    ["fabric",                 "fabric",                 "hexa-fabric.md"],
+    ["paper",                  "paper",                  "paper.md"],
+    ["wood-cellulose",         "wood-cellulose",         "wood-cellulose.md"],
+    ["gemology",               "gemology",               "gemology.md"],
+    ["metallurgy",             "metallurgy",             "swordsmithing.md"],
+    ["superalloy",             "superalloy",             "superalloy.md"],
+    ["magnetic-materials",     "magnetic-materials",     "magnetic-materials.md"],
+    ["synthesis",              "synthesis",              "material-synthesis.md"],
+    ["recycle_n6",             "recycle_n6",             "hexa-recycle.md"],
+    ["recycling",              "recycling",              "recycling.md"],
 ]
 
 fn main() {
     let root = _resolve_root()
-    println("hexa-matter/tests/test_selftest — 17-verb spec doc presence")
+    println("hexa-matter/tests/test_selftest — 29-verb spec doc presence")
     println("  root: " + root)
     println("")
 
@@ -86,10 +99,10 @@ fn main() {
             bad = bad + 1
         }
     }
-    println("  verbs_present = " + str(count) + " / 17")
+    println("  verbs_present = " + str(count) + " / 29")
 
-    if count == 17 && bad == 0 {
-        println("  [PASS] 17/17 verb spec docs reachable")
+    if count == 29 && bad == 0 {
+        println("  [PASS] 29/29 verb spec docs reachable")
         println("__HEXA_MATTER_TEST_SELFTEST__ PASS")
         return
     }
