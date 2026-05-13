@@ -2,7 +2,7 @@
 // hexa-matter/tests/test_selftest.hexa — CLI selftest equivalent.
 //
 // Referenced by hexa.toml [test] files list. Mirrors the production
-// `cli/hexa-matter.hexa selftest` 16-verb spec-doc presence check (the
+// `cli/hexa-matter.hexa selftest` 17-verb spec-doc presence check (the
 // CLI dispatcher's canonical PASS path) using the same VERBS registry,
 // driven independently from this test file.
 //
@@ -45,6 +45,7 @@ let VERBS = [
     ["concrete",      "concrete",      "concrete.md"],
     ["concrete_tech", "concrete_tech", "concrete-technology.md"],
     ["glass",         "glass",         "hexa-glass.md"],
+    ["silicon",       "silicon",       "silicon.md"],
     ["aramid",        "aramid",        "aramid.md"],
     ["epoxy",         "epoxy",         "epoxy.md"],
     ["nylon",         "nylon",         "nylon.md"],
@@ -61,7 +62,7 @@ let VERBS = [
 
 fn main() {
     let root = _resolve_root()
-    println("hexa-matter/tests/test_selftest — 16-verb spec doc presence")
+    println("hexa-matter/tests/test_selftest — 17-verb spec doc presence")
     println("  root: " + root)
     println("")
 
@@ -85,10 +86,10 @@ fn main() {
             bad = bad + 1
         }
     }
-    println("  verbs_present = " + str(count) + " / 16")
+    println("  verbs_present = " + str(count) + " / 17")
 
-    if count == 16 && bad == 0 {
-        println("  [PASS] 16/16 verb spec docs reachable")
+    if count == 17 && bad == 0 {
+        println("  [PASS] 17/17 verb spec docs reachable")
         println("__HEXA_MATTER_TEST_SELFTEST__ PASS")
         return
     }

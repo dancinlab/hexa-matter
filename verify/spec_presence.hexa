@@ -1,8 +1,8 @@
 #!hexa strict
-// hexa-matter/verify/spec_presence.hexa — 16-verb spec doc presence verifier.
+// hexa-matter/verify/spec_presence.hexa — 17-verb spec doc presence verifier.
 //
 // Closure anchor #1 for hexa-matter (spec-first substrate):
-// each of the 16 verbs declared in hexa.toml [verbs] must resolve to a
+// each of the 17 verbs declared in hexa.toml [verbs] must resolve to a
 // real spec markdown at <subdir>/<filename>. This is the *honest* closure
 // check for a spec-first repo — file presence, not behavioural promise.
 //
@@ -36,12 +36,13 @@ fn _file_exists(p: str) -> bool {
     return r == "yes"
 }
 
-// 16-verb spec registry — must match cli/hexa-matter.hexa VERBS and hexa.toml [verbs].
+// 17-verb spec registry — must match cli/hexa-matter.hexa VERBS and hexa.toml [verbs].
 let VERBS = [
     ["ceramics",      "ceramics/ceramics.md"],
     ["concrete",      "concrete/concrete.md"],
     ["concrete_tech", "concrete_tech/concrete-technology.md"],
     ["glass",         "glass/hexa-glass.md"],
+    ["silicon",       "silicon/silicon.md"],
     ["aramid",        "aramid/aramid.md"],
     ["epoxy",         "epoxy/epoxy.md"],
     ["nylon",         "nylon/nylon.md"],
@@ -58,7 +59,7 @@ let VERBS = [
 
 fn main() {
     let root = _resolve_root()
-    println("hexa-matter/verify/spec_presence — 16-verb spec doc presence")
+    println("hexa-matter/verify/spec_presence — 17-verb spec doc presence")
     println("  root: " + root)
     println("")
     let mut ok = 0
@@ -76,7 +77,7 @@ fn main() {
         }
     }
     println("")
-    println("  spec docs present: " + str(ok) + " / 16")
+    println("  spec docs present: " + str(ok) + " / 17")
     if bad > 0 {
         println("__HEXA_MATTER_SPEC_PRESENCE__ FAIL")
         exit(1)

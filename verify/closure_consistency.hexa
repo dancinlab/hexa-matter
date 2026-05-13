@@ -1,10 +1,10 @@
 #!hexa strict
 // hexa-matter/verify/closure_consistency.hexa — scoreboard cross-check.
 //
-// Confirms three sources agree on the 16-verb count:
+// Confirms three sources agree on the 17-verb count:
 //   1. cli/hexa-matter.hexa VERBS table  (registry of record)
 //   2. hexa.toml [closure] verbs_total / verbs_spec
-//   3. README.md badge "verbs-16_spec"
+//   3. README.md badge "verbs-17_spec"
 //
 // Per LATTICE_POLICY §1.3 rule 4: this is *internal* self-consistency
 // (own substrate's own scoreboard), NOT a claim about external entities.
@@ -79,32 +79,32 @@ fn main() {
     println("  README badge verbs-N_spec:       " + str(readme_n))
     println("")
 
-    if cli_n == 16 {
-        println("  [PASS] CLI registry has 16 verbs")
+    if cli_n == 17 {
+        println("  [PASS] CLI registry has 17 verbs")
         ok = ok + 1
     } else {
-        println("  [FAIL] CLI registry has " + str(cli_n) + " verbs (expected 16)")
+        println("  [FAIL] CLI registry has " + str(cli_n) + " verbs (expected 17)")
         bad = bad + 1
     }
-    if toml_total == 16 {
-        println("  [PASS] hexa.toml verbs_total = 16")
+    if toml_total == 17 {
+        println("  [PASS] hexa.toml verbs_total = 17")
         ok = ok + 1
     } else {
         println("  [FAIL] hexa.toml verbs_total = " + str(toml_total))
         bad = bad + 1
     }
-    if toml_spec == 16 {
-        println("  [PASS] hexa.toml verbs_spec = 16")
+    if toml_spec == 17 {
+        println("  [PASS] hexa.toml verbs_spec = 17")
         ok = ok + 1
     } else {
         println("  [FAIL] hexa.toml verbs_spec = " + str(toml_spec))
         bad = bad + 1
     }
-    if readme_n == 16 {
-        println("  [PASS] README badge verbs-16_spec")
+    if readme_n == 17 {
+        println("  [PASS] README badge verbs-17_spec")
         ok = ok + 1
     } else {
-        println("  [FAIL] README badge verbs-" + str(readme_n) + "_spec (expected 16)")
+        println("  [FAIL] README badge verbs-" + str(readme_n) + "_spec (expected 17)")
         bad = bad + 1
     }
 

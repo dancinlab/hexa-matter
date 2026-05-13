@@ -1,7 +1,7 @@
 #!hexa strict
 // hexa-matter/cli/hexa-matter.hexa — standalone hexa-matter CLI router
 //
-// 16-verb 소재 substrate (HEXA family) router. Spec-first dispatcher: each
+// 17-verb 소재 substrate (HEXA family) router. Spec-first dispatcher: each
 // verb subcmd resolves its spec doc path and prints headline (head -30).
 //
 // Cross-link policy (raw#10): chip-grade materials live in hexa-chip;
@@ -25,12 +25,13 @@ fn hexa_matter_root() -> str {
 
 let HM = hexa_matter_root()
 
-// 16-verb spec doc registry: verb_name → (subdir, filename)
+// 17-verb spec doc registry: verb_name → (subdir, filename)
 let VERBS = [
     ["ceramics",      "ceramics",      "ceramics.md"],
     ["concrete",      "concrete",      "concrete.md"],
     ["concrete_tech", "concrete_tech", "concrete-technology.md"],
     ["glass",         "glass",         "hexa-glass.md"],
+    ["silicon",       "silicon",       "silicon.md"],
     ["aramid",        "aramid",        "aramid.md"],
     ["epoxy",         "epoxy",         "epoxy.md"],
     ["nylon",         "nylon",         "nylon.md"],
@@ -78,20 +79,22 @@ fn _print_spec_headline(verb: str, spec_path: str) {
 fn _print_caveats() {
     println("")
     println("--- caveats (raw#10 C3) ---")
-    println("  1. 16/16 verbs ship as SPEC docs at v1.0.0 — working .hexa")
+    println("  1. 17/17 verbs ship as SPEC docs at v1.0.0 — working .hexa")
     println("     numerical sandboxes are TBD per per-verb F-* gates.")
     println("  2. chip-grade semiconductor materials live in hexa-chip:")
     println("     `hexa-chip materials` — do NOT proxy through hexa-matter.")
+    println("     (silicon verb here is MATERIAL layer only — wafer / poly-Si /")
+    println("      SiO₂ / SiC — device fab + lithography stay in hexa-chip.)")
     println("  3. n=6 invariant lattice (σ=12, τ=4, φ=2, J₂=24) projected")
     println("     per-verb; empirical Bayesian audit pending.")
 }
 
 fn cmd_status(a: [str]) {
-    println("hexa-matter " + VERSION + " status — 16-verb 소재 substrate (HEXA family)")
+    println("hexa-matter " + VERSION + " status — 17-verb 소재 substrate (HEXA family)")
     println("")
     println("  group                verbs")
     println("  -------------------- ------------------------------------------------")
-    println("  ceramic_inorganic    ceramics · concrete · concrete_tech · glass")
+    println("  ceramic_inorganic    ceramics · concrete · concrete_tech · glass · silicon")
     println("  polymer              aramid · epoxy · nylon · pet_film · tire_cord")
     println("  fiber_paper          fabric · paper")
     println("  gem_mineral          gemology")
@@ -99,8 +102,9 @@ fn cmd_status(a: [str]) {
     println("  synthesis            synthesis (material-synthesis platform)")
     println("  recycle              recycle_n6 · recycling")
     println("")
-    println("  verdict: SPEC_FIRST (16/16 verbs spec-only)")
+    println("  verdict: SPEC_FIRST (17/17 verbs spec-only)")
     println("  cross-link: chip materials → `hexa-chip materials` (sibling CLI)")
+    println("              silicon HERE is material layer only (wafer/poly/SiO₂/SiC)")
     _print_caveats()
 }
 
@@ -117,7 +121,7 @@ fn cmd_verb(verb: str) {
 }
 
 fn cmd_selftest(a: [str]) {
-    println("hexa-matter selftest — 16-verb spec doc presence check")
+    println("hexa-matter selftest — 17-verb spec doc presence check")
     println("")
     let mut count = 0
     for row in VERBS {
@@ -131,8 +135,8 @@ fn cmd_selftest(a: [str]) {
         }
     }
     println("")
-    println("verbs_present = " + str(count) + " / 16")
-    if count == 16 {
+    println("verbs_present = " + str(count) + " / 17")
+    if count == 17 {
         println("__HEXA_MATTER_SELFTEST__ PASS")
     } else {
         println("__HEXA_MATTER_SELFTEST__ FAIL")
@@ -152,14 +156,14 @@ fn cmd_help() {
     println("")
     println("usage: hexa-matter <subcmd> [flags...]")
     println("")
-    println("verb subcommands (16-verb materials substrate):")
+    println("verb subcommands (17-verb materials substrate):")
     for row in VERBS {
         println("  " + row[0])
     }
     println("")
     println("utility:")
-    println("  status          16-verb table + cross-link + caveats")
-    println("  selftest        16-verb spec doc presence check")
+    println("  status          17-verb table + cross-link + caveats")
+    println("  selftest        17-verb spec doc presence check")
     println("")
     println("global flags: --version, --help, -h")
     println("env:          HEXA_MATTER_ROOT (override repo root)")
