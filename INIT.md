@@ -23,7 +23,7 @@ User directive (2026-05-13):
 |---|---|---|---|
 | **A** | 10 infra docs + 5 deep expansion + 11 stubs | ✅ DONE | `c55199b` |
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
-| **B** | selftest harness (21 Python/bash gates) | ✅ DONE | _Phase B commit_ |
+| **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups) | ⏸ READY (D unblocked) | |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ⏸ READY (D unblocked) | |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ⏸ BLOCKED by E | |
@@ -301,7 +301,7 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `a239611` — Silicon added (17 verbs, gold template)
 - `c55199b` — Phase A infrastructure (10 infra + 5 deep + 11 stubs)
 - `99620b2` — Phase D (12 new verbs, 17 → 29)
-- _Phase B commit forthcoming — 21-gate selftest harness; `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`_
+- `f24d8a5` — Phase B (21-gate selftest harness; `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`)
 - _Phase C/E/F/G commits forthcoming_
 
 ## If you're picking this up cold
