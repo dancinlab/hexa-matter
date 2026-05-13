@@ -139,6 +139,7 @@ the [`hexa-bio`](https://github.com/dancinlab/hexa-bio) convention.
 | [`V1_2_0_HANDOFF.md`](V1_2_0_HANDOFF.md) | Forward-facing handoff (Phase B-G roadmap & future) |
 | [`USER_ACTION_REQUIRED.md`](USER_ACTION_REQUIRED.md) | Open asks for the user (priority decisions) |
 | [`IMPORTED_FROM_CANON.md`](IMPORTED_FROM_CANON.md) | File-by-file canon provenance ledger |
+| [`NOVEL.md`](NOVEL.md) | De-novo-designed novel material candidate ledger (`hxm-*` IDs, sister of `hexa-bio/.roadmap.novel_drugs`) |
 
 **Deep expansion (5)** — extended material chapters beyond per-verb specs:
 

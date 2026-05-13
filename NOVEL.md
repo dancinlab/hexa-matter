@@ -1,0 +1,313 @@
+# NOVEL.md — Novel material candidates (신소재)
+
+> **Working ledger** of de-novo-designed novel material candidates from
+> hexa-matter, modeled on `hexa-bio/.roadmap.novel_drugs` pattern. Tracks
+> candidates that are **not in canonical material databases** (NIST WebBook
+> / CRC / Materials Project / GNoME / OMat24) at design time.
+>
+> **SPEC_FIRST**: entries are design hypotheses, not measurements. Per
+> [`LATTICE_POLICY.md`](LATTICE_POLICY.md) §1.2/§1.3, real-limits-first.
+> Per raw#10 C3, no n=6 lattice-fit applied to external entities — vendor
+> producers use their own metrics.
+>
+> Created 2026-05-13 (Wave M + Phase A-G elevation). Sister-of-pattern:
+> [`hexa-bio/.roadmap.novel_drugs`](https://github.com/dancinlab/hexa-bio/blob/main/.roadmap.novel_drugs).
+
+---
+
+## 0. Scope boundary
+
+**In scope**:
+- De-novo-designed material *candidates* not present in MP / GNoME / OMat24
+  databases at design time
+- Cross-class hybrids (HEA + amorphous, MOF + 2D, perovskite + halide-SE, …)
+- Targeted falsifier per candidate
+- Status tracking through DESIGN → SIM → SYNTH-ROUTE → (EXTERNAL VERIFICATION)
+
+**Out of scope** (preserved per closure framework):
+- Per-verb canonical specs — these live in `<verb>/<verb>.md` (see
+  [`AXIS.md`](AXIS.md) for the 29-verb taxonomy)
+- Deep material chapters — see [`SILICON.md`](SILICON.md),
+  [`CERAMIC-ENGINEERING.md`](CERAMIC-ENGINEERING.md),
+  [`METALLURGY-DEEP.md`](METALLURGY-DEEP.md),
+  [`POLYMER-CHEMISTRY.md`](POLYMER-CHEMISTRY.md),
+  [`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md)
+- Wet-lab synthesis + measurement — Category (c) per
+  [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md), **out-of-repo by design**
+  (Wacker poly-Si / Wolfspeed SiC / Stora Enso wood / Hitachi Metals NdFeB
+  carry their own measurement layer)
+- Anti-claims (preserved as HARD_WALL): LK-99 room-T SC, metallic
+  hydrogen at ambient, infinite-recycle, magic-MOF DAC at $100/t — see
+  [`LIMIT_BREAKTHROUGH.md`](LIMIT_BREAKTHROUGH.md)
+
+---
+
+## 1. Naming convention
+
+```
+hxm-<class>-<target>-<NNN>
+```
+
+| Component   | Values                                                                |
+|-------------|-----------------------------------------------------------------------|
+| prefix      | `hxm-` (hexa-matter)                                                  |
+| class-tag   | `sc` (superconductor) · `cath` (cathode) · `anode` · `se` (solid electrolyte) · `pv` (photovoltaic) · `hea` (high-entropy alloy) · `bmg` (bulk metallic glass) · `mof` · `2d` · `pero` (perovskite) · `mag` (magnetic) · `ela` (elastomer) · `adh` (adhesive) · `pol` (polymer) · `cer` (ceramic) · `cnt` (carbon nanotube) · `bio` (biodegradable polymer) · `mxene` · `meta` (metamaterial) · `top` (topological) · `aero` (aerogel) · `pcm` (phase-change material) · `liq` (liquid metal) |
+| target-tag  | 3-6 char target identifier (composition / property goal)              |
+| NNN         | 3-digit serial number per (class, target)                             |
+
+Examples:
+- `hxm-sc-cuprate-001` = hexa-matter superconductor, cuprate family, candidate #001
+- `hxm-cath-licmf-001` = Li-Cu-Mn-F cathode, candidate #001
+- `hxm-pv-pb-free-001` = lead-free perovskite photovoltaic
+- `hxm-hea-refrac-001` = refractory HEA
+- `hxm-mof-dac-001` = MOF designed for direct-air-capture
+- `hxm-mag-refree-001` = rare-earth-free permanent magnet
+- `hxm-bmg-zr-001` = Zr-based bulk metallic glass
+- `hxm-aero-graphene-001` = graphene aerogel
+- `hxm-meta-eg-001` = electromagnetic metamaterial
+- `hxm-top-bisn-001` = topological insulator Bi-Sn family
+
+---
+
+## 2. Status pipeline
+
+```
+DESIGN  →  SIM  →  SYNTH-ROUTE  →  (EXTERNAL VERIFICATION)
+   │        │           │                    │
+   │        │           │                    └─ out-of-repo (Category c)
+   │        │           └──────────────────── retrosynthesis sketch + step-count
+   │        └───────────────────────────────── DFT / MD / FEA / MACE-OMat NNP / …
+   │                                                via _python_bridge or _absorption_bridge
+   └─────────────────────────────────────────── written spec in NOVEL.md
+                                                + falsifier defined
+```
+
+Status tags:
+
+| Tag                  | Meaning                                                                       |
+|----------------------|-------------------------------------------------------------------------------|
+| `DESIGN`             | Composition + intended phase + target property written                        |
+| `SIM-DFT`            | DFT-level band structure / formation energy via pymatgen + MP comparison     |
+| `SIM-MD`             | MD relaxation (ASE / LAMMPS-handle) — structural stability check            |
+| `SIM-NNP`            | Universal force-field (MACE / SchNet / ALIGNN / CHGNet / M3GNet) verdict via `_absorption_bridge/universal_ff/` |
+| `SYNTH-ROUTE`        | Retrosynthesis path proposed (literature precedent or de-novo path)          |
+| `UNVERIFIED`         | Default state — Category (c) wet-lab verification not performed              |
+| `WET-LAB-PROPOSED`   | Synthesis bench parameters drafted; awaiting external partner                |
+| `EXTERNAL-VERIFIED`  | Out-of-repo measurement received — REQUIRES vendor / lab attribution         |
+| `FALSIFIED`          | Sim or external measurement contradicts design hypothesis — keep on disk     |
+
+**Honest constraint (raw#10 C3)**: status above `SIM-NNP` requires either
+(a) a real `_absorption_bridge` adapter call result hash, or (b) explicit
+external lab / vendor citation. A `hxm-*` entry CANNOT claim
+`EXTERNAL-VERIFIED` without an attributed measurement. Per
+[`LATTICE_POLICY.md`](LATTICE_POLICY.md), the n=6 lattice MUST NOT serve
+as evidence for property claims — it is an organizing tool only.
+
+---
+
+## 3. Candidate ledger
+
+Format: `ID | class | target | brief | status | sim handle | falsifier`
+
+### 3.1 Superconductors
+
+LK-99 family **NOT REPRODUCED** (HARD_WALL per
+[`LIMIT_BREAKTHROUGH.md`](LIMIT_BREAKTHROUGH.md); see
+[`perovskite/perovskite.md`](perovskite/perovskite.md) anti-claim row).
+Cuprate-derivative candidates remain open as **research hypotheses**, NOT
+claims of working RT-SC. Real-world record (low-T): YBa₂Cu₃O₇ Tc ≈ 92 K
+(LN-cooled). High-pressure H₃S Tc ≈ 203 K (Drozdov et al. 2015, but 155
+GPa).
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-sc-cuprate-001`  | sc    | Tc > 100 K @ 1 atm  | (PLACEHOLDER — design TBD)     | DESIGN        | F-SC-1: Tc < 92 K → FALSIFIED         |
+| `hxm-sc-pnictide-001` | sc    | Fe-As high-Tc       | (PLACEHOLDER — design TBD)     | DESIGN        | F-SC-1: Tc < 55 K → FALSIFIED         |
+| `hxm-sc-h3s-derived-001` | sc | low-pressure H-rich | (PLACEHOLDER — design TBD)     | DESIGN        | F-SC-2: P_critical > 50 GPa → FALSIFIED |
+
+All `hxm-sc-*` candidates currently UNVERIFIED. Real RT-SC remains
+academically unproven; per [`hexa-rtsc`](https://github.com/dancinlab/hexa-rtsc)
+sister substrate, this is a SPEC catalog only.
+
+### 3.2 Battery cathodes
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-cath-licmf-001`  | cath  | Li-Cu-Mn-F          | Li-rich Mn-based, F-substituted | DESIGN       | F-CATH-1: capacity < 250 mAh/g → FAIL |
+| `hxm-cath-ni-rich-001`| cath  | LiNi₀.₉Mn₀.₀₅Co₀.₀₅ | Co-minimized NMC variant       | DESIGN        | F-CATH-2: cycle retention < 80% @ 1000 → FAIL |
+| `hxm-cath-disord-001` | cath  | DRX (disordered rocksalt) | Li-Mn-Ti-O / fluorinated     | DESIGN        | F-CATH-3: cap/voltage hysteresis > 15% → FAIL |
+
+### 3.3 Solid electrolytes
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-se-argyrod-001`  | se    | Li-PS-Cl argyrodite | room-T σ > 10⁻² S/cm           | DESIGN        | F-SE-1: σ < 1e-3 S/cm @ 25°C → FAIL   |
+| `hxm-se-halide-001`   | se    | Li-In-Cl₆ halide-SE | wide voltage window > 4.5 V    | DESIGN        | F-SE-2: anodic decomp < 4.0 V → FAIL  |
+
+### 3.4 Photovoltaic absorbers
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-pv-pb-free-001`  | pv    | Cs-Sn-I₃            | lead-free perovskite, > 20% PCE | DESIGN       | F-PV-1: PCE < 15% (lab) → FAIL        |
+| `hxm-pv-tandem-001`   | pv    | Si + perovskite     | 4-terminal tandem > 33% PCE    | DESIGN        | F-PV-2: stability < 1000 h MPP → FAIL |
+
+LK-99 PV variants and HARD_WALL claims preserved
+([`PEROVSKITE.md`](PEROVSKITE.md)).
+
+### 3.5 Magnetic materials (rare-earth-free)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
+| `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
+| `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
+
+All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
+Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
+published numbers govern (raw#10 C3).
+
+### 3.6 High-Entropy Alloys (HEA)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-hea-refrac-001`  | hea   | W-Mo-Ta-Nb-V        | refractory, T > 1500°C creep   | DESIGN        | F-HEA-1: creep rate > 1e-7 /s @ 1500°C → FAIL |
+| `hxm-hea-cantor-001`  | hea   | CrMnFeCoNi variant  | optimized strength + ductility | DESIGN        | F-HEA-2: σy/εf trade < benchmark → FAIL |
+| `hxm-hea-light-001`   | hea   | Al-Ti-V-Cr-Mn       | lightweight HEA, ρ < 5 g/cm³   | DESIGN        | F-HEA-3: ρ > 5.5 g/cm³ → FAIL         |
+
+### 3.7 MOF for direct-air-capture (DAC)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-mof-dac-001`     | mof   | amine-functionalized| CO₂ capacity > 4 mmol/g @ 400 ppm | DESIGN     | F-MOF-DAC-1: capacity < 1.5 mmol/g → FAIL |
+| `hxm-mof-dac-002`     | mof   | Mg-MOF-74 derivative| cyclic stability > 10000 cycles | DESIGN       | F-MOF-DAC-2: cap loss > 20% @ 5000 cyc → FAIL |
+
+**HARD_WALL preserved**: $100/t DAC economics UNPROVEN. Climeworks
+amine-on-MOF baseline at $600-1000/t (per [`MOF.md`](MOF.md)).
+
+### 3.8 2D heterostructures
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-2d-mosi2n-001`   | 2d    | MoSi₂N₄             | predicted in MP / GNoME — verify | DESIGN      | F-2D-1: mobility < 100 cm²/V·s → FAIL |
+| `hxm-2d-cri3-stack-001` | 2d  | CrI₃ + hBN + WSe₂   | layered magnetic-2D heterostack | DESIGN       | F-2D-2: T_c < 50 K → FAIL             |
+
+### 3.9 Phase-change materials (PCM)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-pcm-gst-001`     | pcm   | GST + dopant        | < 1 ns set time, > 10¹² cycles | DESIGN        | F-PCM-1: set > 5 ns → FAIL            |
+| `hxm-pcm-sbte-001`    | pcm   | Sb₂Te variant        | high contrast for photonic switching | DESIGN  | F-PCM-2: optical contrast < 30% → FAIL |
+
+### 3.10 Carbon (CNT yarn / lonsdaleite / carbyne)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-cnt-yarn-001`    | cnt   | continuous SWCNT yarn | > 10 GPa @ commercial-spool   | DESIGN        | F-CNT-1: production strength < 3 GPa → FAIL |
+
+**HARD_WALL**: CNT yarn 80 GPa = lab mm-scale; commercial 1-3 GPa
+preserved verbatim ([`carbon/carbon.md`](carbon/carbon.md) and
+[`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md)). Lonsdaleite, carbyne,
+diamond-as-semi wafer all UNVERIFIED.
+
+### 3.11 Metamaterials (engineered EM / acoustic / mechanical)
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-meta-neg-001`    | meta  | negative-index EM   | n_eff < 0 at λ = 1550 nm       | DESIGN        | F-META-1: loss > 5 dB/wavelength → FAIL |
+| `hxm-meta-cloak-001`  | meta  | partial cloak       | (PLACEHOLDER — visibility ratio TBD) | DESIGN  | F-META-2: cross-section reduction < 50% → FAIL |
+| `hxm-meta-acoustic-001` | meta | phononic crystal   | sub-Hz dispersion engineering  | DESIGN        | F-META-3: bandgap fractional width < 10% → FAIL |
+
+### 3.12 Topological insulators / superconductors
+
+| ID                    | class | target              | brief                          | status        | falsifier                             |
+|-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
+| `hxm-top-bi2se3-001`  | top   | doped Bi₂Se₃        | room-T surface conductivity    | DESIGN        | F-TOP-1: SS contribution < 30% → FAIL |
+| `hxm-top-sn-001`      | top   | Sn-based TI         | predicted in MP — verify       | DESIGN        | F-TOP-2: bulk bandgap < 0.1 eV → FAIL |
+| `hxm-top-majorana-001`| top   | Majorana platform   | TI + s-SC hybrid                | DESIGN        | F-TOP-3: zero-bias peak signature absent → FAIL |
+
+**HARD_WALL**: Majorana fermion identification HOTLY DEBATED (Microsoft
+Station Q retractions 2018-2024). Preserved as UNVERIFIED.
+
+---
+
+## 4. Sim handle convention
+
+When `status >= SIM-*`, the entry must reference the actual sim handle.
+Format: `<bridge>/<adapter>/<output-hash>`
+
+Examples:
+- `_python_bridge/module/pymatgen_structure_io.py::<md5>`
+- `_absorption_bridge/materials_project/mp_api_smoke.py::mp-149` (Si reference)
+- `_absorption_bridge/universal_ff/mace_call.py::<input-md5>`
+- `_absorption_bridge/gnome/gnome_dataset_smoke.py::<gnome-id>`
+
+This forces SIM claims to point at a real, reproducible artifact (or a
+proper SKIP if the adapter wasn't installed at the time, per Phase E
+discipline).
+
+---
+
+## 5. Honesty roll-up (per LATTICE_POLICY.md §1.2)
+
+Every entry in §3 above is currently `DESIGN`-only. **No entry has
+external measurement evidence.** Production-scale verification belongs to
+real foundries / labs / mills (raw#10 C3):
+
+- **Vendor authority** for production: Wacker (poly-Si) / Wolfspeed (SiC) /
+  Stora Enso (CLT) / Hitachi Metals (NdFeB) / TDK / Shin-Etsu / Arnold /
+  Vacuumschmelze / Climeworks (DAC) / NatureWorks (PLA) / Danimer (PHA) /
+  Element Six (diamond) / Merck KGaA (LC) — see per-verb specs for
+  full citations
+- **Database authority** for predicted candidates: Materials Project
+  (Berkeley/LBNL, CC-BY 4.0) / DeepMind GNoME (CC-BY 4.0, 2.2M predicted
+  stable materials, **PREDICTED NOT SYNTHESIZED**) / Meta AI OMat24
+  (CC-BY 4.0, 110M structures) / Preferred Networks Matlantis
+  (commercial, UNVERIFIED at hexa-matter scale economics) — see
+  [`_absorption_bridge/`](_absorption_bridge/README.md)
+- **Anti-claim ledger** (HARD_WALL preserved):
+  - LK-99 NOT REPRODUCED
+  - metallic hydrogen at ambient UNPROVEN
+  - infinite-recycle HARD_WALL (Gibbs ΔS_mix)
+  - magic-MOF $100/t DAC UNPROVEN (Climeworks $600-1000/t baseline)
+  - CNT yarn 80 GPa = lab mm-scale (commercial 1-3 GPa)
+  - 50+ story mass-timber UNVERIFIED
+  - rare-earth-free > 35 MGOe UNVERIFIED at production
+  - Majorana fermion identification CONTESTED
+  - Re-free 4th-gen single-crystal superalloy UNVERIFIED at parity
+
+---
+
+## 6. Entry workflow
+
+To add a new candidate:
+
+1. **Pick class-tag** from §1 table; choose a target-tag (3-6 chars).
+2. **Define falsifier** — quantitative, threshold-based,
+   measurement-attributable. Vague "we want better" claims rejected.
+3. **Land DESIGN row** in §3 with target + brief + falsifier columns
+   filled, status = `DESIGN`.
+4. **Optionally run sim** via `_python_bridge` or `_absorption_bridge` —
+   record sim handle, advance status to `SIM-*`.
+5. **Propose retrosynthesis** — advance to `SYNTH-ROUTE` only with
+   literature precedent or de-novo path written out.
+6. **External verification is OUT-OF-REPO**. To advance to
+   `EXTERNAL-VERIFIED`, attach an external lab citation with sample-ID
+   and measurement protocol. `hxm-*` ledger NEVER self-validates.
+
+Falsified candidates (sim or external evidence contradicts design)
+**stay on disk** with `FALSIFIED` status — they are evidence, not noise.
+Per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) Category (a) discipline.
+
+---
+
+## 7. Cross-references
+
+- Working ledger sibling: [`hexa-bio/.roadmap.novel_drugs`](https://github.com/dancinlab/hexa-bio/blob/main/.roadmap.novel_drugs)
+- Per-verb specs: [`AXIS.md`](AXIS.md)
+- Deep chapters: [`SILICON.md`](SILICON.md), [`CERAMIC-ENGINEERING.md`](CERAMIC-ENGINEERING.md), [`METALLURGY-DEEP.md`](METALLURGY-DEEP.md), [`POLYMER-CHEMISTRY.md`](POLYMER-CHEMISTRY.md), [`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md)
+- Roadmap stubs: [`PEROVSKITE.md`](PEROVSKITE.md), [`COMPOUND-SEMI.md`](COMPOUND-SEMI.md), [`2D-MATERIALS.md`](2D-MATERIALS.md), [`MOF.md`](MOF.md), [`SUPERALLOY.md`](SUPERALLOY.md), [`MAGNETIC-MATERIALS.md`](MAGNETIC-MATERIALS.md), [`ELASTOMER.md`](ELASTOMER.md), [`ADHESIVE.md`](ADHESIVE.md), [`BIODEGRADABLE-PLASTICS.md`](BIODEGRADABLE-PLASTICS.md), [`WOOD-CELLULOSE.md`](WOOD-CELLULOSE.md), [`LIQUID-CRYSTAL.md`](LIQUID-CRYSTAL.md)
+- Closure framework: [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md), [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md)
+- Sim bridges: [`_python_bridge/README.md`](_python_bridge/README.md), [`_absorption_bridge/README.md`](_absorption_bridge/README.md)
+- Frontier signal feed: [`_research_bridge/README.md`](_research_bridge/README.md) (arxiv cond-mat.mtrl-sci + vendor datasheet + patent crawl)
+- Policy: [`LATTICE_POLICY.md`](LATTICE_POLICY.md), [`LIMIT_BREAKTHROUGH.md`](LIMIT_BREAKTHROUGH.md), [`AGENTS.md`](AGENTS.md)
+- Initial extraction state: [`INIT.md`](INIT.md)
