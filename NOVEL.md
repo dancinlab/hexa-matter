@@ -2869,7 +2869,431 @@ listed in COD per [`_absorption_bridge/cod/SOURCES.md`](_absorption_bridge/cod/S
 
 ---
 
-## 5. Sim handle convention
+## 5. Round 4 — cross-class hybrids + frontier fillers (2026-05-14)
+
+
+Round-4 expansion per [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md) §4 (cross-class
+hybrids) + §3.S (bio-inspired) + §3.U (NTE/auxetic-adjacent frontier classes).
+Each candidate ships at status `DESIGN` with a quantitative falsifier and a
+risk-flags paragraph (per `selftest/cross_link_integrity_audit.py` B1–B4
+invariants). raw#10 C3 honored — no n=6 lattice-fit on vendor / lab numbers;
+vendor citations verbatim; UNPROVEN / HARD_WALL markers preserved.
+Sister-domain hand-offs annotated where the cell-engineering /
+device-integration layer belongs to a sister substrate
+(per [`CROSS_LINK.md`](CROSS_LINK.md) §3.2 hexa-chip, §3.3 hexa-energy).
+
+### 5.A Cross-class hybrids (8 candidates)
+
+8 cross-class candidates spanning HEA + amorphous BMG, 2D MOF for
+electrocatalysis, perovskite + halide solid electrolyte hybrid, MXene-
+or aerogel-confined PCM, hBN/graphene heterostructure qubit hosts,
+dye-sensitized molecular catalysts, and piezoelectric e-skin laminates.
+All entries adopt the new `cross` class-tag prefix per §1 naming
+convention (the cross-class label is a deliberate signal that
+falsifier discipline must include BOTH parent-class failure modes).
+
+#### 5.A.1 CoCrFeMnNi-class HEA + Zr-Cu-Al-Ni BMG glass-forming hybrid
+
+Hypothesis: a CoCrFeMnNi-class high-entropy alloy decorated with a
+Zr-Cu-Al-Ni amorphous glass-forming surface layer (suction-cast at 10⁴
+K/s into a Cu mold) targets critical casting thickness Dc ≥ 5 mm AND
+shear-band density ≤ 10⁴ /m at ε = 0.05 plastic strain — a combined
+HEA-substrate + BMG-skin failure surface that crystalline-HEA or
+monolithic-BMG corpora cannot match individually. Vendor authority:
+Yeh 2004 (original HEA definition); Senkov 2010 (refractory-HEA GFA
+mapping); Cantor 2004 (CoCrFeMnNi base); Liquidmetal Technologies
+Vitreloy Zr-Cu-Al-Ni BMG corpus.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-hea-bmg-001` | cross | HEA + BMG glass-forming | CoCrFeMnNi-class HEA core + amorphous Zr-Cu-Al-Ni glass-forming skin; suction-cast Cu mold 10⁴ K/s | DESIGN | F-X-HEA-BMG-1: Dc < 5 mm OR shear-band density > 10000 /m at ε = 0.05 plastic strain → FAIL |
+
+**Risk-flags**: HEA + BMG glass-forming-ability (GFA) criteria still
+empirical (Yeh 2004 + Senkov 2010 + Inoue empirical-GFA rules); GFA
+reproduction at Dc ≥ 8 mm UNVERIFIED across multi-lab campaigns;
+crystalline-to-amorphous interfacial cohesion HARD_WALL above 0.6 T_m
+(devitrification kinetics dominate); Cantor 2004 CoCrFeMnNi single-phase
+FCC stability narrows above 1100 °C — multi-element solute drag is
+empirically dataset-fragmented; vendor-scale arc-melt vs LPBF
+microstructure variance HARD_WALL preserved from §3.6 HEA ledger.
+raw#10 C3 honored.
+
+#### 5.A.2 Ni₃(HITP)₂ 2D MOF for electrocatalysis
+
+Hypothesis: a Ni₃(HITP)₂ 2D conductive MOF (hexaiminotriphenylene Ni
+triangular sheet, π-conjugated through Ni-N4 nodes) electrodeposited on
+glassy carbon supports oxygen-reduction-reaction (ORR) onset ≥ 0.85 V
+vs RHE in 0.1 M KOH AND in-plane conductivity ≥ 40 S/cm — bridging the
+classical MOF-as-insulator framework and the 2D-conductor regime.
+Vendor authority: Dincă (MIT) 2D conductive-MOF corpus; Yaghi group
+foundational MOF taxonomy; NuMat Technologies on industrial MOF
+deployment.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-mof-2d-001` | cross | Ni₃(HITP)₂ 2D MOF electrocatalyst | conductive 2D MOF for ORR in alkaline; targets ≥ 0.85 V vs RHE onset + ≥ 40 S/cm | DESIGN | F-X-MOF-2D-1: ORR onset < 0.85 V vs RHE in 0.1 M KOH OR in-plane conductivity < 40 S/cm → FAIL |
+
+**Risk-flags**: 2D-MOF stability in liquid water HARD_WALL beyond 100 h
+electrocatalysis (ligand hydrolysis + Ni leaching dominate); HITP
+linker oxidation under ORR potential UNVERIFIED at full duty cycle;
+sheet-to-sheet stacking-fault scattering decreases out-of-plane σ by
+3–4 orders of magnitude vs in-plane (Dincă 2014); Pt benchmark
+preserved as honesty anchor (0.90–0.95 V vs RHE onset baseline);
+not a replacement claim for PGM catalysts at production. Cell
+engineering / MEA integration → hexa-energy per CROSS_LINK §3.3.
+raw#10 C3 honored.
+
+#### 5.A.3 CsPbBr₃ perovskite + Li₃InCl₆ halide-SE interface
+
+Hypothesis: a CsPbBr₃ all-inorganic perovskite emitter laminated to a
+Li₃InCl₆ halide solid electrolyte targets ionic conductivity ≥ 0.5
+mS/cm at 25 °C across the laminated stack AND perovskite phase-
+segregation ≤ 5% (XRD secondary-phase peak area) after 1000 h at
+60 °C / 50% RH — a hybrid perovskite-LED + halide-SE substrate for
+on-chip integrated emitter/battery testbeds. Vendor authority:
+Sumitomo Chemical (halide perovskite + organic LED corpus); Asano /
+Janek 2018 halide-SE foundational papers; CATL Li-halide pilot lots
+on halide-SE manufacturing.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-pero-halide-se-001` | cross | CsPbBr₃ + Li₃InCl₆ hybrid | perovskite emitter + halide-SE laminate; targets ≥ 0.5 mS/cm + ≤ 5% perovskite phase segregation after 1000 h | DESIGN | F-X-PHSE-1: ionic conductivity < 0.5 mS/cm @ 25°C OR perovskite phase-segregation > 5% (XRD secondary-phase area) after 1000 h → FAIL |
+
+**Risk-flags**: halide-ion (Br⁻/Cl⁻) migration across the
+perovskite/halide-SE interface HARD_WALL (Janek 2018 + Asano 2018 —
+mixed-anion gradients drive perovskite decomposition); Sn-perovskite
+variants would suffer Sn²⁺ oxidation HARD_WALL preserved (atmospheric
+ingress + halide-SE moisture sensitivity); In-supply UNVERIFIED at
+commodity scale (geopolitical concentration of In ore); LK-99 NOT
+REPRODUCED preserved as antecedent perovskite-SC anti-claim. Device
+fabrication / lithography ⇒ hexa-chip per CROSS_LINK §3.2; cell
+engineering ⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 5.A.4 Ti₃C₂T_x MXene + paraffin PCM conductive composite
+
+Hypothesis: a Ti₃C₂T_x MXene + n-octadecane paraffin PCM composite
+(20 vol% MXene network) targets thermal conductivity k_total ≥ 5
+W/(m·K) at 25 °C AND ≥ 80% retention of latent heat after 1000 thermal
+cycles between 10 °C and 50 °C — a "conductive PCM" intermediate
+between Cabot/Aspen MXene aerogel and Rubitherm paraffin baseline.
+Vendor authority: Gogotsi 2023 MXene-foam corpus; Cabot for MXene-
+aerogel pilot scale; Rubitherm GmbH on commodity-paraffin PCM thermal
+testing.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-mxene-pcm-001` | cross | Ti₃C₂T_x MXene + paraffin PCM | MXene-network conductive paraffin PCM composite; targets ≥ 5 W/(m·K) + ≥ 80% latent-heat retention after 1000 cycles | DESIGN | F-X-MXENE-PCM-1: thermal conductivity < 5 W/(m·K) @ 25°C OR phase-change latent-heat retention < 80% after 1000 cycles → FAIL |
+
+**Risk-flags**: MXene oxidation in molten paraffin HARD_WALL above 80 °C
+(Ti₃C₂T_x surface terminations -O/-OH/-F lose layer-edge passivation in
+hot non-polar solvents); k_total scaling above 20 vol% MXene loading
+SOFT_WALL (percolation gain saturates while paraffin loading drops below
+practical PCM latent-heat envelope); Cabot pilot-scale MXene aerogel
+commercial cost UNVERIFIED (Gogotsi 2023 lab-scale only); Rubitherm
+paraffin baseline (200–250 J/g) preserved as honesty anchor. raw#10 C3
+honored.
+
+#### 5.A.5 Silica aerogel-confined paraffin PCM
+
+Hypothesis: a hydrophobic silica aerogel (TEOS sol-gel, supercritical
+CO₂ dried, 0.10–0.15 g/cm³) impregnated with n-octadecane paraffin PCM
+targets PCM leakage ≤ 1 wt%/cycle (drip mass loss at 50 °C) AND ≥ 85%
+latent-heat retention after 1000 thermal cycles — a Cabot/Aspen-
+heritage aerogel + Rubitherm-class PCM hybrid for low-grade thermal
+storage. Vendor authority: Cabot (Lumira aerogel) + Aspen Aerogels
+(Pyrogel) for aerogel pilot; Rubitherm GmbH + PCM Products for
+paraffin reference; Hench 1990 sol-gel TEOS corpus.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-aero-pcm-001` | cross | silica aerogel + paraffin PCM | hydrophobic TEOS-derived silica aerogel impregnated with paraffin PCM; targets ≤ 1 wt%/cycle leakage + ≥ 85% latent-heat retention after 1000 cycles | DESIGN | F-X-AERO-PCM-1: leakage rate > 1 wt%/cycle OR thermal-cycling 1000-cycle latent-heat retention < 85% → FAIL |
+
+**Risk-flags**: PCM volumetric expansion (~ 10–15% on melt) crack-
+formation in the fragile silica-aerogel skeleton HARD_WALL (cell-wall
+strain accumulates; aerogel Young's modulus ~ 1 MPa cannot absorb
+paraffin density-change cyclically); aerogel cost-per-kg UNPROVEN at
+commodity-foam parity ($20–100/kg insulation vs $2–5/kg PU) preserved
+from §3.14 aerogel ledger; supercritical-CO₂ drying production
+throughput UNVERIFIED at building-insulation scale; not in MP/GNoME
+canonical database — listed in COD per
+[`_absorption_bridge/cod/SOURCES.md`](_absorption_bridge/cod/SOURCES.md).
+raw#10 C3 honored.
+
+#### 5.A.6 hBN/graphene/hBN heterostructure qubit host
+
+Hypothesis: a tri-layer hBN/graphene/hBN van der Waals heterostructure
+(CVD-grown hBN encapsulating exfoliated monolayer graphene) targets
+spin-coherence T₂ ≥ 1 μs at 300 K AND hyperfine inhomogeneous
+broadening ≤ 10 MHz — a 2D-encapsulated qubit host bridging diamond-NV
+and SiC-VV color-center ecosystems with the wafer-scale hBN/graphene
+substrate. Vendor authority: Awschalom (UChicago) hBN VB⁻ + qubit
+host corpus; Wrachtrup (Stuttgart) ODMR foundational protocols; SAIT
++ IMEC on 2D-heterostructure CVD-stack pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-quantum-2d-001` | cross | hBN/graphene/hBN qubit host | tri-layer van der Waals quantum-defect host; targets T₂ ≥ 1 μs @ 300 K + ≤ 10 MHz hyperfine broadening | DESIGN | F-X-Q-2D-1: T₂ < 1 μs @ 300 K OR hyperfine inhomogeneous broadening > 10 MHz → FAIL |
+
+**Risk-flags**: hBN vacancy-density variance across CVD growth HARD_WALL
+(VB⁻ concentration uncontrolled lot-to-lot; Awschalom 2020 et seq.
+report 1–3 orders of magnitude spread in measured T₂ across CVD-hBN
+batches); graphene Dirac-cone hyperfine coupling to ¹³C nuclear spins
+SOFT_WALL (1.1% natural ¹³C abundance dominates broadening below
+isotopic purification); device fabrication ⇒ hexa-chip per CROSS_LINK
+§3.2 (lithography + photoresist + bonding pads owned by sister); CNT
+yarn 80 GPa lab-mm caveat preserved as adjacent 2D-substrate honesty.
+raw#10 C3 honored.
+
+#### 5.A.7 Ru-bipyridyl dye-sensitized TiO₂ molecular photocatalyst
+
+Hypothesis: a Ru(bpy)₃²⁺-class polypyridyl complex chemisorbed on
+mesoporous anatase TiO₂ (sol-gel + P25 baseline) targets solar-to-fuel
+efficiency ≥ 2% over 100 h of AM1.5G illumination AND turnover number
+≥ 10⁴ for CO₂ → CO photoreduction — a dye-sensitized molecular-
+catalyst photocatalyst hybridizing the Grätzel-cell sensitization
+architecture with a CO₂RR molecular catalyst. Vendor authority:
+Grätzel (EPFL) dye-sensitization corpus; Fujishima-Honda 1972 TiO₂
+photocatalysis foundational; Sumitomo Chemical / Saule on dye-
+sensitization pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-cat-photo-001` | cross | Ru-bpy + TiO₂ dye-sensitized photocatalyst | Ru-bipyridyl chemisorbed on mesoporous anatase TiO₂; CO₂RR photoreduction; targets ≥ 2% STF over 100 h + TON ≥ 10000 | DESIGN | F-X-CAT-PHOTO-1: solar-to-fuel efficiency < 2% over 100 h OR turnover number < 10000 → FAIL |
+
+**Risk-flags**: Ru-dye photobleaching HARD_WALL beyond 200 h continuous
+AM1.5G illumination (ligand oxidative degradation; Grätzel et al. dye-
+stability reviews); Ru supply geopolitical concentration UNVERIFIED at
+commodity-photocatalyst scale; CO₂RR selectivity vs HER UNVERIFIED at
+high faradaic loading (competitive H₂ evolution dominates in aqueous
+systems); STF benchmark 2% remains aspirational vs Grätzel-cell
+photovoltaic + electrocatalyst stack (5–10% STF demonstrated in two-
+step decoupled architecture). raw#10 C3 honored.
+
+#### 5.A.8 PVDF-TrFE piezoelectric film on stretchable elastomer e-skin
+
+Hypothesis: a 5 μm spin-coated PVDF-TrFE (70/30 mol%) piezoelectric
+film bonded to a 100 μm PDMS stretchable elastomer e-skin targets
+piezoelectric d₃₁ ≥ 20 pC/N at 50% biaxial strain AND ≥ 70% signal
+retention after 10⁵ cyclic-stretch (5–25% range) cycles — a hybrid
+piezo-on-elastomer e-skin bridging the rigid-piezo ceramic film
+ecosystem with the flexible PDMS/PVDF wearable corpus. Vendor authority:
+Rogers (Northwestern + UIUC) flexible-electronics e-skin corpus;
+Arkema (Kynar PVDF + PVDF-TrFE polymer); MC10 / Soft Robotics Inc. on
+e-skin device integration.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-cross-piezo-eskin-001` | cross | PVDF-TrFE + PDMS e-skin | spin-coated PVDF-TrFE piezo film bonded to PDMS elastomer; targets d₃₁ ≥ 20 pC/N @ 50% strain + ≥ 70% retention after 10⁵ cycles | DESIGN | F-X-PIEZO-ESKIN-1: piezoelectric d₃₁ < 20 pC/N at 50% strain OR cycle 100000 retention < 70% → FAIL |
+
+**Risk-flags**: piezoelectric coefficient degradation under cyclic
+stretch HARD_WALL (PVDF-TrFE β-phase fraction depolarizes under
+repeated biaxial strain; Rogers 2017 et seq. flexible-piezo reviews
+report 30–50% d₃₁ loss after 10⁴–10⁵ cycles in unconstrained PDMS
+laminates); PDMS hydrolytic-stability UNVERIFIED at long-duration
+sweat / saline contact (typical wearable failure mode); device
+fabrication / packaging ⇒ hexa-chip per CROSS_LINK §3.2; PVDF-TrFE
+70/30 commodity-grade availability VERIFIED via Arkema Kynar catalog
+but high-purity formulations remain Arkema-specialty pricing. raw#10
+C3 honored.
+
+### 5.B Missing-class frontier fillers (7 candidates)
+
+7 frontier-class fillers spanning extended-modulation time-domain
+photonic metamaterials, alkylamine-decorated low-temperature DAC MOFs,
+Fe-based NH₃ cracker catalysts (Ru-substitute), Na-ion hard-carbon
+anodes with Prussian-blue SEI engineering, multilayer MXene EMI
+shielding (Ti₃C₂ + V₂C), graphene-aerogel + 1-octadecanol PCM, and
+mycelium-PHA elastomer composites for soft-robotics. These deliberately
+target classes under-represented in the §3.x + §4.x ledgers (cf.
+NOVEL_ROADMAP §3.S bio-inspired + §3.U NTE/auxetic adjacency).
+
+#### 5.B.1 Extended time-domain photonic metamaterial
+
+Hypothesis: a vanadium-dioxide / silicon-photonic time-domain
+metamaterial (electrically biased VO₂ thin-film modulator on a SOI
+photonic-crystal substrate) targets modulation depth ≥ 50% at 100 GHz
+RF drive AND insertion loss ≤ 3 dB across the 1530–1565 nm telecom
+C-band — extending the §4.C.4 `hxm-tdmeta-photonic-001` time-domain
+photonic-metamaterial baseline to the silicon-photonic process node.
+Vendor authority: Pendry-Smith metamaterial foundational corpus;
+Engheta + Alù time-varying-photonics 2020 review; STMicroelectronics
++ IMEC on SOI photonic-process pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-photonic-tdmeta-002` | photonic | VO₂ SOI time-domain metamaterial | electrically biased VO₂ modulator on SOI photonic-crystal substrate; targets ≥ 50% modulation @ 100 GHz + ≤ 3 dB insertion loss | DESIGN | F-X-TDMETA-1: modulation depth < 50% @ 100 GHz → FAIL |
+
+**Risk-flags**: VO₂ insulator-metal transition (~ 68 °C) hysteresis
+HARD_WALL on repeatable modulation (multi-cycle drift dominates
+beyond 10⁶ switching events); SOI-photonic + VO₂ thermal cross-talk
+UNVERIFIED at C-band insertion-loss budget; time-domain photonic-
+metamaterial frequency-conversion beyond ~ 10 GHz UNVERIFIED at
+commodity-process node (Engheta + Alù 2020 — lab-scale demonstrations
+only). Device fabrication / lithography ⇒ hexa-chip per CROSS_LINK
+§3.2. raw#10 C3 honored.
+
+#### 5.B.2 Alkylamine-decorated low-temperature DAC MOF
+
+Hypothesis: a tetraethylenepentamine (TEPA)-decorated Mg₂(dobpdc) MOF
+targets CO₂ capacity ≥ 1 mmol/g at -10 °C / 400 ppm AND amine-loss
+≤ 5 wt% after 1000 thermal-swing regeneration cycles — extending the
+§3.7 `hxm-mof-dac-002` ambient-temperature baseline into the
+cold-climate envelope where Climeworks amine columns lose 30–50%
+capacity. Vendor authority: Long group (Berkeley) amine-MOF corpus;
+Climeworks Orca/Mammoth deployment data; NuMat Technologies MOF
+pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-mof-dac-003` | mof | TEPA / Mg₂(dobpdc) low-T DAC | alkylamine-decorated Mg₂(dobpdc) MOF targeting low-T DAC; targets ≥ 1 mmol/g @ -10 °C / 400 ppm + ≤ 5 wt% amine loss / 1000 cycles | DESIGN | F-MOF-DAC-LOW-T-1: capacity @ -10°C / 400 ppm < 1 mmol/g → FAIL |
+
+**Risk-flags**: alkylamine (TEPA / PEI) oxidative degradation HARD_WALL
+under cyclic O₂ exposure (urea / amide product chain dominates above
+80 °C regen temperatures; Long group 2015 et seq.); magic-MOF DAC
+$100/t UNPROVEN preserved (Climeworks Orca/Mammoth amine-column
+baseline $600-1000/t per Climeworks 2024 public LCA); cold-climate
+sorbent kinetics UNVERIFIED at sub-zero air-water partial-pressure
+regime; not in MP/GNoME canonical database — listed in COD per
+[`_absorption_bridge/cod/SOURCES.md`](_absorption_bridge/cod/SOURCES.md).
+raw#10 C3 honored.
+
+#### 5.B.3 Fe-based NH₃ cracker (Ru-substitute)
+
+Hypothesis: an Fe-promoted Ce-Al₂O₃ catalyst for NH₃ cracking targets
+NH₃ → N₂ + H₂ conversion ≥ 90% at 500 °C / 1 bar / 30 000 h⁻¹ GHSV
+AND H₂ purity ≥ 99.97% post-PSA — a cheaper non-Ru substitute for
+the Ru/La₂O₃ baseline used in stationary NH₃-economy H₂ release.
+Vendor authority: Topsoe Fe-Ce/Al ammonia-decomp corpus; ITM Power
++ Cummins on NH₃-cracker pilot; Ohmium on H₂-purification stack.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-ammonia-cracker-fe-001` | cat | Fe/Ce-Al₂O₃ NH₃ cracker | Fe-promoted Ce-Al₂O₃ catalyst for NH₃ → N₂ + H₂; targets ≥ 90% conv @ 500 °C + ≥ 99.97% H₂ purity post-PSA | DESIGN | F-NH3-FE-1: conversion < 90% @ 500°C OR H₂ purity < 99.97% → FAIL |
+
+**Risk-flags**: Fe nitridation HARD_WALL above 500 °C (Fe₂N / Fe₄N
+phase formation deactivates the catalytic site; Topsoe et al. NH₃-
+cracker reviews); Ru/La₂O₃ baseline preserved as honesty anchor (Ru
+~ 10× more active per gram at 400 °C but 100× more expensive — the
+cost-vs-T trade is the falsifier's true axis); cracker-to-fuel-cell
+H₂ purity is the limiting integration constraint (PEM FC requires
+NH₃ ≤ 0.1 ppm — separation downstream UNVERIFIED at commodity scale);
+H₂ device integration ⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3
+honored.
+
+#### 5.B.4 Na-hard-carbon anode + Prussian-blue SEI engineering
+
+Hypothesis: a sucrose-derived hard-carbon Na-ion anode (extends
+§4.A.6 `hxm-bat-anode-na-hardcarbon-001`) with a Prussian-blue-analog
+artificial-SEI overlayer (KₓNiFe(CN)₆, ALD-deposited) targets initial
+Coulombic efficiency (ICE) ≥ 85% AND cycle-500 capacity retention
+≥ 75% at 1C — improving on the bare-HC ICE 75–80% baseline that
+remains the dominant first-cycle Na-loss mode. Vendor authority:
+HiNa Battery + Faradion + Altris hard-carbon supply; Cui group
+(Stanford) ALD-SEI engineering corpus; CATL Na-ion (gen-2 PBA).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-anode-na-prussian-001` | bat-anode | hard-C + PBA SEI Na-ion anode | sucrose-derived hard-C with ALD-deposited Prussian-blue-analog artificial SEI; targets ICE ≥ 85% + cycle-500 retention ≥ 75% | DESIGN | F-NA-PB-1: ICE < 85% OR cycle 500 retention < 75% → FAIL |
+
+**Risk-flags**: K⁺/Na⁺ ionic-radius mismatch in PBA SEI HARD_WALL
+(K-PBA framework strains under repeated Na⁺ shuttling; Goodenough
+PBA corpus + Cui 2017 SEI reviews); ALD-PBA process throughput
+UNVERIFIED at commodity-anode scale; first-cycle Na loss to bulk-SEI
+on bare HC is empirically 15–25% (Stevens & Dahn 2000), so the
+≥ 85% ICE target requires the PBA overlayer to fully suppress
+bulk-SEI formation — UNVERIFIED at full-cell scale; cell engineering
+⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
+
+#### 5.B.5 Multilayer Ti₃C₂ + V₂C MXene EMI shielding
+
+Hypothesis: a multilayer Ti₃C₂T_x + V₂CT_x MXene stack (alternating
+20 nm layers, total 100 μm) targets total electromagnetic-shielding
+effectiveness SE_total ≥ 100 dB across 8–12 GHz X-band — leveraging
+the Ti-rich + V-rich heterointerface to amplify multiple-reflection
+contributions beyond the monolayer-MXene baseline. Vendor authority:
+Gogotsi 2023 MXene-foam corpus; Drexel + Berkeley MXene heterostack
+literature; Cabot on commodity MXene aerogel pilot.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-mxene-emi-001` | mxene | ML Ti₃C₂ + V₂C EMI shield | multilayer MXene stack alternating Ti₃C₂T_x + V₂CT_x layers; targets SE_total ≥ 100 dB @ 100 μm thickness | DESIGN | F-EMI-1: SE_total < 100 dB at 100 μm thickness across 8-12 GHz X-band → FAIL |
+
+**Risk-flags**: layer mismatch interfacial scattering UNVERIFIED at
+arbitrary stack-order (Ti₃C₂T_x and V₂CT_x have differing lattice
+parameter ~ 3.04 vs ~ 2.98 Å — stacking-fault density modulates SE
+unpredictably across multilayer growth runs; Gogotsi 2023); MXene
+oxidation in ambient humidity HARD_WALL preserved from §3.15 MXene
+ledger; spray / vacuum-filtration MXene-stack uniformity UNVERIFIED
+at m² scale; CNT yarn 80 GPa lab-mm caveat preserved as adjacent
+2D-substrate honesty anchor. raw#10 C3 honored.
+
+#### 5.B.6 Graphene-aerogel + 1-octadecanol PCM composite
+
+Hypothesis: a graphene-aerogel scaffold (CVD foam, 0.05 g/cm³)
+impregnated with 1-octadecanol (stearyl alcohol, T_m ≈ 58 °C) PCM
+targets PCM leakage ≤ 0.5 wt%/cycle (drip mass loss at 70 °C) AND
+total thermal conductivity k_total ≥ 3 W/(m·K) — pairing the
+ultralight graphene-aerogel skeleton with a higher-T PCM than the
+§5.A.5 paraffin variant. Vendor authority: Aspen Aerogels (graphene-
+aerogel pilot); PCM Products + Rubitherm on stearyl-alcohol PCM
+baseline; Tsinghua graphene-aerogel corpus.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pcm-graphene-aerogel-001` | pcm | graphene-aerogel + 1-octadecanol | CVD graphene-aerogel impregnated with stearyl-alcohol PCM; targets ≤ 0.5 wt%/cycle leakage + k_total ≥ 3 W/(m·K) | DESIGN | F-PCM-GA-1: leakage > 0.5 wt%/cycle OR k_total < 3 W/(m·K) → FAIL |
+
+**Risk-flags**: graphene-aerogel 0.16 kg/m³ density record UNVERIFIED
+at production scale (preserved from §3.14 aerogel ledger — Tsinghua
+2013 lab-scale only); 1-octadecanol auto-oxidation HARD_WALL above
+80 °C (aldehyde / acid product chain); k_total ≥ 3 W/(m·K) requires
+graphene-aerogel volume fraction ≥ 10% — at higher loadings PCM
+latent-heat per unit composite drops below the practical PCM-
+storage envelope; not in MP/GNoME canonical database. raw#10 C3
+honored.
+
+#### 5.B.7 Mycelium-PHA elastomer composite for soft-robotics
+
+Hypothesis: a Ganoderma-mycelium scaffold infiltrated with poly(3-
+hydroxybutyrate-co-3-hydroxyvalerate) PHBV elastomer (50/50 vol%)
+targets tensile strength σ ≥ 8 MPa AND cycle 10⁴ fatigue retention
+≥ 70% under 20% strain — a bio-composite soft-robotics actuator
+material bridging Ecovative mycelium-foam authority and Danimer
+Nodax PHA elastomer baseline. Vendor authority: Ecovative + Mogu
+on mycelium fabrication; Danimer Scientific Nodax PHBV grades;
+Soft Robotics Inc. + Festo on soft-actuator device integration.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-bio-mycel-elastomer-001` | bio | mycelium + PHBV elastomer | Ganoderma-mycelium scaffold + Danimer PHBV elastomer composite for soft-robotics; targets σ ≥ 8 MPa + cycle 10⁴ retention ≥ 70% @ 20% strain | DESIGN | F-MYCEL-ELA-1: tensile σ < 8 MPa OR cycle 10000 fatigue retention < 70% → FAIL |
+
+**Risk-flags**: mycelium-PHA interphase HARD_WALL on cohesion
+(hyphal-network hydrophilicity vs PHBV hydrophobic-block incompat
+ibility — Ecovative + Mogu fabrication corpora report lap-shear < 1
+MPa typical without coupling agent); biodegradability scaffold-to-
+compost UNVERIFIED at marine + soil dual-protocol (Danimer Nodax
+PHA meets ASTM D6400 industrial-compost but D7081 marine remains
+PHA-grade specific; preserved from §3.16 biodegradable ledger);
+PHBV grade-to-grade Tg / E variance across Danimer Nodax lots
+UNVERIFIED at long-cycle fatigue. raw#10 C3 honored.
+
+---
+
+## 6. Sim handle convention
 
 When `status >= SIM-*`, the entry must reference the actual sim handle.
 Format: `<bridge>/<adapter>/<output-hash>`
@@ -2886,7 +3310,7 @@ discipline).
 
 ---
 
-## 6. Honesty roll-up (per LATTICE_POLICY.md §1.2)
+## 7. Honesty roll-up (per LATTICE_POLICY.md §1.2)
 
 Every entry in §3 above is currently `DESIGN`-only. **No entry has
 external measurement evidence.** Production-scale verification belongs to
@@ -2916,7 +3340,7 @@ real foundries / labs / mills (raw#10 C3):
 
 ---
 
-## 7. Entry workflow
+## 8. Entry workflow
 
 To add a new candidate:
 
@@ -2939,7 +3363,7 @@ Per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) Category (a) discipline.
 
 ---
 
-## 8. Cross-references
+## 9. Cross-references
 
 - Working ledger sibling: [`hexa-bio/.roadmap.novel_drugs`](https://github.com/dancinlab/hexa-bio/blob/main/.roadmap.novel_drugs)
 - Per-verb specs: [`AXIS.md`](AXIS.md)
