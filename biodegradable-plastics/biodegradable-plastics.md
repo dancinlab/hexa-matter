@@ -276,6 +276,8 @@ Cellulose acetate (Eastman):
    European Bioplastics 2024 market data, ICIS / Platts pricing, and
    vendor public disclosures.
 
+**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-algae-plastic-001` — see [NOVEL.md §4.F.13](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Algae-derived PHA (PHB-co-PHV) fermentation bioplastic; tensile σ_t ≥ 30 MPa + commercial cost ≤ $5/kg is the material-layer chemistry — Algenesis (Pyratel) / Newlight (AirCarbon) / Danimer (Nodax) commercial baseline. **Algae-PHA marine-biodegradable claim UNVERIFIED** preserved verbatim per §3 anti-claim above; pilot cost $3.5-5/kg, commodity parity vs PLA / PE petrochemical baseline ($1-2/kg) UNVERIFIED.
+
 ---
 
 ## §11 References

@@ -601,13 +601,15 @@ Status DESIGN.
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-bat-cath-naion-001` | bat-cath | Na₂FeFe(CN)₆ Prussian-blue Na-ion | vacancy-controlled PBA cathode for Na-ion | DESIGN | F-BAT-CATH-3: cap @ -20°C < 80% RT cap OR self-discharge > 5%/mo → FAIL |
+| `hxm-bat-cath-naion-001` | bat-cath | Na₂FeFe(CN)₆ Prussian-blue Na-ion | vacancy-controlled PBA cathode for Na-ion | SIM-NNP-PROXY | F-BAT-CATH-3: cap @ -20°C < 80% RT cap OR self-discharge > 5%/mo → FAIL |
 
 **Risk-flags**: water-content sensitivity UNVERIFIED at production
 (zeolitic water leads to capacity fade); vacancy formation HARD_WALL
 during synthesis (Fe(CN)₆⁴⁻ release); commodity-scale citrate process
 UNVERIFIED. Cell engineering → hexa-energy per CROSS_LINK §3.3. raw#10
 C3 honored.
+**SIM-NNP-PROXY status 2026-05-14** — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-bat-cath-naion-001.json`](_absorption_bridge/universal_ff/predictions/hxm-bat-cath-naion-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link** (Tier-2, `hxm-bat-cath-naion-001`): see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for vacancy-controlled Na-PBA cathode chemistry (Na₂Fe[Fe(CN)₆] Prussian-blue; Faradion / CATL Na-ion commercial baseline preserved; cell engineering → hexa-energy per CROSS_LINK §3.3).
 
 #### 4.A.4 K-Mn-Fe Prussian-blue K-ion cathode
 
@@ -1397,8 +1399,8 @@ isotopic ²⁸Si feedstock from Urenco / International Avogadro Project
 
 | ID                          | class    | target              | brief                                                | status | falsifier                             |
 |-----------------------------|----------|---------------------|------------------------------------------------------|--------|---------------------------------------|
-| `hxm-quantum-si-donor-001`  | quantum  | ²⁸Si:P donor qubit   | ³¹P donor in ²⁸Si-enriched (≥ 99.99 %) host; Kane-scheme single-shot SET readout | DESIGN | F-QUANTUM-2: electron-spin T₂ < 10 s @ 100 mK OR single-shot readout fidelity < 99 % → FAIL |
-| `hxm-quantum-hbn-vb-001`    | quantum  | hBN V_B⁻ color center | ion-irradiated CVD multilayer hBN; ODMR + Hahn-echo at 300 K | DESIGN | F-QUANTUM-3: ODMR contrast < 1 % @ 300 K OR Hahn-echo T₂ < 100 ns @ 300 K → FAIL |
+| `hxm-quantum-si-donor-001`  | quantum  | ²⁸Si:P donor qubit   | ³¹P donor in ²⁸Si-enriched (≥ 99.99 %) host; Kane-scheme single-shot SET readout | SIM-NNP-PROXY | F-QUANTUM-2: electron-spin T₂ < 10 s @ 100 mK OR single-shot readout fidelity < 99 % → FAIL |
+| `hxm-quantum-hbn-vb-001`    | quantum  | hBN V_B⁻ color center | ion-irradiated CVD multilayer hBN; ODMR + Hahn-echo at 300 K | SIM-NNP-PROXY | F-QUANTUM-3: ODMR contrast < 1 % @ 300 K OR Hahn-echo T₂ < 100 ns @ 300 K → FAIL |
 | `hxm-quantum-mol-vopc-001`  | quantum  | vanadyl-phthalocyanine (VOPc) | sublimed thin film molecular qubit on Au(111) / α-Al₂O₃; 5 K operation | DESIGN | F-QUANTUM-4: T₁ < 1 ms @ 5 K OR ensemble T_M coherence < 100 μs → FAIL |
 
 **Risk-flags**: ²⁸Si enrichment cost **HARD_WALL** — International
@@ -1415,6 +1417,9 @@ coverage. Device-layer integration (qubit array routing, on-chip
 microwave delivery) belongs to **hexa-chip** per CROSS_LINK §3.2 — this
 ledger owns the MATERIAL layer only.
 **Verb spec link** (Tier-2, `hxm-quantum-si-donor-001`): see [`silicon/silicon.md`](silicon/silicon.md) — material-layer authority for ²⁸Si-enriched host chemistry (isotope enrichment + ³¹P donor incorporation = Si material layer; qubit device integration → hexa-chip).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-quantum-si-donor-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-quantum-si-donor-001.json`](_absorption_bridge/universal_ff/predictions/hxm-quantum-si-donor-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-quantum-hbn-vb-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-quantum-hbn-vb-001.json`](_absorption_bridge/universal_ff/predictions/hxm-quantum-hbn-vb-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link** (Tier-2, `hxm-quantum-hbn-vb-001`): see [`2d-materials/2d-materials.md`](2d-materials/2d-materials.md) — material-layer authority for hBN V_B⁻ color-center chemistry (ion-irradiated CVD multilayer hBN; ODMR + Hahn-echo room-T metrology; isotope-control UNVERIFIED at wafer scale preserved verbatim).
 
 ### 4.C.2 Skyrmions / antiferromagnetic memory (Mn₁.₄PtSn, Mn₃Sn)
 
@@ -1514,8 +1519,8 @@ production is research-scale, not commodity). Status DESIGN.
 | ID                       | class    | target              | brief                                                | status | falsifier                             |
 |--------------------------|----------|---------------------|------------------------------------------------------|--------|---------------------------------------|
 | `hxm-top-bi2se3-002`     | top      | Bi₂Se₃ TI surface (ARPES quality) | MBE on (111)-Si or Al₂O₃; extends -001 into spectroscopic regime | DESIGN | F-TOP-4: ARPES Dirac-cone gap > 30 meV OR surface-state mobility < 5000 cm²/(V·s) → FAIL |
-| `hxm-weyl-tas-001`       | weyl     | TaAs Weyl semimetal | chiral-anomaly negative MR; Berry curvature signature | DESIGN | F-WEYL-1: Berry curvature absent in Hall measurement (no negative longitudinal MR + no B-linear AHE term) → FAIL |
-| `hxm-flatband-tbg-001`   | flatband | magic-angle (1.05–1.10°) TBG | hBN-encapsulated dual-gated stack; correlated SC      | DESIGN | F-FLATBAND-1: superconducting T_c < 1.5 K OR twist-angle precision worse than 0.1° across device → FAIL |
+| `hxm-weyl-tas-001`       | weyl     | TaAs Weyl semimetal | chiral-anomaly negative MR; Berry curvature signature | SIM-NNP-PROXY | F-WEYL-1: Berry curvature absent in Hall measurement (no negative longitudinal MR + no B-linear AHE term) → FAIL |
+| `hxm-flatband-tbg-001`   | flatband | magic-angle (1.05–1.10°) TBG | hBN-encapsulated dual-gated stack; correlated SC      | SIM-NNP-PROXY | F-FLATBAND-1: superconducting T_c < 1.5 K OR twist-angle precision worse than 0.1° across device → FAIL |
 | `hxm-tdmeta-photonic-001`| tdmeta   | time-domain photonic metamaterial | ITO sub-ps pump or graphene > 100 GHz gate modulation | DESIGN | F-TDMETA-1: frequency-conversion efficiency < 10 % OR modulation rate < 100 GHz → FAIL |
 
 **Risk-flags**: Bi₂Se₃ surface-state mobility is bulk-Se-vacancy-limited
@@ -1535,6 +1540,10 @@ efficiency UNVERIFIED beyond proof-of-principle 2023–2025 reports;
 ITO-pump dispersion limits bandwidth. Device-layer integration belongs
 to **hexa-chip** per CROSS_LINK §3.2; none of these candidates claim
 RT-SC (per AGENTS.md A4 + `hexa-rtsc` boundary).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-weyl-tas-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json`](_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-flatband-tbg-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json`](_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link** (Tier-2, `hxm-weyl-tas-001`): see [`compound-semi/compound-semi.md`](compound-semi/compound-semi.md) — material-layer authority for TaAs Weyl-semimetal compound chemistry (CVT single-crystal growth; Berry-curvature transport metrology; Majorana CONTESTED preserved verbatim per §3.12).
+**Verb spec link** (Tier-2, `hxm-flatband-tbg-001`): see [`2d-materials/2d-materials.md`](2d-materials/2d-materials.md) — material-layer authority for twisted bilayer graphene moiré-superlattice chemistry (hBN-encapsulated tear-and-stack assembly; magic-angle 1.05-1.10° flat-band; flat-band TBG twist-precision UNVERIFIED preserved verbatim).
 
 ### 4.C.5 LED / OLED / μLED / UVC (perovskite LED, blue TADF OLED, InGaN μLED, AlN UVC)
 
@@ -1683,7 +1692,7 @@ verbatim** (per `superalloy/superalloy.md` row). Status DESIGN.
 
 | ID                          | class | target              | brief                          | status | falsifier                             |
 |-----------------------------|-------|---------------------|--------------------------------|--------|---------------------------------------|
-| `hxm-ni-4gen-re-free-001`   | ni    | Re-free 4th-gen SX  | Ru/W/Ta/Cr-balanced SX (TIER-2) | DESIGN | F-NI-1: creep life @ 1050 °C / 137 MPa < 400 h OR oxidation rate > 0.1 mg/cm²/h → FAIL |
+| `hxm-ni-4gen-re-free-001`   | ni    | Re-free 4th-gen SX  | Ru/W/Ta/Cr-balanced SX (TIER-2) | SIM-NNP-PROXY | F-NI-1: creep life @ 1050 °C / 137 MPa < 400 h OR oxidation rate > 0.1 mg/cm²/h → FAIL |
 | `hxm-ni-am-in939-001`       | ni    | LPBF IN939 post-HIP | additive IN939 + HIP densification | DESIGN | F-NI-2: relative density < 99.9% OR creep anisotropy @ 800 °C / 200 MPa > 30% → FAIL |
 
 **Risk-flags**: **Re-free 4th-gen SX UNVERIFIED at parity** — CMSX-10
@@ -1698,6 +1707,7 @@ UNVERIFIED for fine-equiax retention; production-scale SX casting
 yield to single-crystal grain selector belongs to Category (c)
 (Cannon-Muskegon / PCC Airfoils).
 **Verb spec link** (Tier-2, `hxm-ni-4gen-re-free-001`): see [`superalloy/superalloy.md`](superalloy/superalloy.md) — material-layer authority for Re-free 4th-gen SX chemistry (UNVERIFIED-at-parity marker preserved in superalloy.md).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-ni-4gen-re-free-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-ni-4gen-re-free-001.json`](_absorption_bridge/universal_ff/predictions/hxm-ni-4gen-re-free-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.3 Carbon fiber precursors (`cf-*`) — 2 candidates
 
@@ -2019,7 +2029,7 @@ Status DESIGN.
 
 | ID                          | class | target          | brief                          | status | falsifier                             |
 |-----------------------------|-------|-----------------|--------------------------------|--------|---------------------------------------|
-| `hxm-aero-polyimide-001`    | aero  | polyimide aerogel | BPDA / Meador aerospace insulation | DESIGN | F-AERO-2: T service > 350 °C OR thermal conductivity > 0.018 W/(m·K) → FAIL |
+| `hxm-aero-polyimide-001`    | aero  | polyimide aerogel | BPDA / Meador aerospace insulation | SIM-NNP-PROXY | F-AERO-2: T service > 350 °C OR thermal conductivity > 0.018 W/(m·K) → FAIL |
 | `hxm-aero-cellulose-001`    | aero  | nanocellulose aerogel | TEMPO-CNF biodegradable insulation | DESIGN | F-AERO-3: density > 50 mg/cm³ OR thermal conductivity k > 0.025 W/(m·K) → FAIL |
 
 **Risk-flags**: polyimide aerogel above 400 °C UNVERIFIED long-
@@ -2035,6 +2045,7 @@ ASTM D5511 industrial-compost certification UNVERIFIED at panel
 scale; freeze-drying scale-up beyond 30 cm × 30 cm panels
 UNVERIFIED.
 **Verb spec link** (Tier-2, `hxm-aero-polyimide-001`): see [`aerogel-foam/aerogel-foam.md`](aerogel-foam/aerogel-foam.md) — material-layer authority for polyimide aerogel chemistry (BPDA-PPDA / BPDA-ODA dianhydride-diamine route; supercritical-CO₂ drying; commodity-cost UNPROVEN preserved verbatim in aerogel-foam.md).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-aero-polyimide-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-aero-polyimide-001.json`](_absorption_bridge/universal_ff/predictions/hxm-aero-polyimide-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.13 MOFs (extends §3.7 `mof`) — 3 candidates
 
@@ -2061,7 +2072,7 @@ Tier-1 promotion (`hxm-mof-dac-mfm-001`) per `NOVEL_ROADMAP.md` §5.
 
 | ID                                  | class | target          | brief                          | status | falsifier                             |
 |-------------------------------------|-------|-----------------|--------------------------------|--------|---------------------------------------|
-| `hxm-mof-h2o-stable-uio66-001`      | mof   | UiO-66 water-stable | Zr₆ MOF, 1000 h liquid-H₂O endurance | DESIGN | F-MOF-3: BET area retention < 80% OR crystallinity loss > 20% after 1000 h H₂O @ 25 °C → FAIL |
+| `hxm-mof-h2o-stable-uio66-001`      | mof   | UiO-66 water-stable | Zr₆ MOF, 1000 h liquid-H₂O endurance | SIM-NNP-PROXY | F-MOF-3: BET area retention < 80% OR crystallinity loss > 20% after 1000 h H₂O @ 25 °C → FAIL |
 | `hxm-mof-dac-mfm-001`               | mof   | MOF DAC @ 400 ppm | MFM / amine-MOF DAC capacity (TIER-1) | DESIGN | F-MOF-4: capacity < 2 mmol/g @ 400 ppm 25 °C 50% RH OR regeneration energy > 2 MJ/kg-CO₂ → FAIL |
 | `hxm-mof-conductive-001`            | mof   | Ni₃(HITP)₂ MOF  | Dincă-class conductive π-MOF   | DESIGN | F-MOF-5: σ < 40 S/cm @ 25 °C OR air stability < 30 days → FAIL |
 
@@ -2082,6 +2093,7 @@ DAC system engineering (sorbent contactor, regen heat
 integration) → out-of-software / Category (c) (Climeworks /
 Carbon Engineering / Heirloom).
 **Verb spec link** (Tier-2, `hxm-mof-h2o-stable-uio66-001`): see [`mof/mof.md`](mof/mof.md) — material-layer authority for water-stable Zr₆-cluster UiO-66 chemistry (MOF-L12 UiO-66 water-stability anchor preserved verbatim; Cavka-Lillerud 2008 reference).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-mof-h2o-stable-uio66-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-mof-h2o-stable-uio66-001.json`](_absorption_bridge/universal_ff/predictions/hxm-mof-h2o-stable-uio66-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.14 High-strength fiber (`fiber`) — 1 candidate
 
@@ -2805,8 +2817,8 @@ pneumatic soft-robotics actuator (Whitesides / Wood corpus) targets
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-mycel-composite-001` | mycel | mycelium insulation | mycelium-substrate hemp/wood-flour insulation panel; k ≤ 0.06 W/(m·K); moisture absorption ≤ 30% | DESIGN | F-MYCEL-1: thermal conductivity > 0.06 W/(m·K) OR moisture absorption > 30% → FAIL |
-| `hxm-algae-plastic-001` | algae | algae-PHA bioplastic | algae-derived PHA fermentation bioplastic; σ_t ≥ 30 MPa; cost ≤ $5/kg | DESIGN | F-ALGAE-1: tensile σ < 30 MPa OR commercial cost > $5/kg → FAIL |
+| `hxm-mycel-composite-001` | mycel | mycelium insulation | mycelium-substrate hemp/wood-flour insulation panel; k ≤ 0.06 W/(m·K); moisture absorption ≤ 30% | SIM-NNP-PROXY | F-MYCEL-1: thermal conductivity > 0.06 W/(m·K) OR moisture absorption > 30% → FAIL |
+| `hxm-algae-plastic-001` | algae | algae-PHA bioplastic | algae-derived PHA fermentation bioplastic; σ_t ≥ 30 MPa; cost ≤ $5/kg | SIM-NNP-PROXY | F-ALGAE-1: tensile σ < 30 MPa OR commercial cost > $5/kg → FAIL |
 | `hxm-bio-electron-pla-pcl-001` | bio-electron | PLA-PCL transient | PLA-PCL biodegradable transient electronics substrate; degradation ≥ 50% / 6mo in PBS / 37°C; resistivity ≥ 10⁶ Ω·cm | DESIGN | F-BIOEL-1: degradation < 50% over 6mo in PBS / 37°C OR resistivity < 10⁶ Ω·cm → FAIL |
 | `hxm-softrobotics-pneumatic-001` | softrobotics | PDMS pneumatic actuator | PDMS pneumatic soft-robotics actuator; cycle life ≥ 10⁵; fatigue strain ≥ 50% | DESIGN | F-SOFTROBO-1: cycle life < 10⁵ OR fatigue strain < 50% → FAIL |
 
@@ -2820,6 +2832,10 @@ strain ≥ 50% UNVERIFIED at 10⁵ cycles in salt / sweat environment for
 wearable scale; vendor anchors: Ecovative / Mogu (mycelium); Cargill /
 NatureWorks / Danimer (PHA); MC10 / Nfinity Wearables (transient); Festo
 / Soft Robotics Inc. (pneumatic).
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-mycel-composite-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-mycel-composite-001.json`](_absorption_bridge/universal_ff/predictions/hxm-mycel-composite-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Mycelium scaffold biodegradability UNVERIFIED** preserved verbatim.
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-algae-plastic-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-algae-plastic-001.json`](_absorption_bridge/universal_ff/predictions/hxm-algae-plastic-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**Verb spec link** (Tier-2, `hxm-mycel-composite-001`): see [`wood-cellulose/wood-cellulose.md`](wood-cellulose/wood-cellulose.md) — material-layer authority for mycelium-bound cellulosic composite chemistry (chitin-glucan fungal-network binder + hemp / wood-flour substrate; mycelium scaffold biodegradability UNVERIFIED preserved verbatim).
+**Verb spec link** (Tier-2, `hxm-algae-plastic-001`): see [`biodegradable-plastics/biodegradable-plastics.md`](biodegradable-plastics/biodegradable-plastics.md) — material-layer authority for algae-derived PHA bioplastic chemistry (PHB-co-PHV copolymer fermentation route; algae-PHA marine-biodegradable claim UNVERIFIED preserved verbatim per §3.16).
 
 ### 4.F.14 Sports / textile / consumer (`sports`, `textile-pcm`)
 

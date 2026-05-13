@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-selftest/novel_verb_xref_audit.py — Phase J.5 NOVEL ↔ verb spec xref audit.
+selftest/novel_verb_xref_audit.py — Phase J.5 NOVEL ↔ verb spec xref + Tier-2 extension (2026-05-14).
 
 For each of the 7 Tier-1 NOVEL candidates (per NOVEL_ROADMAP.md §5 Tier-1
 promotion list), enforces bidirectional cross-link discipline:
@@ -11,14 +11,19 @@ promotion list), enforces bidirectional cross-link discipline:
   (back)     The linked verb-spec file contains a `Related NOVEL candidate`
              line and the candidate's `hxm-*` ID.
 
+Tier-2 wave (2026-05-14): same bidirectional check is applied to 10 Tier-2
+candidates as a SOFT-FLOOR group — up to K = 2 broken links tolerated to
+allow a transitional state if a verb spec is mid-migration. The Tier-1 gate
+remains hard (0 broken).
+
 Per LATTICE_POLICY §1.2 / §1.3 / raw#10 C3 + SPEC_FIRST: cross-link
 annotations are nav links, NOT promotion to EXTERNAL-VERIFIED. UNPROVEN /
 UNVERIFIED markers stay untouched. Gate is purely structural.
 
 stdlib-only. Exit 0 PASS / 1 FAIL.
 
-Sentinel: `__HEXA_MATTER_NOVEL_VERB_XREF__ PASS (7/7 Tier-1 linked,
-0 broken)` on success.
+Sentinel on success:
+  `__HEXA_MATTER_NOVEL_VERB_XREF__ PASS (7/7 Tier-1 linked, N/10 Tier-2 linked, 0 broken)`
 """
 from __future__ import annotations
 
@@ -46,16 +51,28 @@ TIER1: dict[str, tuple[str, ...]] = {
     "hxm-h2-elec-iro2-doped-001": ("electrode-material/electrode-material.md",),
 }
 
+# 10 Tier-2 candidates with their primary verb-spec home(s). Soft-floor group:
+# K ≤ 2 broken links tolerated for transitional state.
+TIER2: dict[str, tuple[str, ...]] = {
+    "hxm-quantum-si-donor-001": ("silicon/silicon.md",),
+    "hxm-quantum-hbn-vb-001": ("2d-materials/2d-materials.md",),
+    "hxm-ni-4gen-re-free-001": ("superalloy/superalloy.md",),
+    "hxm-mycel-composite-001": ("wood-cellulose/wood-cellulose.md",),
+    "hxm-algae-plastic-001": ("biodegradable-plastics/biodegradable-plastics.md",),
+    "hxm-weyl-tas-001": ("compound-semi/compound-semi.md",),
+    "hxm-flatband-tbg-001": ("2d-materials/2d-materials.md",),
+    "hxm-aero-polyimide-001": ("aerogel-foam/aerogel-foam.md",),
+    "hxm-mof-h2o-stable-uio66-001": ("mof/mof.md",),
+    "hxm-bat-cath-naion-001": ("electrode-material/electrode-material.md",),
+}
+
+TIER2_SOFT_FLOOR_K = 2
+
 NOVEL = os.path.join(REPO_ROOT, "NOVEL.md")
 
 # Section header pattern within NOVEL.md (e.g., `### 4.A.1 Title` or
 # `#### 4.B.1 Title` or `### 3.7 Title`).
 SECTION_RE = re.compile(r"^#{2,4}\s+(\d+\.[A-Z]?(?:\.\d+)?)\s+")
-
-# Verb-spec link line pattern (within risk-flags paragraph).
-VERBLINK_RE = re.compile(
-    r"\*\*Verb spec link\*\*[^\n]*?\[`([^`]+\.md)`\]\(([^)]+\.md)\)"
-)
 
 
 def read(path: str) -> str:
@@ -98,6 +115,76 @@ def find_candidate_section(text: str, cid: str) -> tuple[str, int, int] | None:
     return None
 
 
+def audit_group(
+    novel_text: str,
+    group: dict[str, tuple[str, ...]],
+    group_label: str,
+) -> tuple[int, int, list[str]]:
+    """Return (linked_ok, broken_count, log_lines) for a given xref group."""
+    linked_ok = 0
+    broken = 0
+    log: list[str] = []
+    for cid, verb_paths in group.items():
+        # (forward) find the candidate's subsection and verify Verb spec link line.
+        sect = find_candidate_section(novel_text, cid)
+        if sect is None:
+            log.append(f"  [FAIL] {cid} ({group_label}): NOT FOUND in NOVEL.md")
+            broken += 1
+            continue
+        section_id, s, e = sect
+        sub = "\n".join(novel_text.splitlines()[s:e])
+        if "Verb spec link" not in sub:
+            log.append(
+                f"  [FAIL] {cid} (§{section_id}, {group_label}): missing `Verb spec link:` line"
+            )
+            broken += 1
+            continue
+        # Confirm each expected verb-spec path is linked (forward direction).
+        forward_ok = True
+        for vp in verb_paths:
+            if vp not in sub:
+                log.append(
+                    f"  [FAIL] {cid} (§{section_id}, {group_label}): forward link to `{vp}` missing"
+                )
+                broken += 1
+                forward_ok = False
+        if not forward_ok:
+            continue
+
+        # (back) verify each verb-spec file mentions this cid + has 'Related NOVEL candidate'
+        back_ok = True
+        for vp in verb_paths:
+            vp_abs = os.path.join(REPO_ROOT, vp)
+            if not os.path.exists(vp_abs):
+                log.append(
+                    f"  [FAIL] {cid} ({group_label}): verb spec `{vp}` does not exist on disk"
+                )
+                broken += 1
+                back_ok = False
+                continue
+            vtext = read(vp_abs)
+            if "Related NOVEL candidate" not in vtext:
+                log.append(
+                    f"  [FAIL] {cid} ({group_label}): `{vp}` missing `Related NOVEL candidate` line"
+                )
+                broken += 1
+                back_ok = False
+                continue
+            if cid not in vtext:
+                log.append(
+                    f"  [FAIL] {cid} ({group_label}): `{vp}` does NOT mention this candidate ID"
+                )
+                broken += 1
+                back_ok = False
+        if back_ok:
+            log.append(
+                f"  [PASS] {cid} (§{section_id}, {group_label}) ↔ {', '.join(verb_paths)}"
+            )
+            linked_ok += 1
+
+    return linked_ok, broken, log
+
+
 def main() -> int:
     print("hexa-matter/selftest/novel_verb_xref_audit — NOVEL ↔ verb spec xref")
     print(f"  root: {REPO_ROOT}\n")
@@ -108,66 +195,38 @@ def main() -> int:
         return 1
 
     novel_text = read(NOVEL)
-    fail = 0
-    linked_ok = 0
 
-    for cid, verb_paths in TIER1.items():
-        # (forward) find the candidate's subsection and verify Verb spec link line.
-        sect = find_candidate_section(novel_text, cid)
-        if sect is None:
-            print(f"  [FAIL] {cid}: NOT FOUND in NOVEL.md")
-            fail += 1
-            continue
-        section_id, s, e = sect
-        sub = "\n".join(novel_text.splitlines()[s:e])
-        if "Verb spec link" not in sub:
-            print(f"  [FAIL] {cid} (§{section_id}): missing `Verb spec link:` line")
-            fail += 1
-            continue
-        # Confirm each expected verb-spec path is linked (forward direction).
-        forward_ok = True
-        for vp in verb_paths:
-            if vp not in sub:
-                print(f"  [FAIL] {cid} (§{section_id}): forward link to `{vp}` missing")
-                fail += 1
-                forward_ok = False
-        if not forward_ok:
-            continue
+    # Group A: Tier-1 — hard gate (0 broken allowed).
+    t1_ok, t1_broken, t1_log = audit_group(novel_text, TIER1, "Tier-1")
+    for line in t1_log:
+        print(line)
 
-        # (back) verify each verb-spec file mentions this cid + has 'Related NOVEL candidate'
-        back_ok = True
-        for vp in verb_paths:
-            vp_abs = os.path.join(REPO_ROOT, vp)
-            if not os.path.exists(vp_abs):
-                print(f"  [FAIL] {cid}: verb spec `{vp}` does not exist on disk")
-                fail += 1
-                back_ok = False
-                continue
-            vtext = read(vp_abs)
-            if "Related NOVEL candidate" not in vtext:
-                print(f"  [FAIL] {cid}: `{vp}` missing `Related NOVEL candidate` line")
-                fail += 1
-                back_ok = False
-                continue
-            if cid not in vtext:
-                print(f"  [FAIL] {cid}: `{vp}` does NOT mention this candidate ID")
-                fail += 1
-                back_ok = False
-        if back_ok:
-            print(f"  [PASS] {cid} (§{section_id}) ↔ {', '.join(verb_paths)}")
-            linked_ok += 1
+    # Group B: Tier-2 — soft floor (K ≤ 2 broken tolerated).
+    print()
+    t2_ok, t2_broken, t2_log = audit_group(novel_text, TIER2, "Tier-2")
+    for line in t2_log:
+        print(line)
 
     print()
-    n = len(TIER1)
-    if fail > 0:
+    n1 = len(TIER1)
+    n2 = len(TIER2)
+    fatal = False
+    if t1_broken > 0:
+        fatal = True
+    if t2_broken > TIER2_SOFT_FLOOR_K:
+        fatal = True
+
+    total_broken = t1_broken + t2_broken
+    if fatal:
         print(
             f"__HEXA_MATTER_NOVEL_VERB_XREF__ FAIL  "
-            f"({linked_ok}/{n} Tier-1 linked, {fail} broken)"
+            f"({t1_ok}/{n1} Tier-1 linked, {t2_ok}/{n2} Tier-2 linked, "
+            f"{total_broken} broken; Tier-1 hard gate=0, Tier-2 soft floor K={TIER2_SOFT_FLOOR_K})"
         )
         return 1
     print(
         f"__HEXA_MATTER_NOVEL_VERB_XREF__ PASS  "
-        f"({linked_ok}/{n} Tier-1 linked, 0 broken)"
+        f"({t1_ok}/{n1} Tier-1 linked, {t2_ok}/{n2} Tier-2 linked, {total_broken} broken)"
     )
     return 0
 

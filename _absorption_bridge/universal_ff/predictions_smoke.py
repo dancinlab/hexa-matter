@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
-"""predictions_smoke.py — Phase J.2 (2026-05-13)
+"""predictions_smoke.py — Phase J.2 (2026-05-13) + Tier-2 wave (2026-05-14)
 
 Walks every `_absorption_bridge/universal_ff/predictions/*.json` snapshot and
 validates the raw#10 C3 invariants for a SIM-NNP-PROXY status promotion:
 
   - `__fixture_tag__` present and starts with "VENDORED UNIVERSAL-FF PREDICTION"
   - `candidate_id` matches `hxm-<class>-<target>-<NNN>` pattern
-  - `predicted_value` present (numeric)
+  - `predicted_value` present (numeric or string for qualitative falsifiers)
   - `proxy_source` present (peer-reviewed paper / vendor datasheet anchor)
   - `n6_lattice_fit_applied: false` mandatory (LATTICE_POLICY §1.3 + raw#10 C3)
   - `is_measurement: false` mandatory (raw#10 C3 — SIM-NNP-PROXY ≠ measurement)
   - `is_external_verification: false` mandatory (does NOT promote to EXTERNAL-VERIFIED)
 
-Hard list — the 7 Tier-1 promoted candidates must all be present:
+Hard list — the 7 Tier-1 + 10 Tier-2 promoted candidates must all be present:
 
-  - hxm-pv-tandem-002 (§4.A.4 of NOVEL_ROADMAP / §4.A.11 of NOVEL)
+Tier-1 (Phase J.2, 2026-05-13):
+  - hxm-pv-tandem-002 (§4.A.11 of NOVEL)
   - hxm-bat-cath-drx-001 (§4.A.1)
-  - hxm-bat-anode-li-metal-001 (§4.A.2 of roadmap / §4.A.5 of NOVEL)
+  - hxm-bat-anode-li-metal-001 (§4.A.5)
   - hxm-co2-cap-mof-mfm-002 (§4.F.1)
   - hxm-te-half-zrnisn-001 (§4.B.2)
   - hxm-cement-mgo-co2neg-001 (§4.D.6)
   - hxm-h2-elec-iro2-doped-001 (§4.B.1)
 
-Sentinel: `__HEXA_MATTER_UFF_PREDICTIONS__ PASS (7/7 predictions, 0 invalid)`.
+Tier-2 (this wave, 2026-05-14):
+  - hxm-quantum-si-donor-001 (§4.C.1)
+  - hxm-quantum-hbn-vb-001 (§4.C.1)
+  - hxm-ni-4gen-re-free-001 (§4.D.2)
+  - hxm-mycel-composite-001 (§4.F.13)
+  - hxm-algae-plastic-001 (§4.F.13)
+  - hxm-weyl-tas-001 (§4.C.4)
+  - hxm-flatband-tbg-001 (§4.C.4)
+  - hxm-aero-polyimide-001 (§4.D.12)
+  - hxm-mof-h2o-stable-uio66-001 (§4.D.13)
+  - hxm-bat-cath-naion-001 (§4.A.1)
+
+Sentinel: `__HEXA_MATTER_UFF_PREDICTIONS__ PASS (17/17 predictions, 0 invalid)`.
 """
 
 from __future__ import annotations
@@ -54,6 +67,21 @@ TIER1_REQUIRED = {
     "hxm-cement-mgo-co2neg-001",
     "hxm-h2-elec-iro2-doped-001",
 }
+
+TIER2_REQUIRED = {
+    "hxm-quantum-si-donor-001",
+    "hxm-quantum-hbn-vb-001",
+    "hxm-ni-4gen-re-free-001",
+    "hxm-mycel-composite-001",
+    "hxm-algae-plastic-001",
+    "hxm-weyl-tas-001",
+    "hxm-flatband-tbg-001",
+    "hxm-aero-polyimide-001",
+    "hxm-mof-h2o-stable-uio66-001",
+    "hxm-bat-cath-naion-001",
+}
+
+ALL_REQUIRED = TIER1_REQUIRED | TIER2_REQUIRED
 
 ID_RE = re.compile(r"^hxm-[a-z0-9][a-z0-9-]*-\d{3}$")
 
@@ -96,6 +124,14 @@ def validate_snapshot(path: Path) -> list[str]:
     if "proxy_source" in snap and not str(snap["proxy_source"]).strip():
         errors.append(f"{path.name}: proxy_source must be non-empty")
 
+    # Tier-2 candidates must declare `tier` field == "Tier-2"
+    cid = snap.get("candidate_id")
+    if cid in TIER2_REQUIRED:
+        if snap.get("tier") != "Tier-2":
+            errors.append(
+                f"{path.name}: Tier-2 candidate '{cid}' must declare 'tier': 'Tier-2'"
+            )
+
     return errors
 
 
@@ -124,9 +160,14 @@ def main() -> int:
         invalid.append(
             f"Tier-1 candidate(s) missing from predictions/: {sorted(missing_tier1)}"
         )
+    missing_tier2 = TIER2_REQUIRED - seen_ids
+    if missing_tier2:
+        invalid.append(
+            f"Tier-2 candidate(s) missing from predictions/: {sorted(missing_tier2)}"
+        )
 
-    total = len(TIER1_REQUIRED)
-    found = len(TIER1_REQUIRED & seen_ids)
+    total = len(ALL_REQUIRED)
+    found = len(ALL_REQUIRED & seen_ids)
 
     if invalid:
         if not selftest:

@@ -250,6 +250,8 @@ Cellulose acetate:
    French 2014, Saito 2013, TAPPI / ANSI / APA / ASTM standards, and
    vendor public disclosures.
 
+**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-mycel-composite-001` — see [NOVEL.md §4.F.13](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Mycelium-substrate hemp / wood-flour insulation panel (chitin-glucan fungal-network binder on cellulosic substrate); k ≤ 0.06 W/(m·K) + moisture absorption ≤ 30 % is the material-layer chemistry — building-system installation + code-compliance → out-of-software / Category (c) (Ecovative / Mogu vendor authority). **Mycelium scaffold biodegradability UNVERIFIED** preserved verbatim; mycelium fire-classification (Euroclass B/C) UNVERIFIED at production density grade.
+
 ---
 
 ## §9 References
