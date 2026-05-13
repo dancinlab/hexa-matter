@@ -63,6 +63,14 @@
 - Pioneered by ICI 1956 (Procion)
 - ISO 105 reactive-dye fastness standards
 
+**Quantitative falsifier F-FAS-Q1** (real-domain, post-policy): reactive
+dye covalent yield ≥ **60 %** on cellulose (cotton) at 60 °C, pH 11
+(Na₂CO₃ alkali fixation) per ISO 105-X12 + ICI Procion-H technical
+manual + Aspland 1997. Trigger (real-domain): a dye-bath measurement
+returning covalent yield < 50 % under the same ISO 105-X12 method (n ≥ 3
+swatches, Soxhlet wash-off + UV-Vis residual absorbance) → retire the
+"reactive dye industrial parity" claim for that lot.
+
 ### §3.2 Vat dye (indigo, anthraquinone)
 
 - Insoluble dye; reduced to soluble leuco form (sodium dithionite)

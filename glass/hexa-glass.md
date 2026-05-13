@@ -463,6 +463,7 @@ are what retire the corresponding *glass* claim on measurement.
 | F-GL-Q1 | Soda-lime float glass, fully tempered per ASTM C1048 kind FT: surface compression ≥ 69 MPa and MOR (4-point bend per ASTM C158) ≥ 120 MPa at 25 °C, 1 atm | Production lot showing surface compression < 60 MPa (GASP scattered-light polariscope) OR MOR < 95 MPa under ASTM C158 with n ≥ 30 specimens → retire the "fully-tempered" certification for that lot | OPEN |
 | F-GL-Q2 | Borosilicate (Type 3.3 per ISO 3585) thermal-shock survival of ΔT ≥ 165 °C water-quench (ASTM C149) with no visible crack on n = 10 of 10 specimens | Lot failing at ΔT < 120 °C in ASTM C149 → retire the "Type 3.3 thermal-shock" claim and rebaseline glass thermal classification | OPEN |
 | F-GL-Q3 | Fused silica (Heraeus Suprasil / Corning HPFS) OH content ≤ 1000 ppm for low-loss UV optics + transmittance ≥ 90 % at 200 nm, 10 mm path | Lot showing > 1500 ppm OH (FTIR per ASTM E1252) or T_200 nm < 80 % at 10 mm → retire the "UV-grade synthetic silica" classification | OPEN |
+| F-GL-Q4 | α-quartz (crystalline SiO₂) refractive index n_d = **1.5443** (ordinary ray, ω) at λ = 589.3 nm Na-D line, 25 °C per NIST SRM 1960 quartz standard / Sosman 1927 / Frondel 1962 | Crystal returning n_o outside 1.541–1.547 on calibrated refractometer at 589.3 nm, 25 °C → retire the "α-quartz optical reference" classification; flag as fused-silica / glass / cristobalite | OPEN |
 
 Pass = numeric threshold met at the cited ASTM/ISO method, room T (25 °C ±
 2 °C), 1 atm, n ≥ 30 (mechanical) or n ≥ 10 (thermal-shock). Fail = below

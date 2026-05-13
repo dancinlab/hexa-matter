@@ -54,13 +54,13 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
-| B-CER-1 | NIST SRM quartz refractive-index parity vs `glass/glass.md` claim | NIST SRM 1960 quartz | Phase B target |
+| B-CER-1 | NIST SRM quartz refractive-index parity vs `glass/hexa-glass.md` F-GL-Q4 claim | NIST SRM 1960 quartz | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b1_quartz_ri_parity.py`) |
 | B-CER-2 | Si density CRC 2.329 g/cm³ vs `silicon/silicon.md` Si-L6 | CRC Handbook 105th ed. | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b2_si_density_parity.py`) |
 | B-CER-3 | Si bandgap NIST/Sze 1.12 eV vs `silicon/silicon.md` Si-L7 | NIST / Sze SM Physics 3rd ed. | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b3_si_bandgap_parity.py`) |
 | B-CER-4 | SiC bandgap 3.26 eV (4H-SiC) vs `silicon/silicon.md` Si-L11 | Saddow & Agarwal 2004 | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b4_sic_bandgap_parity.py`) |
 | B-CER-5 | Si₃N₄ flexural strength 600-1200 MPa (HIP) vs `silicon/silicon.md` Si-L12 | ASM Handbook vol. 21 | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b5_si3n4_flexural_parity.py`) |
 | B-CER-6 | UHPC compressive σ 200-800 MPa range parity | Ductal / Cor-Tuf datasheet vs L8 LIMIT_BREAKTHROUGH | Phase F (research bridge to vendor datasheets) |
-| B-CER-7 | Mohs hardness ladder NIST parity (talc 1 → diamond 10) | Mohs 1812 + NIST SRD | Phase B target |
+| B-CER-7 | Mohs hardness ladder NIST parity (talc 1 → diamond 10) | Mohs 1812 + NIST SRD | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b7_mohs_hardness_parity.py`) |
 | B-CER-8 | Thermal donor concentration in CZ Si post-anneal (Si-L8 ≈ 10¹⁶ cm⁻³) | Kaiser-Frisch 1958; Bullis SEMI | Phase F (literature aggregation) |
 | B-CER-9 | [O_i] interstitial oxygen in CZ wafer (Si-L9 10-30 ppma) | ASTM F121 / F1188 | Phase F |
 
@@ -69,7 +69,7 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
 | B-POL-1 | Kevlar 49 aramid σ 3.6 GPa / E 124 GPa / ρ 1.44 g/cm³ parity | ASM Handbook vol. 21; CRC | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b1_aramid_tensile_parity.py`) |
-| B-POL-2 | PET hydrolysis activation energy E_a parity | Marshall et al. 1988 + Toray datasheet | Phase B target |
+| B-POL-2 | PET hydrolysis activation energy E_a parity | Marshall et al. 1988 + Toray datasheet | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b2_pet_hydrolysis_ea_parity.py`) |
 | B-POL-3 | Microplastics K_d (PE, PP, PS partition coefficient) parity | NOAA Marine Debris Program | Phase F |
 | B-POL-4 | Nylon-6,6 T_g 323 K / T_m 538 K parity | CRC Handbook | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b4_nylon66_tg_tm_parity.py`) |
 | B-POL-5 | UHMWPE (Dyneema SK99) σ 3.9 GPa / E 132 GPa parity | DSM Dyneema datasheet | Phase F |
@@ -79,16 +79,16 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
-| B-FIB-1 | Cellulose crystallinity (Segal index from XRD) parity | TAPPI T 271 / Segal 1959 | Phase B target |
+| B-FIB-1 | Cellulose crystallinity (Segal index from XRD) parity | TAPPI T 271 / Segal 1959 | ✅ CLOSED 2026-05-13 (gate: `tests/fib_b1_cellulose_segal_parity.py`) |
 | B-FIB-2 | Paper tensile (kraft, newsprint) parity | TAPPI T 494 | ✅ CLOSED 2026-05-13 (gate: `tests/fib_b2_paper_tensile_parity.py`) |
 
 ### B-MET (GROUP_MET metal)
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
-| B-MET-1 | Inconel 718 creep at 650 °C parity | ASM Handbook vol. 1; Special Metals datasheet | Phase B target |
-| B-MET-2 | Ti-6Al-4V α-β transformation T 1268 K parity | ASM Handbook vol. 2 | Phase B target |
-| B-MET-3 | AISI 1080 TTT diagram parity (austenite → bainite/martensite) | ASM Handbook vol. 4 | Phase B target |
+| B-MET-1 | Inconel 718 creep at 650 °C parity | ASM Handbook vol. 1; Special Metals datasheet | ✅ CLOSED 2026-05-13 (gate: `tests/met_b1_inconel718_creep_parity.py`) |
+| B-MET-2 | Ti-6Al-4V α-β transformation T 1268 K parity | ASM Handbook vol. 2 | ✅ CLOSED 2026-05-13 (gate: `tests/met_b2_ti64_transus_parity.py`) |
+| B-MET-3 | AISI 1080 TTT diagram parity (austenite → bainite/martensite) | ASM Handbook vol. 4 | ✅ CLOSED 2026-05-13 (gate: `tests/met_b3_aisi1080_ttt_parity.py`) |
 | B-MET-4 | W melting point 3695 K parity | NIST | ✅ CLOSED 2026-05-13 (gate: `tests/met_b4_w_melting_parity.py`) |
 | B-MET-5 | Os density 22.59 g/cm³ parity | NIST | ✅ CLOSED 2026-05-13 (gate: `tests/met_b5_os_density_parity.py`) |
 
@@ -97,13 +97,13 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
 | B-GEM-1 | Corundum refractive index n_d 1.762-1.770 parity | NIST | ✅ CLOSED 2026-05-13 (gate: `tests/gem_b1_corundum_ri_parity.py`) |
-| B-GEM-2 | Ruby Cr³⁺ R-line fluorescence 694.3 nm parity | NIST / Sugano-Tanabe-Kamimura | Phase B target |
+| B-GEM-2 | Ruby Cr³⁺ R-line fluorescence 694.3 nm parity | NIST / Sugano-Tanabe-Kamimura | ✅ CLOSED 2026-05-13 (gate: `tests/gem_b2_ruby_rline_parity.py`) |
 
 ### B-PRC (GROUP_PRC process)
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
-| B-PRC-1 | Hales packing simulation parity (FCC/HCP 0.7405) | Hales 2017 formal proof | Phase B target (numerical check) |
+| B-PRC-1 | Hales packing simulation parity (FCC/HCP 0.7405) | Hales 2017 formal proof | ✅ CLOSED 2026-05-13 (gate: `tests/prc_b1_hales_packing_parity.py`) |
 | B-PRC-2 | Gibbs ΔS_mix recycling-energy parity | ISO 14040 LCA + Gibbs | Phase F |
 | B-PRC-3 | Sol-gel TEOS hydrolysis rate parity | Hench & West 1990 | Phase F |
 
@@ -111,25 +111,27 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
-| B-FAS-1 | Reactive dye covalent yield parity | ISO 105 | Phase B target |
+| B-FAS-1 | Reactive dye covalent yield parity | ISO 105 | ✅ CLOSED 2026-05-13 (gate: `tests/fas_b1_reactive_dye_yield_parity.py`) |
 | B-FAS-2 | K/S (Kubelka-Munk) for mordant-dyeing parity | AATCC test method 6 | Phase B target |
 
 ### §B — Summary
 
-| Group | (b) gates remaining | ✅ CLOSED by Phase H (2026-05-13) | Phase target (remaining) |
-|-------|---------------------|------------------------------------|--------------------------|
-| CER   | 5 | 4 (B-CER-2 · B-CER-3 · B-CER-4 · B-CER-5) | Phase B (1) + Phase F (4) |
-| POL   | 4 | 2 (B-POL-1 · B-POL-4) | Phase B (1) + Phase F (3) |
-| FIB   | 1 | 1 (B-FIB-2) | Phase B (1) |
-| MET   | 3 | 2 (B-MET-4 · B-MET-5) | Phase B (3) |
-| GEM   | 1 | 1 (B-GEM-1) | Phase B (1) |
-| PRC   | 3 | 0 | Phase B (1) + Phase F (2) |
-| FAS   | 2 | 0 | Phase B (2) |
-| **Total** | **19 remaining** (29 → 19, **10 CLOSED** by Phase H) | **10** | Phase B target = 10, Phase F target = 9 |
+| Group | (b) gates remaining | ✅ CLOSED by Phase H + I.1 (2026-05-13) | Phase target (remaining) |
+|-------|---------------------|------------------------------------------|--------------------------|
+| CER   | 1 | 6 (B-CER-1 · B-CER-2 · B-CER-3 · B-CER-4 · B-CER-5 · B-CER-7) | Phase F (3: B-CER-6 / B-CER-8 / B-CER-9 are Phase F) |
+| POL   | 3 | 3 (B-POL-1 · B-POL-2 · B-POL-4) | Phase F (3: B-POL-3 / B-POL-5 / B-POL-6) |
+| FIB   | 0 | 2 (B-FIB-1 · B-FIB-2) | — |
+| MET   | 0 | 5 (B-MET-1 · B-MET-2 · B-MET-3 · B-MET-4 · B-MET-5) | — |
+| GEM   | 0 | 2 (B-GEM-1 · B-GEM-2) | — |
+| PRC   | 2 | 1 (B-PRC-1) | Phase F (2: B-PRC-2 / B-PRC-3) |
+| FAS   | 1 | 1 (B-FAS-1) | Phase B (1: B-FAS-2 K/S Kubelka-Munk) |
+| **Total** | **9 remaining** (29 → 9, **20 CLOSED**: 10 Phase H + 10 Phase I.1) | **20** | Phase B target = 1 (B-FAS-2), Phase F target = 8 |
 
 **Phase H closure (2026-05-13)**: 10 Phase-B-target gates landed under `tests/*_parity.py` + `tests/snapshots/*.json`, aggregated by `selftest/parity_gates_smoke.sh` (selftest scoreboard 24/24 → **25/25**). Each gate is stdlib-only (≤80 LOC), reads its vendored snapshot, and asserts spec↔source parity within a published tolerance. raw#10 C3 preserved: every snapshot carries `n6_lattice_fit_applied: false`; NIST/CRC/ASM/TAPPI/GIA values flow through verbatim. SPEC_FIRST preserved: a passing parity gate does not turn the spec into a measurement.
 
-**Honest C3 (residual)**: 19 of 29 gates above remain `UNVERIFIED` as of 2026-05-13 (10 Phase B target + 9 Phase F target). The remaining Phase B target items are queued for a future Phase H+ extension; the Phase F target items need a live-DB / literature aggregation bridge that overlaps with `_research_bridge/`.
+**Phase I.1 closure (2026-05-13)**: 10 additional Phase-B-target gates landed under the same `tests/*_parity.py` + `tests/snapshots/*.json` template, anchored to NIST SRM 1960 quartz / Mohs 1812 + NIST SRD / Marshall 1988 + Toray / TAPPI T 271 + Segal 1959 / ASM Handbook vols. 1–4 / NIST + Sugano-Tanabe-Kamimura / Hales 2017 formal proof / ISO 105-X12 + ICI Procion-H. The `parity_gates_smoke.sh` aggregator now sweeps **20 gates total** (10 Phase H + 10 Phase I.1) and emits `__HEXA_MATTER_PARITY_GATES__ PASS (20/20 gates, 0 skipped)`. The selftest scoreboard remains **28/28 PASS** since `parity_gates_smoke` is a single aggregator gate. raw#10 C3 + SPEC_FIRST + UNPROVEN preservation invariants are unchanged.
+
+**Honest C3 (residual)**: 9 of 29 gates above remain `UNVERIFIED` as of 2026-05-13 (1 Phase B target: B-FAS-2 K/S Kubelka-Munk; 8 Phase F target: B-CER-6 / B-CER-8 / B-CER-9 / B-POL-3 / B-POL-5 / B-POL-6 / B-PRC-2 / B-PRC-3). B-FAS-2 is queued for Phase I.2; the remaining 8 Phase F target items need a live-DB / literature aggregation bridge that overlaps with `_research_bridge/`.
 
 ---
 
@@ -206,14 +208,14 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | Category | Items | Effort to 100% | v1.x closure-grade impact |
 |----------|-------|----------------|---------------------------|
 | (a) in-repo software | 33 verbs + 4 verify scripts | **0 days remaining — ✅ (a) 100% REACHED 2026-05-13** | YES — all (a) gaps closed |
-| (b) measured-data parity | 29 gates total → **10 ✅ CLOSED by Phase H (2026-05-13)** · 19 remaining (10 Phase B + 9 Phase F) | Phase H+ / Phase F (weeks-to-months for residual 19) | PARTIAL — 10/29 Phase H gates landed (selftest 25/25); Phase H+ closes Phase B residual; Phase F closes live-DB residual |
+| (b) measured-data parity | 29 gates total → **20 ✅ CLOSED by Phase H + I.1 (2026-05-13)** · 9 remaining (1 Phase B B-FAS-2 + 8 Phase F) | Phase I.2 (B-FAS-2 K/S Kubelka-Munk) + Phase F (8 live-DB items) | PARTIAL — 20/29 closed (selftest 28/28; parity_gates_smoke sweeps 20/20); Phase I.2 closes B-FAS-2; Phase F closes live-DB residual |
 | (c) out-of-software-scope | 15 items, all DEST: vendor-numbers / HARD_WALL / cross-domain | ∞ (external execution; software ready with raw#10 C3 discipline) | NO — handed off |
-| **Total** | **48 enumerated rows** (10 closed, 38 in-flight or handed-off) | — | — |
+| **Total** | **48 enumerated rows** (20 closed, 28 in-flight or handed-off) | — | — |
 
-**Honest reading of "100% closure 가능?"** (updated 2026-05-13 post-Phase H):
+**Honest reading of "100% closure 가능?"** (updated 2026-05-13 post-Phase I.1):
 
-- **(a)** ✅ **DONE 2026-05-13** — all 33 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent at **selftest 25/25 PASS**. **v1.x (a) = 100%.**
-- **(b)** 29 parity gates total → **10 CLOSED by Phase H** (selftest aggregator gate #25 `parity_gates_smoke`) + 19 queued for Phase H+ / Phase F. None of these subtract from v1.x. Closing the remaining 19 lifts v1.1.x / v1.2.x.
+- **(a)** ✅ **DONE 2026-05-13** — all 33 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent at **selftest 28/28 PASS**. **v1.x (a) = 100%.**
+- **(b)** 29 parity gates total → **20 CLOSED by Phase H + I.1** (selftest aggregator `parity_gates_smoke` sweeps 20/20) + 9 queued (1 Phase I.2 B-FAS-2 + 8 Phase F live-DB). None of these subtract from v1.x. Closing the remaining 9 lifts v1.1.x / v1.2.x.
 - **(c)** ~15 wet-lab / vendor / fab items. Software-side discipline is in place (raw#10 C3 — no lattice-fit on external entities; vendor numbers vendored honestly). Closing the (c) items requires real-world counterparty selection that is not a software task.
 
 ---

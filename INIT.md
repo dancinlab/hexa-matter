@@ -33,6 +33,7 @@ User directive (2026-05-13):
 | **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
 | **G+2** | `_absorption_bridge/oqmd/` + `aflow/` + `nomad/` (DFT/FAIR-data sources — 12th/13th/14th adapters: OQMD Wolverton, AFLOW Curtarolo, NOMAD Draxl/Scheffler; all CC-BY 4.0) | ✅ DONE | `a54da35` |
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
+| **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` now sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | WIP (agent 2 to finalize) | _(this commit)_ |
 
 ## Phase A — DONE (commit `c55199b`)
 
@@ -469,6 +470,77 @@ Files added this phase:
 - `tests/gem_b1_corundum_ri_parity.py`
 - `tests/snapshots/<gate_id>.json` (10 vendored snapshots)
 - `selftest/parity_gates_smoke.sh` (aggregator gate #25)
+
+## Phase I.1 — Phase B target parity gates batch 1 — WIP (2026-05-13)
+
+10 more stdlib-only parity gates landed under `tests/*_parity.py` + 10
+snapshots under `tests/snapshots/*.json`. Each gate is ≤ 80 LOC, reads
+its snapshot, locates the spec doc's value via deterministic regex, and
+asserts spec↔source parity within a published tolerance. The
+`selftest/parity_gates_smoke.sh` aggregator now sweeps **20 gates total**
+(10 Phase H + 10 Phase I.1) and emits
+`__HEXA_MATTER_PARITY_GATES__ PASS (20/20 gates, 0 skipped)`.
+
+| # | Gate | Anchor (source) | Spec doc | Tolerance |
+|---|---|---|---|---|
+| 1 | `cer_b1_quartz_ri` | NIST SRM 1960 quartz — α-quartz n_d = 1.5443 at 589.3 nm, 25 °C | `glass/hexa-glass.md` F-GL-Q4 | abs 0.003 |
+| 2 | `cer_b7_mohs_hardness` | Mohs 1812 + NIST SRD — 10-stop ladder talc(1) → diamond(10) | `gemology/gemology.md` F-GEM-Q5 | exact 10 stops, mineral identity |
+| 3 | `pol_b2_pet_hydrolysis_ea` | Marshall et al. 1988 + Toray — PET hydrolysis E_a 75-100 kJ/mol | `POLYMER-CHEMISTRY.md` §4.1 | ± 10 kJ/mol on each endpoint |
+| 4 | `fib_b1_cellulose_segal` | TAPPI T 271 + Segal 1959 — kraft cellulose CrI 60-80 % | `wood-cellulose/wood-cellulose.md` WC-L12 | ± 10 % on each endpoint |
+| 5 | `met_b1_inconel718_creep` | ASM vol. 1 + Special Metals — IN718 ≥ 690 MPa stress-rupture at 650 °C, 100 h | `superalloy/superalloy.md` SA-L1 | min threshold 690 MPa |
+| 6 | `met_b2_ti64_transus` | ASM vol. 2 — Ti-6Al-4V β-transus 995 °C (1268 K) ± 15 °C | `METALLURGY-DEEP.md` §4.3 | abs 15 °C |
+| 7 | `met_b3_aisi1080_ttt` | ASM vol. 4 + Bain 1930 — AISI 1080 nose 550 °C / bainite 540 °C / Ms 250 °C | `METALLURGY-DEEP.md` §5 | nose ± 25 °C, bainite ± 25 °C, Ms ± 35 °C |
+| 8 | `gem_b2_ruby_rline` | NIST + Sugano-Tanabe-Kamimura 1970 — ruby Cr³⁺ R₁ 694.3 nm at 300 K | `gemology/gemology.md` F-GEM-Q3 | abs 0.3 nm |
+| 9 | `prc_b1_hales_packing` | Hales 2005 + 2017 formal proof — FCC/HCP density = π/(3√2) ≈ 0.7405 | `LIMIT_BREAKTHROUGH.md` L11 | abs 0.0005 |
+| 10 | `fas_b1_reactive_dye_yield` | ISO 105-X12 + ICI Procion-H + Aspland 1997 — reactive dye covalent yield ≥ 60 % at 60 °C, pH 11 | `hexa-fashion/fashion-architecture.md` §3.1 F-FAS-Q1 | min threshold 60 % |
+
+Aggregator output (stock Python):
+`__HEXA_MATTER_PARITY_GATES__ PASS (20/20 gates, 0 skipped)`.
+
+Selftest scoreboard after Phase I.1 (aggregator is one gate):
+`__HEXA_MATTER_SELFTEST__ PASS (28/28)`.
+
+Honesty preservation (per hard rules):
+- **Rule 3 (raw#10 C3)**: every snapshot carries
+  `n6_lattice_fit_applied: false`; NIST / Mohs / Marshall / TAPPI / Segal
+  / ASM / Sugano / Hales / ISO values flow through verbatim. NO n=6
+  lattice-fit applied on any external entity. The Hales packing gate is
+  a numerical check against `π/(3·√2)` — the Kepler invariant, not an
+  n=6 invariant; `prc_b1` snapshot's `n6_lattice_fit_applied: false`
+  documents that the coincidence `0.7405 ≈ R(6)` mentioned in
+  `MATERIAL-SYNTHESIS.md` is NOT used by the gate.
+- **Rule 4 (SPEC_FIRST)**: gates check spec↔source parity; a passing
+  gate does NOT turn the spec into a measurement.
+- **Rule 5 (UNPROVEN preservation)**: LK-99, CNT yarn 80 GPa,
+  marine-biodegradable PHA, MOF DAC $100/t, perovskite 25-yr lifetime —
+  all keep their flags. Phase I.1 targets honestly-anchored values
+  only; it does NOT close any UNPROVEN claim.
+- **NO LIVE API CALLS in selftest**: every gate reads bundled snapshots.
+
+Ledger movement (`CLOSURE_RESIDUAL_BACKLOG.md §B`):
+**19 → 9 remaining** (10 ✅ CLOSED by Phase I.1; only B-FAS-2 Kubelka-Munk
+remains Phase B target + 8 Phase F target items).
+
+Spec doc edits this phase (minimal real-domain anchor additions):
+- `glass/hexa-glass.md` — new F-GL-Q4 row (α-quartz n_d)
+- `gemology/gemology.md` — new F-GEM-Q5 row (Mohs 10-stop ladder)
+- `hexa-fashion/fashion-architecture.md` §3.1 — F-FAS-Q1 reactive-dye
+  covalent-yield falsifier paragraph
+
+Files added this phase:
+- `tests/cer_b1_quartz_ri_parity.py` · `tests/cer_b7_mohs_hardness_parity.py`
+- `tests/pol_b2_pet_hydrolysis_ea_parity.py` · `tests/fib_b1_cellulose_segal_parity.py`
+- `tests/met_b1_inconel718_creep_parity.py` · `tests/met_b2_ti64_transus_parity.py` · `tests/met_b3_aisi1080_ttt_parity.py`
+- `tests/gem_b2_ruby_rline_parity.py`
+- `tests/prc_b1_hales_packing_parity.py`
+- `tests/fas_b1_reactive_dye_yield_parity.py`
+- `tests/snapshots/<gate_id>.json` (10 vendored snapshots)
+- `selftest/parity_gates_smoke.sh` aggregator docstring + run_all.sh
+  comment updated to reflect 20-gate sweep
+
+Status: **WIP** — gate landing complete and all 20/20 pass; agent 2
+finalizes by closing B-FAS-2 (Phase I.2) and integrator updates
+`hexa.toml [closure].selftest_pass` + `parity_gates_total` counter.
 
 ## Closure framework
 

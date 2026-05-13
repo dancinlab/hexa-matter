@@ -24,9 +24,10 @@
 #     Crystallography Open Database), oqmd_adapter_smoke / aflow_adapter_smoke /
 #     nomad_adapter_smoke (Phase G+2, 2026-05-13: DFT/FAIR-data direct-adapter
 #     gates, offline-replay only)
-#   Parity gates (1): parity_gates_smoke (Phase H, 2026-05-13: aggregator
-#     over tests/*_parity.py — 10 stdlib-only Category (b) parity gates
-#     anchored to NIST/CRC/ASM/TAPPI/GIA snapshots; offline-only)
+#   Parity gates (1): parity_gates_smoke (Phase H + Phase I.1, 2026-05-13:
+#     aggregator over tests/*_parity.py — now 20 stdlib-only Category (b)
+#     parity gates (10 Phase H + 10 Phase I.1) anchored to NIST/CRC/ASM/
+#     TAPPI/GIA/Hales/Sugano/ISO snapshots; offline-only)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)

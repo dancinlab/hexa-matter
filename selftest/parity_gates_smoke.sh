@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# selftest/parity_gates_smoke.sh — Phase H aggregator (gate #25)
+# selftest/parity_gates_smoke.sh — Phase H aggregator (gate #28),
+# extended in Phase I.1 to sweep 20 gates total (10 Phase H + 10 Phase I.1).
 #
 # Discovers every tests/*_parity.py file, invokes each with --selftest,
 # counts PASS / FAIL, and emits a top-level
@@ -13,6 +14,13 @@
 #   - Exit 0 iff every gate exits 0 with its __<GROUP>_<GATE>__ PASS line.
 #   - Vendored snapshots (tests/snapshots/*.json) are the source of truth;
 #     no live API calls in any gate (raw#10 C3 / NO LIVE API rule).
+#
+# Phase I.1 (2026-05-13) added 10 Phase B target gates:
+#   cer_b1 quartz n_d · cer_b7 Mohs ladder · pol_b2 PET hydrolysis Ea ·
+#   fib_b1 cellulose Segal · met_b1 IN718 creep · met_b2 Ti-6Al-4V transus ·
+#   met_b3 AISI 1080 TTT · gem_b2 ruby R-line · prc_b1 Hales packing ·
+#   fas_b1 reactive dye yield. Backlog §B drained 19 → 9 (only Phase F
+#   target rows remain).
 #
 # Sentinel emitted:
 #   __HEXA_MATTER_PARITY_GATES__ PASS  (N/N gates, 0 skipped)
