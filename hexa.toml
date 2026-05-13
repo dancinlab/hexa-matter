@@ -78,6 +78,8 @@ scripts = [
 ]
 aggregator = "verify/run_all.hexa"
 verdict = "CLOSED"  # 29/29 verbs spec-present · 4/4 verify scripts PASS
+selftest_pass = "21/21"  # Phase B selftest harness (2026-05-13) — see selftest/run_all.sh
+selftest_aggregator = "selftest/run_all.sh"
 
 # ── Scope honesty (raw#10 C3) ─────────────────────────────
 [scope]

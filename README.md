@@ -10,6 +10,7 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
 [![Verbs: 29 spec](https://img.shields.io/badge/verbs-29_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
+[![Selftest: 21/21 PASS](https://img.shields.io/badge/selftest-21%2F21_PASS-brightgreen.svg)](selftest/run_all.sh)
 
 ---
 
@@ -130,6 +131,32 @@ permitted only as auxiliary self-consistency checks; the substrate's
 real verification anchors live in `LIMIT_BREAKTHROUGH.md` (NIST/CRC
 HARD walls). Material-science claims that remain unproven (LK-99
 room-T SC, metallic hydrogen at ambient) are preserved as caveats.
+
+## Selftest
+
+Beyond `verify/` (which checks structural closure — file presence,
+lattice arithmetic, real-limits anchors, scoreboard cross-check), the
+`selftest/` harness runs 21 fine-grained content-aware gates. From the
+repo root:
+
+```bash
+bash selftest/run_all.sh                # exit 0 = all 21 gates PASS
+```
+
+| Category | Count | Gates |
+|---|---|---|
+| Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
+| Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
+| Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
+| Bonus | 1 | `pyproject_smoke` (SKIP until Phase E lands) |
+
+Honesty constraints enforced by the selftest harness:
+- `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
+  applies n=6 lattice formulas to vendor / NIST / ITER / ASTM data (raw#10 C3)
+- `carbon_cnt_strength_honesty_audit` — CNT 80 GPa must be flagged
+  "lab mm-scale, commercial 1–3 GPa"
+- `mof_dac_economics_honesty_audit` — magic-MOF $100/t must stay UNPROVEN
+  with Climeworks $600–1000/t baseline cited
 
 ## Provenance
 

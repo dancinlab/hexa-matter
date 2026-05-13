@@ -23,7 +23,7 @@ User directive (2026-05-13):
 |---|---|---|---|
 | **A** | 10 infra docs + 5 deep expansion + 11 stubs | ✅ DONE | `c55199b` |
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
-| **B** | selftest harness (20+ Python/bash gates) | ⏸ READY (D unblocked) | |
+| **B** | selftest harness (21 Python/bash gates) | ✅ DONE | _Phase B commit_ |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups) | ⏸ READY (D unblocked) | |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ⏸ READY (D unblocked) | |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ⏸ BLOCKED by E | |
@@ -96,27 +96,44 @@ Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 Small fix during verify: `verify/closure_consistency.hexa` regex `[a-z_0-9]+` → `[a-z_0-9-]+`
 to accept dash-named Phase D verbs (`2d-materials`, `compound-semi`, etc.).
 
-## Phase B — selftest harness (queued)
+## Phase B — selftest harness ✅ DONE
 
-Build Python/bash selftest harness with 20+ gates per `hexa-bio/selftest/` reference:
+`selftest/` directory at `/Users/ghost/core/hexa-matter/selftest/` with **21
+fine-grained gates** (8 cross-cutting + 8 group-specific + 4 verb-specific + 1
+bonus). Orchestrator: `selftest/run_all.sh`.
 
-Examples:
-- `silicon_purity_audit.py` (9N ceiling verification)
-- `metallurgy_alloy_classification.py`
-- `polymer_thermal_stability.py`
-- `ceramic_thermal_shock.py`
-- `recycling_yield_audit.py`
-- `bom_database_consistency.py`
-- `nist_anchor_audit.py`
-- `lattice_arithmetic_regression.py`
-- `cross_doc_audit.py`
-- `canon_provenance_check.py`
-- `r1_symlink_audit.sh`
-- `registry_consistency_audit.py`
-- `regression_audit.py`
-- (group-specific gates added per Phase D verb)
+Final result: `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`.
 
-Entry point: `selftest/run_all.sh` mirroring `hexa-bio/selftest/run_all.sh`.
+**Cross-cutting (8)**:
+- `r1_symlink_audit.sh` — no out-of-repo symlinks in any verb dir
+- `registry_consistency_audit.py` — CLI VERBS ≡ hexa.toml [verbs] ≡ verify/spec_presence VERBS ≡ README badge ≡ AXIS.md group sum (all = 29)
+- `regression_audit.py` — falsifier preservation across CLOSURE_RESIDUAL_BACKLOG
+- `n6_axis_computational_verification.py` — σ/τ/φ/J₂ arithmetic sanity (per LATTICE_POLICY §1.3 auxiliary)
+- `cross_doc_audit.py` — README ↔ hexa.toml ↔ AXIS.md ↔ AGENTS.md semantic consistency
+- `canon_provenance_check.py` — IMPORTED_FROM_CANON.md row ↔ local file presence
+- `nist_anchor_audit.py` — every post-policy spec cites NIST/CRC/ASM/SEMI/ASTM/vendor/primary literature
+- `lattice_fit_on_external_entities_audit.py` — **raw#10 C3 enforcement** (post-policy specs must NOT apply n=6 lattice to vendor/NIST/ITER data)
+
+**Group-specific (8)**:
+- `cer_thermal_shock_audit.py` — CER thermal-shock parameter R/R′/R″ anchored
+- `pol_thermal_stability_audit.py` — POL group T_g numeric anchor (≥ 4 specs)
+- `fib_tensile_audit.py` — FIB MPa/GPa/kN-per-m anchor per verb
+- `met_alloy_classification.py` — ≥3 alloy families (Ni/Co/Fe-Ni/NdFeB/etc.)
+- `gem_authenticity_check.py` — GIA/IGS or ≥3 gemological-property anchors
+- `prc_yield_audit.py` — yield claims have falsifier/citation (legacy canon-import noted)
+- `fas_dyeing_chemistry_audit.py` — corpus has ≥2 dye classes + ≥2 fiber substrates
+- `silicon_purity_audit.py` — Si-L1..Si-L12 + 9N SOFT_WALL + CZ 600 mm + FZ 200 mm anchors
+
+**Verb-specific (4)**:
+- `compound_semi_bandgap_audit.py` — GaN/SiC/GaAs/InP bandgap eV cited with Sze/NIST/Saddow anchor
+- `magnetic_materials_curie_audit.py` — Curie + BHmax + NdFeB/SmCo + Coey/Hitachi/TDK/Vacuumschmelze anchor
+- `carbon_cnt_strength_honesty_audit.py` — CNT 80 GPa carries "lab mm-scale" / UNVERIFIED caveat (refs section excluded)
+- `mof_dac_economics_honesty_audit.py` — MOF $100/t kept UNPROVEN with Climeworks $600-1000/t baseline named
+
+**Bonus (1)**:
+- `pyproject_smoke.sh` — SKIP cleanly until Phase E (Python bridge) lands
+
+Entry point: `bash selftest/run_all.sh` from repo root. Exit 0 = all 21 PASS.
 
 ## Phase C — hexa-* axis-prefixed depth dirs (queued)
 
@@ -284,7 +301,8 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `a239611` — Silicon added (17 verbs, gold template)
 - `c55199b` — Phase A infrastructure (10 infra + 5 deep + 11 stubs)
 - `99620b2` — Phase D (12 new verbs, 17 → 29)
-- _Phase B/C/E/F/G commits forthcoming_
+- _Phase B commit forthcoming — 21-gate selftest harness; `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`_
+- _Phase C/E/F/G commits forthcoming_
 
 ## If you're picking this up cold
 

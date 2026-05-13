@@ -228,8 +228,8 @@ From `silicon/silicon.md` (Si-L1..Si-L12, added 2026-05-13):
 | (c) wet-lab / vendor / fab | ~10 items, mostly DEST: none yet | ∞ (external execution; software ready with raw#10 C3 vendor-number discipline) | NO — handed off |
 
 **Honest reading of "100% closure"**:
-- **(a)** ✅ DONE 2026-05-13 — all 17 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent. The silicon addition (commit `a239611`) cleared the last v1.x (a) gap.
-- **(b)** queued for Phase B/F — none of these are v1.x blockers. They are Phase F (research bridge) targets, tracked here for visibility.
+- **(a)** ✅ DONE 2026-05-13 — all 17 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent. The silicon addition (commit `a239611`) cleared the last v1.x (a) gap. Phase D extended this to 29/29 (commit `99620b2`); Phase B layered a 21-gate selftest harness on top (commit forthcoming).
+- **(b)** queued for Phase B/F — none of these are v1.x blockers. They are Phase F (research bridge) targets, tracked here for visibility. **Phase B IMPLEMENTED 2026-05-13**: `selftest/run_all.sh` runs 21 fine-grained gates (8 cross-cutting + 8 group-specific + 4 verb-specific + 1 bonus) covering registry consistency, regression, NIST anchor presence, lattice-fit-on-external-entities enforcement (raw#10 C3), CER thermal-shock, POL T_g, FIB tensile, MET alloy classification, GEM authenticity, PRC yield honesty, FAS dye chemistry, silicon purity, compound-semi bandgap, magnetic Curie+BHmax, CNT 80 GPa honesty caveat, MOF DAC $100/t UNPROVEN preservation. `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`.
 - **(c)** OUT-OF-REPO — wet-lab / vendor / fab adoption. Software-side discipline (no lattice fit on Wacker/GCL/etc.; vendor numbers vendored) is in place; closing the (c) gaps requires real-world counterparty selection that is not a software task.
 
 ---
