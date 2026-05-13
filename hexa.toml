@@ -58,6 +58,21 @@ verbs_spec = 16
 verdict = "SPEC_FIRST"
 extracted_from = "canon/domains/materials/ @ 47c70cbf"
 
+# ── Verify scoreboard (Wave closure, 2026-05-13) ──────────
+# All four verify/*.hexa scripts must PASS for the substrate to claim closure.
+# Run: `hexa run verify/run_all.hexa` from the repo root (exit 0 = all PASS).
+[verify]
+scripts_total = 4
+scripts_passed = 4
+scripts = [
+    "verify/spec_presence.hexa",       # 16/16 verb spec docs present at declared paths
+    "verify/lattice_arithmetic.hexa",  # n=6 self-consistency (aux per LATTICE_POLICY §1.3)
+    "verify/real_limits_anchor.hexa",  # LIMIT_BREAKTHROUGH.md anchors (NIST/CRC/Hales)
+    "verify/closure_consistency.hexa", # scoreboard cross-check (CLI · toml · README · AGENTS)
+]
+aggregator = "verify/run_all.hexa"
+verdict = "CLOSED"  # 16/16 verbs spec-present · 4/4 verify scripts PASS
+
 # ── Scope honesty (raw#10 C3) ─────────────────────────────
 [scope]
 honest_scope = "16-verb 통합 substrate (7 그룹). spec-first markdown only at v1.0.0 — 작동 .hexa CLI는 spec headline dispatcher."

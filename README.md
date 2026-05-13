@@ -7,6 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
 [![Verbs: 16 spec](https://img.shields.io/badge/verbs-16_spec-blue.svg)](#verbs)
+[![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
 
 ---
 
@@ -71,6 +72,28 @@ hexa-matter help             # full --help (subcommands + env vars + cross-link)
 Spec-first at v1.0.0 — 16/16 verbs ship as peer-citable markdown docs;
 working numerical sandboxes are TBD per per-verb falsifier deadlines. CLI
 dispatcher prints spec headlines.
+
+## Verify
+
+Sister-substrate `verify/run_all.hexa` aggregator pattern, scaled to
+spec-first scope. From the repo root:
+
+```bash
+hexa run verify/run_all.hexa     # exit 0 = all 4 scripts PASS
+```
+
+| script                            | what it checks                                                                   |
+| --------------------------------- | -------------------------------------------------------------------------------- |
+| `verify/spec_presence.hexa`       | all 16 verb spec docs present at declared paths                                  |
+| `verify/lattice_arithmetic.hexa`  | n=6 self-consistency (σ·φ = n·τ = 24) — *aux only* per `LATTICE_POLICY.md` §1.3  |
+| `verify/real_limits_anchor.hexa`  | `LIMIT_BREAKTHROUGH.md` anchors (NIST WebBook · CRC Handbook · Hales · Frenkel)  |
+| `verify/closure_consistency.hexa` | scoreboard cross-check (CLI · `hexa.toml` · README · `AGENTS.md`)                |
+
+Per `LATTICE_POLICY.md` §1.3, lattice-arithmetic identities are
+permitted only as auxiliary self-consistency checks; the substrate's
+real verification anchors live in `LIMIT_BREAKTHROUGH.md` (NIST/CRC
+HARD walls). Material-science claims that remain unproven (LK-99
+room-T SC, metallic hydrogen at ambient) are preserved as caveats.
 
 ## Provenance
 
