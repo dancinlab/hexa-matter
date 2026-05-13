@@ -75,8 +75,11 @@ verbs_wired = 0
 verbs_spec = 36
 verdict = "SPEC_FIRST"
 extracted_from = "canon/domains/materials/ @ 47c70cbf (+ silicon authored 2026-05-13 in-repo, not extracted; + 12 Phase D verbs authored 2026-05-13 in-repo: elastomer, compound-semi, perovskite, 2d-materials, adhesive, magnetic-materials, mof, liquid-crystal, superalloy, biodegradable-plastics, wood-cellulose, carbon; + 4 Phase D follow-on verbs 2026-05-13 in-repo: glass-ceramic, geopolymer, aerogel-foam, ionic-liquid; + 3 Phase D'' verbs 2026-05-13 in-repo: refractory, photoresist, electrode-material)"
-parity_gates_total = 10  # Phase H (2026-05-13) — Category (b) parity gates landed under tests/*_parity.py (anchored to NIST/CRC/ASM/TAPPI/GIA vendored snapshots in tests/snapshots/*.json); aggregator = selftest/parity_gates_smoke.sh
-selftest_pass = "25/25"  # Phase H sync (2026-05-13): scoreboard 24/24 → 25/25 with parity_gates_smoke as gate #25
+parity_gates_total = 29  # Phase H + I.1 + I.2 (2026-05-13) — Category (b) parity gates landed under tests/*_parity.py (10 Phase H + 10 Phase I.1 + 9 Phase I.2; anchored to NIST/CRC/ASM/SEMI/ASTM/TAPPI/AATCC/ISO + vendor datasheets in tests/snapshots/*.json); aggregator = selftest/parity_gates_smoke.sh (29/29 internal). CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 0 — Category (a)+(b) = 100%.
+selftest_pass = "28/28"  # Phase H + Phase I.1 + Phase I.2 sync (2026-05-13): aggregator parity_gates_smoke reports 29/29 internal gates; scoreboard remains 28/28 (single aggregator counts as one gate)
+category_a_closed = true  # 100% by 2026-05-13 silicon authoring (a239611)
+category_b_closed = true  # 100% by 2026-05-13 Phase I.2 (this commit)
+category_c_status = "OUT-OF-REPO BY DESIGN"  # wet-lab / vendor / fab handoff per AXIS_CLOSURE_PLAN.md §0
 
 # ── Verify scoreboard (Wave closure, 2026-05-13) ──────────
 # All four verify/*.hexa scripts must PASS for the substrate to claim closure.

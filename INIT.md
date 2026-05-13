@@ -33,7 +33,20 @@ User directive (2026-05-13):
 | **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
 | **G+2** | `_absorption_bridge/oqmd/` + `aflow/` + `nomad/` (DFT/FAIR-data sources — 12th/13th/14th adapters: OQMD Wolverton, AFLOW Curtarolo, NOMAD Draxl/Scheffler; all CC-BY 4.0) | ✅ DONE | `a54da35` |
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
-| **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` now sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | WIP (agent 2 to finalize) | _(this commit)_ |
+| **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
+| **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
+
+### 🏆 100% (a)+(b) closure reached 2026-05-13
+
+With Phase I.2 landing the final 9 parity gates, every enumerated row in
+`CLOSURE_RESIDUAL_BACKLOG.md §A` and `§B` is ✅ CLOSED. The combined
+**Category (a) + Category (b) closure-grade is 100%** as of this commit.
+Category (c) — wet-lab synthesis / vendor procurement / fab capacity —
+remains OUT-OF-REPO BY DESIGN per `AXIS_CLOSURE_PLAN.md §0` (software
+cannot close (c) — only external execution can). The repo's `verify`
+verdict `CLOSED` and the selftest `28/28 PASS` honestly cover the
+(a)+(b) scope; (c) handoff is enumerated in §C for visibility, not
+counted against the grade.
 
 ## Phase A — DONE (commit `c55199b`)
 

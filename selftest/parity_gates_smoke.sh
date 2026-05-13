@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # selftest/parity_gates_smoke.sh — Phase H aggregator (gate #28),
-# extended in Phase I.1 to sweep 20 gates total (10 Phase H + 10 Phase I.1).
+# extended in Phase I.1 + I.2 to sweep 29 gates total
+# (10 Phase H + 10 Phase I.1 + 9 Phase I.2).
 #
 # Discovers every tests/*_parity.py file, invokes each with --selftest,
 # counts PASS / FAIL, and emits a top-level
@@ -19,8 +20,18 @@
 #   cer_b1 quartz n_d · cer_b7 Mohs ladder · pol_b2 PET hydrolysis Ea ·
 #   fib_b1 cellulose Segal · met_b1 IN718 creep · met_b2 Ti-6Al-4V transus ·
 #   met_b3 AISI 1080 TTT · gem_b2 ruby R-line · prc_b1 Hales packing ·
-#   fas_b1 reactive dye yield. Backlog §B drained 19 → 9 (only Phase F
-#   target rows remain).
+#   fas_b1 reactive dye yield. Backlog §B drained 19 → 9.
+#
+# Phase I.2 (2026-05-13) added 9 Phase F target gates (vendor-anchored,
+# offline-replay):
+#   cer_b6 UHPC compressive (Ductal+Cor-Tuf) · cer_b8 Si thermal donor
+#   (Kaiser-Frisch + SEMI MF1188) · cer_b9 Si [O_i] (ASTM F121/F1188) ·
+#   pol_b3 microplastic K_d (NOAA + Mato + Rochman) · pol_b5 UHMWPE
+#   (DSM Dyneema SK99) · pol_b6 CNT yarn (Tsinghua/Bai 2018; UNPROVEN at
+#   commodity scale, preserved verbatim) · prc_b2 recycling Gibbs floor
+#   (ISO 14040 + Gibbs) · prc_b3 sol-gel TEOS (Hench-West + Brinker-Scherer) ·
+#   fas_b2 K/S Kubelka-Munk (AATCC TM6 + Kubelka-Munk 1931).
+#   Backlog §B fully drained 9 → 0; Category (a)+(b) closure = 100%.
 #
 # Sentinel emitted:
 #   __HEXA_MATTER_PARITY_GATES__ PASS  (N/N gates, 0 skipped)

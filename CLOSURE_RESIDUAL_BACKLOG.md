@@ -59,10 +59,10 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | B-CER-3 | Si bandgap NIST/Sze 1.12 eV vs `silicon/silicon.md` Si-L7 | NIST / Sze SM Physics 3rd ed. | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b3_si_bandgap_parity.py`) |
 | B-CER-4 | SiC bandgap 3.26 eV (4H-SiC) vs `silicon/silicon.md` Si-L11 | Saddow & Agarwal 2004 | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b4_sic_bandgap_parity.py`) |
 | B-CER-5 | Si₃N₄ flexural strength 600-1200 MPa (HIP) vs `silicon/silicon.md` Si-L12 | ASM Handbook vol. 21 | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b5_si3n4_flexural_parity.py`) |
-| B-CER-6 | UHPC compressive σ 200-800 MPa range parity | Ductal / Cor-Tuf datasheet vs L8 LIMIT_BREAKTHROUGH | Phase F (research bridge to vendor datasheets) |
+| B-CER-6 | UHPC compressive σ 200-800 MPa range parity | Ductal / Cor-Tuf datasheet vs L8 LIMIT_BREAKTHROUGH | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b6_uhpc_compressive_parity.py`, vendored snapshot) |
 | B-CER-7 | Mohs hardness ladder NIST parity (talc 1 → diamond 10) | Mohs 1812 + NIST SRD | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b7_mohs_hardness_parity.py`) |
-| B-CER-8 | Thermal donor concentration in CZ Si post-anneal (Si-L8 ≈ 10¹⁶ cm⁻³) | Kaiser-Frisch 1958; Bullis SEMI | Phase F (literature aggregation) |
-| B-CER-9 | [O_i] interstitial oxygen in CZ wafer (Si-L9 10-30 ppma) | ASTM F121 / F1188 | Phase F |
+| B-CER-8 | Thermal donor concentration in CZ Si post-anneal (Si-L8 ≈ 10¹⁶ cm⁻³) | Kaiser-Frisch 1958; Bullis SEMI | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b8_si_thermal_donor_parity.py`, vendored snapshot) |
+| B-CER-9 | [O_i] interstitial oxygen in CZ wafer (Si-L9 10-30 ppma) | ASTM F121 / F1188 | ✅ CLOSED 2026-05-13 (gate: `tests/cer_b9_si_oxygen_interstitial_parity.py`, vendored snapshot) |
 
 ### B-POL (GROUP_POL polymer)
 
@@ -70,10 +70,10 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 |----|------|--------|--------|
 | B-POL-1 | Kevlar 49 aramid σ 3.6 GPa / E 124 GPa / ρ 1.44 g/cm³ parity | ASM Handbook vol. 21; CRC | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b1_aramid_tensile_parity.py`) |
 | B-POL-2 | PET hydrolysis activation energy E_a parity | Marshall et al. 1988 + Toray datasheet | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b2_pet_hydrolysis_ea_parity.py`) |
-| B-POL-3 | Microplastics K_d (PE, PP, PS partition coefficient) parity | NOAA Marine Debris Program | Phase F |
+| B-POL-3 | Microplastics K_d (PE, PP, PS partition coefficient) parity | NOAA Marine Debris Program | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b3_microplastic_kd_parity.py`, vendored snapshot) |
 | B-POL-4 | Nylon-6,6 T_g 323 K / T_m 538 K parity | CRC Handbook | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b4_nylon66_tg_tm_parity.py`) |
-| B-POL-5 | UHMWPE (Dyneema SK99) σ 3.9 GPa / E 132 GPa parity | DSM Dyneema datasheet | Phase F |
-| B-POL-6 | CNT yarn σ 80 GPa (lab) parity | Tsinghua / IBS published | Phase F (lab-published data aggregation) |
+| B-POL-5 | UHMWPE (Dyneema SK99) σ 3.9 GPa / E 132 GPa parity | DSM Dyneema datasheet | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b5_uhmwpe_parity.py`, vendored snapshot) |
+| B-POL-6 | CNT yarn σ 80 GPa (lab) parity | Tsinghua / IBS published | ✅ CLOSED 2026-05-13 (gate: `tests/pol_b6_cnt_yarn_parity.py`, vendored snapshot, **UNPROVEN at commodity scale preserved verbatim** — gate verifies lab-mm parity only, NOT km-scale reproducibility) |
 
 ### B-FIB (GROUP_FIB fiber)
 
@@ -104,34 +104,38 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
 | B-PRC-1 | Hales packing simulation parity (FCC/HCP 0.7405) | Hales 2017 formal proof | ✅ CLOSED 2026-05-13 (gate: `tests/prc_b1_hales_packing_parity.py`) |
-| B-PRC-2 | Gibbs ΔS_mix recycling-energy parity | ISO 14040 LCA + Gibbs | Phase F |
-| B-PRC-3 | Sol-gel TEOS hydrolysis rate parity | Hench & West 1990 | Phase F |
+| B-PRC-2 | Gibbs ΔS_mix recycling-energy parity | ISO 14040 LCA + Gibbs | ✅ CLOSED 2026-05-13 (gate: `tests/prc_b2_recycling_gibbs_parity.py`, ideal-mixing thermodynamic derivation) |
+| B-PRC-3 | Sol-gel TEOS hydrolysis rate parity | Hench & West 1990 | ✅ CLOSED 2026-05-13 (gate: `tests/prc_b3_solgel_teos_parity.py`, vendored snapshot) |
 
 ### B-FAS (GROUP_FAS fashion)
 
 | ID | Gate | Source | Status |
 |----|------|--------|--------|
 | B-FAS-1 | Reactive dye covalent yield parity | ISO 105 | ✅ CLOSED 2026-05-13 (gate: `tests/fas_b1_reactive_dye_yield_parity.py`) |
-| B-FAS-2 | K/S (Kubelka-Munk) for mordant-dyeing parity | AATCC test method 6 | Phase B target |
+| B-FAS-2 | K/S (Kubelka-Munk) for mordant-dyeing parity | AATCC test method 6 | ✅ CLOSED 2026-05-13 (gate: `tests/fas_b2_kubelka_munk_parity.py`, closed-form K/S identity check) |
 
 ### §B — Summary
 
-| Group | (b) gates remaining | ✅ CLOSED by Phase H + I.1 (2026-05-13) | Phase target (remaining) |
-|-------|---------------------|------------------------------------------|--------------------------|
-| CER   | 1 | 6 (B-CER-1 · B-CER-2 · B-CER-3 · B-CER-4 · B-CER-5 · B-CER-7) | Phase F (3: B-CER-6 / B-CER-8 / B-CER-9 are Phase F) |
-| POL   | 3 | 3 (B-POL-1 · B-POL-2 · B-POL-4) | Phase F (3: B-POL-3 / B-POL-5 / B-POL-6) |
-| FIB   | 0 | 2 (B-FIB-1 · B-FIB-2) | — |
-| MET   | 0 | 5 (B-MET-1 · B-MET-2 · B-MET-3 · B-MET-4 · B-MET-5) | — |
-| GEM   | 0 | 2 (B-GEM-1 · B-GEM-2) | — |
-| PRC   | 2 | 1 (B-PRC-1) | Phase F (2: B-PRC-2 / B-PRC-3) |
-| FAS   | 1 | 1 (B-FAS-1) | Phase B (1: B-FAS-2 K/S Kubelka-Munk) |
-| **Total** | **9 remaining** (29 → 9, **20 CLOSED**: 10 Phase H + 10 Phase I.1) | **20** | Phase B target = 1 (B-FAS-2), Phase F target = 8 |
+| Group | (b) gates remaining | ✅ CLOSED by Phase H + I.1 + I.2 (2026-05-13) | Phase target (remaining) |
+|-------|---------------------|------------------------------------------------|--------------------------|
+| CER   | 0 | 9 (B-CER-1..9) | — ALL CLOSED |
+| POL   | 0 | 6 (B-POL-1..6) | — ALL CLOSED |
+| FIB   | 0 | 2 (B-FIB-1 · B-FIB-2) | — ALL CLOSED |
+| MET   | 0 | 5 (B-MET-1..5) | — ALL CLOSED |
+| GEM   | 0 | 2 (B-GEM-1 · B-GEM-2) | — ALL CLOSED |
+| PRC   | 0 | 3 (B-PRC-1..3) | — ALL CLOSED |
+| FAS   | 0 | 2 (B-FAS-1 · B-FAS-2) | — ALL CLOSED |
+| **Total** | **0 remaining** (29 → 0, **ALL 29 CLOSED**: 10 Phase H + 10 Phase I.1 + 9 Phase I.2) | **29** | — |
+
+**🏆 Category (b) FULL CLOSURE achieved 2026-05-13** — all 29 enumerated parity gates have landed; selftest aggregator `parity_gates_smoke` sweeps 29/29; ledger §B drained 29 → 0. Combined with the §A 100% (a) closure already certified, **Category (a)+(b) closure = 100%** as of this commit. Category (c) remains OUT-OF-REPO BY DESIGN (wet-lab / vendor / fab handoff — software cannot close these per `AXIS_CLOSURE_PLAN.md` §0).
 
 **Phase H closure (2026-05-13)**: 10 Phase-B-target gates landed under `tests/*_parity.py` + `tests/snapshots/*.json`, aggregated by `selftest/parity_gates_smoke.sh` (selftest scoreboard 24/24 → **25/25**). Each gate is stdlib-only (≤80 LOC), reads its vendored snapshot, and asserts spec↔source parity within a published tolerance. raw#10 C3 preserved: every snapshot carries `n6_lattice_fit_applied: false`; NIST/CRC/ASM/TAPPI/GIA values flow through verbatim. SPEC_FIRST preserved: a passing parity gate does not turn the spec into a measurement.
 
 **Phase I.1 closure (2026-05-13)**: 10 additional Phase-B-target gates landed under the same `tests/*_parity.py` + `tests/snapshots/*.json` template, anchored to NIST SRM 1960 quartz / Mohs 1812 + NIST SRD / Marshall 1988 + Toray / TAPPI T 271 + Segal 1959 / ASM Handbook vols. 1–4 / NIST + Sugano-Tanabe-Kamimura / Hales 2017 formal proof / ISO 105-X12 + ICI Procion-H. The `parity_gates_smoke.sh` aggregator now sweeps **20 gates total** (10 Phase H + 10 Phase I.1) and emits `__HEXA_MATTER_PARITY_GATES__ PASS (20/20 gates, 0 skipped)`. The selftest scoreboard remains **28/28 PASS** since `parity_gates_smoke` is a single aggregator gate. raw#10 C3 + SPEC_FIRST + UNPROVEN preservation invariants are unchanged.
 
-**Honest C3 (residual)**: 9 of 29 gates above remain `UNVERIFIED` as of 2026-05-13 (1 Phase B target: B-FAS-2 K/S Kubelka-Munk; 8 Phase F target: B-CER-6 / B-CER-8 / B-CER-9 / B-POL-3 / B-POL-5 / B-POL-6 / B-PRC-2 / B-PRC-3). B-FAS-2 is queued for Phase I.2; the remaining 8 Phase F target items need a live-DB / literature aggregation bridge that overlaps with `_research_bridge/`.
+**Phase I.2 closure (2026-05-13)**: 9 vendor-/literature-anchored gates landed (Ductal+Cor-Tuf UHPC / Kaiser-Frisch + SEMI MF1188 / ASTM F121-F1188 / NOAA + Mato + Rochman / DSM Dyneema SK99 / Tsinghua Bai 2018 [UNPROVEN at commodity scale, preserved verbatim] / ISO 14040 + Gibbs / Hench-West + Brinker-Scherer / AATCC TM6 + Kubelka-Munk 1931). Aggregator now sweeps **29 gates total** and emits `__HEXA_MATTER_PARITY_GATES__ PASS (29/29 gates, 0 skipped)`. Selftest scoreboard remains 28/28 PASS. **§B fully drained 29 → 0 — Category (b) closure = 100%.**
+
+**Honest C3 (residual)**: 0 of 29 gates remain UNVERIFIED. All values flow through vendored offline snapshots; gates check spec↔source parity, not measurement; UNPROVEN markers (CNT yarn at commodity scale, magic-MOF DAC, etc.) are explicitly preserved verbatim in snapshot metadata and gate output. Category (c) remains OUT-OF-REPO BY DESIGN (see §C).
 
 ---
 
