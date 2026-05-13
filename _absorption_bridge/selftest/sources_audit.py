@@ -6,12 +6,13 @@ and contains required honesty markers (citation, license).
 
 Emits sentinel: __HEXA_MATTER_ABSORPTION_SOURCES_AUDIT__ PASS / FAIL.
 
-Required SOURCES.md files (Phase G):
+Required SOURCES.md files (Phase G + Phase G+1):
   - materials_project/SOURCES.md
   - gnome/SOURCES.md
   - matlantis/SOURCES.md
   - omat24/SOURCES.md
   - universal_ff/SOURCES.md
+  - cod/SOURCES.md  (Phase G+1: Crystallography Open Database)
 
 Each must contain (case-insensitive substring match):
   - "license"     — license statement present
@@ -35,6 +36,7 @@ REQUIRED_SOURCES = [
     ABSORPTION_BRIDGE / "matlantis" / "SOURCES.md",
     ABSORPTION_BRIDGE / "omat24" / "SOURCES.md",
     ABSORPTION_BRIDGE / "universal_ff" / "SOURCES.md",
+    ABSORPTION_BRIDGE / "cod" / "SOURCES.md",
 ]
 SENTINEL = "__HEXA_MATTER_ABSORPTION_SOURCES_AUDIT__"
 MIN_SIZE_BYTES = 200

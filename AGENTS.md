@@ -118,9 +118,9 @@ Aggregator: `selftest/pyproject_smoke.sh` (gate 21 of selftest harness).
 
 Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
 
-### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 10 adapters)
+### Phase G — `_absorption_bridge/` (AlphaFold-class absorption, 11 adapters)
 
-5 external systems + 5 universal force fields:
+6 external systems + 5 universal force fields (Phase G+1 2026-05-13 added COD):
 
 | System | License | Adapter | Notes |
 |---|---|---|---|
@@ -128,6 +128,7 @@ Aggregator: `selftest/research_bridge_smoke.sh` (gate 22).
 | **DeepMind GNoME** (2023 Nature) | CC-BY 4.0 (Zenodo DOI `10.5281/zenodo.10371563`) | `gnome/gnome_dataset_smoke.py` | **2.2M PREDICTED stable crystals — NOT synthesized** |
 | **Matlantis** (Preferred Networks) | **COMMERCIAL** | `matlantis/matlantis_call_smoke.py` | UNVERIFIED at hexa-matter scale economics |
 | **Meta OMat24** | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | `omat24/omat24_dataset_smoke.py` | **110M structures** + MACE-OMat NNP checkpoint |
+| **COD** (Crystallography Open Database, Gražulis 2009/2012) | CC0 / public-domain raw data | `cod/cod_search_smoke.py` | **EXPERIMENTAL XRD measurements** (≥ 500k records); first measurement-source in the bridge |
 | **SchNet** (Schütt 2017) | MIT | `universal_ff/schnet_call.py` | message-passing NNP |
 | **MACE** (Batatia 2022) | MIT | `universal_ff/mace_call.py` | equivariant NNP |
 | **ALIGNN** (Choudhary 2021) | MIT | `universal_ff/alignn_call.py` | atomistic line graph |
@@ -165,11 +166,12 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **23/23 PASS** (8 cross-cutting + 8 group-specific + 4
-verb-specific + 3 bridge aggregators). Run from repo root:
+currently **24/24 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators + 1 adapter-specific COD gate
+added 2026-05-13 Phase G+1). Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 23/23 PASS
+bash selftest/run_all.sh    # exit 0 = 24/24 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -177,8 +179,8 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "23/23"`, `python_bridge_modules = 12`,
-`research_bridge_modules = 8`, `absorption_bridge_modules = 10`.
+`selftest_pass = "24/24"`, `python_bridge_modules = 12`,
+`research_bridge_modules = 8`, `absorption_bridge_modules = 11`.
 
 ---
 
@@ -187,7 +189,7 @@ scoreboard cross-check). Selftest is the content layer on top.
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  23/23 selftest + 29/29 verb specs. Closeable by code/doc work in this repo.
+  24/24 selftest + 29/29 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC anchored
   values matched against measured datasets. 29 parity gates currently
   **UNVERIFIED** (enumerated in `CLOSURE_RESIDUAL_BACKLOG.md` §B). Phase B
@@ -221,7 +223,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 23/23 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 24/24 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)

@@ -28,6 +28,7 @@ User directive (2026-05-13):
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
+| **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(this commit)_ |
 | **H** | Category (b) parity-gate landing — `tests/<group>_<gate>_parity.py` ledger drain (Phase B target subset of CLOSURE_RESIDUAL_BACKLOG §B) | 🚧 WIP | _(no SHA yet)_ |
 
 ## Phase A — DONE (commit `c55199b`)
@@ -235,11 +236,24 @@ SOURCES.md:
 ## Phase G — `_absorption_bridge/` ✅ DONE (2026-05-13)
 
 External materials-discovery system absorption layer per user directive
-("알파폴드 처럼 흡수할 시스템도 흡수"). 10 adapters ship under
-`_absorption_bridge/`: 5 database/API systems plus 5 universal force-field
-models. Each accepts `--selftest`, runs OFFLINE (fixtures replayed from
-bundled `<system>/cache/`; NO live API calls in selftest), and SKIPs
-cleanly when its optional dep is missing.
+("알파폴드 처럼 흡수할 시스템도 흡수"). **11 adapters** ship under
+`_absorption_bridge/` (10 from Phase G + 1 from Phase G+1, 2026-05-13): 6
+database/API systems plus 5 universal force-field models. Each accepts
+`--selftest`, runs OFFLINE (fixtures replayed from bundled `<system>/cache/`;
+NO live API calls in selftest), and SKIPs cleanly when its optional dep is
+missing.
+
+**Phase G+1 (2026-05-13)** added the Crystallography Open Database (COD)
+adapter — the first EXPERIMENTAL-measurement source in the bridge (distinct
+from MP / GNoME / OMat24 / NNP outputs, which are computed predictions).
+Files:
+- `_absorption_bridge/cod/cod_search_smoke.py` — stdlib-only adapter
+- `_absorption_bridge/cod/SOURCES.md` — Gražulis 2009/2012 + CC0 raw data
+- `_absorption_bridge/cod/cache/sample_record.json` — COD entry 9008565 (Si) fixture
+- `_absorption_bridge/cod_adapter.md` — short adapter doc
+- `_absorption_bridge/selftest/cod_smoke.py` — wrapper
+- `selftest/cod_adapter_smoke.sh` — dedicated top-level gate 24
+- Selftest scoreboard: 23/23 → **24/24** PASS (gate 24 = `cod_adapter_smoke`).
 
 | Subsystem | Module | Status | Optional dep |
 |---|---|---|---|
@@ -261,6 +275,9 @@ Top-level Phase G gate: `selftest/absorption_bridge_smoke.sh` (gate 23 in
 Full selftest scoreboard after Phase G:
 `__HEXA_MATTER_SELFTEST__ PASS (23/23)`.
 
+Full selftest scoreboard after Phase G+1 (COD):
+`__HEXA_MATTER_SELFTEST__ PASS (24/24)`.
+
 License honesty matrix (per `_absorption_bridge/README.md`):
 
 | System | License | Cost |
@@ -269,6 +286,7 @@ License honesty matrix (per `_absorption_bridge/README.md`):
 | GNoME | CC-BY 4.0 (Zenodo DOI 10.5281/zenodo.10371563) — **PREDICTED, NOT SYNTHESIZED** | $0 |
 | Matlantis | Commercial (Preferred Networks) — **UNVERIFIED at hexa-matter scale** | $$$ |
 | OMat24 | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | $0 |
+| COD (Phase G+1) | CC0 / public-domain raw data (Gražulis 2009/2012) | $0 |
 | SchNet / MACE / ALIGNN | MIT | $0 |
 | CHGNet / M3GNet | BSD-3-Clause | $0 |
 

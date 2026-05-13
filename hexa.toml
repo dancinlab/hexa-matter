@@ -78,13 +78,13 @@ scripts = [
 ]
 aggregator = "verify/run_all.hexa"
 verdict = "CLOSED"  # 29/29 verbs spec-present · 4/4 verify scripts PASS
-selftest_pass = "23/23"  # Phase B selftest harness + Phase E + Phase F + Phase G (2026-05-13) — see selftest/run_all.sh
+selftest_pass = "24/24"  # Phase B selftest harness + Phase E + Phase F + Phase G + Phase G+1 COD adapter (2026-05-13) — see selftest/run_all.sh
 selftest_aggregator = "selftest/run_all.sh"
 python_bridge_modules = 12  # Phase E (2026-05-13) — _python_bridge/module/*.py (12 modules: 6 stdlib FUNCTIONAL + 2 RDKit + 2 ASE + 2 pymatgen; SKIP cleanly when optional deps missing)
 python_bridge_aggregator = "selftest/pyproject_smoke.sh"
 research_bridge_modules = 8  # Phase F (2026-05-13) — _research_bridge/ (arxiv 2 + web 3 + selftest 3): arxiv_pull · arxiv_digest · vendor_datasheet_pull · materials_news_feed · patent_search · arxiv_smoke · web_smoke · sources_audit; offline-replay only, --live gated, stdlib + optional requests/feedparser/beautifulsoup4
 research_bridge_aggregator = "selftest/research_bridge_smoke.sh"
-absorption_bridge_modules = 10  # Phase G (2026-05-13) — _absorption_bridge/ (5 external systems + 5 universal FFs): mp_api_smoke · gnome_dataset_smoke · matlantis_call_smoke · omat24_dataset_smoke · schnet_call · mace_call · alignn_call · chgnet_call · m3gnet_call (+ selftest aggregators); offline fixture replay only, NO LIVE API CALLS in selftest, stdlib + optional mp-api/mace-torch/schnetpack/matgl/alignn/chgnet
+absorption_bridge_modules = 11  # Phase G (2026-05-13) + Phase G+1 (2026-05-13) — _absorption_bridge/ (6 external systems + 5 universal FFs): mp_api_smoke · gnome_dataset_smoke · matlantis_call_smoke · omat24_dataset_smoke · cod_search_smoke · schnet_call · mace_call · alignn_call · chgnet_call · m3gnet_call (+ selftest aggregators); offline fixture replay only, NO LIVE API CALLS in selftest, stdlib + optional mp-api/mace-torch/schnetpack/matgl/alignn/chgnet
 absorption_bridge_aggregator = "selftest/absorption_bridge_smoke.sh"
 
 # ── Scope honesty (raw#10 C3) ─────────────────────────────

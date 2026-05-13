@@ -1,6 +1,6 @@
 # `_absorption_bridge/` — hexa-matter external-system absorption layer
 
-> **Created**: 2026-05-13 (Phase G) · **Status**: 10 adapters (5 external systems + 5 universal force-field models)
+> **Created**: 2026-05-13 (Phase G) · **Updated**: 2026-05-13 (Phase G+1: COD) · **Status**: 11 adapters (6 external systems + 5 universal force-field models)
 > **Pattern reference**: `_python_bridge/module/` (Phase E discipline)
 > **Selftest wiring**: `selftest/absorption_bridge_smoke.sh` → `selftest/run_all.sh`
 > **User directive**: "알파폴드 처럼 흡수할 시스템도 흡수" (absorb systems-that-absorb, AlphaFold-class)
@@ -17,12 +17,13 @@ fixture **offline**; nothing makes a live API call inside the selftest. When
 the optional external dep is missing, the adapter SKIPs cleanly (exit 0,
 counted PASS) per the `NO MOCKED FUNCTIONALITY` rule from `INIT.md`.
 
-The five external systems plus five universal force fields cover the major
+The six external systems plus five universal force fields cover the major
 materials-AI absorption surface as of 2026-05:
 
 | Bucket | Systems |
 |---|---|
-| Database / API | Materials Project (Berkeley/LBNL) · GNoME (DeepMind) · Matlantis (Preferred Networks) · OMat24 (Meta AI) |
+| Database / API (computed) | Materials Project (Berkeley/LBNL) · GNoME (DeepMind) · Matlantis (Preferred Networks) · OMat24 (Meta AI) |
+| Database / API (experimental) | COD (Crystallography Open Database, Gražulis et al. 2009/2012) |
 | Universal force fields | SchNet · MACE · ALIGNN · CHGNet · M3GNet |
 
 This bridge is the materials-substrate analog to AlphaFold absorption in
@@ -57,6 +58,12 @@ _absorption_bridge/
     SOURCES.md                             # HuggingFace dataset + checkpoint + license
     cache/
       sample_record.json                   # SAMPLE FIXTURE: OMat24 record schema
+  cod/                                     # Phase G+1 (2026-05-13)
+    cod_search_smoke.py                    # Crystallography Open Database adapter (EXPERIMENTAL measurements, CC0 raw data)
+    SOURCES.md                             # COD REST endpoint + Gražulis 2009/2012 citation + CC0 license
+    cache/
+      sample_record.json                   # SAMPLE FIXTURE: COD entry 9008565 (Si) schema
+  cod_adapter.md                           # short doc for the COD adapter (Phase G+1)
   universal_ff/
     schnet_call.py                         # SchNet adapter (Schütt et al. 2017)
     mace_call.py                           # MACE adapter (Batatia et al. 2022)
@@ -71,6 +78,7 @@ _absorption_bridge/
     gnome_smoke.py                         # offline fixture replay
     matlantis_smoke.py                     # offline fixture replay
     omat24_smoke.py                        # offline fixture replay
+    cod_smoke.py                           # offline fixture replay (Phase G+1)
     universal_ff_smoke.py                  # offline fixture replay (all 5 FF adapters)
     sources_audit.py                       # all SOURCES.md present + non-empty + license stated
 ```
@@ -142,6 +150,7 @@ This bridge must NOT:
 | GNoME (DeepMind) | CC-BY 4.0 (Zenodo DOI 10.5281/zenodo.10371563) | $0 download | Merchant et al. 2023 Nature; **predicted, NOT synthesized** |
 | Matlantis (Preferred Networks) | Commercial closed | $$$ (UNVERIFIED at scale) | Takamoto et al. 2022 Nat. Comm. (PFP universal NNP) |
 | OMat24 (Meta AI) | CC-BY 4.0 (HuggingFace dataset + checkpoint) | $0 download | Barroso-Luque et al. 2024 (110M structures + MACE-OMat) |
+| COD (Crystallography Open Database) | CC0 / public-domain raw data; no API key | $0 | Gražulis et al. 2009 J. Appl. Crystallogr. + 2012 Nucleic Acids Res.; **EXPERIMENTAL measurements, not predictions** |
 | SchNet | MIT (schnetpack) | $0 | Schütt et al. 2017 J. Chem. Phys. |
 | MACE | MIT (mace-torch) | $0 | Batatia et al. 2022 NeurIPS |
 | ALIGNN | MIT (NIST jarvis-tools / alignn) | $0 | Choudhary & DeCost 2021 npj Comput. Mater. |
@@ -185,6 +194,11 @@ Phase B's selftest infrastructure) invokes every
 `_absorption_bridge/selftest/*.py --selftest` and aggregates PASS/FAIL/SKIP.
 The aggregator becomes selftest gate **23** in `selftest/run_all.sh`
 (gate 22 is reserved for Phase F's `_research_bridge/`).
+
+Phase G+1 (2026-05-13) adds a dedicated COD-only gate at
+`selftest/cod_adapter_smoke.sh` (gate **24**) that runs the COD adapter
+directly so a COD regression is identifiable without rerunning the full
+absorption aggregator.
 
 ---
 
