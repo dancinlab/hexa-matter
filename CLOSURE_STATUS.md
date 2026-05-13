@@ -243,3 +243,120 @@ top-level Category (a)+(b) closure certification. Sister-of-pattern:
 file does not change any closure-grade percentage; it certifies and
 scopes the percentage already established by `verify/run_all.hexa`,
 `selftest/run_all.sh`, and `CLOSURE_RESIDUAL_BACKLOG.md`.*
+
+---
+
+## 10. Post-100% deepening (Phase J, 2026-05-13)
+
+> **Status**: this section is **additive**. The Category (a)+(b) = 100%
+> baseline from §1–§4 (re-)established by Phase I.2 (`196b03c`) and
+> certified by `RELEASE_NOTES_v1.2.0.md` **still holds**. Phase J does
+> NOT redefine the verdict, does NOT change the grade, and does NOT
+> promote any spec to a measurement. It adds **rigor + breadth around
+> the closure envelope**, with the same hard constraints in force.
+>
+> **Companion plan**: `PHASE_J_PLAN.md` (this commit) carries the full
+> per-sub-phase scope; this section is the closure-status roll-up.
+
+### 10.1 What Phase J adds (delta from §1 scoreboard)
+
+| Surface                            | §1 baseline (Phase I.2) | Phase J target (post-integration) | Source                                    |
+|------------------------------------|-------------------------|-----------------------------------|-------------------------------------------|
+| `selftest/run_all.sh`              | 28/28 → 30/30 PASS      | **36/36 PASS**                    | +3 J.1 gates (#31-33) + 1 J.2 gate (#34) + 2 J.3 gates (#35-36) |
+| Absorption-bridge adapters         | 14                      | **16**                            | +NIMS-Mats + Catalysis-Hub (`0b54537`)    |
+| NOVEL.md `SIM-NNP-PROXY` rows      | 0                       | **7 Tier-1**                      | DESIGN → SIM-NNP-PROXY promotion (`a01b6dc`) |
+| NOVEL.md candidates (orthogonal axis) | 37                  | **181**                           | Round 3 §4.A–§4.F (`07f79aa` + `f6947bf`) |
+| `(a)+(b) closure-grade`            | **100%**                | **100%** (unchanged)              | this section §10.2 statement              |
+
+### 10.2 What Phase J does NOT change
+
+- **The (a)+(b) = 100% verdict from §1 still holds verbatim.** The
+  29 parity gates in §4 remain 29/29 ✅ CLOSED. The 4 verify scripts
+  remain 4/4 PASS. The 36 verb specs remain in place. The Category (c)
+  classification per §5 (18 enumerated items, all OUT-OF-REPO BY DESIGN)
+  remains intact. Phase J's three audit-discipline gates (#31-33) and
+  one NNP-proxy discipline gate (#34) and two adapter smoke gates
+  (#35-36) extend the selftest scoreboard, but they do not retroactively
+  invalidate or upgrade any prior gate.
+- **The 6 honesty invariants in §6 still hold.** Every Phase J artifact
+  carries `n6_lattice_fit_applied: false`; every prediction JSON under
+  `_absorption_bridge/universal_ff/predictions/*.json` carries
+  `is_measurement: false` and `is_external_verification: false`; every
+  new adapter carries SOURCES.md license + citation + status.
+- **The "what 100% does NOT mean" caveat from §7 still applies.** In
+  particular: **proxy NNP predictions are NOT measurements.** The 7
+  `SIM-NNP-PROXY` rows in `NOVEL.md` are advances in the
+  `DESIGN → SIM → SYNTH-ROUTE → EXTERNAL-VERIFIED` flow defined in
+  `NOVEL.md §7`. They are **not** promotions to `EXTERNAL-VERIFIED`,
+  which per raw#10 C3 requires an external lab citation with sample-ID
+  and measurement protocol.
+- **Every UNPROVEN / UNVERIFIED marker is preserved verbatim.** LK-99
+  NOT REPRODUCED · metallic-H ambient UNPROVEN · magic-MOF DAC $100/t
+  UNPROVEN with Climeworks $600–1000/t baseline · CNT yarn 80 GPa lab-mm
+  only · Re-free 4th-gen SX UNVERIFIED · marine-PHA UNVERIFIED ·
+  L5 autonomy UNVERIFIED (cross-substrate) · GNoME predicted-not-
+  synthesized · Matlantis COMMERCIAL UNVERIFIED · Y-TZP LTD HARD_WALL ·
+  phosphorene ambient HARD_WALL · GST drift HARD_WALL · Ir scarcity
+  HARD_WALL · Cd regulatory · ²⁸Si enrichment cost · skyrmion size ·
+  Pb halide migration · basalt grain-size kinetics · trivial-time-
+  crystal vs MBL · Majorana CONTESTED · H-embrittlement HARD_WALL.
+
+### 10.3 What Phase J advances beyond the (a)+(b) = 100% baseline
+
+- **Auditability of falsifier well-formedness** (gate #31). Every
+  `F-<class>-NN:` row in `NOVEL.md` is now machine-checked for
+  quantitative threshold + measurement attribution + FAIL-condition
+  wording. Vague "we want better" claims would fail the gate; none
+  currently do.
+- **HARD_WALL provenance discipline** (gate #32). Every HARD_WALL row
+  in `LIMIT_BREAKTHROUGH.md` now must cite a named source (Hales / Gibbs
+  / NIST / CRC / Frenkel / Bekenstein / Stefan-Boltzmann / …). The
+  gate audits the text, not the wall classification — the
+  classification stays per §6 invariant 6.
+- **Vendor citation completeness discipline** (gate #33). Every vendor
+  SKU mentioned in a verb spec (DuPont Kevlar 49 / DSM Dyneema SK99 /
+  CATL Blade / Wolfspeed / Wacker / Hemlock / TDK / Vacuumschmelze /
+  Special Metals / Climeworks / Tsinghua / etc.) has a SOURCES.md or
+  in-spec citation row.
+- **Promotion infrastructure for NOVEL → SIM-NNP-PROXY** (gate #34).
+  The Tier-1 candidates from `NOVEL_ROADMAP.md §5` now carry vendored
+  proxy-prediction JSONs under `_absorption_bridge/universal_ff/
+  predictions/*.json` with peer-reviewed proxy sources (M3GNet /
+  CHGNet / ALIGNN-FF / MACE-MP-0). Per raw#10 C3, the JSON carries
+  `is_measurement: false` and `is_external_verification: false` — the
+  promotion is from `DESIGN` to `SIM-NNP-PROXY`, **not** to
+  `EXTERNAL-VERIFIED`.
+- **Broader external-data absorption** (gates #35-36). NIMS-Mats and
+  Catalysis-Hub join the 14 Phase G adapters; bridge total 14 → 16.
+  License-honesty matrix in `_absorption_bridge/README.md` extended.
+- **Bidirectional NOVEL ↔ verb spec navigability** (J.5 in flight).
+  The 7 Tier-1 candidates now have a "see also `NOVEL.md` row …" back-
+  link from their primary verb spec. The existing cross-link integrity
+  gate (#29) extends to verify the bidirectional invariant.
+
+### 10.4 Sister-domain hand-off remains intact
+
+Per `CROSS_LINK.md §3`, hexa-matter owns the **material layer only**.
+Phase J does not change any sister-domain boundary:
+
+- **Cell-level engineering** → `hexa-energy` (LFP / NMC / Si-anode /
+  Li-metal cathode-anode pairings are material-layer here; cell
+  engineering / module / pack-level work belongs to hexa-energy).
+- **Device-level / lithography process** → `hexa-chip` (photoresist
+  chemistry is material-layer here; EUV stepper / ASML throughput /
+  process node belongs to hexa-chip).
+- **Room-T superconductivity reproduction** → `hexa-rtsc` (LK-99 is
+  HARD_WALL UNPROVEN here; reproduction attempts belong to hexa-rtsc).
+- **L5 autonomy** → `hexa-mobility` (out-of-claim for hexa-matter;
+  cross-substrate caveat preserved in `CROSS_LINK.md §3.7`).
+
+Phase J ships no new sister-domain claims and no sister-domain runs.
+The boundary discipline is exactly as authored at the v1.2.0 close.
+
+---
+
+*§10 appended 2026-05-13 by 박민우 <nerve011235@gmail.com> as the
+Post-100% deepening roll-up. Companion plan: `PHASE_J_PLAN.md`. Honest
+C3 — this section does NOT change any closure-grade percentage; it
+inventories the deepening deltas that Phase J adds **around** the
+verdict already established at the v1.2.0 close.*
