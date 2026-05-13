@@ -28,6 +28,7 @@ User directive (2026-05-13):
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
 | **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
+| **H** | Category (b) parity-gate landing — `tests/<group>_<gate>_parity.py` ledger drain (Phase B target subset of CLOSURE_RESIDUAL_BACKLOG §B) | 🚧 WIP | _(no SHA yet)_ |
 
 ## Phase A — DONE (commit `c55199b`)
 
