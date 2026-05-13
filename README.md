@@ -10,9 +10,10 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
 [![Verbs: 29 spec](https://img.shields.io/badge/verbs-29_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
-[![Selftest: 22/22 PASS](https://img.shields.io/badge/selftest-22%2F22_PASS-brightgreen.svg)](selftest/run_all.sh)
+[![Selftest: 23/23 PASS](https://img.shields.io/badge/selftest-23%2F23_PASS-brightgreen.svg)](selftest/run_all.sh)
 [![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
 [![Research bridge: 8 modules](https://img.shields.io/badge/research--bridge-8_modules-blue.svg)](_research_bridge/README.md)
+[![Absorption bridge: 10 adapters](https://img.shields.io/badge/absorption--bridge-10_adapters-blue.svg)](_absorption_bridge/README.md)
 
 ---
 
@@ -138,11 +139,11 @@ room-T SC, metallic hydrogen at ambient) are preserved as caveats.
 
 Beyond `verify/` (which checks structural closure — file presence,
 lattice arithmetic, real-limits anchors, scoreboard cross-check), the
-`selftest/` harness runs 22 fine-grained content-aware gates. From the
+`selftest/` harness runs 23 fine-grained content-aware gates. From the
 repo root:
 
 ```bash
-bash selftest/run_all.sh                # exit 0 = all 22 gates PASS
+bash selftest/run_all.sh                # exit 0 = all 23 gates PASS
 ```
 
 | Category | Count | Gates |
@@ -150,7 +151,7 @@ bash selftest/run_all.sh                # exit 0 = all 22 gates PASS
 | Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
 | Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
 | Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
-| Bridge aggregators | 2 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules; SKIPs optional-dep modules cleanly) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web + sources_audit; offline-replay only) |
+| Bridge aggregators | 3 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules; SKIPs optional-dep modules cleanly) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web + sources_audit; offline-replay only) · `absorption_bridge_smoke` — Phase G `_absorption_bridge/` (Materials Project / GNoME / Matlantis / OMat24 / SchNet / MACE / ALIGNN / CHGNet / M3GNet; offline replay) |
 
 Honesty constraints enforced by the selftest harness:
 - `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
@@ -247,6 +248,65 @@ raw#10 C3 + honest C3 enforcement:
 - Speculative claims (LK-99 RTSC, magic-MOF $100/t, perovskite 25-yr lifetime)
   trip the `UNPROVEN_FLAGS` list and surface with the flag attached.
 - No live network call ever fires in `--selftest` — fixtures only.
+
+## Absorption bridge (Phase G)
+
+`_absorption_bridge/` ships 10 adapters (Phase G, 2026-05-13) for
+**AlphaFold-class external materials-discovery system absorption**: 5
+external database / API systems plus 5 universal force-field models.
+Each adapter has a `--selftest` mode that replays a bundled fixture
+**offline** — live API calls during selftest are FORBIDDEN per the
+"NO LIVE API CALLS in selftest" rule.
+
+```
+_absorption_bridge/
+├── pyproject.toml                                # optional-dep declaration (mp-api / mace-torch / schnetpack / matgl / alignn / chgnet)
+├── README.md                                     # bridge overview + license honesty matrix
+├── materials_project/   mp_api_smoke.py          # Berkeley/LBNL ~154k materials (mp-api SDK)
+├── gnome/               gnome_dataset_smoke.py   # DeepMind 2.2M predicted stable crystals (Zenodo DOI)
+├── matlantis/           matlantis_call_smoke.py  # Preferred Networks PFP universal NNP (COMMERCIAL)
+├── omat24/              omat24_dataset_smoke.py  # Meta AI 110M structures + MACE-OMat checkpoint
+├── universal_ff/
+│   ├── schnet_call.py                            # SchNet (Schütt et al. 2017)
+│   ├── mace_call.py                              # MACE (Batatia et al. 2022)
+│   ├── alignn_call.py                            # ALIGNN (Choudhary & DeCost 2021)
+│   ├── chgnet_call.py                            # CHGNet (Deng et al. 2023)
+│   └── m3gnet_call.py                            # M3GNet via MatGL (Chen & Ong 2022)
+└── selftest/
+    ├── materials_project_smoke.py                # MP offline replay
+    ├── gnome_smoke.py                            # GNoME offline replay
+    ├── matlantis_smoke.py                        # Matlantis offline replay
+    ├── omat24_smoke.py                           # OMat24 offline replay
+    ├── universal_ff_smoke.py                     # 5-FF aggregate offline replay
+    └── sources_audit.py                          # SOURCES.md license + citation presence audit
+```
+
+License honesty matrix (per `_absorption_bridge/README.md`):
+
+| System | License | Cost |
+|---|---|---|
+| Materials Project | CC-BY 4.0 (free API key) | $0 |
+| GNoME | CC-BY 4.0 (Zenodo DOI 10.5281/zenodo.10371563) — **PREDICTED, NOT SYNTHESIZED** | $0 |
+| Matlantis | Commercial (Preferred Networks) — **UNVERIFIED at hexa-matter scale** | $$$ |
+| OMat24 | CC-BY 4.0 (HuggingFace `fairchem/OMAT24`) | $0 |
+| SchNet / MACE / ALIGNN | MIT | $0 |
+| CHGNet / M3GNet | BSD-3-Clause | $0 |
+
+Run the bridge aggregator (also wired into `selftest/run_all.sh` as gate 23):
+
+```bash
+bash selftest/absorption_bridge_smoke.sh    # exit 0 = all 6 aggregators PASS (offline only)
+```
+
+raw#10 C3 enforcement:
+- No n=6 lattice-fit applied to Materials Project / GNoME / Matlantis /
+  OMat24 / universal-FF outputs. Each external system carries its OWN
+  published error bars (DFT-PBE typical, force MAE 20–60 meV/Å per NNP).
+- GNoME records preserve the **PREDICTED, NOT SYNTHESIZED** marker (per
+  `INIT.md` hard rule 5).
+- Matlantis adapter SKIPs by default (commercial closed SDK not on PyPI);
+  pricing UNVERIFIED at hexa-matter scale economics.
+- No live API call fires in `--selftest` — fixtures only.
 
 ## Provenance
 
