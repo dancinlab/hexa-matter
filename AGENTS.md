@@ -35,7 +35,6 @@ lattice-fit assertions. Use that entity's *own* invariants.
 
 ## 🛠️ Commit conventions
 
-- Author: `박민우 <nerve011235@gmail.com>`
 - Trailer: `Co-Authored-By: <model> <noreply@anthropic.com>` (when AI-assisted)
 - Title format: `<type>(<scope>): <one-line summary>` per Conventional Commits
 - Body: bullet list of file changes + honesty caveats
@@ -320,6 +319,5 @@ When making changes in this repo, an AI agent SHOULD:
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
 - [ ] If touching `NOVEL.md`: define quantitative falsifier per candidate; don't self-validate
 - [ ] If touching a bridge: stdlib fallback or clean SKIP; offline selftest only
-- [ ] Author: `박민우 <nerve011235@gmail.com>` (env-var override if local git config empty)
 - [ ] Trailer: `Co-Authored-By: <model> <noreply@anthropic.com>`
 - [ ] Update `INIT.md` if your change shifts Phase status
