@@ -26,7 +26,7 @@ User directive (2026-05-13):
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
-| **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | _(this commit)_ |
+| **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN) | ⏸ BLOCKED by E | |
 
 ## Phase A — DONE (commit `c55199b`)
@@ -333,7 +333,8 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `f24d8a5` — Phase B (21-gate selftest harness; `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`)
 - `6e4928a` — Phase C (hexa-* axis-prefixed depth dirs: 9 groups, 36 files, 3913 lines)
 - `b4ebf8f` — Phase E (`_python_bridge/` — 12 compute modules; `__HEXA_MATTER_PYTHON_BRIDGE__ PASS (12/12, 5 skipped)`)
-- _Phase F/G commits forthcoming_
+- `185ce33` — Phase F (`_research_bridge/` — 8 absorption modules; arxiv + vendor + news + patent; `__HEXA_MATTER_RESEARCH_BRIDGE__ PASS (3/3, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (22/22)`)
+- _Phase G commit forthcoming_
 
 ## If you're picking this up cold
 
