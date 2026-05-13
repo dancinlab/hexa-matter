@@ -10,8 +10,9 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
 [![Verbs: 29 spec](https://img.shields.io/badge/verbs-29_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
-[![Selftest: 21/21 PASS](https://img.shields.io/badge/selftest-21%2F21_PASS-brightgreen.svg)](selftest/run_all.sh)
+[![Selftest: 22/22 PASS](https://img.shields.io/badge/selftest-22%2F22_PASS-brightgreen.svg)](selftest/run_all.sh)
 [![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
+[![Research bridge: 8 modules](https://img.shields.io/badge/research--bridge-8_modules-blue.svg)](_research_bridge/README.md)
 
 ---
 
@@ -137,11 +138,11 @@ room-T SC, metallic hydrogen at ambient) are preserved as caveats.
 
 Beyond `verify/` (which checks structural closure — file presence,
 lattice arithmetic, real-limits anchors, scoreboard cross-check), the
-`selftest/` harness runs 21 fine-grained content-aware gates. From the
+`selftest/` harness runs 22 fine-grained content-aware gates. From the
 repo root:
 
 ```bash
-bash selftest/run_all.sh                # exit 0 = all 21 gates PASS
+bash selftest/run_all.sh                # exit 0 = all 22 gates PASS
 ```
 
 | Category | Count | Gates |
@@ -149,7 +150,7 @@ bash selftest/run_all.sh                # exit 0 = all 21 gates PASS
 | Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
 | Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
 | Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
-| Bonus | 1 | `pyproject_smoke` — Phase E `_python_bridge/` aggregator (12 modules; SKIPs optional-dep modules cleanly) |
+| Bridge aggregators | 2 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules; SKIPs optional-dep modules cleanly) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web + sources_audit; offline-replay only) |
 
 Honesty constraints enforced by the selftest harness:
 - `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
@@ -202,7 +203,50 @@ bash selftest/pyproject_smoke.sh    # exit 0 = all 12 modules PASS or SKIP-clean
 
 raw#10 C3: no module applies n=6 lattice formulas to vendor / NIST / external
 data. Selftests are offline + deterministic; live external-DB fetch is
-Phase F (`_research_bridge/`, queued).
+in Phase F (`_research_bridge/`, landed 2026-05-13).
+
+## Research bridge (Phase F)
+
+`_research_bridge/` ships 8 runnable absorption modules (Phase F,
+2026-05-13) for **arxiv deep research** + **web deep research** (vendor
+datasheets, materials industry RSS/Atom news, USPTO/EPO patent search).
+Each module has a `--selftest` mode that runs **offline-replay only**
+(no live network calls in selftest — air-gap / CI safe); live mode is
+gated behind explicit `--live`.
+
+```
+_research_bridge/
+├── pyproject.toml                          # optional-dep declaration (requests / feedparser / bs4)
+├── README.md                               # bridge overview
+├── arxiv/
+│   ├── arxiv_pull.py                       # arxiv API pull (cond-mat.mtrl-sci primary, 3-sec backoff)
+│   ├── arxiv_digest.py                     # verb-keyword tagging + UNPROVEN flag preservation
+│   ├── arxiv_cache/sample_response.xml     # offline-replay fixture (3 synthetic papers)
+│   └── SOURCES.md                          # arxiv categories + keyword strategy
+├── web/
+│   ├── vendor_datasheet_pull.py            # vendor HTML/PDF datasheet parse (Wacker/Wolfspeed/...)
+│   ├── materials_news_feed.py              # RSS/Atom news feed poll + verb tagging
+│   ├── patent_search.py                    # USPTO PatFT / EPO Espacenet public-API parse
+│   ├── web_cache/                          # offline-replay fixtures (vendor HTML, RSS, patent JSON)
+│   └── SOURCES.md                          # vendor URLs + RSS feeds + patent endpoints
+└── selftest/
+    ├── arxiv_smoke.py                      # arxiv subsystem aggregator
+    ├── web_smoke.py                        # web subsystem aggregator
+    └── sources_audit.py                    # SOURCES.md validity + speculative-trip-list audit
+```
+
+Run the bridge aggregator (also wired into `selftest/run_all.sh` as gate 22):
+
+```bash
+bash selftest/research_bridge_smoke.sh    # exit 0 = all 3 aggregators PASS (offline only)
+```
+
+raw#10 C3 + honest C3 enforcement:
+- Vendor / arxiv / patent data is ingested AS-IS with vendor's own metrics;
+  NO n=6 lattice-fit applied at ingest.
+- Speculative claims (LK-99 RTSC, magic-MOF $100/t, perovskite 25-yr lifetime)
+  trip the `UNPROVEN_FLAGS` list and surface with the flag attached.
+- No live network call ever fires in `--selftest` — fixtures only.
 
 ## Provenance
 

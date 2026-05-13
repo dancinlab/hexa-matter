@@ -26,7 +26,7 @@ User directive (2026-05-13):
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
-| **F** | `_research_bridge/` (arxiv + web deep research) | ⏸ BLOCKED by E | |
+| **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | _(this commit)_ |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN) | ⏸ BLOCKED by E | |
 
 ## Phase A — DONE (commit `c55199b`)
@@ -182,35 +182,54 @@ Honest C3: every SKIPped module prints why (e.g. `SKIP: rdkit not installed`)
 and exits 0. No mocked compute is disguised as real — the harness treats
 SKIP as PASS per the `NO MOCKED FUNCTIONALITY` rule.
 
-## Phase F — `_research_bridge/` (queued, per user directive)
+## Phase F — `_research_bridge/` ✅ DONE (2026-05-13)
 
-External-literature absorption layer.
+External-literature absorption layer. 8 runnable modules ship under
+`_research_bridge/`. Each module accepts `--selftest` and runs OFFLINE
+(fixtures replayed from local cache; NO live network calls in selftest).
+Live mode is gated behind explicit `--live` flag and is rate-limit aware
+(arxiv 3-sec backoff, vendor robots.txt, USPTO/EPO polite query cadence).
 
-- **arxiv deep research**: cond-mat.mtrl-sci pipeline
-  - daily/weekly arxiv API pull (`http://export.arxiv.org/api/query`)
-  - filter by category + keyword
-  - md5-stamp + cache + digest
-- **web deep research**: vendor datasheet/news/patent crawl
-  - vendor pages (Wacker, GCL, Hemlock, Wolfspeed, Merck KGaA, …)
-  - Materials industry news feeds
-  - USPTO/EPO patent search (open APIs)
-  - polite scraping with cache + rate limits
+| Subsystem | Module | Status | Optional dep |
+|---|---|---|---|
+| **arxiv** | `arxiv/arxiv_pull.py` | FUNCTIONAL (stdlib urllib) | none |
+| **arxiv** | `arxiv/arxiv_digest.py` | FUNCTIONAL (stdlib) | none |
+| **web**   | `web/vendor_datasheet_pull.py` | FUNCTIONAL (stdlib regex; bs4 optional) | beautifulsoup4 |
+| **web**   | `web/materials_news_feed.py` | FUNCTIONAL (stdlib ElementTree; feedparser optional) | feedparser |
+| **web**   | `web/patent_search.py` | FUNCTIONAL (stdlib JSON) | none |
+| **selftest** | `selftest/arxiv_smoke.py` | aggregator (PASS over 2 arxiv modules) | none |
+| **selftest** | `selftest/web_smoke.py` | aggregator (PASS over 3 web modules) | none |
+| **selftest** | `selftest/sources_audit.py` | SOURCES.md + speculative-flag-list audit | none |
 
-Layout:
-```
-_research_bridge/
-  arxiv/
-    arxiv_pull.py
-    arxiv_digest.py
-    arxiv_cache/
-  web/
-    vendor_datasheet_pull.py
-    materials_news_feed.py
-    patent_search.py
-  selftest/
-    arxiv_smoke.py
-    vendor_smoke.py
-```
+Top-level Phase F gate: `selftest/research_bridge_smoke.sh` (gate 22 in
+`selftest/run_all.sh`). Result: `__HEXA_MATTER_RESEARCH_BRIDGE__ PASS
+(3/3 modules, 0 skipped)`.
+
+Full selftest scoreboard after Phase F:
+`__HEXA_MATTER_SELFTEST__ PASS (22/22)`.
+
+Bundled offline-replay fixtures (synthetic, not real data):
+- `arxiv/arxiv_cache/sample_response.xml` — 3 synthetic papers
+- `web/web_cache/sample_vendor.html` — vendor product page mock
+- `web/web_cache/sample_rss.xml` — 3-item RSS mock
+- `web/web_cache/sample_patent.json` — 3-record USPTO-shape JSON mock
+
+Honesty preservation (UNPROVEN flag list — propagates through arxiv +
+news + patent verb-keyword digest):
+- LK-99 / room-T superconductivity (never reproduced)
+- Magic-MOF $100/t DAC (Climeworks amine $600–1000/t baseline)
+- Perovskite 25-yr operational lifetime (UNVERIFIED commercial scale)
+- Ambient metallic hydrogen, infinite recycle, 100% recyclable
+
+raw#10 C3: NO n=6 lattice-fit on ingested arxiv / vendor / patent data.
+Vendor datasheet values quoted AS-IS with provenance; SPEC_FIRST verdict
+is informed by research signals, not replaced by them.
+
+SOURCES.md:
+- `arxiv/SOURCES.md` — 6 cond-mat categories + keyword strategy + 3-sec
+  backoff discipline + `@arxiv-informed:` cross-link convention
+- `web/SOURCES.md` — 14 vendors + 7 RSS/Atom feeds + 5 patent endpoints
+  with last-verified dates + robots.txt / ToS notes
 
 ## Phase G — `_absorption_bridge/` (queued, per user directive: "알파폴드 처럼 흡수")
 

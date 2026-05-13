@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (21 gates total):
+# Gate categories (22 gates total):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -14,6 +14,8 @@
 #     carbon_cnt_strength_honesty, mof_dac_economics_honesty
 #   Python bridge (1): pyproject_smoke (Phase E aggregator over 12 modules;
 #     SKIPs optional-dep modules cleanly when RDKit/ASE/pymatgen missing)
+#   Research bridge (1): research_bridge_smoke (Phase F aggregator over
+#     arxiv_smoke + web_smoke + sources_audit; offline-replay only)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -76,6 +78,9 @@ run "mof_dac_economics_honesty_audit" python3 "$HERE/mof_dac_economics_honesty_a
 
 # ── Phase E python bridge (1) — aggregator over 12 modules ────
 run "pyproject_smoke"                 bash    "$HERE/pyproject_smoke.sh"
+
+# ── Phase F research bridge (1) — aggregator over arxiv + web + audit ────
+run "research_bridge_smoke"           bash    "$HERE/research_bridge_smoke.sh"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))
