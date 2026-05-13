@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (24 gates total):
+# Gate categories (25 gates total):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -22,6 +22,9 @@
 #     COD)
 #   Adapter-specific (1): cod_adapter_smoke (Phase G+1, 2026-05-13:
 #     Crystallography Open Database direct-adapter gate, offline-replay only)
+#   Parity gates (1): parity_gates_smoke (Phase H, 2026-05-13: aggregator
+#     over tests/*_parity.py — 10 stdlib-only Category (b) parity gates
+#     anchored to NIST/CRC/ASM/TAPPI/GIA snapshots; offline-only)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -93,6 +96,9 @@ run "absorption_bridge_smoke"         bash    "$HERE/absorption_bridge_smoke.sh"
 
 # ── Phase G+1 COD adapter (1) — Crystallography Open Database direct gate ────
 run "cod_adapter_smoke"               bash    "$HERE/cod_adapter_smoke.sh"
+
+# ── Phase H parity gates (1) — aggregator over 10 tests/*_parity.py gates ────
+run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

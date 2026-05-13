@@ -31,7 +31,7 @@ User directive (2026-05-13):
 | **F** | `_research_bridge/` (arxiv + web deep research) | ✅ DONE | `185ce33` |
 | **G** | `_absorption_bridge/` (MaterialsProject, GNoME, Matlantis, OMat24, SchNet/MACE/ALIGNN/CHGNet/M3GNet) | ✅ DONE | `e712068` |
 | **G+1** | `_absorption_bridge/cod/` (Crystallography Open Database — 11th adapter, EXPERIMENTAL measurements, CC0 raw data) | ✅ DONE | _(prev commit)_ |
-| **H** | Category (b) parity-gate landing — `tests/<group>_<gate>_parity.py` ledger drain (Phase B target subset of CLOSURE_RESIDUAL_BACKLOG §B) | 🚧 WIP | _(no SHA yet)_ |
+| **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh` (gate #25); ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 25/25 | ✅ DONE | _(this commit)_ |
 
 ## Phase A — DONE (commit `c55199b`)
 
@@ -382,6 +382,65 @@ citation/DOI/journal markers — enforced by `selftest/sources_audit.py`):
 - `universal_ff/SOURCES.md` — 5-FF aggregate citation table (Schütt 2017 /
   Batatia 2022 / Choudhary 2021 / Deng 2023 / Chen 2022)
 
+## Phase H — Category (b) parity gates ✅ DONE (2026-05-13)
+
+10 stdlib-only parity gates landed under `tests/*_parity.py`, each
+backed by a vendored source-of-truth snapshot under
+`tests/snapshots/<gate_id>.json`. Each gate is ≤ 80 LOC, reads its
+snapshot, locates the spec doc's value via deterministic regex, and
+asserts spec↔source parity within a published tolerance. Aggregator:
+`selftest/parity_gates_smoke.sh` (gate #25). Selftest scoreboard
+24/24 → **25/25 PASS**.
+
+| # | Gate | Anchor (source) | Spec doc | Tolerance |
+|---|---|---|---|---|
+| 1 | `cer_b2_si_density` | CRC 105th ed. (2024) p.4-87 — Si rho = 2.329 g/cm³ | `silicon/silicon.md` Si-L6 | abs 0.002 g/cm³ |
+| 2 | `cer_b3_si_bandgap` | NIST WebBook + Sze 3rd ed. — Si E_g = 1.12 eV (300 K) | `silicon/silicon.md` Si-L7 | abs 0.02 eV |
+| 3 | `cer_b4_sic_bandgap` | Saddow & Agarwal 2004 — 4H-SiC E_g = 3.26 eV (6H-SiC 3.02 eV) | `silicon/silicon.md` Si-L11 | abs 0.05 eV |
+| 4 | `cer_b5_si3n4_flexural` | ASM Handbook vol. 21 (2001) — Si₃N₄ HIP σ_f 600-1200 MPa | `silicon/silicon.md` Si-L12 | range containment |
+| 5 | `pol_b1_aramid_tensile` | ASTM D885 + DuPont Kevlar 49 datasheet + ASM vol. 21 — σ_f ≥ 3.0 GPa | `aramid/aramid.md` F-AR-Q1 | min threshold 3.0 GPa |
+| 6 | `pol_b4_nylon66_tg_tm` | ASM Engineered Materials vol. 2 + CRC 105th — PA66 T_g 50-65 °C, T_m 265 °C | `POLYMER-CHEMISTRY.md` §3.2 | T_g ± 5 °C, T_m ± 3 °C |
+| 7 | `fib_b2_paper_tensile` | TAPPI T494 (2021) — bleached softwood kraft tensile index ≥ 70 N·m/g | `paper/paper.md` F-PA-Q1 | min threshold 70 N·m/g |
+| 8 | `met_b4_w_melting` | CRC 105th / NIST — W T_m = 3422 °C (3695 K) | `LIMIT_BREAKTHROUGH.md` refractory row | abs 1 °C |
+| 9 | `met_b5_os_density` | CRC 105th / NIST WebBook — Os ρ = 22.59 g/cm³ (densest stable element) | `LIMIT_BREAKTHROUGH.md` L6 row | abs 0.02 g/cm³ |
+| 10 | `gem_b1_corundum_ri` | GIA / NIST gem-RI — corundum n_d 1.762-1.770 | `gemology/gemology.md` F-GEM-Q1 | ± 0.002 |
+
+Aggregator output (stock Python):
+`__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`.
+
+Selftest scoreboard after Phase H:
+`__HEXA_MATTER_SELFTEST__ PASS (25/25)`.
+
+Honesty preservation (per `INIT.md` hard rules):
+- **Rule 3 (raw#10 C3)**: every snapshot carries
+  `n6_lattice_fit_applied: false`; NIST / CRC / ASM / TAPPI / GIA values
+  flow through verbatim with provenance. NO n=6 lattice-fit applied on
+  any external entity.
+- **Rule 4 (SPEC_FIRST)**: gates check spec↔source parity; a passing
+  gate does NOT turn the spec into a measurement. "SPEC_FIRST, not
+  MEASURED here" footer stays verbatim across all 33 verb specs.
+- **Rule 5 (UNPROVEN preservation)**: LK-99, magic-MOF DAC $100/t, CNT
+  yarn 80 GPa lab-mm, marine-biodegradable PHA, perovskite 25-yr
+  lifetime — all keep their flags. Phase H targets honestly-anchored
+  values only; it does NOT close any UNPROVEN claim.
+- **NO LIVE API CALLS in selftest**: every gate reads bundled snapshots
+  under `tests/snapshots/`. Live retrieval (if ever needed) would be a
+  Phase F research-bridge concern, not Phase H.
+
+Ledger movement (`CLOSURE_RESIDUAL_BACKLOG.md §B`):
+**29 → 19 remaining** (10 ✅ CLOSED by Phase H; 10 Phase B residual + 9
+Phase F residual still UNVERIFIED).
+
+Files added this phase:
+- `tests/cer_b2_si_density_parity.py` · `tests/cer_b3_si_bandgap_parity.py`
+- `tests/cer_b4_sic_bandgap_parity.py` · `tests/cer_b5_si3n4_flexural_parity.py`
+- `tests/pol_b1_aramid_tensile_parity.py` · `tests/pol_b4_nylon66_tg_tm_parity.py`
+- `tests/fib_b2_paper_tensile_parity.py`
+- `tests/met_b4_w_melting_parity.py` · `tests/met_b5_os_density_parity.py`
+- `tests/gem_b1_corundum_ri_parity.py`
+- `tests/snapshots/<gate_id>.json` (10 vendored snapshots)
+- `selftest/parity_gates_smoke.sh` (aggregator gate #25)
+
 ## Closure framework
 
 Per `AXIS_CLOSURE_PLAN.md` (Phase A output), hexa-matter uses the **Category (a)/(b)/(c)** framework from hexa-bio:
@@ -450,6 +509,7 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `b4ebf8f` — Phase E (`_python_bridge/` — 12 compute modules; `__HEXA_MATTER_PYTHON_BRIDGE__ PASS (12/12, 5 skipped)`)
 - `185ce33` — Phase F (`_research_bridge/` — 8 absorption modules; arxiv + vendor + news + patent; `__HEXA_MATTER_RESEARCH_BRIDGE__ PASS (3/3, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (22/22)`)
 - `e712068` — Phase G (`_absorption_bridge/` — 10 adapters: Materials Project / GNoME / Matlantis / OMat24 + SchNet / MACE / ALIGNN / CHGNet / M3GNet; `__HEXA_MATTER_ABSORPTION_BRIDGE__ PASS (6/6, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (23/23)`)
+- _(this commit)_ — Phase H (10 Category (b) parity gates under `tests/*_parity.py` + 10 vendored snapshots under `tests/snapshots/*.json` + `selftest/parity_gates_smoke.sh` aggregator gate #25; `__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (25/25)`; ledger CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 19)
 
 ## If you're picking this up cold
 

@@ -166,12 +166,13 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **24/24 PASS** (8 cross-cutting + 8 group-specific + 4
+currently **25/25 PASS** (8 cross-cutting + 8 group-specific + 4
 verb-specific + 3 bridge aggregators + 1 adapter-specific COD gate
-added 2026-05-13 Phase G+1). Run from repo root:
+added 2026-05-13 Phase G+1 + 1 parity-gates aggregator added 2026-05-13
+Phase H). Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 24/24 PASS
+bash selftest/run_all.sh    # exit 0 = 25/25 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -179,8 +180,43 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "24/24"`, `python_bridge_modules = 12`,
-`research_bridge_modules = 8`, `absorption_bridge_modules = 11`.
+`selftest_pass = "25/25"`, `python_bridge_modules = 12`,
+`research_bridge_modules = 8`, `absorption_bridge_modules = 11`,
+`parity_gates_total = 10`.
+
+### Parity gates — Phase H (2026-05-13)
+
+10 stdlib-only Category (b) parity gates ship under `tests/*_parity.py`,
+each ≤ 80 LOC, each reading a vendored source-of-truth snapshot under
+`tests/snapshots/<gate_id>.json` and asserting spec↔source parity
+within a published tolerance:
+
+| Gate | Anchor |
+|---|---|
+| `cer_b2_si_density` | CRC 105th ed. — Si rho = 2.329 g/cm^3 |
+| `cer_b3_si_bandgap` | NIST WebBook + Sze 3rd — Si E_g = 1.12 eV (300 K) |
+| `cer_b4_sic_bandgap` | Saddow & Agarwal 2004 — 4H-SiC E_g = 3.26 eV (6H-SiC 3.02 eV) |
+| `cer_b5_si3n4_flexural` | ASM Handbook vol. 21 — Si3N4 HIP flexural 600-1200 MPa |
+| `pol_b1_aramid_tensile` | ASTM D885 + DuPont datasheet — Kevlar 49 sigma_f >= 3.0 GPa |
+| `pol_b4_nylon66_tg_tm` | ASM vol. 2 + CRC 105th — Nylon-6,6 Tg ~ 50 C, Tm ~ 265 C |
+| `fib_b2_paper_tensile` | TAPPI T494 — bleached softwood kraft tensile index >= 70 N*m/g |
+| `met_b4_w_melting` | CRC 105th / NIST — W T_m = 3422 C (3695 K) |
+| `met_b5_os_density` | CRC 105th / NIST — Os rho = 22.59 g/cm^3 (densest stable element) |
+| `gem_b1_corundum_ri` | GIA / NIST gem-RI — corundum n_d 1.762-1.770 |
+
+Aggregator: `selftest/parity_gates_smoke.sh` (gate #25 in
+`selftest/run_all.sh`). Sentinel:
+`__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`.
+
+Honesty preservation (Phase H discipline):
+- raw#10 C3 — every snapshot carries `n6_lattice_fit_applied: false`;
+  NIST/CRC/ASM/TAPPI/GIA values flow through verbatim with provenance.
+- SPEC_FIRST — gates check spec↔source parity, not measurement; a
+  passing gate does not turn the spec into a measurement.
+- UNPROVEN markers untouched — LK-99, magic-MOF DAC $100/t, CNT yarn
+  80 GPa lab-mm, marine-biodegradable PHA all keep their flags.
+- NO LIVE API CALLS — gates read vendored snapshots only; no
+  network access in selftest path.
 
 ---
 
@@ -189,11 +225,13 @@ scoreboard cross-check). Selftest is the content layer on top.
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  24/24 selftest + 29/29 verb specs. Closeable by code/doc work in this repo.
+  25/25 selftest + 33/33 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC anchored
-  values matched against measured datasets. 29 parity gates currently
-  **UNVERIFIED** (enumerated in `CLOSURE_RESIDUAL_BACKLOG.md` §B). Phase B
-  selftest is the implementation layer.
+  values matched against measured datasets. 29 parity gates total →
+  **10 ✅ CLOSED by Phase H (2026-05-13)** under `tests/*_parity.py` +
+  `tests/snapshots/*.json`; 19 remain **UNVERIFIED** (enumerated in
+  `CLOSURE_RESIDUAL_BACKLOG.md` §B — 10 Phase H+ residual + 9 Phase F
+  research-bridge residual).
 - **(c) wet-lab synthesis / manufacturing scale closure** — **OUT-OF-REPO
   BY DESIGN**. Vendors (Wacker poly-Si · Wolfspeed SiC · Hitachi Metals
   NdFeB · Stora Enso CLT · Climeworks DAC · NatureWorks PLA · Danimer PHA
@@ -223,7 +261,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 24/24 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 25/25 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
