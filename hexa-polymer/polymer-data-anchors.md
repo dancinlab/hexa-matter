@@ -43,7 +43,7 @@
   - Row 16: ASTM D7081 marine biodegradability — only certain PHA grades pass; most "biodegradable" plastics UNVERIFIED for marine
   - Row 24: Climeworks $600-1000/t CO₂ = vendor; MOF magic-$100/t = UNPROVEN
 
-## §3 (b) gates queued (Phase B targets)
+## §3 (b) gates — ✅ CLOSED 2026-05-13 (Phase H + I.1 + I.2)
 
 - B-POL-1 aramid Kevlar 49 σ/E/ρ vs ASM vol. 21
 - B-POL-2 PET hydrolysis E_a vs Marshall 1988

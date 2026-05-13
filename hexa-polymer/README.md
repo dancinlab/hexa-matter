@@ -86,7 +86,7 @@ Cross-linked from other groups:
 | Category | Status | Notes |
 |----------|--------|-------|
 | (a) | **100%** — 9 dispatchable POL verbs spec-present | post-Phase D |
-| (b) | **UNVERIFIED** — ~9 parity gates queued (B-POL-1..B-POL-9) | Phase B target |
+| (b) | ✅ **CLOSED 2026-05-13** — 6/6 POL parity gates landed (B-POL-1..B-POL-6) under `tests/pol_b*_parity.py`; sweeps by `selftest/parity_gates_smoke.sh` | Phase H + I.1 + I.2 (all closed) |
 | (c) | **OUT-OF-REPO** — DuPont/BASF/Toray batch trace; aramid pilot; field-mass-balance | vendor numbers only |
 
 ## §5 UNPROVEN / UNVERIFIED markers (verbatim from verb specs)

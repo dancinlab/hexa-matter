@@ -484,7 +484,7 @@ Files added this phase:
 - `tests/snapshots/<gate_id>.json` (10 vendored snapshots)
 - `selftest/parity_gates_smoke.sh` (aggregator gate #25)
 
-## Phase I.1 — Phase B target parity gates batch 1 — WIP (2026-05-13)
+## Phase I.1 — Phase B target parity gates batch 1 — ✅ DONE (commit `583fddb`)
 
 10 more stdlib-only parity gates landed under `tests/*_parity.py` + 10
 snapshots under `tests/snapshots/*.json`. Each gate is ≤ 80 LOC, reads
@@ -551,22 +551,53 @@ Files added this phase:
 - `selftest/parity_gates_smoke.sh` aggregator docstring + run_all.sh
   comment updated to reflect 20-gate sweep
 
-Status: **WIP** — gate landing complete and all 20/20 pass; agent 2
-finalizes by closing B-FAS-2 (Phase I.2) and integrator updates
-`hexa.toml [closure].selftest_pass` + `parity_gates_total` counter.
+Status: **✅ DONE** (commit `583fddb`) — 20/20 parity gates passing; Phase I.2 follow-up
+(commit `196b03c`) closed the remaining 9 §B rows; closure-meta integration
+(commits `9c21948` + `674653e` + `6526de6`) wired the cross-link integrity gate
++ §C handoff completeness gate and authored CLOSURE_STATUS.md / RELEASE_NOTES_v1.2.0.
 
-## Closure framework
+## Phase I.2 — Phase F target parity gates batch 2 — ✅ DONE (commit `196b03c`)
+
+9 vendor- / literature-anchored parity gates closing the final §B residual:
+`cer_b6_uhpc_compressive` (Ductal + Cor-Tuf) · `cer_b8_si_thermal_donor`
+(Kaiser-Frisch 1958 + SEMI MF1188) · `cer_b9_si_oxygen_interstitial`
+(ASTM F121 / F1188) · `pol_b3_microplastic_kd` (NOAA + Mato 2001 + Rochman
+2013) · `pol_b5_uhmwpe` (DSM Dyneema SK99) · `pol_b6_cnt_yarn` (Tsinghua
+Bai 2018; **UNPROVEN at commodity scale preserved verbatim** — gate verifies
+lab-mm parity only) · `prc_b2_recycling_gibbs` (ISO 14040 + Gibbs ideal-mixing
+floor; derived check) · `prc_b3_solgel_teos` (Hench-West 1990 + Brinker-Scherer
+1990) · `fas_b2_kubelka_munk` (AATCC TM6 + Kubelka-Munk 1931; closed-form
+identity check).
+
+Aggregator output:
+`__HEXA_MATTER_PARITY_GATES__ PASS (29/29 gates, 0 skipped)`. **§B drained
+29 → 0; Category (a)+(b) closure = 100% as of 2026-05-13.**
+
+## Closure-meta — ✅ DONE (commits `9c21948` + `674653e` + `6526de6`)
+
+- `selftest/cross_link_integrity_audit.py` (gate #29) — enforces CROSS_LINK.md
+  sister-repo boundary discipline + NOVEL.md candidate invariants (DESIGN
+  status, quantitative falsifier, risk-flags, NNN uniqueness) + doc-reference
+  integrity. Audits 37 candidates + 17 cross-links; 0 violations.
+- `selftest/c_handoff_completeness_audit.py` (gate #30) — walks every §C row
+  (18 items) and asserts DEST + LIMIT_BREAKTHROUGH wall classification + raw#10
+  C3 (no n=6 lattice-fit). Software-side §C handoff documentation = 100%.
+- `CLOSURE_STATUS.md` — top-level certification of Category (a)+(b) = 100%
+  with explicit "what 100% does NOT mean" caveat.
+- `RELEASE_NOTES_v1.2.0.md` — full Phase A-I + closure-meta rollup.
+
+## 🏆 Category (a)+(b) closure = 100% (2026-05-13)
 
 Per `AXIS_CLOSURE_PLAN.md` (Phase A output), hexa-matter uses the **Category (a)/(b)/(c)** framework from hexa-bio:
 
-- **(a) in-repo SW/spec closure** — currently 100% at 4/4 verify + 17/17 verbs (will be 29/29 after Phase D)
-- **(b) formal/empirical material-property data parity** — NIST/CRC anchored
-  values matched against measured datasets. **29 parity gates UNVERIFIED** as of
-  2026-05-13. Phase B is the implementation layer.
-- **(c) wet-lab synthesis / manufacturing scale closure** — OUT-OF-REPO by
-  design. Vendors (Wacker poly-Si, Wolfspeed SiC, Stora Enso wood, …) carry
-  this layer with their own published numbers. 15 (c) items enumerated in
-  `CLOSURE_RESIDUAL_BACKLOG.md §C`.
+- **(a) in-repo SW/spec closure** — **100%** (4/4 verify · 30/30 selftest · 36/36 verb specs).
+- **(b) formal/empirical material-property parity** — **100%** (29/29 parity
+  gates passing under `tests/*_parity.py` + `tests/snapshots/*.json`; §B
+  drained 29 → 0). UNPROVEN markers in source data preserved verbatim in
+  snapshot metadata.
+- **(c) wet-lab synthesis / manufacturing scale closure** — **OUT-OF-REPO BY
+  DESIGN** (cannot be closed in software). 18 (c) items enumerated in §C,
+  each with DEST + LIMIT_BREAKTHROUGH wall classification audited by gate #30.
 
 ## Hard constraints (NEVER violate)
 

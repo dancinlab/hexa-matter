@@ -1,6 +1,6 @@
 # PHASE_H_PLAN — Category (b) parity-gate landing
 
-> **Created**: 2026-05-13 · **Status**: WIP (plan only — no gate authored yet)
+> **Created**: 2026-05-13 · **Status**: ✅ IMPLEMENTED (`e12dfb9` lands all 10 Phase H gates; Phase I.1 `583fddb` + Phase I.2 `196b03c` extend coverage to 29/29 — full §B closure)
 > **Author**: 박민우 <nerve011235@gmail.com>
 > **Predecessor**: Phase G (`_absorption_bridge/` at `e712068`) — closes the
 > external-systems absorption layer; this is what comes next.

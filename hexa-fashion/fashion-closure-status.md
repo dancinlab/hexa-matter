@@ -18,7 +18,7 @@
 |----------|-------|--------|
 | FAS verbs | 2 (fashion-textile, textile-dyeing) | ✅ |
 | (a) verb spec presence | 2/2 | 100% |
-| (b) parity gates queued | 2 (B-FAS-1, B-FAS-2) | UNVERIFIED — Phase B |
+| (b) parity gates closed | 2 (B-FAS-1, B-FAS-2) | ✅ CLOSED 2026-05-13 — Phase I.1 (`tests/fas_b1_reactive_dye_yield_parity.py`) + Phase I.2 (`tests/fas_b2_kubelka_munk_parity.py`) |
 | (c) OUT-OF-REPO items | 4 | DEST list enumerated |
 | UNPROVEN / UNVERIFIED markers preserved | (none Phase D added) | — |
 
@@ -32,7 +32,7 @@ trace + bacterial-indigo lab-scale items.
 - Global cotton supply transparency (per USDA/FAO): UNVERIFIED end-to-end
   trace (per Higg MSI methodology gaps).
 - Reactive-dye covalent yield at industrial scale (vs ISO 105): UNVERIFIED
-  parity gate (Phase B target).
+  parity gate — ✅ CLOSED 2026-05-13 by Phase I.1 + I.2.
 
 ## §4 v1.x / v1.1.x / v2 scope
 

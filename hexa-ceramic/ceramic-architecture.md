@@ -73,7 +73,7 @@ nucleation, exhibits near-zero CTE for telescope mirror substrates.
 | Route | Forward | Verbs touched | Real-limit anchor |
 |-------|---------|---------------|-------------------|
 | Sintering (high-T solid-state) | green body → densified ceramic | ceramics, silicon (Si₃N₄), 2d-materials (hBN bulk) | Frenkel sintering kinetics (UNVERIFIED dataset parity) |
-| Sol-gel | metal alkoxide + H₂O → gel → xerogel/aerogel/glass | glass, silicon (SiO₂), perovskite, mof | Hench & West 1990 TEOS hydrolysis rate (Phase B target) |
+| Sol-gel | metal alkoxide + H₂O → gel → xerogel/aerogel/glass | glass, silicon (SiO₂), perovskite, mof | Hench & West 1990 TEOS hydrolysis rate ✅ CLOSED 2026-05-13 (gate `tests/prc_b3_solgel_teos_parity.py`) |
 | CVD (chemical vapor deposition) | gas precursor → film on substrate | silicon (poly-Si, epi-Si), compound-semi (SiC, GaN), 2d-materials (CVD graphene/hBN) | reactor capacity (vendor); no lattice fit |
 | CZ / FZ pull | Si melt + seed → mono-crystal ingot | silicon | Si-L3 (CZ ~600 mm), Si-L4 (FZ ~200 mm) |
 | PVT (physical vapor transport) | SiC powder → SiC boule at 2200-2400 °C | compound-semi (SiC) | Si-L11 4H-SiC E_g 3.26 eV |

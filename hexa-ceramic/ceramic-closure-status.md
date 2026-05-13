@@ -4,7 +4,7 @@
 # ceramic-closure-status — (a)/(b)/(c) per-verb ledger
 
 > Mirror of `AXIS_CLOSURE_PLAN.md §3` at group depth. (a) is in-repo software
-> closure (counts to v1.x grade). (b) is NIST/CRC parity (Phase B target).
+> closure (counts to v1.x grade). (b) is NIST/CRC parity — **✅ CLOSED 2026-05-13** by Phase H + I.1 + I.2 parity gates (`tests/cer_b*_parity.py`).
 > (c) is wet-lab / vendor / fab (OUT-OF-REPO by design).
 
 ## §1 Per-verb closure table (10 verbs spanning GROUP_CER)
@@ -28,7 +28,7 @@
 |----------|-------|--------|
 | Verbs in GROUP_CER (post-Phase D) | 10 | ✅ all spec-present |
 | (a) verb spec presence | 10/10 | 100% |
-| (b) parity gates queued | 10+ (B-CER-1..B-CER-10) | UNVERIFIED — Phase B |
+| (b) parity gates closed | 9 (B-CER-1..B-CER-9) | ✅ CLOSED 2026-05-13 — Phase H + I.1 + I.2 (`tests/cer_b*_parity.py`) |
 | (c) OUT-OF-REPO items | 9+ | DEST list enumerated |
 | UNPROVEN / UNVERIFIED markers preserved | 9 | verbatim, see §3 |
 

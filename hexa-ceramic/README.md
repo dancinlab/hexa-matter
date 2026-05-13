@@ -78,7 +78,7 @@ Cross-link members (Phase D + Si cross-link):
 | Category | Status | Notes |
 |----------|--------|-------|
 | (a) | **100%** — 10/10 CER verbs spec-present | post-Phase D (5 + silicon + 4 D verbs) |
-| (b) | **UNVERIFIED** — ~12 parity gates queued | Phase B target |
+| (b) | ✅ **CLOSED 2026-05-13** — 9/9 CER parity gates landed (B-CER-1..B-CER-9) under `tests/cer_b*_parity.py`; sweeps by `selftest/parity_gates_smoke.sh` | Phase H + I.1 + I.2 (all closed) |
 | (c) | **OUT-OF-REPO** — LK-99 reproduction, antiferroelectric perovskite growth, Wolfspeed SiC fab, Wacker poly-Si batch | vendor numbers only |
 
 Per `AXIS_CLOSURE_PLAN.md §3`, GROUP_CER sequencing is FIRST for (b) closure
