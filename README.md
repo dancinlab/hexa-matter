@@ -7,15 +7,21 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20102811.svg)](https://doi.org/10.5281/zenodo.20102811)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
+[![Version](https://img.shields.io/badge/version-1.2.0-informational.svg)](hexa.toml)
 [![Verbs: 36 spec](https://img.shields.io/badge/verbs-36_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
-[![Selftest: 23/23 PASS](https://img.shields.io/badge/selftest-23%2F23_PASS-brightgreen.svg)](selftest/run_all.sh)
+[![Selftest: 28/28 PASS](https://img.shields.io/badge/selftest-28%2F28_PASS-brightgreen.svg)](selftest/run_all.sh)
 [![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
 [![Research bridge: 8 modules](https://img.shields.io/badge/research--bridge-8_modules-blue.svg)](_research_bridge/README.md)
-[![Absorption bridge: 10 adapters](https://img.shields.io/badge/absorption--bridge-10_adapters-blue.svg)](_absorption_bridge/README.md)
-[![Cycle Phase G](https://img.shields.io/badge/cycle-phase_G_closed_2026--05--13-brightgreen.svg)](RELEASE_NOTES_v1.1.0.md)
+[![Absorption bridge: 14 adapters](https://img.shields.io/badge/absorption--bridge-14_adapters-blue.svg)](_absorption_bridge/README.md)
+[![Parity gates: 29/29 PASS](https://img.shields.io/badge/parity--gates-29%2F29_PASS-brightgreen.svg)](selftest/parity_gates_smoke.sh)
+[![Category (a)+(b) closure: 100%](https://img.shields.io/badge/closure_(a)%2B(b)-100%25-brightgreen.svg)](CLOSURE_STATUS.md)
+[![Cycle Phase I.2](https://img.shields.io/badge/cycle-phase_I.2_closed_2026--05--13-brightgreen.svg)](RELEASE_NOTES_v1.2.0.md)
 [![Closure plan](https://img.shields.io/badge/closure-AXIS__CLOSURE__PLAN.md-informational.svg)](AXIS_CLOSURE_PLAN.md)
+
+> **Category (a)+(b) closure = 100%** as of 2026-05-13 (see [`CLOSURE_STATUS.md`](CLOSURE_STATUS.md)).
+> **Category (c)** — wet-lab synthesis, vendor procurement, fab capacity — remains **OUT-OF-REPO BY DESIGN** per [`AXIS_CLOSURE_PLAN.md §0`](AXIS_CLOSURE_PLAN.md).
+> Scoreboard counts (selftest 28/28, parity gates 29/29) are current as of this commit and may evolve in parallel rounds; the (a)+(b)=100% verdict is stable.
 
 ---
 
@@ -153,6 +159,8 @@ the [`hexa-bio`](https://github.com/dancinlab/hexa-bio) convention.
 | [`LESSONS.md`](LESSONS.md) | Construction journal — what worked, what surprised, anti-patterns avoided |
 | [`RELEASE_NOTES_v1.0.0.md`](RELEASE_NOTES_v1.0.0.md) | Initial 16-verb release notes (retroactive) |
 | [`RELEASE_NOTES_v1.1.0.md`](RELEASE_NOTES_v1.1.0.md) | Silicon + Phase A→G elevation |
+| [`RELEASE_NOTES_v1.2.0.md`](RELEASE_NOTES_v1.2.0.md) | Phase A–I elevation; 17→36 verbs; Category (a)+(b)=100% |
+| [`CLOSURE_STATUS.md`](CLOSURE_STATUS.md) | Top-level Category (a)+(b)=100% closure certification |
 | [`V1_2_0_HANDOFF.md`](V1_2_0_HANDOFF.md) | Forward-facing handoff (Phase B-G roadmap & future) |
 | [`USER_ACTION_REQUIRED.md`](USER_ACTION_REQUIRED.md) | Open asks for the user (priority decisions) |
 | [`IMPORTED_FROM_CANON.md`](IMPORTED_FROM_CANON.md) | File-by-file canon provenance ledger |
@@ -203,11 +211,11 @@ room-T SC, metallic hydrogen at ambient) are preserved as caveats.
 
 Beyond `verify/` (which checks structural closure — file presence,
 lattice arithmetic, real-limits anchors, scoreboard cross-check), the
-`selftest/` harness runs 23 fine-grained content-aware gates. From the
-repo root:
+`selftest/` harness runs 28 fine-grained content-aware gates (current
+as of this commit, evolving in parallel rounds). From the repo root:
 
 ```bash
-bash selftest/run_all.sh                # exit 0 = all 23 gates PASS
+bash selftest/run_all.sh                # exit 0 = 28/28 gates PASS at this commit
 ```
 
 | Category | Count | Gates |
@@ -215,7 +223,9 @@ bash selftest/run_all.sh                # exit 0 = all 23 gates PASS
 | Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
 | Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
 | Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
-| Bridge aggregators | 3 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules; SKIPs optional-dep modules cleanly) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web + sources_audit; offline-replay only) · `absorption_bridge_smoke` — Phase G `_absorption_bridge/` (Materials Project / GNoME / Matlantis / OMat24 / SchNet / MACE / ALIGNN / CHGNet / M3GNet; offline replay) |
+| Bridge aggregators | 3 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web; offline-replay) · `absorption_bridge_smoke` — Phase G `_absorption_bridge/` (10 adapters: MP / GNoME / Matlantis / OMat24 / SchNet / MACE / ALIGNN / CHGNet / M3GNet) |
+| Adapter-specific | 4 | `cod_adapter_smoke` (G+1) · `oqmd_adapter_smoke` · `aflow_adapter_smoke` · `nomad_adapter_smoke` (G+2; brings adapter count to 14) |
+| Parity-gates aggregator | 1 | `parity_gates_smoke` — Category (b) parity gates (29/29 PASS: 10 Phase H + 10 Phase I.1 + 9 Phase I.2; **Category (b) closure = 100%**) |
 
 Honesty constraints enforced by the selftest harness:
 - `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
