@@ -52,6 +52,10 @@ POST_POLICY_SPECS = [
     ("geopolymer", "geopolymer/geopolymer.md"),
     ("aerogel-foam", "aerogel-foam/aerogel-foam.md"),
     ("ionic-liquid", "ionic-liquid/ionic-liquid.md"),
+    # Phase D'' (2026-05-13, 33→36):
+    ("refractory", "refractory/refractory.md"),
+    ("photoresist", "photoresist/photoresist.md"),
+    ("electrode-material", "electrode-material/electrode-material.md"),
 ]
 
 ANCHOR_KEYWORDS = (

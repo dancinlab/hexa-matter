@@ -44,6 +44,9 @@ CER_SPECS = [
     "glass-ceramic/glass-ceramic.md",
     "geopolymer/geopolymer.md",
     "aerogel-foam/aerogel-foam.md",
+    # Phase D'' (2026-05-13, 33→36):
+    "refractory/refractory.md",
+    "electrode-material/electrode-material.md",
     "CERAMIC-ENGINEERING.md",
     "LIMIT_BREAKTHROUGH.md",
 ]

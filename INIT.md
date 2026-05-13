@@ -23,7 +23,8 @@ User directive (2026-05-13):
 |---|---|---|---|
 | **A** | 10 infra docs + 5 deep expansion + 11 stubs | ✅ DONE | `c55199b` |
 | **D** | 12 new material verbs (17→29) | ✅ DONE | `99620b2` |
-| **D'** | 4 Phase D follow-on verbs (29→33): glass-ceramic, geopolymer, aerogel-foam, ionic-liquid | ✅ DONE | _(this commit)_ |
+| **D'** | 4 Phase D follow-on verbs (29→33): glass-ceramic, geopolymer, aerogel-foam, ionic-liquid | ✅ DONE | `f4531fa` |
+| **D''** | 3 Phase D'' verbs (33→36): refractory, photoresist, electrode-material | ✅ DONE | _(this commit)_ |
 | **B** | selftest harness (21 Python/bash gates) | ✅ DONE | `f24d8a5` |
 | **C** | `hexa-*` axis-prefixed depth dirs (9 groups, 36 files, 3913 lines) | ✅ DONE | `6e4928a` |
 | **E** | `_python_bridge/` (RDKit/ASE/pymatgen) | ✅ DONE | `b4ebf8f` |
@@ -124,6 +125,37 @@ Allocation: CER +3 (glass-ceramic, geopolymer, aerogel-foam — all
 silicate/silica-network/aluminosilicate chemistry); POL +1 (ionic-liquid
 as organic/soft-matter extension though formally not a polymer; spec §1
 preserves DES distinction).
+
+## Phase D'' — DONE (this commit)
+
+3 additional verb subdirectories added with `<verb>/<verb>.md` specs
+(silicon.md template), 33 → **36 verbs**.
+
+3 verbs (with line counts):
+| # | Verb | Lines |
+|---|---|---|
+| 34 | refractory (firebrick · Al₂O₃ · MgO · ZrO₂ · mag-C · SiC · carbon; T_service ≥ 1000 °C; AZS fused-cast glass-tank block; RHI Magnesita / Vesuvius / Imerys / Saint-Gobain / Morgan / Krosaki / Shinagawa anchors) | 391 |
+| 35 | photoresist (g/i-line DNQ-novolac · KrF CAR · ArF CAR · EUV CAR + MOR · dry-film PCB; JSR / TOK / Shin-Etsu / Sumitomo / Fujifilm / Dow / Inpria anchors; material-layer only — lithography process → hexa-chip per CROSS_LINK §3.2) | 414 |
+| 36 | electrode-material (LFP · NMC811 · LCO · graphite · Si anode · Li-metal · Pt-ORR · IrO₂-OER · MnO₂; Umicore / POSCO Future M / CATL / BYD / LG Energy / Samsung SDI / Sumitomo Metal Mining / Tanaka Holdings anchors; material-layer only — cell engineering → hexa-energy per CROSS_LINK §3.3) | 485 |
+
+Verify scoreboard: **4/4 PASS · 36/36 verbs** ✅
+
+Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
+- **refractory** — RCF Group 2B IARC (real); self-healing refractory UNPROVEN; spent-refractory structural-grade recycling UNVERIFIED; AZS glass-tank 20-yr-life UNVERIFIED at vendor warranty
+- **photoresist** — EUV resist photon-shot-noise vs LER trade-off NOT FULLY RESOLVED (IRDS 2023); MOR full-commodity yield UNVERIFIED; high-NA EUV resist at production UNVERIFIED; resist owns material only, lithography process belongs to hexa-chip
+- **electrode-material** — Si-anode 500-cycle 1C 70% retention UNVERIFIED at full commodity scale; Li-metal anode dendrite suppression UNVERIFIED for ≥ 500 deep cycles; Pt-loading reduction roadmap UNVERIFIED at production durability; CATL Blade 12,000-cycle LFP multi-vendor reproduction OPEN; cell engineering belongs to hexa-energy
+
+Allocation: CER +2 (refractory — high-T service envelope discipline
+distinct from `ceramics/`; electrode-material — battery cathode/anode
+oxide + electrocatalyst); POL +1 (photoresist — photopolymer chemistry).
+
+Cross-link discipline (CROSS_LINK.md):
+- `photoresist/photoresist.md` contains explicit line declaring device
+  + lithography process belongs to hexa-chip per CROSS_LINK §3.2 —
+  this verb owns the MATERIAL only (lines 8, 246, 397, 412+)
+- `electrode-material/electrode-material.md` contains explicit line
+  declaring cell engineering belongs to hexa-energy per CROSS_LINK §3.3
+  — this verb owns the ACTIVE MATERIAL only (lines 8, 350, 470, 484+)
 
 ## Phase B — selftest harness ✅ DONE
 

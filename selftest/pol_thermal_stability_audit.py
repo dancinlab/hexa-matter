@@ -36,6 +36,8 @@ POL_SPECS = [
     "biodegradable-plastics/biodegradable-plastics.md",
     # Phase D follow-on (2026-05-13, 29→33):
     "ionic-liquid/ionic-liquid.md",
+    # Phase D'' (2026-05-13, 33→36):
+    "photoresist/photoresist.md",
     # Root deep doc
     "POLYMER-CHEMISTRY.md",
 ]

@@ -3,11 +3,12 @@
 > **Created**: 2026-05-13 (Phase A elevation, post-silicon close at 17/17 + 4/4)
 > **Updated**: 2026-05-13 (Phase D, 29/29 + 4/4 — 12 new verbs added across CER/POL/FIB/MET)
 > **Updated**: 2026-05-13 (Phase D follow-on, 33/33 + 4/4 — 4 new verbs: glass-ceramic, geopolymer, aerogel-foam (CER) + ionic-liquid (POL))
+> **Updated**: 2026-05-13 (Phase D'', 36/36 + 4/4 — 3 new verbs: refractory + electrode-material (CER) + photoresist (POL))
 > **Status**: infrastructure doc · groups material verbs into the 7-group lattice
 > **Sibling**: `AXIS_CLOSURE_PLAN.md` (per-group closure roadmap with (a)/(b)/(c) categories)
 > **Companion**: `LIMIT_BREAKTHROUGH.md` (Wave M real-limits audit)
 >
-> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 33 verbs
+> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 36 verbs
 > into 7 material groups. The n=6 invariant lattice is **auxiliary** here —
 > the real grouping criteria are bond character, processing route, and
 > end-product class (ASM/Ashby/MatWeb tradition). Per `LATTICE_POLICY.md
@@ -16,12 +17,12 @@
 
 ---
 
-## §0 The 7 groups (one-line each, post Phase D follow-on)
+## §0 The 7 groups (one-line each, post Phase D'')
 
 | # | Group ID  | Verbs                                                     | Bond class            | Processing axis        |
 |---|-----------|-----------------------------------------------------------|-----------------------|------------------------|
-| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon · compound-semi · perovskite · 2d-materials · mof · carbon · **glass-ceramic · geopolymer · aerogel-foam** | Ionic + covalent + vdW | High-T sintering / sol-gel / CVD / CZ-FZ pull / exfoliation / supercritical drying / alkali-activation |
-| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics · elastomer · adhesive · liquid-crystal · biodegradable-plastics · **ionic-liquid** | Covalent C-C / amide / ester / urea / ionic-organic | Polymerization (step / chain) / quaternization |
+| 1 | GROUP_CER | ceramics · concrete · concrete_tech · glass · silicon · compound-semi · perovskite · 2d-materials · mof · carbon · glass-ceramic · geopolymer · aerogel-foam · **refractory · electrode-material** | Ionic + covalent + vdW | High-T sintering / sol-gel / CVD / CZ-FZ pull / exfoliation / supercritical drying / alkali-activation / co-precipitation+calcine |
+| 2 | GROUP_POL | aramid · epoxy · nylon · pet_film · tire_cord · microplastics · elastomer · adhesive · liquid-crystal · biodegradable-plastics · ionic-liquid · **photoresist** | Covalent C-C / amide / ester / urea / ionic-organic / acid-labile-protected | Polymerization (step / chain) / quaternization / photochemical-amplification |
 | 3 | GROUP_FIB | fabric · paper · **wood-cellulose**                        | Covalent + H-bond     | Spinning / weaving / pulping |
 | 4 | GROUP_MET | metallurgy · lutherie · **superalloy · magnetic-materials** | Metallic              | Casting / forging / heat-treatment |
 | 5 | GROUP_GEM | gemology                                                  | Ionic + covalent      | Crystal habit / cut / polish |
@@ -42,20 +43,33 @@
   organic/soft-matter extension though formally not a polymer —
   spec §1 preserves the distinction including DES separation)
 
-**Verb count audit (post Phase D follow-on)**: CER(13) + POL(11) + FIB(3) + MET(4 incl. lutherie) + GEM(1) + PRC(4) + FAS(2) = **38 verb-slots**, but the **33 ship-grade dispatchable verbs** map as follows:
+**Phase D'' (2026-05-13) verb expansion** (3 new verbs, 33→36):
+- CER +2: refractory (high-T ≥ 1000 °C service materials —
+  firebrick/Al₂O₃/MgO/ZrO₂/mag-C/SiC/carbon; distinct from `ceramics/`
+  which is general advanced ceramics; this verb owns the high-T-service
+  envelope discipline), electrode-material (battery cathode/anode +
+  electrocatalyst — LFP/NMC/Si-anode/Li-metal/Pt-ORR/IrO₂-OER; material
+  layer only — cell engineering belongs to hexa-energy per
+  CROSS_LINK §3.3)
+- POL +1: photoresist (lithography photopolymer chemistry —
+  g/i-line DNQ-novolac / KrF CAR / ArF CAR / EUV CAR + MOR; material
+  layer only — lithography process belongs to hexa-chip per
+  CROSS_LINK §3.2)
 
-- CER: ceramics, concrete, concrete_tech, glass, silicon, compound-semi, perovskite, 2d-materials, mof, carbon, glass-ceramic, geopolymer, aerogel-foam → **13**
-- POL: aramid, epoxy, nylon, pet_film, tire_cord, elastomer, adhesive, liquid-crystal, biodegradable-plastics, ionic-liquid → **10**
+**Verb count audit (post Phase D'')**: CER(15) + POL(12) + FIB(3) + MET(4 incl. lutherie) + GEM(1) + PRC(4) + FAS(2) = **41 verb-slots**, but the **36 ship-grade dispatchable verbs** map as follows:
+
+- CER: ceramics, concrete, concrete_tech, glass, silicon, compound-semi, perovskite, 2d-materials, mof, carbon, glass-ceramic, geopolymer, aerogel-foam, refractory, electrode-material → **15**
+- POL: aramid, epoxy, nylon, pet_film, tire_cord, elastomer, adhesive, liquid-crystal, biodegradable-plastics, ionic-liquid, photoresist → **11**
 - FIB: fabric, paper, wood-cellulose → **3**
 - MET: metallurgy, superalloy, magnetic-materials → **3** (lutherie not in CLI dispatch; sits in culture overlap)
 - GEM: gemology → **1**
 - PRC: synthesis, recycle_n6, recycling → **3** (printing exposed via MATERIAL-SYNTHESIS.md; no dispatcher slot yet)
-- FAS: fashion-textile, textile-dyeing → not in 33-verb CLI dispatch (industrial-textile lineage separately tracked)
+- FAS: fashion-textile, textile-dyeing → not in 36-verb CLI dispatch (industrial-textile lineage separately tracked)
 
-That gives **33 dispatchable verbs** in `hexa.toml [verbs]`:
-- ceramic_inorganic (13), polymer (10), fiber_paper (3), gem_mineral (1), metal (3), synthesis (1), recycle (2) = 33
+That gives **36 dispatchable verbs** in `hexa.toml [verbs]`:
+- ceramic_inorganic (15), polymer (11), fiber_paper (3), gem_mineral (1), metal (3), synthesis (1), recycle (2) = 36
 
-The 17 ship-grade verbs of v1.0.0 + 12 Phase D verbs + 4 Phase D follow-on verbs = 33 verbs total. `hexa.toml [verbs]` is the authoritative scoreboard. The 7 groups are unchanged in count (no new group added; CER continues to absorb hybrid silicate / nanoporous / amorphous-network materials).
+The 17 ship-grade verbs of v1.0.0 + 12 Phase D verbs + 4 Phase D follow-on verbs + 3 Phase D'' verbs = 36 verbs total. `hexa.toml [verbs]` is the authoritative scoreboard. The 7 groups are unchanged in count (no new group added; CER continues to absorb hybrid silicate / nanoporous / amorphous-network / refractory / battery-cathode-oxide materials).
 
 ---
 

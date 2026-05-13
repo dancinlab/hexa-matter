@@ -4,7 +4,7 @@
 selftest/registry_consistency_audit.py — cross-source verb-count consistency.
 
 For hexa-matter (a spec-first repo with no registry.jsonl), this audit ensures
-the FIVE authoritative verb sources agree on the 33-verb scoreboard:
+the FIVE authoritative verb sources agree on the 36-verb scoreboard:
 
   (1) cli/hexa-matter.hexa     VERBS literal
   (2) hexa.toml                [verbs] group flatten
@@ -26,7 +26,7 @@ REPO_ROOT = os.environ.get("HEXA_MATTER_ROOT") or os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
 )
 
-EXPECTED_VERB_COUNT = 33
+EXPECTED_VERB_COUNT = 36
 
 
 def extract_cli_verbs() -> list[str]:

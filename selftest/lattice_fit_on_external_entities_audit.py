@@ -59,6 +59,10 @@ POST_POLICY_FILES = {
     "geopolymer/geopolymer.md",
     "aerogel-foam/aerogel-foam.md",
     "ionic-liquid/ionic-liquid.md",
+    # Phase D'' verbs (3, 2026-05-13, 33→36)
+    "refractory/refractory.md",
+    "photoresist/photoresist.md",
+    "electrode-material/electrode-material.md",
     # Phase A authored infra docs (real-limits-first, raw#10 C3 enforced):
     "AXIS.md", "AXIS_CLOSURE_PLAN.md", "CLOSURE_RESIDUAL_BACKLOG.md",
     "DECOMPOSITION_PLAN.md", "LESSONS.md",

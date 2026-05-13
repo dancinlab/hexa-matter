@@ -1,14 +1,14 @@
 # ⚛️ hexa-matter — n=6 소재 substrate
 
-> 33-verb materials toolkit (17 v1.0.0 + 12 Phase D + 4 Phase D follow-on
-> 2026-05-13) organized around the **n=6 invariant lattice**: ceramic /
-> polymer / fiber / gem / metal / synthesis / recycle (silicon joins
-> ceramic_inorganic — material layer only).
+> 36-verb materials toolkit (17 v1.0.0 + 12 Phase D + 4 Phase D follow-on
+> + 3 Phase D'' 2026-05-13) organized around the **n=6 invariant lattice**:
+> ceramic / polymer / fiber / gem / metal / synthesis / recycle (silicon
+> joins ceramic_inorganic — material layer only).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20102811.svg)](https://doi.org/10.5281/zenodo.20102811)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](hexa.toml)
-[![Verbs: 33 spec](https://img.shields.io/badge/verbs-33_spec-blue.svg)](#verbs)
+[![Verbs: 36 spec](https://img.shields.io/badge/verbs-36_spec-blue.svg)](#verbs)
 [![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
 [![Selftest: 23/23 PASS](https://img.shields.io/badge/selftest-23%2F23_PASS-brightgreen.svg)](selftest/run_all.sh)
 [![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
@@ -22,14 +22,15 @@
 ## Why
 
 **hexa-matter** is the materials member of the HEXA family.
-Thirty-three verbs cover the working surface of industrial materials
+Thirty-six verbs cover the working surface of industrial materials
 science — from inorganic ceramics and concrete to engineered polymers,
 glass, silicon (material layer), wide-bandgap compound semiconductors,
 perovskite + 2D materials + MOFs + carbon allotropes, gems, metallurgy
 (general + superalloy + magnetic), elastomers + adhesives + liquid
 crystals + biodegradable plastics + ionic liquids, glass-ceramics +
-geopolymers + aerogels, wood/cellulose, synthesis platforms, and
-circular-material flows.
+geopolymers + aerogels, wood/cellulose, synthesis platforms,
+refractory + photoresist + electrode-material (Phase D'', 2026-05-13),
+and circular-material flows.
 
 Sixteen of the seventeen v1.0.0 verbs are peer-citable spec docs
 copy-pasted from the upstream
@@ -41,8 +42,9 @@ source): elastomer, compound-semi, perovskite, 2d-materials, adhesive,
 magnetic-materials, mof, liquid-crystal, superalloy, biodegradable-
 plastics, wood-cellulose, carbon. **Phase D follow-on (2026-05-13)
 adds 4 more in-repo specs** (29→33): glass-ceramic, geopolymer,
-aerogel-foam, ionic-liquid. Each follows the silicon.md
-real-limits-first template.
+aerogel-foam, ionic-liquid. **Phase D'' (2026-05-13) adds 3 more
+in-repo specs** (33→36): refractory, photoresist, electrode-material.
+Each follows the silicon.md real-limits-first template.
 
 **Out of scope** — call sibling CLI directly:
 
@@ -111,19 +113,24 @@ hexa-matter geopolymer              # alkali-activated aluminosilicate (CO₂-LC
 hexa-matter aerogel-foam            # silica / carbon / polymer / graphene aerogel (cost UNPROVEN)
 hexa-matter ionic-liquid            # imidazolium / phosphonium IL + DES distinction
 
+# Phase D'' verbs (3, added 2026-05-13; 33→36)
+hexa-matter refractory              # firebrick / Al₂O₃ / MgO / ZrO₂ / mag-C / SiC / carbon (T ≥ 1000 °C)
+hexa-matter photoresist             # g/i-line DNQ / KrF / ArF / EUV CAR + MOR (material only — process → hexa-chip)
+hexa-matter electrode-material      # LFP / NMC811 / Si-anode / Li-metal / Pt-ORR / IrO₂-OER (material only — cell → hexa-energy)
+
 # utility
-hexa-matter status           # 33-verb table + cross-link + caveats
-hexa-matter selftest         # 33-verb spec doc presence check
+hexa-matter status           # 36-verb table + cross-link + caveats
+hexa-matter selftest         # 36-verb spec doc presence check
 hexa-matter version          # print version
 hexa-matter help             # full --help (subcommands + env vars + cross-link)
 ```
 
 ## Status
 
-Spec-first at v1.0.0 (+ Phase D + Phase D follow-on 2026-05-13) —
-33/33 verbs ship as peer-citable markdown docs; working numerical
-sandboxes are TBD per per-verb falsifier deadlines. CLI dispatcher
-prints spec headlines.
+Spec-first at v1.0.0 (+ Phase D + Phase D follow-on + Phase D''
+2026-05-13) — 36/36 verbs ship as peer-citable markdown docs;
+working numerical sandboxes are TBD per per-verb falsifier deadlines.
+CLI dispatcher prints spec headlines.
 
 Per-group closure status (Category (a) in-repo / (b) parity / (c) wet-lab):
 [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md). Residual gates +
@@ -142,7 +149,7 @@ the [`hexa-bio`](https://github.com/dancinlab/hexa-bio) convention.
 | [`AXIS.md`](AXIS.md) | 7-group taxonomy (CER / POL / FIB / MET / GEM / PRC / FAS) + cross-link map |
 | [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) | Per-group closure roadmap, Category (a) / (b) / (c) framework |
 | [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) | 29 (b) parity gates + 15 (c) wet-lab/HW deferral ledger |
-| [`DECOMPOSITION_PLAN.md`](DECOMPOSITION_PLAN.md) | Material taxonomy decomposition (7 groups → 33 verbs) |
+| [`DECOMPOSITION_PLAN.md`](DECOMPOSITION_PLAN.md) | Material taxonomy decomposition (7 groups → 36 verbs) |
 | [`LESSONS.md`](LESSONS.md) | Construction journal — what worked, what surprised, anti-patterns avoided |
 | [`RELEASE_NOTES_v1.0.0.md`](RELEASE_NOTES_v1.0.0.md) | Initial 16-verb release notes (retroactive) |
 | [`RELEASE_NOTES_v1.1.0.md`](RELEASE_NOTES_v1.1.0.md) | Silicon + Phase A→G elevation |
@@ -181,7 +188,7 @@ hexa run verify/run_all.hexa     # exit 0 = all 4 scripts PASS
 
 | script                            | what it checks                                                                   |
 | --------------------------------- | -------------------------------------------------------------------------------- |
-| `verify/spec_presence.hexa`       | all 33 verb spec docs present at declared paths                                  |
+| `verify/spec_presence.hexa`       | all 36 verb spec docs present at declared paths                                  |
 | `verify/lattice_arithmetic.hexa`  | n=6 self-consistency (σ·φ = n·τ = 24) — *aux only* per `LATTICE_POLICY.md` §1.3  |
 | `verify/real_limits_anchor.hexa`  | `LIMIT_BREAKTHROUGH.md` anchors (NIST WebBook · CRC Handbook · Hales · Frenkel)  |
 | `verify/closure_consistency.hexa` | scoreboard cross-check (CLI · `hexa.toml` · README · `AGENTS.md`)                |
