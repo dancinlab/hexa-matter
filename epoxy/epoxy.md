@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*epoxy / thermoset* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-EPX-Q1 | DGEBA / amine-cured structural epoxy (e.g. EA9396, EA9394) tensile strength σ_t ≥ 50 MPa at 23 °C per ASTM D638 Type I dogbone, 5 mm/min, post-cure per vendor schedule | Lot σ_t < 35 MPa at ASTM D638 same condition (n ≥ 5 dogbones) → retire the "structural adhesive" qualification; rebaseline POL-adhesive tier | OPEN |
+| F-EPX-Q2 | Aerospace-grade DGEBA / aromatic-amine epoxy glass transition T_g ≥ 120 °C by DMA tan-δ peak per ASTM E1640 (1 Hz, 3 °C/min, dry N₂) after full cure | Lot T_g < 95 °C at ASTM E1640 → retire the "150 °C-service-rated" prepreg matrix claim; downgrade to 80 °C-service tier | OPEN |
+| F-EPX-Q3 | DGEBA structural epoxy lap-shear strength ≥ 25 MPa on Al-2024-T3 substrate per ASTM D1002, 23 °C, 25 mm overlap, FPL etch surface prep | Lot lap-shear < 17 MPa at ASTM D1002 same prep (n ≥ 5 joints) → retire the "structural metal-bond" baseline | OPEN |
+| F-EPX-Q4 | Cured DGEBA / amine epoxy water uptake ≤ 3.0 wt % after 30 d immersion at 23 °C per ASTM D570, 3 mm plaque | Lot water uptake > 5.5 wt % at ASTM D570 30 d → retire the "low-moisture absorption marine" qualification; flag T_g wet-state drop | OPEN |
+
+Pass = numeric threshold met at cited ASTM method, conditioned per ASTM
+D618 (23 °C ± 2 °C, 50 % ± 5 % RH, ≥ 40 h), n ≥ 5 specimens per method.
+Fail = below threshold at same condition → caveat the spec and re-baseline
+the POL-epoxy atlas entry.
+

@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*biaxially oriented PET (BOPET) film* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-PET-Q1 | BOPET 12 µm film tensile strength MD ≥ 200 MPa, TD ≥ 200 MPa per ASTM D882, 23 °C, 50 % RH, 25 mm wide strip, 250 mm/min, gauge 100 mm | Lot σ_t < 150 MPa in either MD or TD at ASTM D882 same condition (n ≥ 5 strips) → retire the "biaxially oriented BOPET" baseline; rebaseline POL-pet-film tier | OPEN |
+| F-PET-Q2 | BOPET haze ≤ 3.0 % at 12 µm thickness per ASTM D1003 procedure A, integrating-sphere hazemeter, CIE illuminant C, 25 mm aperture | Lot haze > 8 % at ASTM D1003 → retire the "optical-grade clear BOPET" qualification; downgrade to packaging-only tier | OPEN |
+| F-PET-Q3 | BOPET water-vapor transmission rate (WVTR) ≤ 25 g/(m²·24 h) at 12 µm, 38 °C / 90 % RH per ASTM E96 procedure E (or ASTM F1249 modulated IR) | Lot WVTR > 60 g/(m²·24 h) at ASTM E96-E / F1249 same condition → retire the "moisture-barrier film" claim; flag crystallinity / orientation deficit | OPEN |
+| F-PET-Q4 | BOPET shrinkage ≤ 2.0 % MD and ≤ 1.0 % TD after 30 min at 150 °C per ASTM D1204, free-shrink in forced-air oven | Lot shrinkage > 4 % MD or > 2.5 % TD at ASTM D1204 → retire the "heat-stabilized capacitor-grade film" claim; rebaseline to standard packaging grade | OPEN |
+
+Pass = numeric threshold met at cited ASTM method, conditioned per ASTM
+D618 (23 °C ± 2 °C, 50 % ± 5 % RH, ≥ 40 h), n ≥ 5 strips per direction.
+Fail = below threshold at same condition → caveat the spec and re-baseline
+the POL-pet-film atlas entry.
+

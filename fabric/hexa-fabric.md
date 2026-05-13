@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*woven / knit fabric* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-FAB-Q1 | Cotton broadcloth (≈ 140 g/m², plain weave) breaking force ≥ 350 N (warp) per ASTM D5034 grab test, 23 °C, 65 % RH, 100 × 150 mm specimen, 300 mm/min | Lot breaking force < 250 N at ASTM D5034 same condition (n ≥ 5 strips) → retire the "apparel-grade cotton broadcloth" baseline; rebaseline FAS-fabric tier | OPEN |
+| F-FAB-Q2 | Cotton woven fabric Elmendorf tear ≥ 15 N (warp and weft) per ASTM D1424, 23 °C, 65 % RH | Lot tear < 9 N at ASTM D1424 same condition (n ≥ 5 specimens per direction) → retire the "tear-rated workwear cotton" claim | OPEN |
+| F-FAB-Q3 | Apparel woven fabric dimensional change ≤ 3 % after 3 home-laundering cycles per AATCC 135 (40 °C wash, tumble dry), measured to ASTM D3776 | Lot shrinkage > 5 % at AATCC 135 → retire the "wash-stable / sanforized" qualification; rebaseline RTW dimensional class | OPEN |
+| F-FAB-Q4 | Polyester / cotton blend (65/35) colourfastness to crocking ≥ Grade 4 dry, ≥ Grade 3 wet per AATCC 8, 9 N load, 10 strokes, AATCC grey scale | Lot crocking ≤ Grade 2 dry at AATCC 8 → retire the "fastness-rated print" claim; route to dye-house re-process | OPEN |
+
+Pass = numeric threshold met at cited ASTM / AATCC method, conditioned per
+ASTM D1776 (23 °C ± 2 °C, 65 % ± 4 % RH, ≥ 4 h), n ≥ 5 specimens per
+method. Fail = below threshold at same condition → caveat the spec and
+re-baseline the FAS-fabric atlas entry.
+

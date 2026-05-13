@@ -451,3 +451,24 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*nylon (PA6 / PA66)* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-NY-Q1 | PA66 (dry-as-molded, unfilled) tensile strength σ_t ≥ 80 MPa at 23 °C per ASTM D638 Type I, 50 mm/min, DAM condition | Lot σ_t < 60 MPa at ASTM D638 DAM (n ≥ 5 dogbones) → retire the "engineering-grade PA66" baseline; rebaseline POL-nylon tier | OPEN |
+| F-NY-Q2 | PA6 melting point T_m = 220 ± 3 °C by DSC per ISO 11357-3, 10 °C/min, 2nd heat, N₂ purge | Lot T_m < 215 °C or > 225 °C at ISO 11357-3 → retire the "PA6 homopolymer" identification (likely copolymer / regrind contamination) | OPEN |
+| F-NY-Q3 | PA66 (DAM) HDT ≥ 75 °C at 1.82 MPa per ASTM D648, 50 % RH cabinet, 2 °C/min ramp | Lot HDT < 60 °C at ASTM D648 / 1.82 MPa → retire the "elevated-temperature service" qualification; downgrade to under-hood-cold tier | OPEN |
+| F-NY-Q4 | PA66 24 h water uptake ≤ 2.8 wt % at 23 °C per ASTM D570 (3 mm plaque, distilled water) | Lot 24 h water uptake > 4.0 wt % at ASTM D570 → retire the "PA66 baseline moisture" assumption; recheck for PA6 / blend contamination | OPEN |
+
+Pass = numeric threshold met at cited ASTM / ISO method, conditioned per
+ASTM D618 / ISO 291 (23 °C ± 2 °C, 50 % ± 5 % RH, DAM dried 16 h at 80 °C
+where DAM specified), n ≥ 5 specimens per method. Fail = below threshold
+at same condition → caveat the spec and re-baseline the POL-nylon atlas
+entry.
+

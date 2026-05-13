@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*lutherie tonewood / instrument-grade* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-LUT-Q1 | Sitka spruce (Picea sitchensis) soundboard-grade air-dry density ρ in 350–450 kg/m³ at 12 % MC per ISO 13061-2, 23 °C, 65 % RH conditioning | Billet ρ < 320 kg/m³ or > 500 kg/m³ at ISO 13061-2 (n ≥ 3 cuttings) → retire the "Master-grade soundboard" qualification; downgrade to A / AA / AAA tier or non-soundboard use | OPEN |
+| F-LUT-Q2 | Sitka spruce longitudinal Young's modulus E_L ≥ 10 GPa parallel-to-grain per ASTM D198 four-point bending, 12 % MC, 23 °C | Lot E_L < 8 GPa at ASTM D198 same condition (n ≥ 3 specimens) → retire the "high-stiffness soundboard" claim; flag for back/sides or bracing stock only | OPEN |
+| F-LUT-Q3 | Tonewood specific dynamic modulus E_L/ρ ≥ 25 × 10⁶ m²/s² ("tap-tone ratio") computed from ASTM D198 / ISO 13061-2 measurements, 12 % MC, 23 °C | Billet E_L/ρ < 18 × 10⁶ m²/s² → retire the "premium acoustic radiation" qualification; downgrade to utility instrument-grade | OPEN |
+| F-LUT-Q4 | Quarter-sawn instrument-grade billet grain runout ≤ 1:20 (i.e. grain rises ≤ 1 mm per 20 mm length) per visual inspection vs ASTM D245 / luthier grading rubric, n ≥ 5 measurements per billet | Billet runout > 1:12 → retire the "first-grade structural soundboard" claim (split-resistance compromised); demote to laminate / non-load-path use | OPEN |
+
+Pass = numeric threshold met at cited ASTM / ISO method, conditioned per
+ISO 554 (23 °C ± 2 °C, 65 % ± 5 % RH, equilibrium MC ≈ 12 %, ≥ 7 d),
+n ≥ 3 specimens per billet. Fail = below threshold at same condition →
+caveat the spec and re-baseline the lutherie tonewood-grade atlas entry.
+

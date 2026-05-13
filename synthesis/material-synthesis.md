@@ -554,3 +554,22 @@ This section covers team for the domain. Initial scaffold content -- expand with
 
 This section covers references for the domain. Initial scaffold content -- expand with domain-specific data, references, and verification in subsequent revisions.
 
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*material-synthesis / process qualification* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-SYN-Q1 | Solid-state nylon-6 polymerization mass-balance closure ≥ 98 % (charged monomer → recovered polymer + recovered water + offgas C, H, N tracked) per ISO 9001 batch-record audit | Batch closure < 92 % at ISO 9001 mass-balance reconciliation (n ≥ 3 batches) → retire the "controlled stoichiometry" qualification; flag side-reaction / loss path and re-baseline yield claim | OPEN |
+| F-SYN-Q2 | Polymer reactor batch-yield ≥ 90 % of theoretical (corrected for unreacted monomer and oligomer recovery), reported per ASTM E2363 / ISO 17025-accredited GC-FID quantification on offgas | Lot yield < 75 % at ASTM E2363 GC-FID → retire the "production-grade yield" claim; route to process-engineering re-baseline | OPEN |
+| F-SYN-Q3 | CVD / PVD coating thickness uniformity ± 5 % across 150 mm wafer per ASTM F1366 ellipsometry, 633 nm laser, 9-point map | Run uniformity > ± 12 % across wafer at ASTM F1366 → retire the "production-uniform coating" qualification; flag chamber-geometry or flow-balance defect | OPEN |
+| F-SYN-Q4 | Continuous polymer-extrusion mass-flow stability ≤ ± 2 % over 1 h at steady state per inline gravimetric loss-in-weight feeder, 23 °C ambient, calibrated NIST-traceable mass standard | Run stability > ± 5 % at the gravimetric feeder over 1 h → retire the "production-stable line" claim; recheck feeder calibration / die-pressure trend | OPEN |
+
+Pass = numeric threshold met at cited ASTM / ISO method, ambient
+(23 °C ± 5 °C, 1 atm except where vacuum/CVD process specified), n ≥ 3
+batches or runs per claim. Fail = below threshold at same condition →
+caveat the spec and re-baseline the material-synthesis process atlas entry.
+

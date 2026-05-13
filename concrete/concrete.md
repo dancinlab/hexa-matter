@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3 (no n=6 lattice fit
+on external entities), the §X.5 / §7.10 entries above are number-theoretic
+self-consistency probes only. The engineering falsifiers below are the ones
+that retire the corresponding *concrete* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-CON-Q1 | Normal-weight OPC concrete (Type I, w/c = 0.45) f′_c ≥ 28 MPa at 28 days per ASTM C39, Ø100×200 mm cylinder, 23 °C ± 2 °C cure in saturated lime water | Mix design lot showing f′_c < 21 MPa at ASTM C39 (n ≥ 3 cylinders per batch, mean) → retire the "structural-grade NWC" baseline; rebaseline CER-concrete tier | OPEN |
+| F-CON-Q2 | High-strength concrete (HSC, silica-fume blend, w/cm ≤ 0.30) f′_c ≥ 70 MPa at 28 days per ASTM C39, Ø100×200 mm cylinder, 23 °C cure | Lot HSC f′_c < 55 MPa at ASTM C39 same condition (n ≥ 3 cylinders) → retire the "HSC bridge-deck candidate" claim | OPEN |
+| F-CON-Q3 | OPC concrete (w/c = 0.45) chloride-ion penetrability ≤ 2000 coulombs ("low") at 28 days per ASTM C1202 / AASHTO T277, 60 V × 6 h, Ø100×50 mm slice | Lot showing coulomb charge > 4000 ("high") at ASTM C1202 same condition → retire the "marine-exposure rated" durability tier | OPEN |
+| F-CON-Q4 | Drying-shrinkage strain ≤ 0.040 % (400 με) at 28 days per ASTM C157, prism 25×25×285 mm, 23 °C / 50 % RH after 7 d lime-water cure | Lot drying-shrinkage > 0.075 % at ASTM C157 same condition → retire "low-shrinkage slab-on-grade" claim | OPEN |
+
+Pass = numeric threshold met at cited ASTM/AASHTO method, ambient
+(23 °C ± 2 °C, 50 % ± 5 % RH per cure stage), n ≥ 3 cylinders or prisms per
+batch. Fail = below threshold at same condition → caveat the spec and
+re-baseline the §X.6 concrete atlas entry.
+

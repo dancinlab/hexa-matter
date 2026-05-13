@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*tire-cord (PET / PA66 / aramid / steel)* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-TIR-Q1 | PET tire-cord (1500/1 dtex) tenacity ≥ 8.0 cN/dtex (≈ 0.95 N/tex) per ASTM D885, 23 °C, 65 % RH, 500 mm gauge, 250 mm/min | Lot tenacity < 6.0 cN/dtex at ASTM D885 same condition (n ≥ 10 ends) → retire the "HMLS PET tire-cord" baseline; rebaseline FIB-tire-cord tier | OPEN |
+| F-TIR-Q2 | PET tire-cord HMLS hot-air shrinkage ≤ 4.0 % after 2 min at 177 °C per ASTM D4974 (or BISFA method), free-end forced-air oven | Lot shrinkage > 7 % at ASTM D4974 same condition → retire the "HMLS dimensionally stable carcass cord" claim; downgrade to standard PET tier | OPEN |
+| F-TIR-Q3 | Brass-plated steel tire-cord (2+2×0.25 mm) breaking load ≥ 350 N per ASTM D2969, 23 °C, 50 % RH, 500 mm gauge, 100 mm/min | Lot breaking load < 250 N at ASTM D2969 same condition (n ≥ 10 cords) → retire the "passenger-radial belt cord" baseline; flag wire-draw or brass-bath defect | OPEN |
+| F-TIR-Q4 | Aramid tire-cord (1670/1 dtex Kevlar / Twaron) tenacity ≥ 20 cN/dtex per ASTM D885, 23 °C, 65 % RH, 500 mm gauge | Lot tenacity < 15 cN/dtex at ASTM D885 → retire the "aramid race-tire reinforcement" qualification; recheck spin-finish / dip-treatment | OPEN |
+
+Pass = numeric threshold met at cited ASTM / BISFA method, conditioned per
+ASTM D1776 (23 °C ± 2 °C, 65 % ± 4 % RH, ≥ 24 h), n ≥ 10 ends or cords per
+method. Fail = below threshold at same condition → caveat the spec and
+re-baseline the FIB-tire-cord atlas entry.
+

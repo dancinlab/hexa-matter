@@ -451,3 +451,26 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*generic materials-recycling* claim on measurement. The "infinite recycle"
+class of claims is explicitly UNPROVEN per AGENTS.md §5 — these falsifiers
+quantify the per-cycle property-drop threshold.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-REC-Q1 | Recycled PET flake melt-flow index (MFI) within ± 20 % of virgin baseline per ASTM D1238, 250 °C, 2.16 kg load | Recycle lot MFI > 2× virgin at ASTM D1238 → retire the "drop-in recycle" qualification (chain-scission / hydrolysis indicated); flag IV-rebuild requirement | OPEN |
+| F-REC-Q2 | Recycled aluminium (UBC / post-consumer Al alloy 3104) tensile strength σ_t ≥ 90 % of virgin AA3104 (≥ 245 MPa) per ASTM B557 / E8, 25 mm gauge subsize, 23 °C | Lot σ_t < 200 MPa at ASTM B557 same condition → retire the "drop-in beverage-can recycle" claim; flag tramp-element pickup (Fe, Cu, Si > spec) | OPEN |
+| F-REC-Q3 | Recycled glass cullet contamination ≤ 25 g/t ceramic/stone/porcelain (CSP) and ≤ 100 g/t total non-glass per CEN EN 12150 / glass-industry MRF audit, optical-sort verified | Lot CSP > 100 g/t at CEN EN 12150 → retire the "container-glass-grade cullet" qualification; downgrade to fiberglass / abrasive feed | OPEN |
+| F-REC-Q4 | Recycled HDPE (post-consumer) Charpy impact strength ≥ 80 % of virgin HDPE baseline per ASTM D6110, 23 °C, notched, 2 mm depth | Lot Charpy < 50 % of virgin at ASTM D6110 → retire the "structural reuse HDPE" claim; flag oxidative degradation / cross-contamination (PP, PVC) | OPEN |
+
+Pass = numeric threshold met at cited ASTM / CEN method, conditioned per
+ASTM D618 (23 °C ± 2 °C, 50 % ± 5 % RH), n ≥ 5 specimens or 3 batches per
+method. Fail = below threshold at same condition → caveat the spec and
+re-baseline the recycling atlas entry. Note: the §X UNPROVEN
+"infinite-recycle" claim is unaffected and stays UNPROVEN per AGENTS.md §5.
+

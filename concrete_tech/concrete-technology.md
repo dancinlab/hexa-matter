@@ -451,3 +451,23 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*concrete-technology / mix-design* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-CTC-Q1 | Fresh OPC concrete slump 75–125 mm at delivery per ASTM C143, 23 °C ± 3 °C, sampled within 15 min of discharge | Truck lot slump < 50 mm or > 175 mm at ASTM C143 → retire "pumpable / placeable workability" classification for that ticket; reject load or re-dose admixture | OPEN |
+| F-CTC-Q2 | OPC concrete (w/c = 0.45) splitting tensile strength f_ct ≥ 3.0 MPa at 28 days per ASTM C496, Ø150×300 mm cylinder, 23 °C lime-water cure | Lot f_ct < 2.0 MPa at ASTM C496 same condition (n ≥ 3 cylinders) → retire the "shear-friction design value" assumption and re-baseline ACI 318 splitting term | OPEN |
+| F-CTC-Q3 | Air-entrained concrete (4F freeze-thaw exposure) durability factor DF ≥ 80 after 300 cycles per ASTM C666 procedure A, water-saturated freeze-thaw chamber −18 °C ↔ +4 °C | Lot DF < 60 at ASTM C666-A 300 cycles → retire "freeze-thaw rated" classification; rebaseline cold-region exposure tier | OPEN |
+| F-CTC-Q4 | OPC paste setting time: initial set 45 min – 6 h 15 min, final set ≤ 6 h 15 min per ASTM C191 Vicat needle, 23 °C, 100 % RH cabinet | Cement lot initial set < 30 min OR final set > 10 h at ASTM C191 → retire the "Type I/II general-use cement" qualification | OPEN |
+
+Pass = numeric threshold met at cited ASTM/ACI method, ambient
+(23 °C ± 2 °C, conditioning per ASTM C192), n ≥ 3 cylinders / batches.
+Fail = below threshold at same condition → caveat the spec and re-baseline
+the CER-concrete-technology mix-design atlas entry.
+

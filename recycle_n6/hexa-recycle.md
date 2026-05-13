@@ -451,3 +451,24 @@ This section covers team for the domain. Initial scaffold content — expand wit
 ## §15 REFERENCES
 
 This section covers references for the domain. Initial scaffold content — expand with domain-specific data, references, and verification in subsequent revisions.
+
+## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
+
+Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
+entries above are number-theoretic self-consistency probes only. The
+engineering falsifiers below are the ones that retire the corresponding
+*nylon-6 chemical recycling (caprolactam loop)* claim on measurement.
+
+| F-ID | Material claim | Trigger (real-domain) | Verdict |
+|------|---------------|------------------------|---------|
+| F-RN6-Q1 | Depolymerization caprolactam recovery yield ≥ 90 wt % from clean post-industrial PA6 feedstock per ASTM E2363 GC-FID / HPLC quantification, 23 °C analytical | Pilot run yield < 70 wt % at ASTM E2363 (n ≥ 3 batches) → retire the "closed-loop caprolactam" claim; rebaseline to mechanical-recycle tier for that feed stream | OPEN |
+| F-RN6-Q2 | Recovered caprolactam purity ≥ 99.9 wt % (chromatographic) per ASTM D2287-style GC-MS, monomer-grade specification for re-polymerization | Lot purity < 99.5 wt % at ASTM D2287 GC-MS → retire the "monomer-grade caprolactam" qualification; downgrade to industrial-grade or recycle for further distillation | OPEN |
+| F-RN6-Q3 | Re-polymerized PA6 (from recovered caprolactam) tensile strength σ_t ≥ 75 MPa at 23 °C, DAM, per ASTM D638 Type I, 50 mm/min (≥ 95 % of virgin baseline) | Lot σ_t < 60 MPa at ASTM D638 DAM (n ≥ 5 dogbones) → retire the "virgin-equivalent recycled PA6" baseline; flag oligomer / impurity carryover | OPEN |
+| F-RN6-Q4 | Recycled PA6 melting point T_m within 220 ± 3 °C by DSC per ISO 11357-3, 10 °C/min, 2nd heat, N₂ | Lot T_m < 215 °C or > 225 °C at ISO 11357-3 → retire the "homopolymer PA6 recycle" identification; check for copolymer / PA66 cross-contamination | OPEN |
+
+Pass = numeric threshold met at cited ASTM / ISO method, conditioned per
+ASTM D618 / ISO 291 (23 °C ± 2 °C, 50 % ± 5 % RH; DAM dried 16 h at 80 °C
+where DAM specified), n ≥ 3 batches / 5 specimens per method. Fail =
+below threshold at same condition → caveat the spec and re-baseline the
+recycle-n6 closed-loop atlas entry.
+
