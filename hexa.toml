@@ -76,10 +76,11 @@ verbs_spec = 36
 verdict = "SPEC_FIRST"
 extracted_from = "canon/domains/materials/ @ 47c70cbf (+ silicon authored 2026-05-13 in-repo, not extracted; + 12 Phase D verbs authored 2026-05-13 in-repo: elastomer, compound-semi, perovskite, 2d-materials, adhesive, magnetic-materials, mof, liquid-crystal, superalloy, biodegradable-plastics, wood-cellulose, carbon; + 4 Phase D follow-on verbs 2026-05-13 in-repo: glass-ceramic, geopolymer, aerogel-foam, ionic-liquid; + 3 Phase D'' verbs 2026-05-13 in-repo: refractory, photoresist, electrode-material)"
 parity_gates_total = 29  # Phase H + I.1 + I.2 (2026-05-13) — Category (b) parity gates landed under tests/*_parity.py (10 Phase H + 10 Phase I.1 + 9 Phase I.2; anchored to NIST/CRC/ASM/SEMI/ASTM/TAPPI/AATCC/ISO + vendor datasheets in tests/snapshots/*.json); aggregator = selftest/parity_gates_smoke.sh (29/29 internal). CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 0 — Category (a)+(b) = 100%.
-selftest_pass = "29/29"  # Phase H + Phase I.1 + Phase I.2 sync (2026-05-13): aggregator parity_gates_smoke reports 29/29 internal gates; closure-meta cross-link / NOVEL integrity gate added 2026-05-13 (gate #29) — scoreboard now 29/29
+selftest_pass = "30/30"  # Phase H + I.1 + I.2 + closure-meta sync 2026-05-13: cross_link_integrity_audit (gate #29) + c_handoff_completeness_audit (gate #30) added; parity_gates_smoke aggregator reports 29/29 internal Cat (b) gates; c_handoff walks 18 §C rows checking DEST + LIMIT wall classification + raw#10 C3.
 category_a_closed = true  # 100% by 2026-05-13 silicon authoring (a239611)
 category_b_closed = true  # 100% by 2026-05-13 Phase I.2 (this commit)
 category_c_status = "OUT-OF-REPO BY DESIGN"  # wet-lab / vendor / fab handoff per AXIS_CLOSURE_PLAN.md §0
+category_c_handoff_audited = true  # 2026-05-13 — selftest/c_handoff_completeness_audit.py (gate #29) confirms every §C row carries a named DEST + LIMIT_BREAKTHROUGH wall classification + raw#10 C3 honest provenance. Software-side handoff documentation = 100%. The (c) execution itself remains OUT-OF-REPO BY DESIGN.
 
 # ── Verify scoreboard (Wave closure, 2026-05-13) ──────────
 # All four verify/*.hexa scripts must PASS for the substrate to claim closure.
@@ -95,7 +96,7 @@ scripts = [
 ]
 aggregator = "verify/run_all.hexa"
 verdict = "CLOSED"  # 36/36 verbs spec-present · 4/4 verify scripts PASS
-selftest_pass = "29/29"  # Phase B selftest harness + Phase E + Phase F + Phase G + Phase G+1 COD adapter + Phase G+2 OQMD/AFLOW/NOMAD adapters + Phase H parity gates + closure-meta cross-link / NOVEL integrity gate (2026-05-13) — see selftest/run_all.sh
+selftest_pass = "30/30"  # Phase B selftest harness + Phase E + F + G + G+1 COD + G+2 OQMD/AFLOW/NOMAD + Phase H + I.1 + I.2 parity gates + closure-meta cross_link_integrity (#29) + c_handoff_completeness (#30) (2026-05-13) — see selftest/run_all.sh
 selftest_aggregator = "selftest/run_all.sh"
 python_bridge_modules = 12  # Phase E (2026-05-13) — _python_bridge/module/*.py (12 modules: 6 stdlib FUNCTIONAL + 2 RDKit + 2 ASE + 2 pymatgen; SKIP cleanly when optional deps missing)
 python_bridge_aggregator = "selftest/pyproject_smoke.sh"

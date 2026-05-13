@@ -31,6 +31,12 @@
 #   Closure-meta (1): cross_link_integrity_audit (2026-05-13: boundary
 #     discipline gate — enforces CROSS_LINK.md sister-repo boundaries +
 #     NOVEL.md candidate invariants + doc-reference integrity)
+#   Category (c) handoff (1): c_handoff_completeness_audit (2026-05-13:
+#     walks every §C row in CLOSURE_RESIDUAL_BACKLOG.md and asserts
+#     DEST cell non-empty + LIMIT_BREAKTHROUGH wall classification present
+#     + no n=6 lattice-fit pattern (raw#10 C3) + row count matches §C
+#     summary table. Software cannot CLOSE (c) — but it CAN guarantee
+#     handoff documentation is complete.)
 #
 # Per LATTICE_POLICY §1.2 + §1.3 + raw#10 C3, the gates enforce:
 #   - real-limits-first (LIMIT_BREAKTHROUGH anchors)
@@ -118,6 +124,8 @@ run "parity_gates_smoke"              bash    "$HERE/parity_gates_smoke.sh"
 # github.com/dancinlab/hexa-*). Per LATTICE_POLICY §1.2 / §1.3 / raw#10 C3 +
 # SPEC_FIRST: structure + boundary checks only, no measurement.
 run "cross_link_integrity_audit"      python3 "$HERE/cross_link_integrity_audit.py"
+# ── Category (c) handoff completeness audit (1) — §C ledger handoff audit ──
+run "c_handoff_completeness_audit"    python3 "$HERE/c_handoff_completeness_audit.py"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

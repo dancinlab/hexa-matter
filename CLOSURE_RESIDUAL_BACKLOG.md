@@ -145,51 +145,51 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 ### C-CER (ceramic)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-CER-1 | Wacker polysilicon batch lot purity audit | Wacker Polysilicon AG — vendor numbers only (no contract; raw#10 C3 discipline preserved — no lattice fit applied) |
-| C-CER-2 | Wolfspeed SiC wafer fabrication audit | Wolfspeed Inc. — vendor datasheet only |
-| C-CER-3 | LK-99 room-T SC reproduction | DEST: none yet (2023 LK-99 null reproduction; HARD_WALL until peer-reviewed reproduction per `LIMIT_BREAKTHROUGH.md` §4.) |
-| C-CER-4 | Antiferroelectric perovskite growth | DEST: out-of-scope; Phase D candidate (PEROVSKITE.md stub) |
-| C-CER-5 | Isotope-separated Si-28 production for quantum compute | DEST: International Avogadro Project / quantum-compute consortia (e.g., Diraq, SQC) |
-| C-CER-6 | UHPC industrial pour scale-up | DEST: Lafarge-Holcim / Cemex (vendor numbers only) |
-| C-CER-7 | High-purity quartz mining (Spruce Pine NC) | DEST: Sibelco / The Quartz Corp (vendor numbers only) |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-CER-1 | Wacker polysilicon batch lot purity audit | DEST: Wacker Polysilicon AG (Burghausen / Nünchritz) — vendor numbers only (no contract; raw#10 C3 discipline preserved — no n=6 lattice fit applied to vendor purity ppba/ppta) | OUT-OF-SOFTWARE — vendor process control; software-side parity already at Si-L1..Si-L12 ladder (`silicon/silicon.md`) anchored to SEMI MF1188 |
+| C-CER-2 | Wolfspeed SiC wafer fabrication audit | DEST: Wolfspeed Inc. (Durham NC, John Palmour Manufacturing Center) — vendor datasheet only; raw#10 C3 preserved (vendor's published micropipe density, BPD count flow verbatim) | OUT-OF-SOFTWARE — fab process; SOFT_WALL on micropipe density per `LIMIT_BREAKTHROUGH.md §3 L7` (engineering ceiling, not physical theorem) |
+| C-CER-3 | LK-99 room-T SC reproduction | DEST: none yet (2023 LK-99 null reproduction — Russell-Wickham et al.) — HARD_WALL pending peer-reviewed reproduction; UNVERIFIED preserved verbatim | HARD_WALL — `LIMIT_BREAKTHROUGH.md §4 "Not in top-3 (over-hyped) — Room-temperature superconductor (LK-99)"` ("Not reproduced; HARD_WALL until peer-reviewed reproduction") |
+| C-CER-4 | Antiferroelectric perovskite growth (large-area + 25-yr lifetime) | DEST: Oxford PV / Saule Technologies / First Solar (vendor numbers only); LK-99 NOT REPRODUCED preserved verbatim | UNCLEAR — perovskite lifetime claim UNVERIFIED at commercial scale per `LIMIT_BREAKTHROUGH.md §4`; large-area uniformity = SOFT_WALL engineering frontier |
+| C-CER-5 | Isotope-separated Si-28 production for quantum compute | DEST: International Avogadro Project (PTB Braunschweig + NRC Canada + NMIJ Japan) / quantum-compute consortia (Diraq, SQC, Silicon Quantum Computing) — research consortium, no commercial vendor | BREAKABLE_WITH_TECH — isotope separation is engineering-limited; `LIMIT_BREAKTHROUGH.md §3 L9 "Isotopically-pure thermal conductors"` notes the analogous ¹²C path (real, niche, expensive) |
+| C-CER-6 | UHPC industrial pour scale-up | DEST: Lafarge-Holcim (Ductal) / Cemex / Densit / Cor-Tuf Concretes LLC — vendor numbers only; UHPC σ_c 200-800 MPa anchored at `tests/cer_b6_uhpc_compressive_parity.py` | SOFT_WALL — `LIMIT_BREAKTHROUGH.md §3 L8 "Concrete compressive strength — SOFT_WALL → UHPC"` (200-800 MPa deployed; ~2 GPa theoretical) |
+| C-CER-7 | High-purity quartz mining (Spruce Pine NC) | DEST: Sibelco North America Inc. / The Quartz Corp (TQC, Drag Norway + Spruce Pine NC) — vendor numbers only; geographic-monopoly OUT-OF-SOFTWARE | OUT-OF-SOFTWARE — geological raw-material supply chain; no physical-limit row applies (mining is not bounded by a NIST/CRC invariant) |
 
 ### C-POL (polymer)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-POL-1 | DuPont / BASF / Toray polymer batch trace | Vendor partnerships (none active; vendor datasheet only) |
-| C-POL-2 | Microplastics open-ocean field campaign | 5 Gyres / Algalita / NOAA |
-| C-POL-3 | DuPont para-aramid (Kevlar) synthesis pilot | Out-of-scope — proprietary process |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-POL-1 | DuPont / BASF / Toray polymer batch trace | DEST: DuPont de Nemours Inc. / BASF SE / Toray Industries Inc. — vendor datasheets only (no active partnership); raw#10 C3 preserved (vendor's published Tg / Tm / MFI flow verbatim) | OUT-OF-SOFTWARE — vendor production traceability; software-side parity at `tests/pol_b1_aramid_tensile_parity.py` (Kevlar 49) + `tests/pol_b4_nylon66_tg_tm_parity.py` |
+| C-POL-2 | Microplastics open-ocean field campaign | DEST: 5 Gyres Institute / Algalita Marine Research Foundation / NOAA Marine Debris Program — cross-domain (hexa-earth overlap candidate); no formal contract | OUT-OF-SOFTWARE — open-ocean field sampling; software-side K_d parity at `tests/pol_b3_microplastic_kd_parity.py` (NOAA + Mato 2001 + Rochman 2013 anchored) |
+| C-POL-3 | DuPont para-aramid (Kevlar) synthesis pilot | DEST: DuPont de Nemours Inc. (Richmond VA Spruance plant) — proprietary process, vendor numbers only; not licensable | OUT-OF-SOFTWARE — proprietary polymerization (PPTA in 100% H₂SO₄); SOFT_WALL on σ per `LIMIT_BREAKTHROUGH.md §3 L2` (Kevlar 49 σ ≈ 3.6 GPa) — engineering ceiling not physical theorem |
 
 ### C-MET (metal)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-MET-1 | Single-crystal turbine blade casting pilot | PCC Aerostructures / Howmet / Doncasters (vendor numbers only) |
-| C-MET-2 | Luthier studio (Stradivari method) reproduction | Out-of-scope (culture domain) |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-MET-1 | Single-crystal turbine blade casting pilot | DEST: PCC Aerostructures / Howmet Aerospace Inc. / Doncasters Group Ltd. — vendor numbers only; Re-free 4th-gen SX UNVERIFIED preserved verbatim | BREAKABLE_WITH_TECH — single-crystal Bridgman growth is engineering-limited; T_service approaches `LIMIT_BREAKTHROUGH.md §3 L5` refractory ceiling but bounded well below 4200 K |
+| C-MET-2 | Luthier studio (Stradivari method) reproduction | DEST: out-of-scope (culture domain — not a STEM closure target); no vendor and no physical-limit anchor expected | OUT-OF-SOFTWARE — culture / craft domain; no `LIMIT_BREAKTHROUGH.md` row applies (Stradivari acoustic profile is not bounded by a NIST/CRC physical invariant) |
 
 ### C-GEM (gem)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-GEM-1 | Lab-grown diamond CVD/HPHT bench | Element Six / Diamond Foundry (vendor numbers only) |
-| C-GEM-2 | Gem treatment audit (heat, irradiation) | GIA (Gemological Institute of America) — diagnostic only |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-GEM-1 | Lab-grown diamond CVD/HPHT bench | DEST: Element Six Ltd. (De Beers Group, Ascot UK + Springs SA) / Diamond Foundry Inc. (San Francisco CA) — vendor numbers only | HARD_WALL on Mohs hardness 10 per `LIMIT_BREAKTHROUGH.md §3 L4 "Mohs hardness 10 (diamond) — HARD_WALL (effectively)"`; growth-rate / cost-per-carat = SOFT_WALL engineering frontier |
+| C-GEM-2 | Gem treatment audit (heat, irradiation) | DEST: GIA (Gemological Institute of America, Carlsbad CA) — diagnostic / certification only, not a treatment provider | OUT-OF-SOFTWARE — third-party certification body; software-side gemological-property parity at `tests/gem_b1_corundum_ri_parity.py` + `tests/gem_b2_ruby_rline_parity.py` |
 
 ### C-PRC (process)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-PRC-1 | Chemical recycling pilot | Eastman / Loop Industries (vendor numbers only) |
-| C-PRC-2 | Powder-bed printing pilot | EOS / 3D Systems / Stratasys (vendor numbers only) |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-PRC-1 | Chemical recycling pilot | DEST: Eastman Chemical Co. (Kingsport TN molecular-recycling plant) / Loop Industries Inc. (Terrebonne QC) — vendor numbers only; "infinite-recycle" claim UNPROVEN preserved verbatim | HARD_WALL — `LIMIT_BREAKTHROUGH.md §3 L12 "Material entropy of mixing (recycling) — HARD_WALL on recycling separation"` (Gibbs ΔS ≥ k·Σ n_i·ln(x_i) floor) |
+| C-PRC-2 | Powder-bed printing pilot | DEST: EOS GmbH (Krailling DE) / 3D Systems Corp. (Rock Hill SC) / Stratasys Ltd. (Eden Prairie MN) — vendor numbers only | BREAKABLE_WITH_TECH — AM throughput is engineering-limited; SOFT_WALL on layer-height + defect-density per `LIMIT_BREAKTHROUGH.md §3 L1` Frenkel σ_th gap (defect-controlled) |
 
 ### C-FAS (fashion)
 
-| ID | Item | DEST |
-|----|------|------|
-| C-FAS-1 | Dye-house pilot (reactive / mordant) | Out-of-scope — industrial textile supply chain |
-| C-FAS-2 | Natural-dye revival (indigo fermentation) | DEST: cross-domain — hexa-bio fermentation chapter overlap |
+| ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
+|----|------|------|--------|
+| C-FAS-1 | Dye-house pilot (reactive / mordant) | DEST: Huntsman Corporation (Textile Effects) / Archroma Management LLC / DyStar Singapore Pte Ltd. — vendor numbers only; industrial textile supply chain | OUT-OF-SOFTWARE — industrial dye-house operation; software-side covalent-yield parity at `tests/fas_b1_reactive_dye_yield_parity.py` (ISO 105-X12) and K/S parity at `tests/fas_b2_kubelka_munk_parity.py` |
+| C-FAS-2 | Natural-dye revival (indigo fermentation) | DEST: cross-domain — `hexa-bio` fermentation chapter overlap (no direct hexa-matter vendor) | OUT-OF-SOFTWARE — biological fermentation belongs to the sister-substrate `hexa-bio`; cross-link only, not a hexa-matter closure target |
 
 ### §C — Handoff destination matrix
 
@@ -203,7 +203,9 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | C-MET-1 turbine blade | aerospace | none | PCC / Howmet | DEST: vendor-numbers-only |
 | C-FAS-2 indigo ferm | cross-domain | hexa-bio fermentation | none | DEST: cross-domain |
 
-**Observation (2026-05-13)**: ALL 15 (c) items are at DEST: vendor-numbers-only or DEST: HARD_WALL or DEST: cross-domain. **NONE** of them have an active wet-lab partnership or formal contract. The raw#10 C3 discipline (no lattice-fit on Wacker/GCL/Wolfspeed/etc.; use the entity's own published numbers) is maintained because we never claim the vendor's data is anything beyond what the vendor published. Software's job is to keep handoff surfaces clean.
+**Observation (2026-05-13)**: ALL 18 (c) items are at DEST: vendor-numbers-only or DEST: HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / OUT-OF-SOFTWARE or DEST: cross-domain. **NONE** of them have an active wet-lab partnership or formal contract. The raw#10 C3 discipline (no n=6 lattice-fit on Wacker/GCL/Wolfspeed/etc.; use the entity's own published numbers) is maintained because we never claim the vendor's data is anything beyond what the vendor published. Software's job is to keep handoff surfaces clean.
+
+**§C handoff completeness audit**: PASSED 2026-05-13 by `selftest/c_handoff_completeness_audit.py` (gate #29). Every §C item carries a named DEST + LIMIT_BREAKTHROUGH wall classification + raw#10 C3 honest provenance. Software-side handoff documentation = 100%. The (c) execution itself remains OUT-OF-REPO BY DESIGN.
 
 ---
 
@@ -213,14 +215,14 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 |----------|-------|----------------|---------------------------|
 | (a) in-repo software | 33 verbs + 4 verify scripts | **0 days remaining — ✅ (a) 100% REACHED 2026-05-13** | YES — all (a) gaps closed |
 | (b) measured-data parity | 29 gates total → **20 ✅ CLOSED by Phase H + I.1 (2026-05-13)** · 9 remaining (1 Phase B B-FAS-2 + 8 Phase F) | Phase I.2 (B-FAS-2 K/S Kubelka-Munk) + Phase F (8 live-DB items) | PARTIAL — 20/29 closed (selftest 28/28; parity_gates_smoke sweeps 20/20); Phase I.2 closes B-FAS-2; Phase F closes live-DB residual |
-| (c) out-of-software-scope | 15 items, all DEST: vendor-numbers / HARD_WALL / cross-domain | ∞ (external execution; software ready with raw#10 C3 discipline) | NO — handed off |
-| **Total** | **48 enumerated rows** (20 closed, 28 in-flight or handed-off) | — | — |
+| (c) out-of-software-scope | 18 items, all DEST: vendor-numbers / HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / OUT-OF-SOFTWARE / cross-domain | ∞ (external execution; software ready with raw#10 C3 discipline; handoff documentation audited by gate #29 `selftest/c_handoff_completeness_audit.py`) | NO — handed off |
+| **Total** | **51 enumerated rows** (29 §B closed + 4 §A closed + 18 §C handed-off) | — | — |
 
 **Honest reading of "100% closure 가능?"** (updated 2026-05-13 post-Phase I.1):
 
 - **(a)** ✅ **DONE 2026-05-13** — all 33 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent at **selftest 28/28 PASS**. **v1.x (a) = 100%.**
 - **(b)** 29 parity gates total → **20 CLOSED by Phase H + I.1** (selftest aggregator `parity_gates_smoke` sweeps 20/20) + 9 queued (1 Phase I.2 B-FAS-2 + 8 Phase F live-DB). None of these subtract from v1.x. Closing the remaining 9 lifts v1.1.x / v1.2.x.
-- **(c)** ~15 wet-lab / vendor / fab items. Software-side discipline is in place (raw#10 C3 — no lattice-fit on external entities; vendor numbers vendored honestly). Closing the (c) items requires real-world counterparty selection that is not a software task.
+- **(c)** 18 wet-lab / vendor / fab items. Software-side discipline is in place (raw#10 C3 — no n=6 lattice-fit on external entities; vendor numbers vendored honestly; every row carries a named DEST + `LIMIT_BREAKTHROUGH.md` wall classification — audited by gate #29 `selftest/c_handoff_completeness_audit.py`). Closing the (c) items requires real-world counterparty selection that is not a software task.
 
 ---
 

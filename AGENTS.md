@@ -170,15 +170,19 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **29/29 PASS** (8 cross-cutting + 8 group-specific + 4
-verb-specific + 3 bridge aggregators + 4 adapter-specific gates: COD
-added 2026-05-13 Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2
-+ 1 parity-gates aggregator added 2026-05-13 Phase H, extended Phase I.1
-+ I.2 to sweep 29 internal parity gates + 1 closure-meta cross-link / NOVEL
-integrity gate added 2026-05-13). Run from repo root:
+currently **30/30 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators + 4 adapter-specific gates +
+1 parity-gates aggregator + 2 closure-meta gates: COD added 2026-05-13
+Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2; parity-gates
+aggregator added 2026-05-13 Phase H, extended Phase I.1 + I.2 to sweep
+29 internal parity gates; `selftest/cross_link_integrity_audit.py`
+added 2026-05-13 (gate #29 — boundary discipline + NOVEL invariants);
+`selftest/c_handoff_completeness_audit.py` added 2026-05-13 (gate #30 —
+walks every §C row asserting DEST + LIMIT_BREAKTHROUGH wall classification
++ raw#10 C3)). Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 29/29 PASS
+bash selftest/run_all.sh    # exit 0 = 30/30 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -186,9 +190,12 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "29/29"`, `python_bridge_modules = 12`,
+`selftest_pass = "30/30"`, `python_bridge_modules = 12`,
 `research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
-`parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2).
+`parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2),
+`category_a_closed = true`, `category_b_closed = true`,
+`category_c_handoff_audited = true`,
+`category_c_status = "OUT-OF-REPO BY DESIGN"`.
 
 ### Parity gates — Phase H (2026-05-13)
 
@@ -261,7 +268,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  29/29 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
+  30/30 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC/ASM/SEMI/
   ASTM/TAPPI/AATCC/ISO/vendor-datasheet anchored values matched against the
   spec corpus. 29 parity gates total → **ALL 29 ✅ CLOSED 2026-05-13** under
@@ -275,7 +282,14 @@ Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
   BY DESIGN**. Vendors (Wacker poly-Si · Wolfspeed SiC · Hitachi Metals
   NdFeB · Stora Enso CLT · Climeworks DAC · NatureWorks PLA · Danimer PHA
   · Element Six diamond · Merck KGaA LC) carry this layer with their own
-  published numbers. 15 (c) items in `CLOSURE_RESIDUAL_BACKLOG.md` §C.
+  published numbers. **18 (c) items** in `CLOSURE_RESIDUAL_BACKLOG.md` §C —
+  software-side handoff completeness audited 2026-05-13 by
+  `selftest/c_handoff_completeness_audit.py` (gate #29): every row carries
+  a named DEST + `LIMIT_BREAKTHROUGH.md` wall classification
+  (HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / UNCLEAR / OUT-OF-SOFTWARE)
+  + raw#10 C3 honest provenance (NO n=6 lattice-fit on vendor numbers).
+  The (c) EXECUTION itself remains OUT-OF-REPO BY DESIGN; software's job
+  is to keep the handoff surface clean.
 
 **"100% closure" claims here are Category (a) only** — agents must
 preserve this scoping in any new docs / commits / release notes. C2 / C3+
@@ -300,7 +314,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 29/29 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 30/30 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)
