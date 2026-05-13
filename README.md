@@ -14,6 +14,8 @@
 [![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
 [![Research bridge: 8 modules](https://img.shields.io/badge/research--bridge-8_modules-blue.svg)](_research_bridge/README.md)
 [![Absorption bridge: 10 adapters](https://img.shields.io/badge/absorption--bridge-10_adapters-blue.svg)](_absorption_bridge/README.md)
+[![Cycle Phase G](https://img.shields.io/badge/cycle-phase_G_closed_2026--05--13-brightgreen.svg)](RELEASE_NOTES_v1.1.0.md)
+[![Closure plan](https://img.shields.io/badge/closure-AXIS__CLOSURE__PLAN.md-informational.svg)](AXIS_CLOSURE_PLAN.md)
 
 ---
 
@@ -112,6 +114,50 @@ hexa-matter help             # full --help (subcommands + env vars + cross-link)
 Spec-first at v1.0.0 (+ Phase D 2026-05-13) — 29/29 verbs ship as
 peer-citable markdown docs; working numerical sandboxes are TBD per
 per-verb falsifier deadlines. CLI dispatcher prints spec headlines.
+
+Per-group closure status (Category (a) in-repo / (b) parity / (c) wet-lab):
+[`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md). Residual gates +
+deferral ledger: [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md).
+
+## Documentation map
+
+Architecture & lifecycle docs sit at the repo root in UPPERCASE following
+the [`hexa-bio`](https://github.com/dancinlab/hexa-bio) convention.
+
+**Infrastructure (10)** — read first:
+
+| File | Purpose |
+|---|---|
+| [`INIT.md`](INIT.md) | Working-state ledger — Phase A-G status, commit log, pick-it-up-cold guide |
+| [`AXIS.md`](AXIS.md) | 7-group taxonomy (CER / POL / FIB / MET / GEM / PRC / FAS) + cross-link map |
+| [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md) | Per-group closure roadmap, Category (a) / (b) / (c) framework |
+| [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) | 29 (b) parity gates + 15 (c) wet-lab/HW deferral ledger |
+| [`DECOMPOSITION_PLAN.md`](DECOMPOSITION_PLAN.md) | Material taxonomy decomposition (7 groups → 29 verbs) |
+| [`LESSONS.md`](LESSONS.md) | Construction journal — what worked, what surprised, anti-patterns avoided |
+| [`RELEASE_NOTES_v1.0.0.md`](RELEASE_NOTES_v1.0.0.md) | Initial 16-verb release notes (retroactive) |
+| [`RELEASE_NOTES_v1.1.0.md`](RELEASE_NOTES_v1.1.0.md) | Silicon + Phase A→G elevation |
+| [`V1_2_0_HANDOFF.md`](V1_2_0_HANDOFF.md) | Forward-facing handoff (Phase B-G roadmap & future) |
+| [`USER_ACTION_REQUIRED.md`](USER_ACTION_REQUIRED.md) | Open asks for the user (priority decisions) |
+| [`IMPORTED_FROM_CANON.md`](IMPORTED_FROM_CANON.md) | File-by-file canon provenance ledger |
+
+**Deep expansion (5)** — extended material chapters beyond per-verb specs:
+
+| File | Subject |
+|---|---|
+| [`SILICON.md`](SILICON.md) | CZ / FZ growth physics, 9N purity ceiling, isotope-separated Si-28 |
+| [`CERAMIC-ENGINEERING.md`](CERAMIC-ENGINEERING.md) | Si₃N₄ turbine blade, SiC armor, ZTA, hardness mapping |
+| [`METALLURGY-DEEP.md`](METALLURGY-DEEP.md) | Ni superalloy, SX casting, Ti-6Al-4V, TTT diagrams |
+| [`POLYMER-CHEMISTRY.md`](POLYMER-CHEMISTRY.md) | Chain vs step-growth, MW distribution, Tg/Tm, biodegradable chemistry |
+| [`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md) | CVD growth, defect density, CNT/diamond/fullerene |
+
+**Phase D roadmap stubs (11)**: ELASTOMER · COMPOUND-SEMI · PEROVSKITE ·
+2D-MATERIALS · ADHESIVE · MAGNETIC-MATERIALS · MOF · LIQUID-CRYSTAL ·
+SUPERALLOY · BIODEGRADABLE-PLASTICS · WOOD-CELLULOSE (root UPPERCASE
+stubs that delegate to per-verb specs).
+
+**Policy & limits** (`AGENTS.md` registers both):
+- [`LATTICE_POLICY.md`](LATTICE_POLICY.md) — n=6 lattice auxiliary, real-limits-first
+- [`LIMIT_BREAKTHROUGH.md`](LIMIT_BREAKTHROUGH.md) — per-limit assessment (HARD_WALL · SOFT_WALL · BREAKABLE_WITH_TECH · UNCLEAR)
 
 ## Verify
 
