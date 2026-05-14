@@ -172,26 +172,32 @@ adapters). hexa-matter and hexa-bio are tone-parity across this dimension.
 ## 🧪 Selftest authority
 
 The **canonical scoreboard** for this repo is `selftest/run_all.sh`,
-currently **31/31 PASS** (8 cross-cutting + 8 group-specific + 4
-verb-specific + 3 bridge aggregators + 4 adapter-specific gates +
-1 parity-gates aggregator + 2 closure-meta gates + 1 Phase J.2
-universal-FF proxy-predictions gate: COD added 2026-05-13
-Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2; parity-gates
-aggregator added 2026-05-13 Phase H, extended Phase I.1 + I.2 to sweep
-29 internal parity gates; `selftest/cross_link_integrity_audit.py`
-added 2026-05-13 (gate #29 — boundary discipline + NOVEL invariants);
-`selftest/c_handoff_completeness_audit.py` added 2026-05-13 (gate #30 —
-walks every §C row asserting DEST + LIMIT_BREAKTHROUGH wall classification
-+ raw#10 C3); `selftest/uff_predictions_smoke.sh` added 2026-05-13
-Phase J.2 ("next available" slot in this worktree base; integrator
-reconciles if Phase J.1 gates #31-#33 have already merged) — validates
-`_absorption_bridge/universal_ff/predictions/*.json` for the 7 Tier-1
-NOVEL SIM-NNP-PROXY snapshots (raw#10 C3: is_measurement: false +
-is_external_verification: false + n6_lattice_fit_applied: false)). Run
-from repo root:
+currently **38/38 PASS** (8 cross-cutting + 8 group-specific + 4
+verb-specific + 3 bridge aggregators + 6 adapter-specific gates +
+1 parity-gates aggregator + 2 closure-meta gates + 3 Phase J.1 deepening
+audits + 1 Phase J.2 universal-FF proxy-predictions gate + 1 Phase J.5
+NOVEL ↔ verb xref audit + 1 Phase K.1 universal-FF runner gate). COD
+added 2026-05-13 Phase G+1; OQMD + AFLOW + NOMAD added 2026-05-13 Phase G+2;
+parity-gates aggregator added 2026-05-13 Phase H, extended Phase I.1 +
+I.2 to sweep 29 internal parity gates;
+`selftest/cross_link_integrity_audit.py` added 2026-05-13 (boundary
+discipline + NOVEL invariants); `selftest/c_handoff_completeness_audit.py`
+added 2026-05-13 (walks every §C row asserting DEST + LIMIT_BREAKTHROUGH
+wall classification + raw#10 C3); `selftest/uff_predictions_smoke.sh`
+added 2026-05-13 Phase J.2 — validates the 17
+`_absorption_bridge/universal_ff/predictions/*.json` SIM-NNP-PROXY
+snapshots (raw#10 C3: is_measurement: false + is_external_verification:
+false + n6_lattice_fit_applied: false);
+**`selftest/universal_ff_runner_smoke.sh` added 2026-05-14 Phase K.1
+(gate #38) — validates `_python_bridge/universal_ff_runner.py` unified
+runner infrastructure for MACE/CHGNet/ALIGNN/SchNet/M3GNet; mock-mode
+selftest force-SKIPs all 5 optional deps so CI NEVER triggers live
+compute per raw#10 C3; new SIM-NNP status tag in NOVEL.md §2 distinct
+from SIM-NNP-PROXY — both SIM tags, neither promotes to EXTERNAL-VERIFIED.**
+Run from repo root:
 
 ```bash
-bash selftest/run_all.sh    # exit 0 = 37/37 PASS
+bash selftest/run_all.sh    # exit 0 = 38/38 PASS
 ```
 
 The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
@@ -199,7 +205,7 @@ closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
-`selftest_pass = "37/37"`, `python_bridge_modules = 12`,
+`selftest_pass = "38/38"`, `python_bridge_modules = 12`,
 `research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
 `parity_gates_total = 29` (10 Phase H + 10 Phase I.1 + 9 Phase I.2),
 `category_a_closed = true`, `category_b_closed = true`,
@@ -277,7 +283,7 @@ Honesty preservation (Phase H discipline):
 Adopted from `hexa-bio` per [`AXIS_CLOSURE_PLAN.md`](AXIS_CLOSURE_PLAN.md):
 
 - **(a) in-repo SW / spec closure** — currently **100%** at 4/4 verify +
-  37/37 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
+  38/38 selftest + 36/36 verb specs. Closeable by code/doc work in this repo.
 - **(b) formal / empirical material-property parity** — NIST/CRC/ASM/SEMI/
   ASTM/TAPPI/AATCC/ISO/vendor-datasheet anchored values matched against the
   spec corpus. 29 parity gates total → **ALL 29 ✅ CLOSED 2026-05-13** under
@@ -323,7 +329,7 @@ When making changes in this repo, an AI agent SHOULD:
 
 - [ ] Read `INIT.md` first to know the current Phase state
 - [ ] Run `verify/run_all.hexa` — confirm 4/4 PASS
-- [ ] Run `bash selftest/run_all.sh` — confirm 31/31 PASS (or be explicit if your change adds/removes a gate)
+- [ ] Run `bash selftest/run_all.sh` — confirm 38/38 PASS (or be explicit if your change adds/removes a gate)
 - [ ] Honor `LATTICE_POLICY.md` §1.2/§1.3 — real-limits-first, n=6 auxiliary
 - [ ] Honor raw#10 C3 — no n=6 lattice-fit on external entities (vendors / labs / databases / consortiums)
 - [ ] Preserve UNPROVEN/UNVERIFIED markers verbatim (LK-99, metallic-H, magic-MOF DAC, CNT yarn 80 GPa lab-mm, Majorana contested, …)

@@ -4,7 +4,7 @@
 # Purpose: pre-merge gate that runs all hexa-matter selftests sequentially.
 # Mirrors `hexa-bio/selftest/run_all.sh` shape.
 #
-# Gate categories (36 gates total; Phase J.1 +3 audit + J.3 +2 adapter + J.5 +1 xref):
+# Gate categories (38 gates total; Phase J.1 +3 audit + J.3 +2 adapter + J.5 +1 xref + K.1 +1 universal-FF runner):
 #   Cross-cutting (8): r1_symlink, registry_consistency, regression,
 #     n6_axis, cross_doc, canon_provenance, nist_anchor, lattice_fit_audit
 #   Group-specific (8): cer_thermal_shock, pol_thermal_stability,
@@ -180,6 +180,17 @@ run "novel_verb_xref_audit"           python3 "$HERE/novel_verb_xref_audit.py"
 # · hxm-h2-elec-iro2-doped-001. Defensive: numbered "next available" — if
 # Phase J.1 (gates #31-33) has already merged, integrator reconciles.
 run "uff_predictions_smoke"           bash    "$HERE/uff_predictions_smoke.sh"
+
+# ── Phase K.1 universal-FF runner infrastructure (1) — gate #38 ────
+# 2026-05-14: validates `_python_bridge/universal_ff_runner.py` — the unified
+# entry point for local MACE / CHGNet / ALIGNN / SchNet / M3GNet runs against
+# the 17 SIM-NNP-PROXY candidates. Phase K.1 is INFRASTRUCTURE-ONLY — the
+# runner SKIPs cleanly when each of the 5 optional deps is missing. Per raw#10
+# C3 + NO MOCKED FUNCTIONALITY discipline: selftest path is MOCK-ONLY (runner
+# force-SKIPs every dep); NO live MACE / CHGNet / ALIGNN / SchNet / M3GNet
+# inference in CI. SIM-NNP status tag (Phase K.1 NOVEL.md §2 addition) is
+# distinct from SIM-NNP-PROXY — neither promotes to EXTERNAL-VERIFIED.
+run "universal_ff_runner_smoke"       bash    "$HERE/universal_ff_runner_smoke.sh"
 
 # ── Summary ──────────────────────────────────────────────────
 total=$((passes + fails))

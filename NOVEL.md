@@ -89,8 +89,8 @@ Status tags:
 | `DESIGN`             | Composition + intended phase + target property written                        |
 | `SIM-DFT`            | DFT-level band structure / formation energy via pymatgen + MP comparison     |
 | `SIM-MD`             | MD relaxation (ASE / LAMMPS-handle) — structural stability check            |
-| `SIM-NNP`            | Universal force-field (MACE / SchNet / ALIGNN / CHGNet / M3GNet) verdict via `_absorption_bridge/universal_ff/` |
-| `SIM-NNP-PROXY`      | Universal-FF predicted value vendored from peer-reviewed proxy literature; NOT measurement (raw#10 C3); status does NOT promote to EXTERNAL-VERIFIED |
+| `SIM-NNP-PROXY`      | Universal-FF predicted value vendored from peer-reviewed proxy literature; NO live computation; NOT measurement (raw#10 C3); status does NOT promote to EXTERNAL-VERIFIED |
+| `SIM-NNP`            | Universal-FF real local computation result via `_python_bridge/universal_ff_runner.py` (MACE / CHGNet / ALIGNN / SchNet / M3GNet); optional dep installed; SIM-NNP-PROXY proxy value matched within tolerance; status does NOT promote to EXTERNAL-VERIFIED (raw#10 C3) |
 | `SYNTH-ROUTE`        | Retrosynthesis path proposed (literature precedent or de-novo path)          |
 | `UNVERIFIED`         | Default state — Category (c) wet-lab verification not performed              |
 | `WET-LAB-PROPOSED`   | Synthesis bench parameters drafted; awaiting external partner                |

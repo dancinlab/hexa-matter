@@ -1,6 +1,6 @@
 # INIT — hexa-matter elevation to hexa-bio level
 
-> **Last updated**: 2026-05-13
+> **Last updated**: 2026-05-14
 > **Purpose**: Working-state record so phase progress is not lost across sessions.
 > If you're picking this up cold, read this file first.
 
@@ -37,6 +37,7 @@ User directive (2026-05-13):
 | **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
 | **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
 | **J.2** | 7 Tier-1 NOVEL DESIGN → SIM-NNP-PROXY promotion (`hxm-pv-tandem-002` · `hxm-bat-cath-drx-001` · `hxm-bat-anode-li-metal-001` · `hxm-co2-cap-mof-mfm-002` · `hxm-te-half-zrnisn-001` · `hxm-cement-mgo-co2neg-001` · `hxm-h2-elec-iro2-doped-001`); 7 `_absorption_bridge/universal_ff/predictions/*.json` snapshots vendored from peer-reviewed proxy literature (raw#10 C3: `is_measurement: false` + `is_external_verification: false` + `n6_lattice_fit_applied: false` on every snapshot); new `SIM-NNP-PROXY` status tag added to NOVEL.md §2 (distinct from EXTERNAL-VERIFIED); UNPROVEN markers verbatim (magic-MOF DAC $100/t · SEI HARD_WALL · Cr poisoning · Ir scarcity); new top-level selftest gate `selftest/uff_predictions_smoke.sh` (defensive numbering — next available slot) | ✅ DONE | _(this commit)_ |
+| **K.1** | Universal-FF runner infrastructure — new `_python_bridge/universal_ff_runner.py` (~250 LOC) provides unified `run_universal_ff(candidate_id, model)` entry for MACE/CHGNet/ALIGNN/SchNet/M3GNet against 17 SIM-NNP-PROXY fixtures; mock-mode `--selftest` force-SKIPs all 5 deps (NO live compute in CI per raw#10 C3); new `SIM-NNP` status tag added to NOVEL.md §2 (distinct from SIM-NNP-PROXY — real local computation vs vendored proxy; neither promotes to EXTERNAL-VERIFIED); new top-level selftest gate `selftest/universal_ff_runner_smoke.sh` (gate #38) + `PHASE_K_PLAN.md` defining K.1 DONE / K.2 (7 Tier-1 actual runs) / K.3 (selftest gate) / K.4 (docs); selftest 37/37 → 38/38 | ✅ DONE | _(this commit)_ |
 
 ### 🏆 100% (a)+(b) closure reached 2026-05-13
 
@@ -723,6 +724,47 @@ These rules are baked into every phase. Any output that violates them is BAD:
 - `6993e4a` — Phase G+1 (`_absorption_bridge/cod/` — Crystallography Open Database 11th adapter; CC0 raw data; EXPERIMENTAL XRD measurements; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (24/24)`)
 - `a54da35` — Phase G+2 (`_absorption_bridge/{oqmd,aflow,nomad}/` — 3 DFT/FAIR-data adapters: OQMD Wolverton 1M / AFLOW Curtarolo 3M / NOMAD Draxl-Scheffler 19M multi-code; all CC-BY 4.0)
 - `e12dfb9` — Phase H (10 Category (b) parity gates under `tests/*_parity.py` + 10 vendored snapshots under `tests/snapshots/*.json` + `selftest/parity_gates_smoke.sh` aggregator; `__HEXA_MATTER_PARITY_GATES__ PASS (10/10 gates, 0 skipped)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (28/28)`; ledger CLOSURE_RESIDUAL_BACKLOG §B drained 29 → 19)
+- _(this commit, 2026-05-14)_ — Phase K.1 (`_python_bridge/universal_ff_runner.py` — unified MACE/CHGNet/ALIGNN/SchNet/M3GNet runner; mock-mode `--selftest` force-SKIPs all 5 optional deps; new SIM-NNP status tag in NOVEL.md §2 distinct from SIM-NNP-PROXY; new gate `selftest/universal_ff_runner_smoke.sh` #38; `__UNIVERSAL_FF_RUNNER__ PASS (5/5 models SKIP cleanly when deps missing)`; selftest scoreboard `__HEXA_MATTER_SELFTEST__ PASS (38/38)`)
+
+## Phase K.1 — universal-FF runner infrastructure ✅ DONE (2026-05-14)
+
+Phase K.1 lands the **infrastructure** to do actual local universal-FF NNP
+runs against the 17 SIM-NNP-PROXY candidates vendored in Phase J.2 — without
+promoting any candidate from `SIM-NNP-PROXY` to `SIM-NNP` automatically.
+Promotion (Phase K.2) requires an explicit user/maintainer trigger.
+
+Files added (this commit):
+- `_python_bridge/universal_ff_runner.py` (~250 LOC, stdlib + optional imports)
+- `_python_bridge/universal_ff_runner.md` (~80-line architecture doc)
+- `selftest/universal_ff_runner_smoke.py` (~80-LOC mock-mode wrapper)
+- `selftest/universal_ff_runner_smoke.sh` (gate #38 wrapper)
+- `PHASE_K_PLAN.md` (Phase K scope-definition mirroring PHASE_J_PLAN.md)
+
+NOVEL.md §2 status pipeline update (this commit):
+- `SIM-NNP-PROXY` row reworded to emphasize "no live computation".
+- New `SIM-NNP` row: real local computation via the runner; SIM-NNP-PROXY
+  proxy value matched within ±20 % tolerance; **does NOT promote to
+  EXTERNAL-VERIFIED** (raw#10 C3).
+
+5 supported models with citations:
+- **MACE** — Batatia et al. 2022 ([arXiv:2206.07697](https://arxiv.org/abs/2206.07697)) · `mace-torch` · MIT
+- **CHGNet** — Deng et al. 2023 Nat. Mach. Intell. · `chgnet` · BSD-3-Clause
+- **ALIGNN** — Choudhary & DeCost 2021 npj Comput. Mater. · `alignn` · MIT
+- **SchNet** — Schütt et al. 2018 J. Chem. Phys. · `schnetpack` · MIT
+- **M3GNet** — Chen & Ong 2022 Nat. Comput. Sci. · `matgl` · BSD-3-Clause
+
+Honest C3 (raw#10 C3 + LATTICE_POLICY §1.2/§1.3):
+- Every runner record carries `is_measurement: false` — model output is
+  computation, not measurement.
+- `is_external_verification: false` — local run does not satisfy
+  external-lab attribution.
+- `n6_lattice_fit_applied: false` — NNPs publish their own error bars.
+- `--selftest` is **mock-only** (force-SKIPs every optional dep). CI
+  never imports torch / mace / chgnet etc.; no checkpoint download in
+  the gate path.
+
+Selftest scoreboard: **38/38 PASS** (37/37 baseline + gate #38
+`universal_ff_runner_smoke`).
 
 ## If you're picking this up cold
 
