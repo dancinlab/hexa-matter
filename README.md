@@ -1,23 +1,30 @@
-# ⚛️ hexa-matter — n=6 소재 substrate
+<p align="center">
+  <img src="docs/logo.svg" width="140" alt="hexa-matter">
+</p>
+
+<h1 align="center">🧬 hexa-matter</h1>
+
+<p align="center"><strong>HEXA-Matter Family</strong> — materials science · 16+ DB bridges · 29 parity gates</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue"></a>
+  <a href="https://github.com/dancinlab/hexa-matter/actions"><img alt="CI" src="https://img.shields.io/badge/selftest-32%2F32-brightgreen"></a>
+  <img alt="Spec" src="https://img.shields.io/badge/version-v1.2.0-success">
+  <img alt="Verbs" src="https://img.shields.io/badge/verbs-36-informational">
+  <img alt="Parity gates" src="https://img.shields.io/badge/parity--gates-29%2F29-informational">
+  <img alt="Bridges" src="https://img.shields.io/badge/db--bridges-16%2B-informational">
+  <img alt="Sibling" src="https://img.shields.io/badge/sibling-hexa--bio%20·%20hexa--space%20·%20hexa--physics-blueviolet">
+  <a href="https://doi.org/10.5281/zenodo.20102811"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.20102811.svg"></a>
+</p>
+
+<p align="center">materials-science · n=6 · ceramic · polymer · fiber · gem · metal · synthesis · recycle · MOF · perovskite · 2D · superalloy · liquid-crystal · silicon · carbon · concrete · glass · aerogel · geopolymer · ionic-liquid</p>
+
+---
 
 > 36-verb materials toolkit (17 v1.0.0 + 12 Phase D + 4 Phase D follow-on
 > + 3 Phase D'' 2026-05-13) organized around the **n=6 invariant lattice**:
 > ceramic / polymer / fiber / gem / metal / synthesis / recycle (silicon
 > joins ceramic_inorganic — material layer only).
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20102811.svg)](https://doi.org/10.5281/zenodo.20102811)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.2.0-informational.svg)](hexa.toml)
-[![Verbs: 36 spec](https://img.shields.io/badge/verbs-36_spec-blue.svg)](#verbs)
-[![Verify: 4/4 PASS](https://img.shields.io/badge/verify-4%2F4_PASS-brightgreen.svg)](verify/run_all.hexa)
-[![Selftest: 32/32 PASS](https://img.shields.io/badge/selftest-32%2F32_PASS-brightgreen.svg)](selftest/run_all.sh)
-[![Python bridge: 12 modules](https://img.shields.io/badge/python--bridge-12_modules-blue.svg)](_python_bridge/README.md)
-[![Research bridge: 8 modules](https://img.shields.io/badge/research--bridge-8_modules-blue.svg)](_research_bridge/README.md)
-[![Absorption bridge: 16 adapters](https://img.shields.io/badge/absorption--bridge-16_adapters-blue.svg)](_absorption_bridge/README.md)
-[![Parity gates: 29/29 PASS](https://img.shields.io/badge/parity--gates-29%2F29_PASS-brightgreen.svg)](selftest/parity_gates_smoke.sh)
-[![Category (a)+(b) closure: 100%](https://img.shields.io/badge/closure_(a)%2B(b)-100%25-brightgreen.svg)](CLOSURE_STATUS.md)
-[![Cycle Phase I.2](https://img.shields.io/badge/cycle-phase_I.2_closed_2026--05--13-brightgreen.svg)](RELEASE_NOTES_v1.2.0.md)
-[![Closure plan](https://img.shields.io/badge/closure-AXIS__CLOSURE__PLAN.md-informational.svg)](AXIS_CLOSURE_PLAN.md)
 
 > **Category (a)+(b) closure = 100%** as of 2026-05-13 (see [`CLOSURE_STATUS.md`](CLOSURE_STATUS.md)).
 > **Category (c)** — wet-lab synthesis, vendor procurement, fab capacity — remains **OUT-OF-REPO BY DESIGN** per [`AXIS_CLOSURE_PLAN.md §0`](AXIS_CLOSURE_PLAN.md).
@@ -220,7 +227,6 @@ bash selftest/run_all.sh                # exit 0 = 28/28 gates PASS at this comm
 
 | Category | Count | Gates |
 |---|---|---|
-| Cross-cutting | 8 | `r1_symlink_audit` · `registry_consistency_audit` · `regression_audit` · `n6_axis_computational_verification` · `cross_doc_audit` · `canon_provenance_check` · `nist_anchor_audit` · `lattice_fit_on_external_entities_audit` (raw#10 C3) |
 | Group-specific | 8 | `cer_thermal_shock_audit` · `pol_thermal_stability_audit` · `fib_tensile_audit` · `met_alloy_classification` · `gem_authenticity_check` · `prc_yield_audit` · `fas_dyeing_chemistry_audit` · `silicon_purity_audit` |
 | Verb-specific | 4 | `compound_semi_bandgap_audit` · `magnetic_materials_curie_audit` · `carbon_cnt_strength_honesty_audit` (CNT 80 GPa caveat) · `mof_dac_economics_honesty_audit` ($100/t UNPROVEN) |
 | Bridge aggregators | 3 | `pyproject_smoke` — Phase E `_python_bridge/` (12 modules) · `research_bridge_smoke` — Phase F `_research_bridge/` (arxiv + web; offline-replay) · `absorption_bridge_smoke` — Phase G `_absorption_bridge/` (10 adapters: MP / GNoME / Matlantis / OMat24 / SchNet / MACE / ALIGNN / CHGNet / M3GNet) |
@@ -229,7 +235,6 @@ bash selftest/run_all.sh                # exit 0 = 28/28 gates PASS at this comm
 
 Honesty constraints enforced by the selftest harness:
 - `lattice_fit_on_external_entities_audit` — fails if any post-policy spec
-  applies n=6 lattice formulas to vendor / NIST / ITER / ASTM data (raw#10 C3)
 - `carbon_cnt_strength_honesty_audit` — CNT 80 GPa must be flagged
   "lab mm-scale, commercial 1–3 GPa"
 - `mof_dac_economics_honesty_audit` — magic-MOF $100/t must stay UNPROVEN
@@ -276,7 +281,6 @@ Run the bridge aggregator (also wired into `selftest/run_all.sh`):
 bash selftest/pyproject_smoke.sh    # exit 0 = all 12 modules PASS or SKIP-clean
 ```
 
-raw#10 C3: no module applies n=6 lattice formulas to vendor / NIST / external
 data. Selftests are offline + deterministic; live external-DB fetch is
 in Phase F (`_research_bridge/`, landed 2026-05-13).
 
@@ -316,7 +320,6 @@ Run the bridge aggregator (also wired into `selftest/run_all.sh` as gate 22):
 bash selftest/research_bridge_smoke.sh    # exit 0 = all 3 aggregators PASS (offline only)
 ```
 
-raw#10 C3 + honest C3 enforcement:
 - Vendor / arxiv / patent data is ingested AS-IS with vendor's own metrics;
   NO n=6 lattice-fit applied at ingest.
 - Speculative claims (LK-99 RTSC, magic-MOF $100/t, perovskite 25-yr lifetime)
@@ -372,7 +375,6 @@ Run the bridge aggregator (also wired into `selftest/run_all.sh` as gate 23):
 bash selftest/absorption_bridge_smoke.sh    # exit 0 = all 6 aggregators PASS (offline only)
 ```
 
-raw#10 C3 enforcement:
 - No n=6 lattice-fit applied to Materials Project / GNoME / Matlantis /
   OMat24 / universal-FF outputs. Each external system carries its OWN
   published error bars (DFT-PBE typical, force MAE 20–60 meV/Å per NNP).
@@ -387,6 +389,35 @@ raw#10 C3 enforcement:
 Extracted from `canon/domains/materials/` @ `47c70cbf` (2026-05-09).
 Each copy file carries a `@canonical:` provenance header injected by
 `tools/inject_provenance.hexa`. Drift checked by `tools/check_drift.hexa`.
+
+## Repo layout
+
+```
+hexa-matter/
+├── README.md                 # this file
+├── AGENTS.md                 # long-form agent ops guide
+├── AGENTS.tape               # governance + identity (.tape)
+├── CLOSURE_STATUS.md         # category (a)+(b) closure scoreboard
+├── AXIS_CLOSURE_PLAN.md      # per-verb plan
+├── INIT.md                   # bootstrap + invariants
+├── hexa.toml                 # package manifest
+├── docs/                     # human docs · logo
+├── cli/                      # hexa-matter CLI entry
+├── verify/                   # deterministic verification gates
+├── selftest/                 # 32-gate selftest suite (run_all.sh)
+├── _absorption_bridge/       # 16 DB / library adapters
+├── _python_bridge/           # 12 Python→hexa modules (Phase E)
+├── _research_bridge/         # 8 research modules (Phase F)
+├── tools/                    # provenance + drift utilities
+├── ceramics/ concrete/ silicon/ glass/        # ceramic group (CER)
+├── hexa-polymer/ elastomer/ adhesive/ epoxy/  # polymer group (POL)
+├── hexa-fiber/ aramid/ fabric/                # fiber group (FIB)
+├── hexa-metal/ superalloy/                    # metal group (MET)
+├── hexa-gem/ gemology/                        # gem group (GEM)
+├── compound-semi/ perovskite/ 2d-materials/   # synthesis group (PRC)
+├── biodegradable-plastics/ liquid-crystal/    # additional verbs
+└── ... (36 verbs total — see AGENTS.tape §verb-coverage)
+```
 
 ## License
 
