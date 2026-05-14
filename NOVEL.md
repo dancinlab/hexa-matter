@@ -1521,7 +1521,7 @@ production is research-scale, not commodity). Status DESIGN.
 | `hxm-top-bi2se3-002`     | top      | Bi₂Se₃ TI surface (ARPES quality) | MBE on (111)-Si or Al₂O₃; extends -001 into spectroscopic regime | DESIGN | F-TOP-4: ARPES Dirac-cone gap > 30 meV OR surface-state mobility < 5000 cm²/(V·s) → FAIL |
 | `hxm-weyl-tas-001`       | weyl     | TaAs Weyl semimetal | chiral-anomaly negative MR; Berry curvature signature | SIM-NNP-PROXY | F-WEYL-1: Berry curvature absent in Hall measurement (no negative longitudinal MR + no B-linear AHE term) → FAIL |
 | `hxm-flatband-tbg-001`   | flatband | magic-angle (1.05–1.10°) TBG | hBN-encapsulated dual-gated stack; correlated SC      | SIM-NNP-PROXY | F-FLATBAND-1: superconducting T_c < 1.5 K OR twist-angle precision worse than 0.1° across device → FAIL |
-| `hxm-tdmeta-photonic-001`| tdmeta   | time-domain photonic metamaterial | ITO sub-ps pump or graphene > 100 GHz gate modulation | DESIGN | F-TDMETA-1: frequency-conversion efficiency < 10 % OR modulation rate < 100 GHz → FAIL |
+| `hxm-tdmeta-photonic-001`| tdmeta   | time-domain photonic metamaterial | ITO sub-ps pump or graphene > 100 GHz gate modulation | SIM-NNP-PROXY | F-TDMETA-1: frequency-conversion efficiency < 10 % OR modulation rate < 100 GHz → FAIL |
 
 **Risk-flags**: Bi₂Se₃ surface-state mobility is bulk-Se-vacancy-limited
 — intrinsic n-doping HARD_WALL drives Fermi level into bulk conduction
@@ -1542,6 +1542,7 @@ to **hexa-chip** per CROSS_LINK §3.2; none of these candidates claim
 RT-SC (per AGENTS.md A4 + `hexa-rtsc` boundary).
 **SIM-NNP-PROXY status 2026-05-14** (`hxm-weyl-tas-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json`](_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **SIM-NNP-PROXY status 2026-05-14** (`hxm-flatband-tbg-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json`](_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-tdmeta-photonic-001`) — Tier-3 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-tdmeta-photonic-001.json`](_absorption_bridge/universal_ff/predictions/hxm-tdmeta-photonic-001.json); falsifier_relation MARGINAL (target 10% / 100 GHz); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Time-modulated permittivity drive-power HARD_WALL** preserved verbatim.
 **Verb spec link** (Tier-2, `hxm-weyl-tas-001`): see [`compound-semi/compound-semi.md`](compound-semi/compound-semi.md) — material-layer authority for TaAs Weyl-semimetal compound chemistry (CVT single-crystal growth; Berry-curvature transport metrology; Majorana CONTESTED preserved verbatim per §3.12).
 **Verb spec link** (Tier-2, `hxm-flatband-tbg-001`): see [`2d-materials/2d-materials.md`](2d-materials/2d-materials.md) — material-layer authority for twisted bilayer graphene moiré-superlattice chemistry (hBN-encapsulated tear-and-stack assembly; magic-angle 1.05-1.10° flat-band; flat-band TBG twist-precision UNVERIFIED preserved verbatim).
 
@@ -2789,7 +2790,7 @@ gap ≥ 100 meV with surface conductivity outside the Dirac cone
 
 | ID | class | target | brief | status | falsifier |
 |----|-------|--------|-------|--------|-----------|
-| `hxm-time-crystal-trivial-001` | time-crystal | driven-Floquet TC | driven-Floquet discrete time crystal (Choi/Mi 2022-class); subharmonic ≥ 10× noise; coherence ≥ 100 ms | DESIGN | F-TC-1: subharmonic peak < 10× noise OR coherence < 100 ms → FAIL |
+| `hxm-time-crystal-trivial-001` | time-crystal | driven-Floquet TC | driven-Floquet discrete time crystal (Choi/Mi 2022-class); subharmonic ≥ 10× noise; coherence ≥ 100 ms | SIM-NNP-PROXY | F-TC-1: subharmonic peak < 10× noise OR coherence < 100 ms → FAIL |
 | `hxm-top-bi2te3-001` | top | Bi₂Te₃ TI | Bi₂Te₃ 3D topological insulator; bulk gap ≥ 100 meV; surface state distinct from bulk | DESIGN | F-TOP-BI2TE3-1: surface conductivity outside Dirac cone < 1 mS/cm OR bulk gap < 100 meV → FAIL |
 
 **Risk-flags**: trivial-time-crystal vs MBL distinction HARD_WALL — a
@@ -2802,6 +2803,7 @@ crosstalk HARD_WALL — sample-dependent (Hall coefficient reflects mix);
 Majorana fermion identification CONTESTED (preserved per §3.12 + 2D-MATERIALS.md
 and Microsoft Station Q retractions 2018-2024); raw#10 C3: TI ARPES
 provenance must come from synchrotron facility, not lattice-fit.
+**SIM-NNP-PROXY status 2026-05-14** (`hxm-time-crystal-trivial-001`) — Tier-3 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-time-crystal-trivial-001.json`](_absorption_bridge/universal_ff/predictions/hxm-time-crystal-trivial-001.json); falsifier_relation AT-RISK (target ≥ 100 ms); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Trivial-time-crystal vs MBL distinction HARD_WALL** preserved verbatim.
 
 ### 4.F.13 Bio-inspired (`mycel`, `algae`, `bio-electron`, `softrobotics`)
 
@@ -3306,6 +3308,304 @@ PHA meets ASTM D6400 industrial-compost but D7081 marine remains
 PHA-grade specific; preserved from §3.16 biodegradable ledger);
 PHBV grade-to-grade Tg / E variance across Danimer Nodax lots
 UNVERIFIED at long-cycle fatigue. raw#10 C3 honored.
+
+### 5.C Round 5 — extended frontier (2026-05-14)
+
+10 additional candidates targeting niches not yet covered in §3 / §4 /
+§5.A / §5.B: H₃S-class high-pressure superconductor (extending §3.1
+ledger into the hydride-superconductor regime), bimetallic MOF for
+desert-condition atmospheric water harvesting, PEDOT:PSS conductivity
+extension to > 7000 S/cm, PEM electrolyzer membrane with reduced-Pt-Ir
+loading, paraffin microcapsule textile thermal regulation, PVDF-TrFE-CFE
+relaxor terpolymer high-d₃₃ piezoelectric, BaTiO₃ thin-film ferroelectric
+memory, Cu₂O homojunction photovoltaic, ZIF-67 gas-separation membrane,
+and an extended 4H-SiC silicon-vacancy chemistry (V₂ vacancy distinct
+from §3.23 SiCVV-001 single-vacancy). All entries adopt the existing
+class-tag taxonomy per §1; falsifier discipline + risk-flag paragraph
++ vendor citation conventions follow §5.A / §5.B precedent. raw#10 C3
+honored throughout — no n=6 lattice-fit on vendor / lab numbers.
+
+#### 5.C.1 H₃S-class high-pressure superconductor
+
+Hypothesis: an H₃S hydrogen-sulfide superconductor (Drozdov / Eremets
+2015 Nature 525:73 confirmed Tc ≈ 203 K at 155 GPa) plus alternative
+high-pressure hydride chemistries (CaH₆ at ~ 215 GPa, LaH₁₀ at ~ 170
+GPa, YH₉ at ~ 200 GPa) targets Tc ≥ 100 K at relaxed pressure ≤ 100
+GPa AND pressure-window-relaxed Tc retention ≥ 50 K — pushing the
+hydride-SC envelope toward lower-pressure operation while preserving
+the Bardeen-Cooper-Schrieffer (BCS) high-Tc mechanism. Vendor authority:
+Eremets corpus (MPI Mainz) on Drozdov 2015 + CaH₆ / LaH₁₀ / YH₉
+follow-up; Hemley group (GWU) diamond-anvil-cell methodology; Salamat
+(UNLV) hydride-SC review 2024. **RT-SC at ambient pressure NOT
+REPRODUCED** — LK-99 anti-claim preserved per AGENTS.md A4.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-supraconductor-h3s-001` | sc | H₃S + alt hydrides | H₃S Drozdov 2015 + CaH₆ / LaH₁₀ / YH₉ alternative hydride SC; targets Tc ≥ 100 K @ ≤ 100 GPa + Tc retention ≥ 50 K at pressure-relaxed window | DESIGN | F-X-H3S-1: Tc < 100 K @ ≤ 100 GPa OR pressure-window-relaxed Tc retention < 50 K → FAIL |
+
+**Risk-flags**: pressure-requirement HARD_WALL (Drozdov 2015 + Eremets
+corpus — H₃S Tc 203 K requires 155 GPa diamond-anvil-cell pressure;
+lower-pressure variants UNVERIFIED at Tc ≥ 100 K floor); **RT-SC at
+ambient pressure NOT REPRODUCED** preserved verbatim per LK-99 +
+metallic-hydrogen anti-claim ledger; CaH₆ + LaH₁₀ + YH₉ alternative
+hydride-SC Tc reproductions across multi-lab campaigns UNVERIFIED
+(Salamat 2024 review notes 5–10 K Tc spread across DAC growth runs);
+diamond-anvil-cell pressure calibration HARD_WALL above 200 GPa (ruby
+fluorescence calibration breaks down); device-layer integration ⇒
+hexa-rtsc per CROSS_LINK §3.4 (no RT-SC claim made here). raw#10 C3
+honored.
+
+#### 5.C.2 Bimetallic MOF for atmospheric water harvesting
+
+Hypothesis: a bimetallic (Co/Mn or Co/Ni) MOF (extending MOF-303 / 
+MOF-801 chemistry into mixed-metal nodes) targets water yield ≥ 0.3
+L/kg-MOF/day at 25 °C / 20% RH desert conditions AND cycle-1000
+retention ≥ 80% — closing the gap between Climeworks / Source
+ambient-RH water capture (> 40% RH) and desert / arid-zone deployment
+where current MOF-303 capacity drops to 0.1–0.2 L/kg/day. Vendor
+authority: Climeworks Orca/Mammoth deployment data (ambient capture);
+Source Global hydropanel corpus (atmospheric water generator pilot);
+Yaghi group (Berkeley) MOF-303 / MOF-801 corpus 2017–2024.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-mof-water-harvest-002` | mof | bimetallic MOF for arid AWH | bimetallic Co/Mn or Co/Ni MOF extending MOF-303 chemistry to desert AWH; targets ≥ 0.3 L/kg/day @ 25°C, 20% RH + cycle 1000 retention ≥ 80% | DESIGN | F-X-MOF-H2OH-2: water yield < 0.3 L/kg-MOF/day @ 25°C, 20% RH desert conditions OR cycle 1000 retention < 80% → FAIL |
+
+**Risk-flags**: water-stable MOF UNVERIFIED at desert humidity (most
+MOF-303 / MOF-801 reports use 20-40% RH lab condition; cycling at
+sub-20% RH humidity drives hysteresis on the adsorption isotherm
+that has not been multi-lab reproduced); Yaghi 2017 + 2024 corpus
+shows 0.7-2.8 L/kg/day at 30-40% RH lab condition but drops to
+0.1-0.2 L/kg/day below 20% RH (Hanikel et al. 2019 Science); Co/Ni
+mixed-metal node stability HARD_WALL at high-cycle hydrothermal
+cycling (Co leaching into product water UNVERIFIED for potable
+spec); Climeworks / Source Global vendor anchor preserved as
+honesty baseline (Source hydropanel uses sorbent + solar-thermal
+desorption, not pure passive MOF cycle). raw#10 C3 honored.
+
+#### 5.C.3 PEDOT:PSS with ionic-liquid post-treatment
+
+Hypothesis: a PEDOT:PSS conductive polymer film with imidazolium ionic-
+liquid post-treatment (extending §3.G.4 `polymer-pedot-001` 5000 S/cm
+baseline) targets in-plane electrical conductivity σ ≥ 7000 S/cm at
+25 °C AND ambient-storage retention ≥ 80% over 5000 h — pushing the
+PEDOT:PSS commodity into the 7000 S/cm regime needed for ITO-free
+transparent electrodes. Vendor authority: Heraeus Clevios (Clevios
+PH1000 PEDOT:PSS commodity supply); Sigma-Aldrich PEDOT:PSS grade
+range; Agfa Orgacon ECF for PEDOT:PSS film products.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-poly-electro-pedot-002` | pol | PEDOT:PSS + ionic-liquid post-treatment | Heraeus Clevios PH1000 PEDOT:PSS with imidazolium ionic-liquid post-treatment; targets σ ≥ 7000 S/cm @ 25°C + ambient storage retention ≥ 80% over 5000 h | DESIGN | F-X-PEDOT-2: σ < 7000 S/cm @ 25°C OR storage stability < 80% retention 5000 h ambient → FAIL |
+
+**Risk-flags**: PEDOT:PSS 5000-8000 S/cm reports highly post-treatment-
+specific (DMSO / ethylene-glycol / H₂SO₄ / ionic-liquid variants give
+2-10× spread); ambient-storage retention 80% over 5000 h UNVERIFIED
+at vendor-pilot scale (Heraeus Clevios PH1000 vendor datasheet
+specifies retention only to 1000 h at controlled humidity); ionic-
+liquid hygroscopicity HARD_WALL above 60% RH (water uptake degrades
+σ irreversibly); blue-shift transparency vs conductivity trade-off
+preserved as honesty baseline (Worfolk 2015 PNAS 8800 S/cm post-H₂SO₄
+treatment but transparency drops); ITO-replacement claim REMAINS
+ASPIRATIONAL at the 90% transparency + 7000 S/cm joint envelope.
+raw#10 C3 honored.
+
+#### 5.C.4 PEM electrolyzer membrane with reduced-Pt-Ir loading
+
+Hypothesis: a PEM (proton-exchange-membrane) water-electrolyzer
+membrane (Nafion-class ionomer + reduced Pt-Ir cathode-anode loading
+< 0.3 mg/cm² total) targets voltage @ 2 A/cm² ≤ 1.8 V AND durability
+≥ 30000 h — pushing the green-H₂ PEM stack into commodity-economics
+range where current 1-2 mg/cm² Ir loading is the dominant CAPEX
+driver. Vendor authority: Cummins Hydrogen (Hylyzer PEM stack);
+Plug Power PEM electrolyzer pilot; ITM Power Gigastack 2024
+deployment; Chemours Nafion ionomer supply; Johnson Matthey Pt/Ir
+catalyst-coated membrane (CCM) corpus. **Ir scarcity HARD_WALL
+preserved** per §3.B.3 + §4.B.1 `hxm-h2-elec-iro2-doped-001`.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-electrolyzer-pem-002` | h2-elec | reduced Pt-Ir PEM electrolyzer | PEM membrane + reduced Pt-Ir cathode-anode loading < 0.3 mg/cm²; targets V @ 2 A/cm² ≤ 1.8 V + durability ≥ 30000 h | DESIGN | F-X-PEM-2: voltage @ 2 A/cm² > 1.8 V OR durability < 30000 h → FAIL |
+
+**Risk-flags**: Ir scarcity HARD_WALL preserved verbatim (Ir global
+mine output 7-9 t/yr; commodity-scale PEM stack at 1-2 mg/cm² Ir
+loading is the dominant economic and supply-chain constraint per
+Cummins Hydrogen / ITM Power 2024 LCAs); reduced Pt-Ir loading <
+0.3 mg/cm² UNVERIFIED at 30000 h durability — Johnson Matthey CCM
+benchmarks show 1-2 mg/cm² + 80000 h durability typical, below
+0.3 mg/cm² accelerated-stress-test degradation rate UNVERIFIED at
+multi-lab campaign; Nafion ionomer chemical stability HARD_WALL
+above 90 °C (perfluorosulfonic-acid backbone fluoride release
+dominates); cell engineering ⇒ hexa-energy per CROSS_LINK §3.3.
+raw#10 C3 honored.
+
+#### 5.C.5 Paraffin microcapsule textile thermal regulation
+
+Hypothesis: paraffin microcapsules (10-50 μm melamine-formaldehyde
+shell + n-octadecane core) embedded in a cellulose-fiber carrier
+target wash-50 leakage ≤ 0.3 wt% AND ≥ 90% latent-heat retention
+after 100 wash cycles — extending the §4.F.14 `hxm-textile-pcm-
+fabric-001` Outlast-class fabric to a cellulose-fiber textile
+substrate. Vendor authority: Microtek Laboratories (microPCM
+commodity manufacturer); Encapsys (encapsulated paraffin PCM
+microcapsule); Outlast Technologies (microPCM-fabric incumbent);
+Schoeller Technologies (3xDry / micro-PCM finish).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-pcm-microcapsule-002` | pcm | paraffin microcapsule in cellulose | melamine-formaldehyde-encapsulated n-octadecane paraffin in cellulose fiber; targets leakage ≤ 0.3 wt% after 100 washes + ≥ 90% latent-heat retention | DESIGN | F-X-PCM-MC-2: leakage > 0.3 wt% after 100 wash cycles OR latent heat retention < 90% → FAIL |
+
+**Risk-flags**: microcapsule fragmentation HARD_WALL during repeated
+laundry-mechanical agitation (Microtek + Encapsys vendor data show
+typical 5-15 wt% capsule rupture after 50 wash cycles in agitator
+laundry; commercial-grade target ≤ 0.3 wt% requires shell-thickness
+engineering UNVERIFIED at long-cycle); paraffin auto-oxidation
+during hot-laundry > 60 °C UNVERIFIED at 100-cycle target; Outlast
+Technologies vendor baseline preserved (30-40 J/g new fabric, drops
+to 18-25 J/g after 50 washes — leakage is the bottleneck); cellulose-
+fiber substrate dye-uptake interference UNVERIFIED at commodity
+textile dyehouse. raw#10 C3 honored.
+
+#### 5.C.6 PVDF-TrFE-CFE relaxor terpolymer
+
+Hypothesis: a PVDF-TrFE-CFE relaxor-ferroelectric terpolymer (vinylidene
+fluoride / trifluoroethylene / chlorofluoroethylene, ~ 60/35/5 mol%)
+targets piezoelectric coefficient d₃₃ ≥ 50 pC/N AND maximum service
+temperature T_max ≥ 90 °C — extending the §5.A.8 `hxm-cross-piezo-
+eskin-001` PVDF-TrFE 70/30 baseline into the CFE-relaxor regime where
+narrowed polar-region domains improve d₃₃. Vendor authority: Dow /
+Arkema (Kynar PVDF + Piezotech PVDF-TrFE-CFE terpolymer commodity);
+Solvay (Solef PVDF + ferroelectric copolymer/terpolymer grades).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-piezo-pvdf-trife-002` | piezo | PVDF-TrFE-CFE relaxor terpolymer | vinylidene-fluoride / trifluoroethylene / chlorofluoroethylene relaxor terpolymer; targets d₃₃ ≥ 50 pC/N + T_max ≥ 90 °C | DESIGN | F-X-PVDF-TER-1: d₃₃ < 50 pC/N OR T_max for use > 90°C → FAIL |
+
+**Risk-flags**: PVDF-TrFE-CFE Curie-Weiss broadening UNVERIFIED at
+T_max ≥ 90 °C — Arkema Piezotech vendor data report typical d₃₃
+30-50 pC/N + T_use ceiling ~ 80 °C across commodity terpolymer lots;
+CFE comonomer ratio HARD_WALL on d₃₃ vs T_max trade-off (more CFE
+narrows polar-region but lowers ferroelectric ordering temperature);
+Solvay Solef commodity-grade availability VERIFIED but high-purity
+relaxor terpolymer remains specialty pricing; device-layer
+integration ⇒ hexa-chip per CROSS_LINK §3.2. raw#10 C3 honored.
+
+#### 5.C.7 BaTiO₃ thin-film ferroelectric memory
+
+Hypothesis: a BaTiO₃ (BTO) thin-film (50-200 nm pulsed-laser-deposition
+on SrRuO₃ / Pt-Ti / SrTiO₃ substrate) with strain-engineered tetragonal
+distortion targets remanent polarization P_r ≥ 30 µC/cm² AND
+endurance ≥ 10¹⁰ switching cycles — extending the §3.20 `hxm-ferro-
+hzo-001` HfO₂-ZrO₂ ferroelectric baseline into the BTO classical-
+perovskite regime for FeRAM / FTJ memory. Vendor authority: Murata
+Manufacturing (BTO multilayer ceramic capacitor / FeRAM corpus);
+TDK (BTO + BST thin-film capacitor manufacturing); Ramtron / Cypress
+Semiconductor (FeRAM IP base, now Infineon).
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-ferroelectric-bto-002` | ferro | BaTiO₃ strain-engineered thin film | PLD BTO thin film 50-200 nm with strain-engineered tetragonal distortion; targets P_r ≥ 30 µC/cm² + endurance ≥ 10¹⁰ cycles @ 85 °C | DESIGN | F-X-BTO-2: ferroelectric P_r < 30 µC/cm² OR endurance < 10¹⁰ cycles → FAIL |
+
+**Risk-flags**: BTO endurance > 10¹⁰ cycles UNVERIFIED at thin-film
+geometry (bulk BTO single-crystal endurance > 10¹² achieved; thin-
+film geometry shows fatigue-dominated decline at 10⁸-10¹⁰ cycles
+across Murata / TDK + academic reviews); strain-engineering window
+HARD_WALL on epitaxial-mismatch fatigue (SrRuO₃ / SrTiO₃ template
+strain pinning UNVERIFIED at production scale); BTO Curie temperature
+~ 120 °C constrains automotive-grade memory deployment; cell
+engineering ⇒ hexa-chip per CROSS_LINK §3.2. raw#10 C3 honored.
+
+#### 5.C.8 Cu₂O homojunction solar cell
+
+Hypothesis: a Cu₂O homojunction solar cell (oxidized Cu thin-film with
+n-Cu₂O / p-Cu₂O junction via deliberate point-defect engineering)
+targets certified power-conversion efficiency PCE ≥ 8% AND open-circuit-
+voltage deficit ≤ 0.5 V — pushing the earth-abundant Cu₂O photovoltaic
+(theoretical Shockley-Queisser limit ~ 20% at Eg 2.1 eV) toward
+disruption parity with thin-film CIGS / CdTe. Vendor authority:
+Sumitomo Metal Mining (Cu₂O + CuO oxide thin-film expertise);
+Toyota Central R&D (Cu₂O homojunction PV corpus 2013-2024); Minami
+group (Kanazawa Institute Tech) Cu₂O PV foundational papers.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-photovoltaic-cu2o-001` | pv | Cu₂O homojunction PV | n-Cu₂O / p-Cu₂O homojunction with point-defect engineering; targets certified PCE ≥ 8% + V_oc deficit ≤ 0.5 V | DESIGN | F-X-CU2O-1: certified PCE < 8% OR V_oc deficit > 0.5 V → FAIL |
+
+**Risk-flags**: Cu₂O n-type doping HARD_WALL — intrinsic Cu vacancy
+creates p-type only; n-type Cu₂O requires non-equilibrium defect
+engineering UNVERIFIED at scalable thin-film process (best lab cells
+hit 8.1% PCE in 2019 Minami group, multi-lab reproduction OPEN);
+V_oc deficit ~ 0.7-0.9 V typical (Eg 2.1 eV → V_oc 1.2-1.4 V vs
+Shockley-Queisser 1.8 V floor) — closing this 0.5 V deficit
+UNVERIFIED at production; Sumitomo Metal Mining + Toyota Central
+R&D vendor baseline preserved (lab-scale cells only); CdTe / CIGS
+incumbents provide 23%+ PCE benchmark — Cu₂O remains a low-cost
+exploratory pathway, not a commodity-disruption claim. raw#10 C3
+honored.
+
+#### 5.C.9 ZIF-67 cobalt-imidazolate MOF gas separation
+
+Hypothesis: a ZIF-67 (zinc/cobalt 2-methylimidazolate framework, sodalite
+topology, Yaghi/Park 2006 structural family) membrane targets H₂/N₂
+selectivity ≥ 50 (Robeson 2008 upper bound for polymer membranes) AND
+thermal-decomposition T_decomp ≥ 250 °C — leveraging the Co-N₄ node
+chemistry for higher binding-affinity gas separation vs ZIF-8.
+Vendor authority: BASF (Basolite ZIF-8 / ZIF-67 commodity supply);
+HKUST-1 / Hong Kong UST MOF-membrane corpus; NuMat Technologies
+on industrial MOF deployment. ZIF-67 distinct from §3.22 ZIF-8
+membrane.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-membrane-zif-67-001` | membrane | ZIF-67 H₂/N₂ separation | Co 2-methylimidazolate sodalite framework membrane; targets H₂/N₂ selectivity ≥ 50 (Robeson 2008) + T_decomp ≥ 250 °C | DESIGN | F-X-ZIF67-1: H₂/N₂ selectivity < 50 (Robeson 2008 upper bound) OR thermal-stability T_decomp < 250°C → FAIL |
+
+**Risk-flags**: ZIF-67 H₂/N₂ selectivity UNVERIFIED above the
+Robeson 2008 upper bound at film-thickness ≥ 1 μm (sub-100 nm films
+report higher selectivity but defect-mediated leakage dominates at
+m² scale); Co leaching from ZIF-67 framework HARD_WALL above 200 °C
+in humid mixed-gas environment (Park 2006 structural-stability
+review); BASF Basolite commodity-MOF supply VERIFIED but ZIF-67
+membrane fabrication remains a Hong Kong UST / NuMat pilot scale;
+permeance vs selectivity trade-off preserved as honesty anchor
+(Robeson 2008 upper bound is the canonical reference); MOF defect-
+healing at commodity scale UNVERIFIED. raw#10 C3 honored.
+
+#### 5.C.10 4H-SiC silicon-vacancy V₂ extended chemistry
+
+Hypothesis: a 4H-SiC silicon-vacancy color center with extended V₂
+vacancy chemistry (distinct from §3.23 `hxm-quantum-sicvv-001`
+single-vacancy V_Si: this is the divacancy V_C-V_Si pair, also called
+VV defect) targets spin-coherence T₂ ≥ 5 ms at 4 K AND ODMR contrast
+≥ 5% — extending the SiC color-center qubit ecosystem with a different
+vacancy-pair chemistry. Vendor authority: Wolfspeed (4H-SiC commodity
+wafer supply); STMicroelectronics (SiC power-device wafer); Awschalom
+(UChicago) SiC divacancy + V₂ corpus 2011-2024; Son / Janzén (Linköping)
+SiC color-center foundational papers.
+Status DESIGN.
+
+| ID | class | target | brief | status | falsifier |
+|----|-------|--------|-------|--------|-----------|
+| `hxm-quantum-sicvv-002` | quantum | 4H-SiC V_C-V_Si divacancy | 4H-SiC silicon-divacancy (V_C-V_Si pair, distinct from §3.23 V_Si single vacancy); targets T₂ ≥ 5 ms @ 4 K + ODMR contrast ≥ 5% | DESIGN | F-X-SIC-V2-2: T₂ < 5 ms @ 4K OR ODMR contrast < 5% → FAIL |
+
+**Risk-flags**: SiC isotopic-purity HARD_WALL on T₂ ceiling — natural-
+abundance ²⁹Si (4.7%) + ¹³C (1.1%) nuclear-bath flip-flop limits T₂ to
+sub-ms regime; ²⁸Si + ¹²C isotopic purification required to reach the
+5 ms target (preserved verbatim from §3.23 + AGENTS.md honesty rail);
+divacancy V_C-V_Si formation yield uncontrolled lot-to-lot (Awschalom
+2018 et seq. report 0.5-2× spread on ensemble densities across
+Wolfspeed 4H-SiC wafers); ODMR contrast > 5% achievable in
+Wolfspeed-grade epitaxial layers but UNVERIFIED at commodity-wafer
+purity; device-layer integration ⇒ hexa-chip per CROSS_LINK §3.2.
+raw#10 C3 honored.
 
 ---
 

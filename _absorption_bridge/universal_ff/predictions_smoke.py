@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""predictions_smoke.py — Phase J.2 (2026-05-13) + Tier-2 wave (2026-05-14)
+"""predictions_smoke.py — Phase J.2 (2026-05-13) + Tier-2 wave (2026-05-14) + Tier-3 wave (2026-05-14)
 
 Walks every `_absorption_bridge/universal_ff/predictions/*.json` snapshot and
 validates the raw#10 C3 invariants for a SIM-NNP-PROXY status promotion:
@@ -12,7 +12,7 @@ validates the raw#10 C3 invariants for a SIM-NNP-PROXY status promotion:
   - `is_measurement: false` mandatory (raw#10 C3 — SIM-NNP-PROXY ≠ measurement)
   - `is_external_verification: false` mandatory (does NOT promote to EXTERNAL-VERIFIED)
 
-Hard list — the 7 Tier-1 + 10 Tier-2 promoted candidates must all be present:
+Hard list — the 7 Tier-1 + 10 Tier-2 + 2 Tier-3 promoted candidates must all be present:
 
 Tier-1 (Phase J.2, 2026-05-13):
   - hxm-pv-tandem-002 (§4.A.11 of NOVEL)
@@ -23,7 +23,7 @@ Tier-1 (Phase J.2, 2026-05-13):
   - hxm-cement-mgo-co2neg-001 (§4.D.6)
   - hxm-h2-elec-iro2-doped-001 (§4.B.1)
 
-Tier-2 (this wave, 2026-05-14):
+Tier-2 (Tier-2 wave, 2026-05-14):
   - hxm-quantum-si-donor-001 (§4.C.1)
   - hxm-quantum-hbn-vb-001 (§4.C.1)
   - hxm-ni-4gen-re-free-001 (§4.D.2)
@@ -35,7 +35,11 @@ Tier-2 (this wave, 2026-05-14):
   - hxm-mof-h2o-stable-uio66-001 (§4.D.13)
   - hxm-bat-cath-naion-001 (§4.A.1)
 
-Sentinel: `__HEXA_MATTER_UFF_PREDICTIONS__ PASS (17/17 predictions, 0 invalid)`.
+Tier-3 (Tier-3 wave, 2026-05-14 — NOVEL_ROADMAP §5 Tier-3 list):
+  - hxm-time-crystal-trivial-001 (§4.F.12) — falsifier_relation AT-RISK
+  - hxm-tdmeta-photonic-001 (§4.C.4) — falsifier_relation MARGINAL
+
+Sentinel: `__HEXA_MATTER_UFF_PREDICTIONS__ PASS (19/19 predictions, 0 invalid)`.
 """
 
 from __future__ import annotations
@@ -81,7 +85,12 @@ TIER2_REQUIRED = {
     "hxm-bat-cath-naion-001",
 }
 
-ALL_REQUIRED = TIER1_REQUIRED | TIER2_REQUIRED
+TIER3_REQUIRED = {
+    "hxm-time-crystal-trivial-001",
+    "hxm-tdmeta-photonic-001",
+}
+
+ALL_REQUIRED = TIER1_REQUIRED | TIER2_REQUIRED | TIER3_REQUIRED
 
 ID_RE = re.compile(r"^hxm-[a-z0-9][a-z0-9-]*-\d{3}$")
 
@@ -132,6 +141,13 @@ def validate_snapshot(path: Path) -> list[str]:
                 f"{path.name}: Tier-2 candidate '{cid}' must declare 'tier': 'Tier-2'"
             )
 
+    # Tier-3 candidates must declare `tier` field == "Tier-3"
+    if cid in TIER3_REQUIRED:
+        if snap.get("tier") != "Tier-3":
+            errors.append(
+                f"{path.name}: Tier-3 candidate '{cid}' must declare 'tier': 'Tier-3'"
+            )
+
     return errors
 
 
@@ -164,6 +180,11 @@ def main() -> int:
     if missing_tier2:
         invalid.append(
             f"Tier-2 candidate(s) missing from predictions/: {sorted(missing_tier2)}"
+        )
+    missing_tier3 = TIER3_REQUIRED - seen_ids
+    if missing_tier3:
+        invalid.append(
+            f"Tier-3 candidate(s) missing from predictions/: {sorted(missing_tier3)}"
         )
 
     total = len(ALL_REQUIRED)
