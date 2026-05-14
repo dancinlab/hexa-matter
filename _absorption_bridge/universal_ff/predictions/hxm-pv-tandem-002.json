@@ -21,6 +21,32 @@
   "falsifier_text": "certified-aperture PCE < 32% OR T80 < 1000h @ ISOS-L1 → FAIL",
   "delta_to_target": 0.5,
   "accessed": "2026-05-13",
+  "arxiv_anchor_refresh_2026_05_14": {
+    "snapshot": "_research_bridge/arxiv/arxiv_cache/tier1_anchor_refresh_2026-05-14.jsonl",
+    "cross_check_papers": [
+      {
+        "arxiv_id": "2511.23004",
+        "title": "CsCl seed layer ... 30.3% efficient perovskite-silicon tandem",
+        "note": "30.3% reported (Nov 2025) — below 32% target, supports MARGINAL falsifier_relation"
+      },
+      {
+        "arxiv_id": "2604.24098",
+        "title": "Characterizing Fill Factor Limitations in Perovskite-Silicon Tandem",
+        "note": "photoshunt identified as key FF-loss mechanism (Apr 2026)"
+      },
+      {
+        "arxiv_id": "2504.18196",
+        "title": "Monitoring charge separation via transient SPV",
+        "note": "Albrecht group — material-interface diagnostic"
+      },
+      {
+        "arxiv_id": "2502.05465",
+        "title": "Prospects for market-specific design",
+        "note": "location-specific yield analysis, 2x degradation rate relaxation"
+      }
+    ],
+    "verdict_unchanged": "falsifier_relation remains MARGINAL — record 32.5% (HZB May 2024) above 32% threshold; Nov 2025 fully-textured tandem only reached 30.3%, suggesting commodity scale still below target"
+  },
   "n6_lattice_fit_applied": false,
   "is_measurement": false,
   "is_external_verification": false,

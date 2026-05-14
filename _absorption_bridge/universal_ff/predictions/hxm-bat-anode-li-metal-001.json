@@ -23,6 +23,37 @@
   "delta_to_target": -0.1,
   "delta_cycle_count_to_target": -300,
   "accessed": "2026-05-13",
+  "arxiv_anchor_refresh_2026_05_14": {
+    "snapshot": "_research_bridge/arxiv/arxiv_cache/tier1_anchor_refresh_2026-05-14.jsonl",
+    "cross_check_papers": [
+      {
+        "arxiv_id": "2604.10630",
+        "title": "Electrochemical stability + Li insertion at Li|Li3OCl SE interface",
+        "note": "first-principles DFT shows interface structural stability (Apr 2026)"
+      },
+      {
+        "arxiv_id": "2502.03063",
+        "title": "Operando imaging of crystal structure in all-SS-batteries",
+        "note": "direct operando imaging of Li plating + delithiation limitation in dense electrodes"
+      },
+      {
+        "arxiv_id": "2412.12611",
+        "title": "Observing Li Nucleation at Li Metal-SE Interface",
+        "note": "DPMD: bandgap decrease inside SEI → electronic conduction risk"
+      },
+      {
+        "arxiv_id": "2410.15752",
+        "title": "Modeling next-gen Li metal batteries",
+        "note": "comprehensive first-principles review"
+      },
+      {
+        "arxiv_id": "2409.18344",
+        "title": "Antioxidative Li Salt for High-Voltage Ether Electrolyte",
+        "note": "4.6V operation"
+      }
+    ],
+    "verdict_unchanged": "falsifier_relation remains AT-RISK — operando imaging (2502.03063) directly visualizes delithiation limitation; 99.5% CE at 500 cycles full-cell remains UNVERIFIED at commodity scale"
+  },
   "n6_lattice_fit_applied": false,
   "is_measurement": false,
   "is_external_verification": false,

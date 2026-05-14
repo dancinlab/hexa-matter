@@ -27,6 +27,42 @@
   "delta_to_target_capacity": 0.7,
   "delta_to_target_regen": -0.2,
   "accessed": "2026-05-13",
+  "arxiv_anchor_refresh_2026_05_14": {
+    "snapshot": "_research_bridge/arxiv/arxiv_cache/tier1_anchor_refresh_2026-05-14.jsonl",
+    "cross_check_papers": [
+      {
+        "arxiv_id": "2508.03162",
+        "title": "The Open DAC 2025 Dataset for Sorbent Discovery",
+        "note": "60M DFT calc on 15k MOFs + ML force fields (Aug 2025) — supersedes McDonald 2015 single-MOF anchor"
+      },
+      {
+        "arxiv_id": "2602.07295",
+        "title": "Spurious imaginary phonon modes in MOF thermal properties",
+        "note": "Persson group (Feb 2026) — computational artifact caveat"
+      },
+      {
+        "arxiv_id": "2512.01693",
+        "title": "LitMOF: LLM Multi-Agent for MOF Database Correction",
+        "note": "recovers 8771 invalid MOF entries (Dec 2025)"
+      },
+      {
+        "arxiv_id": "2506.09256",
+        "title": "Classical vs ML force fields for sorbent deformation",
+        "note": "Sholl group (Jun 2025)"
+      },
+      {
+        "arxiv_id": "2501.04825",
+        "title": "Intrinsic Direct Air Capture",
+        "note": "thermodynamic metrics independent of system design (Jan 2025)"
+      },
+      {
+        "arxiv_id": "2410.13982",
+        "title": "Amine-Functionalized Materials via HTS+ML",
+        "note": "~2500 novel candidates (Oct 2024)"
+      }
+    ],
+    "verdict_unchanged": "falsifier_relation remains PASS — proxy 2.2 mmol/g supported by Open DAC 2025 dataset; magic-MOF $100/t UNPROVEN preserved with Climeworks $600-1000/t baseline"
+  },
   "n6_lattice_fit_applied": false,
   "is_measurement": false,
   "is_external_verification": false,

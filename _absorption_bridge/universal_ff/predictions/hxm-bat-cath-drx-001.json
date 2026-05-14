@@ -22,6 +22,32 @@
   "falsifier_text": "capacity < 280 mAh/g @ 0.1C OR avg V < 3.4 V vs Li/Li+ in 1M LiPF6 EC/DMC → FAIL",
   "delta_to_target": 10.0,
   "accessed": "2026-05-13",
+  "arxiv_anchor_refresh_2026_05_14": {
+    "snapshot": "_research_bridge/arxiv/arxiv_cache/tier1_anchor_refresh_2026-05-14.jsonl",
+    "cross_check_papers": [
+      {
+        "arxiv_id": "2604.24941",
+        "title": "Crystallization Dynamics & Transformation Pathways of DRX Oxides",
+        "note": "in-situ TEM, Li1.2Mn0.4Ti0.4O2 kinetic shortcut visualization (Apr 2026)"
+      },
+      {
+        "arxiv_id": "2602.11579",
+        "title": "Coupling Lattice Distortion + Cation Disorder in DRX",
+        "note": "HE-DRX 256.3 mAh/g + 71.9% percolation network (Feb 2026) — consistent order with 290 mAh/g proxy"
+      },
+      {
+        "arxiv_id": "2508.08112",
+        "title": "Short-Range Order + Li_xTM Probability Maps",
+        "note": "Wolverton group — direct sister to proxy citation"
+      },
+      {
+        "arxiv_id": "2506.20605",
+        "title": "Mn-rich DRX with ML interatomic potentials",
+        "note": "phase-transformation MD shows spinel-like motifs improve Li transport"
+      }
+    ],
+    "verdict_unchanged": "falsifier_relation remains PASS — 290 mAh/g proxy supported by Feb 2026 HE-DRX 256.3 mAh/g + Wolverton SRO probability mapping"
+  },
   "n6_lattice_fit_applied": false,
   "is_measurement": false,
   "is_external_verification": false,
