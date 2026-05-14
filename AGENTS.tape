@@ -47,6 +47,8 @@
 # ────────────────────────────────────────────────────────────────────
 
 @I id001 := "hexa-matter" :: project [active d=2026-05-14]
+  brief = "HEXA-Matter family · materials science · 16+ DB bridges · 29 parity gates"
+  parent = "dancinlab/echoes"
   family   = "HEXA"
   scope    = "materials-science substrate — industrial materials side"
   layout   = "36-verb materials toolkit on the n=6 invariant lattice"
