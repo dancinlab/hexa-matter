@@ -59,7 +59,6 @@
   COD (which is experimental XRD). Formation energies typically agree with
   experiment within MAE ~50–100 meV/atom; PBE band gaps typically under-predict
   by 30–50%.
-- **raw#10 C3**: no n=6 lattice-fit on OQMD records. The published per-record
   DFT uncertainties (typically reported in Kirklin 2015) are the authoritative
   error bars.
 - **Not a measurement source**: OQMD records do not carry experimental anchors.

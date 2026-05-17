@@ -34,7 +34,6 @@
 | 23 | Danimer / Newlight bacterial PHA datasheet | microbial polyester synthesis | biodegradable-plastics (cross to bio) | (vendor) | 2026-05-13 |
 | 24 | NOAA / EPA — synthesis-to-environment flow | (forward synthesis side; reverse is microplastics) | synthesis | (regulator; cross to microplastics) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (12-23) carry vendor / industry numbers AS-IS. No lattice fit.
 - Foundational rows (1-3, 7-11) are primary references for synthesis routes.

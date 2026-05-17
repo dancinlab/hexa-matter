@@ -7,7 +7,6 @@ Anchor: Hench & West 1990 Chem. Rev. 90, 33 + Brinker & Scherer 1990
 'Sol-Gel Science' — TEOS hydrolysis k_h ~ 1e-3 s^-1 at pH 2, 25 C,
 acid-catalyzed first-order pseudo regime.
 
-raw#10 C3: textbook + journal authority verbatim; no n=6 lattice-fit.
 SPEC_FIRST: parity gate.
 
 stdlib only; --selftest exits 0 with __PRC_B3_SOLGEL_TEOS__ PASS.
@@ -30,7 +29,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     val = float(snap["claim"]["value"])
     tol_log = float(snap["tolerance"]["log10_abs"])

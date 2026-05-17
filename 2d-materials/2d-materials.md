@@ -19,7 +19,6 @@ verdict_basis: primary literature + vendor; no lattice fit
 > graphite, CNT, fullerene)** live in `carbon/carbon.md` + the
 > `GRAPHENE-CARBON.md` chapter — this spec cross-links there.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** lab-record mobilities,
 > σ_f, k_th measured at sub-µm sample scale; scale-up to wafer-scale
 > typically loses 10–100× performance. Honest distinction preserved.
 > No lattice fit on 2D-material parameters.
@@ -82,7 +81,6 @@ h-BN at NIMS quality.
 
 ---
 
-## §3 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer / source | Material focus | Reported scale | Source |
 |----|----|----|----|
@@ -231,9 +229,7 @@ heterostructures with atomically clean interfaces.
    (Splendiani / Mak / Cao / Cassabois / Cui / Liu / Huang /
    Lipatov) or vendor catalogs.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-quantum-hbn-vb-001` — see [NOVEL.md §4.C.1](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Ion-irradiated CVD multilayer hBN seeded with V_B⁻ color centers; ODMR contrast ≥ 1 % + Hahn-echo T₂ ≥ 100 ns at 300 K is the material-layer chemistry — qubit device integration → `hexa-chip` per CROSS_LINK §3.2. ¹⁰B / ¹¹B isotope control at wafer scale UNVERIFIED.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-flatband-tbg-001` — see [NOVEL.md §4.C.4](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Magic-angle (1.05-1.10°) hBN-encapsulated twisted bilayer graphene moiré superlattice; correlated superconducting onset T_c ≥ 1.5 K (Cao 2018 Nature 556:43, Jarillo-Herrero MIT) is the material-layer chemistry — device integration → `hexa-chip`. **Flat-band TBG twist-precision UNVERIFIED** preserved verbatim; no claim of RT-SC per `hexa-rtsc` boundary.
 
 ---
 

@@ -6,7 +6,6 @@ tests/pol_b3_microplastic_kd_parity.py — Phase I.2 gate B-POL-3.
 Anchor: NOAA Marine Debris Program + Mato 2001 + Rochman 2013 —
 microplastic-sorbed hydrophobic organic (PCB/PAH) log K_d 4-6.
 
-raw#10 C3: NOAA + peer-reviewed verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: parity gate.
 
 stdlib only; --selftest exits 0 with __POL_B3_MICROPLASTIC_KD__ PASS.
@@ -28,7 +27,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     lo, hi = snap["claim"]["value_range_log10"]
     if not (lo < hi):

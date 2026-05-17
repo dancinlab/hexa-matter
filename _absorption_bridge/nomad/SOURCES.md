@@ -64,7 +64,6 @@
   appearing across VASP / FHI-aims / Quantum ESPRESSO entries will show
   small numerical differences from basis-set / pseudopotential choices;
   these are real, not noise.
-- **raw#10 C3**: no n=6 lattice-fit on NOMAD records. The originating-code +
   functional + basis-set metadata are the authoritative provenance.
 - **Not synthesis-curated**: NOMAD's `is_measurement` field is structural
   (computational vs experimental upload type); it does NOT indicate whether

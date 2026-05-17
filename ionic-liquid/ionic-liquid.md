@@ -23,7 +23,6 @@ verdict_basis: ILTHERMO (NIST database) + primary literature (Walden 1914 / Wilk
 > solvent, electrolyte (Li-ion / supercapacitor), cellulose dissolution
 > (BASF Basionics), CO₂ capture (Bayer / BASF), tribological lubricant.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** ionic-liquid properties
 > (melting point, viscosity, ionic conductivity, water tolerance,
 > hydrolytic stability) are set by **cation/anion pair chemistry,
 > alkyl-chain length, hydrogen-bond network** — not by the n=6 lattice.
@@ -116,7 +115,6 @@ catalog at sub-$50/kg for [NTf₂]⁻ ILs as of 2024.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global ionic-liquid market is **niche specialty chemicals**: ~ $50M–$200M/yr
 estimates (industry reports 2024) vs $100B+/yr solvent market. Largest

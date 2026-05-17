@@ -19,7 +19,6 @@ verdict_basis: primary literature + BASF Basolite + Yaghi group; no lattice fit;
 > UiO-66 / UiO-67, MIL-101, NU-1101, MOF-210. **Industrial-scale CO₂
 > direct air capture (DAC) economics UNPROVEN.**
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** BET surface area
 > values cite primary literature (Yaghi group MOF-210; Hupp NU-1101).
 > BASF Basolite production figures cite BASF technical bulletins. **No
 > claim of lattice-anchored MOF property.** Magic-MOF-DAC-economics
@@ -110,7 +109,6 @@ is UNVERIFIED at industrial scale.
 
 ---
 
-## §5 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer | MOF focus | Reported scale | Source |
 |----------|-----------|----------------|--------|
@@ -213,9 +211,7 @@ COF (Covalent-Organic Framework) parallel branch:
 - ✗ "ZIF-8 pore size 0.34 nm fits n=6 lattice" — coincidence
 - ✗ "BASF Basolite tonnage follows n=6" — no
 
-**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-co2-cap-mof-mfm-002` — see [NOVEL.md §4.F.1](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. This verb is the UNPROVEN $100/t DAC-economics marker home (Climeworks amine baseline $600–1000/t per MOF-L16 anti-claim); MFM-series functionalized MOF DAC variant is material-layer only — plant economics belong to `hexa-earth` / `hexa-energy`.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-mof-h2o-stable-uio66-001` — see [NOVEL.md §4.D.13](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Zr₆-cluster UiO-66 framework water-stability (1000 h liquid-H₂O endurance) — material-layer authority anchored to MOF-L12 (Cavka-Lillerud 2008 reference).
 
 ---
 

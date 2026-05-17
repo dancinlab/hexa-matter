@@ -9,7 +9,6 @@ Anchor: Saddow & Agarwal 2004 (Artech House) — 4H-SiC E_g = 3.26 eV;
 Parity: silicon/silicon.md Si-L11 row ↔ tests/snapshots/cer_b4_sic_bandgap.json.
 Tolerance: abs 0.05 eV (covers literature spread 3.23-3.28 eV for 4H-SiC).
 
-raw#10 C3: Saddow & Agarwal published value verbatim; no n=6 lattice-fit.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B4_SIC_BANDGAP__ PASS sentinel.
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     expected = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

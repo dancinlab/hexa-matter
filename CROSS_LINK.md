@@ -228,7 +228,7 @@ Cross-cutting supply / criticality manifests sitting orthogonal to the 36 verbs:
 | File | Scope | Cross-cuts verbs |
 |---|---|---|
 | [`RARE-EARTH.tape`](RARE-EARTH.tape) | 17-element family reference (LREE/HREE/Sc); USGS / IEA / EU CRM / 한국 종합대책 (1조 원 2026-02) anchors | `magnetic-materials/`, `metallurgy/`, `superalloy/`, `compound-semi/` (Sc/Y/Re/La/Ce trace) |
-| [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) | Meta-domain (REE × substitution); 6-track roadmap (recycling · ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found); 14+ arxiv 2024-2026 anchors; drives NOVEL.md §3.5 `hxm-mag-*` roster (11 entries: 7 SIM-DFT MP-verified + 4 DESIGN, swept 2026-05-18) | `magnetic-materials/`, `recycling/`, `electrode-material/` (cross-class hybrids) |
+| [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) | Meta-domain (REE × substitution); 6-track roadmap (recycling · ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found); 14+ arxiv 2024-2026 anchors; seeds 6 hxm-mag-* candidates in NOVEL.md §3.5 | `magnetic-materials/`, `recycling/`, `electrode-material/` (cross-class hybrids) |
 | [`CRITICAL-MINERAL.tape`](CRITICAL-MINERAL.tape) | Umbrella for 12 export-controlled commodities (REE+Ga+Ge+Sb+W+Co+Li+graphite+Mg+Ti+Nb+Ta); 2023-2026 PRC export-control timeline | `compound-semi/` (Ga/Ge), `superalloy/` (Co/Re/W), `electrode-material/` (Li/graphite), `metallurgy/` (Mg/Ti/W) |
 
 **Boundary**: this trio handles SUPPLY + CRITICALITY narratives. Per-verb MATERIAL spec (chemistry, phase, property table, parity gates) stays in the verb files. `NOVEL.md` candidates whose tag is `hxm-mag-*` are seeded by `RARE-EARTH+ALTERNATIVE.tape` but the ledger itself stays in `NOVEL.md` §3.5.

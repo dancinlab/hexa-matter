@@ -21,7 +21,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to AFLOW records.
 It only validates schema + passes through. Records are DFT PREDICTIONS (mostly
 PBE; some PBEsol / SCAN runs exist), not measurements.
 
@@ -158,7 +157,6 @@ def _selftest() -> int:
     # per bridge rule #4 ("predictions ≠ measurements").
     print(
         f"  NOTE: dft_method={rec['dft_method']!r} — "
-        "DFT PREDICTION (raw#10 C3: no lattice-fit applied; AFLOW Standard "
         "uses VASP PAW; per-record k-point + ENCUT documented in entry metadata)"
     )
     print(

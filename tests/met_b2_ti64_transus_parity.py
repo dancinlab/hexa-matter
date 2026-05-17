@@ -9,7 +9,6 @@ transformation temperature (beta-transus) = 995 +/- 15 C (1268 K).
 Parity: METALLURGY-DEEP.md §4.3 'β-transus (°C) | 995 ± 15' row ↔
 tests/snapshots/met_b2_ti64_transus.json. Tolerance: abs 15 C.
 
-raw#10 C3: ASM published value verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __MET_B2_TI64_TRANSUS__ PASS sentinel.
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_T = float(snap["claim"]["T_C"])
     tol = float(snap["tolerance"]["abs_C"])

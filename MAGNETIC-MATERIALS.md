@@ -63,7 +63,6 @@ NdFeB production depends on Nd (~ 220 kt/yr global; ~ 70% from China) and heavy-
 - Wind turbine direct-drive generators (~ 600 kg NdFeB per 1 MW turbine)
 - MRI permanent magnets (per-machine 1-2 tons NdFeB)
 
-Per raw#10 C3: rare-earth tonnage figures are vendor-published (Lynas, MP Materials, Iluka, Chinese state producers) — **no lattice fit applied**.
 
 ---
 

@@ -19,7 +19,6 @@ verdict_basis: Merck KGaA datasheets + IDTechEx market data + Reinitzer original
 > modulators (SLM).** Display device design + TFT backplane integration
 > live in `hexa-chip`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** Merck KGaA / DIC /
 > Chisso LC mixture properties are vendor-published with engineered
 > compositions. OLED displacement of LCD in premium displays (2020s
 > trend) honestly captured. No lattice projection.
@@ -98,7 +97,6 @@ steering, wavefront shaping. Distinct from emissive display
 
 ---
 
-## §4 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer | LC focus | Reported scale | Source |
 |----------|----------|----------------|--------|

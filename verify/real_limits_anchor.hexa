@@ -94,7 +94,6 @@ fn main() {
     }
 
     // 3. Honesty caveat: LK-99 / metallic-hydrogen room-T claims must remain
-    //    flagged as UNPROVEN (raw#10 C3 + LATTICE_POLICY §3.3).
     let unproven = [
         ["LK-99 room-T SC",              "LK-99"],
         ["Metallic hydrogen at room T",  "Metallic hydrogen"],

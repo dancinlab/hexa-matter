@@ -19,7 +19,6 @@ verdict_basis: vendor-published numbers + ASTM/ISO; no lattice fit
 > Tire **product** chemistry (cord + matrix + RFL dip) cross-links to
 > `tire_cord/`; biomedical implant PDMS cross-links to `hexa-bio`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** elastomer properties
 > (durometer, σ_f, ozone resistance, swell index) are set by
 > cross-link density, filler chemistry, and process — **not by the n=6
 > lattice**. ExxonMobil / Lanxess / Wacker / Dow / Shin-Etsu vendor
@@ -78,7 +77,6 @@ verbatim from datasheets.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global synthetic rubber + natural rubber production, most recent
 reporting (IRSG / vendor IR). No projection onto n=6.

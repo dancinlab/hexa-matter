@@ -5,7 +5,6 @@
 > **Target group**: GROUP_POL · **Phase D priority**: MEDIUM (per `USER_ACTION_REQUIRED.md §2`)
 >
 > Stub placeholder for the Phase D `elastomer` verb. Real content lands when
-> Phase D begins. Cross-link discipline (raw#10 C3) preserved.
 
 ---
 

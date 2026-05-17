@@ -29,7 +29,6 @@ verdict_basis: vendor-published numbers (Umicore, POSCO Future M, CATL, BYD, LG 
 > structure, capacity-per-gram, voltage-vs-Li, cycle stability of
 > the material itself.**
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3 + CROSS_LINK §3.3):**
 > electrode-material performance (specific capacity in mAh/g, average
 > voltage vs Li/Li⁺ or vs RHE, redox plateau, structural stability on
 > de/lithiation, electrocatalytic activity in mA/cm²) is set by
@@ -143,7 +142,6 @@ formation, BMS) belongs to **hexa-energy** per CROSS_LINK §3.3.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global Li-ion battery-grade cathode active-material (CAM) production
 is ~ 2.0+ Mt/yr (2023, BloombergNEF), of which LFP > 60 % by 2024.
@@ -347,12 +345,10 @@ Johnson Matthey, Umicore).
 rock-salt cathode); `hxm-bat-anode-li-metal-001` — see [NOVEL.md §4.A.5](../NOVEL.md)
 (50 µm Li-foil anode on 3D Cu host); `hxm-h2-elec-iro2-doped-001` — see
 [NOVEL.md §4.B.1](../NOVEL.md) (Ir-Ru oxide OER PEM electrocatalyst,
-electrocatalysis sub-section). All three UNPROVEN at commodity scale; raw#10 C3 —
 proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to
 EXTERNAL-VERIFIED. This verb is the material-layer authority for all three
 chemistries; cell engineering boundary → `hexa-energy` per CROSS_LINK §3.3.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-bat-cath-naion-001` — see [NOVEL.md §4.A.1](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Vacancy-controlled Na₂Fe[Fe(CN)₆] Prussian-blue Na-ion cathode (Goodenough-lineage chemistry + Faradion / CATL / HiNa Battery / Altris commercial baseline); low-T capacity retention ≥ 80 % @ -20 °C + self-discharge ≤ 5 %/mo is the material-layer chemistry — cell engineering → `hexa-energy` per CROSS_LINK §3.3. Water-content sensitivity + vacancy formation during synthesis UNVERIFIED at commodity-scale citrate process.
 
 ---
 

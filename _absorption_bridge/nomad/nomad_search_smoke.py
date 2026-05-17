@@ -24,7 +24,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to NOMAD records.
 It only validates schema + passes through. Records are multi-code DFT
 PREDICTIONS, not measurements.
 
@@ -183,7 +182,6 @@ def _selftest() -> int:
     # per bridge rule #4 ("predictions ≠ measurements").
     print(
         f"  NOTE: program_name={program!r} — "
-        "DFT PREDICTION (raw#10 C3: no lattice-fit applied; FAIR-data archive "
         "preserves originating-code provenance for downstream consumers)"
     )
     print(

@@ -62,7 +62,6 @@
   (commercial NNP). Many AFLOW entries are prototype substitutions —
   hypothetical compounds whose elemental decoration was swapped onto a
   known crystal prototype, then relaxed. Most have NEVER been synthesized.
-- **raw#10 C3**: no n=6 lattice-fit on AFLOW records. AFLOW Standard
   parameters (ENCUT, k-point density, smearing) are documented per-record
   in the entry metadata; those are the authoritative numerical-convergence
   bars.
@@ -72,7 +71,6 @@
   choices, and DFT-functional choices — they are signal, not noise.
 - **PBE band gaps under-predict by 30–50%**. The `egap_eV` field is exposed
   but the bridge does NOT apply scissor corrections (that would violate
-  raw#10 C3 by re-deriving entity-published numbers).
 - The adapter's selftest is **offline fixture replay only**. Live REST hits
   are gated behind explicit `--auid` runtime use.
 

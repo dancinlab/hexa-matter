@@ -13,7 +13,6 @@ in addition to energy/force/stress).
 The adapter validates input-structure schema offline and SKIPs live forward
 when `chgnet` is missing.
 
-raw#10 C3: no n=6 lattice-fit on CHGNet outputs. CHGNet carries its OWN
 published force MAE (Deng et al. 2023 Nat. Mach. Intell.).
 
 Optional dep: chgnet (`pip install chgnet`)

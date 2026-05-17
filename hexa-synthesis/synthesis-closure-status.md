@@ -58,7 +58,6 @@ When `selftest/synthesis_route_audit.py` lands:
 1. Parse `synthesis/synthesis.md` (or `MATERIAL-SYNTHESIS.md`) for route taxonomy.
 2. Cross-check that each Phase D verb's synthesis route is documented.
 3. For powder-bed printing, verify L11 Hales 0.7405 is referenced as HARD wall.
-4. Confirm no n=6 lattice arithmetic applied to vendor / route data (raw#10 C3).
 
 When `selftest/hales_packing_regression.py` lands (Phase B):
 1. Numerical FCC/HCP packing fraction → 0.7405 ± 1e-6.

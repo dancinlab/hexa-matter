@@ -24,7 +24,6 @@ not own a mass-spec readout; vendor data (Wacker / GCL / Hemlock) carries
 that layer. We only validate that the spec's nN ↔ ppba arithmetic is
 internally self-consistent.
 
-raw#10 C3: this module does NOT apply n=6 lattice formulas to vendor purity
 data. It is purely the arithmetic identity nN ↔ ppba.
 
 License: MIT (hexa-matter Phase E).

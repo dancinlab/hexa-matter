@@ -121,7 +121,6 @@ Selftests are:
 Modules in this bridge **must NOT**:
 
 1. Compute n=6 lattice properties on vendor / NIST / external data
-   (`raw#10 C3` — enforced by `selftest/lattice_fit_on_external_entities_audit.py`).
 2. Claim measurements the repo does not own (`SPEC_FIRST` verdict).
 3. Disguise mocked compute as real (`NO MOCKED FUNCTIONALITY` rule).
 4. Make network calls during `--selftest` (offline / sandboxed).

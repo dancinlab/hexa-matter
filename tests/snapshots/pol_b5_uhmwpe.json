@@ -29,7 +29,6 @@
     "path": "tire_cord/tire_cord.md",
     "line_hint": "UHMWPE high-tenacity fiber cross-reference"
   },
-  "provenance_note": "DSM Dyneema vendor authority; raw#10 C3 — vendor datasheet flows verbatim, NO n=6 lattice-fit applied",
   "unproven": false,
   "accessed": "2026-05-13",
   "n6_lattice_fit_applied": false

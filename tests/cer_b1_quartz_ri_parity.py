@@ -10,7 +10,6 @@ at lambda = 589.3 nm Na-D line, 25 C, ordinary ray. Sosman 1927 / Frondel
 Parity: glass/hexa-glass.md F-GL-Q4 row ↔
 tests/snapshots/cer_b1_quartz_ri.json. Tolerance: abs 0.003.
 
-raw#10 C3: NIST SRM value verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B1_QUARTZ_RI__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     expected = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

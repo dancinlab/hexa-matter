@@ -25,7 +25,6 @@ verdict_basis: vendor-published numbers (RHI Magnesita, Vesuvius, Imerys, Saint-
 > attack + thermal-shock loop + creep budget** — not by single-property
 > maximization.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** refractory performance
 > (PCE, service-T, creep, slag/glass corrosion, thermal-shock cycles)
 > is set by **mineralogical phase + bond system + open porosity +
 > chemical compatibility with the contained melt** — **not by the n=6
@@ -114,7 +113,6 @@ service-T is 1200–1300 °C continuous; polycrystalline wool (Saffil
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global refractory production is large, low-margin, regional. Total
 2023 global market ~ 28 Mt and ~ $30B USD revenue (industry reports —

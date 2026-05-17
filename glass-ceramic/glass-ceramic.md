@@ -21,7 +21,6 @@ verdict_basis: vendor-published numbers (Corning, Schott, Eurokera, Owens-Illino
 > dental restorations (IPS e.max). Optical-glass parent stock cross-links
 > to `glass/`; structural-ceramic post-process cross-links to `ceramics/`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** glass-ceramic properties
 > (near-zero CTE in LAS, machinability in MAS, transparency window in
 > mullite glass-ceramic) are set by **nucleation-and-growth kinetics +
 > residual-glass composition** — **not by the n=6 lattice**.
@@ -95,7 +94,6 @@ sub-1 m² typical.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global glass-ceramic production focuses on cookware (CERAN/EuroKera),
 optical (Zerodur, NEXTREMA), and dental restorations (IPS e.max).

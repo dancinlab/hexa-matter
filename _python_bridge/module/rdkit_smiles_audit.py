@@ -11,7 +11,6 @@ Phase E: this is the chemistry arm of the bridge. It validates that the
 SMILES literals embedded in POL/adhesive/biodegradable spec docs parse
 correctly and canonicalize stably.
 
-raw#10 C3: this module does NOT apply n=6 lattice formulas to vendor
 chemical-structure databases. SMILES → canonical SMILES is pure structural
 identity.
 

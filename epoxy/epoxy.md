@@ -454,7 +454,6 @@ This section covers references for the domain. Initial scaffold content — expa
 
 ## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
 
-Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
 entries above are number-theoretic self-consistency probes only. The
 engineering falsifiers below are the ones that retire the corresponding
 *epoxy / thermoset* claim on measurement.

@@ -9,7 +9,6 @@ Anchor: ASM Engineered Materials Handbook vol. 2 (Engineering Plastics,
 Parity: POLYMER-CHEMISTRY.md §3.2 'Nylon-6,6 | 50-65 | 265' row ↔
 tests/snapshots/pol_b4_nylon66_tg_tm.json. Tolerance: Tg +/- 5 C, Tm +/- 3 C.
 
-raw#10 C3: ASM/CRC published values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __POL_B4_NYLON66_TG_TM__ PASS sentinel.
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_tg_lo = float(snap["claim"]["Tg_C_range_min"])
     src_tg_hi = float(snap["claim"]["Tg_C_range_max"])

@@ -6,7 +6,6 @@ tests/cer_b8_si_thermal_donor_parity.py — Phase I.2 gate B-CER-8.
 Anchor: Kaiser & Frisch 1958 Phys. Rev. 112, 1546 + SEMI MF1188 (Bullis
 1995) — CZ Si thermal-donor [TD] = 10^15 to 10^16 cm^-3 after 450 C / 1 h.
 
-raw#10 C3: academic + SEMI consortium values verbatim; no n=6 lattice-fit.
 SPEC_FIRST: parity gate, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B8_SI_THERMAL_DONOR__ PASS.
@@ -29,7 +28,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     lo, hi = snap["claim"]["value_range"]
     tol_log = float(snap["tolerance"]["log10_abs"])

@@ -18,7 +18,6 @@ Honest C3 (per INIT.md Phase G hard rule):
   - For an open-source alternative at $0 license cost, see
     `_absorption_bridge/universal_ff/{mace_call,schnet_call,m3gnet_call,...}.py`.
 
-raw#10 C3: no n=6 lattice-fit on Matlantis outputs. PFP carries its OWN
 published force MAE (~30 meV/Å on the benchmark suite).
 
 License: MIT (hexa-matter Phase G adapter; the Matlantis SaaS itself is

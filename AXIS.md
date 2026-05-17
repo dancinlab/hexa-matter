@@ -8,7 +8,6 @@
 > **Sibling**: `AXIS_CLOSURE_PLAN.md` (per-group closure roadmap with (a)/(b)/(c) categories)
 > **Companion**: `LIMIT_BREAKTHROUGH.md` (Wave M real-limits audit)
 >
-> **honest C3 (raw#10)**: this file documents the *taxonomy* of the 36 verbs
 > into 7 material groups. The n=6 invariant lattice is **auxiliary** here —
 > the real grouping criteria are bond character, processing route, and
 > end-product class (ASM/Ashby/MatWeb tradition). Per `LATTICE_POLICY.md
@@ -203,7 +202,6 @@ Phase D candidates: pigment chemistry, mordant-dyeing, natural-dye revival, indi
 
 The reason silicon was the **17th** rather than the 5th verb is that for most of v1.0.0's gestation, silicon was assumed to live entirely in `hexa-chip`. The 2026-05-13 audit (LIMIT_BREAKTHROUGH Wave M follow-up) surfaced that the *material layer* of Si — purity ceiling, ingot dimension, vendor tonnage, SiO₂ cross-link to glass, SiC cross-link to ceramics — has no natural home in the chip-design substrate. So it was added here.
 
-**The cross-link discipline (raw#10 C3)** is the deal that holds the boundary:
 
 - `hexa-chip` owns the device + fab process (lithography, transistor, EUV resist, fab capacity)
 - `hexa-matter/silicon/` owns the material aspect (purity grades, dimensional ceilings, vendor tonnage, SiO₂/SiC/SiN cross-links)
@@ -249,7 +247,6 @@ We do not run Bayesian σ-match audits on the 7 groups. Material parameters (T_m
 
 ## §11 Phase B-G preview (queued, NOT in this Phase A doc set)
 
-- **Phase B** — selftest gates: per-group spec-presence + per-verb cross-link sanity (vendor numbers carry no lattice fit per raw#10 C3)
 - **Phase C** — per-group depth dirs (`silicon/`, `microplastics/` already exist; phase C adds `superalloy/`, `2d-materials/`, etc.)
 - **Phase D** — new verbs: elastomer, compound-semi (GaN, SiC, GaAs full chapter), perovskite, 2D-materials, adhesive, magnetic-materials, MOF, liquid-crystal, biodegradable-plastics, wood-cellulose
 - **Phase E** — Python bridge `_python_bridge/module/` (Hales-anchored packing calculator, Frenkel-anchored σ_th calculator)

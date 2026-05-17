@@ -6,7 +6,6 @@ tests/pol_b5_uhmwpe_parity.py — Phase I.2 gate B-POL-5.
 Anchor: DSM Dyneema SK99 datasheet 2019 — UHMWPE fiber sigma_t 3.9 GPa,
 E 132 GPa, rho 0.97 g/cm^3 per ASTM D885.
 
-raw#10 C3: DSM vendor datasheet verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: parity gate.
 
 stdlib only; --selftest exits 0 with __POL_B5_UHMWPE__ PASS.
@@ -28,7 +27,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     vals = snap["claim"]["values"]
     sigma_t = float(vals["sigma_t_GPa"])

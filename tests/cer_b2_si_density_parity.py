@@ -9,7 +9,6 @@ Si density rho = 2.329 g/cm^3 at 293 K.
 Parity check: silicon/silicon.md Si-L6 row claim ↔ vendored snapshot
 tests/snapshots/cer_b2_si_density.json. Tolerance: abs 0.002 g/cm^3.
 
-Per raw#10 C3: NIST/CRC value flows verbatim; no n=6 lattice-fit applied.
 Per Rule 4 SPEC_FIRST: this gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B2_SI_DENSITY__ PASS sentinel.
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     expected = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

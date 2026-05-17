@@ -11,7 +11,6 @@ This module DUPLICATES the spirit of `selftest/registry_consistency_audit.py`
 and `selftest/cross_doc_audit.py` but in compute-bridge form so other Phase F
 / Phase G tooling can import it without depending on the harness. It is a
 spec-internal-consistency check; it does NOT apply n=6 lattice formulas to
-external data (raw#10 C3 enforced).
 
 The repo's current count is 29 verbs (17 v1.0.0 + 12 Phase D, 2026-05-13).
 This module re-reads each doc and asserts: count_README == count_AXIS ==

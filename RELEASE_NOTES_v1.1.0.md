@@ -64,7 +64,6 @@ From `silicon/silicon.md §2`:
 
 ### Honest C3 — no lattice fit on external entities
 
-Per `silicon/silicon.md §3 vendor` (raw#10 C3 discipline):
 
 > Polysilicon global production (electronic + solar grade combined), as of
 > the most recent public reporting. Numbers are vendor / market-research
@@ -92,7 +91,6 @@ Commits:
 - `e7b1859 docs(agents): register LATTICE_POLICY.md in AGENTS.md (Wave K2)`
 - `919dc36 docs(agents): confirm LIMIT_BREAKTHROUGH.md in AGENTS.md (Wave K3)`
 
-Effect: the dancinlab-wide LATTICE_POLICY became the authoritative verification policy. n=6 lattice → tool, not constraint. raw#10 C3 honesty obligation on external entities.
 
 ### Wave M — LIMIT_BREAKTHROUGH audit (2026-05-12)
 

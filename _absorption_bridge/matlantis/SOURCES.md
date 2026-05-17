@@ -33,7 +33,6 @@
 - **Economics claim**: NNP energy/force eval is orders of magnitude cheaper
   than DFT *per call*, but Matlantis subscription cost vs in-house GPU + open
   NNP (MACE, M3GNet, etc.) at hexa-matter throughput is **UNPROVEN**.
-- raw#10 C3: no n=6 lattice-fit applied to Matlantis outputs. PFP carries
   its OWN published error bars (force MAE ~30 meV/Å on their benchmark).
 
 ## Cross-link

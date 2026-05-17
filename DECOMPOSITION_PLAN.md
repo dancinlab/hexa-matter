@@ -150,7 +150,6 @@ These are the Phase D verbs **now landed** (17 + 12 = **29 verbs**). Each spec l
 
 ---
 
-## §4 Why n=6 lattice is auxiliary, not load-bearing (raw#10 C3)
 
 Per `LATTICE_POLICY.md §1.2 + §1.3`:
 
@@ -190,7 +189,6 @@ This is the right call. Trying to force hexa-bio-style σ(6)=12 claims onto mate
 | Phase | Scope | Status |
 |-------|-------|--------|
 | **A** | Infrastructure docs: AXIS · AXIS_CLOSURE_PLAN · CLOSURE_RESIDUAL_BACKLOG · DECOMPOSITION_PLAN · LESSONS · RELEASE_NOTES_v1.0.0 · RELEASE_NOTES_v1.1.0 · V1_2_0_HANDOFF · USER_ACTION_REQUIRED · IMPORTED_FROM_CANON | ✅ **COMPLETE 2026-05-13** |
-| **B** | Selftest gates: per-group spec-presence + per-verb cross-link sanity (raw#10 C3 — vendor numbers carry no lattice fit); B-CER-1..B-FAS-2 parity gates landing | Queued |
 | **C** | Per-group depth dirs (silicon/, microplastics/ already exist; phase C adds further depth on superalloy/ + 2d-materials/ chapters created by Phase D) | Partially overlapped with Phase D |
 | **D** | New verbs (12 landed): compound-semi, perovskite, 2d-materials, elastomer, adhesive, biodegradable-plastics, wood-cellulose, superalloy, magnetic-materials, mof, liquid-crystal, carbon | ✅ **COMPLETE 2026-05-13** (17 → 29) |
 | **E** | Python bridge `_python_bridge/module/` — Hales-anchored packing calc, Frenkel-anchored σ_th calc, mirror to hexa-bio pattern | Queued |
@@ -207,7 +205,6 @@ Phase A is **infrastructure only** — no code, no new verbs, no bridges. The ne
 
 2. **Lattice-fit temptation** — when adding Phase D verbs (target 12 new = 17 + 12 = 29), there will be temptation to round to 24 or 36 for n=6 aesthetics. We will resist. Engineering count wins.
 
-3. **External entity discipline** — when Phase F (research bridge) lands, vendor data (Wacker, Wolfspeed, DuPont, BASF) will flow in. The raw#10 C3 discipline — no lattice-fit on these — must be preserved. The `silicon/silicon.md` chapter sets the precedent: vendor tonnage tables in §3 vendor with explicit "this spec does not project these onto n=6 nor claim n=6 is implicated."
 
 4. **The 6 vs 7 visibility issue** — we have **7 groups** but project name says **n=6**. This is intentional and is now explicit in `AXIS.md §9` and this doc. The lattice is auxiliary; engineering wins.
 

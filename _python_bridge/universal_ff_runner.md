@@ -27,12 +27,9 @@ proxy-match falls inside the ±20 % relative tolerance.
 
 | Status tag       | Meaning                                                                                            | Promotes to EXTERNAL-VERIFIED? |
 |------------------|----------------------------------------------------------------------------------------------------|-------------------------------|
-| `SIM-NNP-PROXY`  | Predicted value **vendored** from peer-reviewed proxy literature; **no live computation**.         | ❌ (raw#10 C3)                |
-| `SIM-NNP`        | Universal-FF **actual local computation result**; optional dep installed; proxy match within ±20 %. | ❌ (raw#10 C3)                |
 
 Both are SIM tags. **Neither** crosses the EXTERNAL-VERIFIED boundary —
 that requires an attributed external-lab measurement on the candidate's
-chemistry (raw#10 C3 + `NOVEL.md §7` step 6).
 
 ---
 
@@ -51,7 +48,6 @@ official wheel (`pip install torch`) first.
 
 ---
 
-## raw#10 C3 boundary (LATTICE_POLICY §1.2/§1.3)
 
 Every record returned by `run_universal_ff()` carries:
 

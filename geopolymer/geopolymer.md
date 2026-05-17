@@ -21,7 +21,6 @@ verdict_basis: Davidovits original + ASTM C1157 + peer-reviewed literature + Wag
 > alternative**. CO₂-footprint and long-term-durability claims
 > UNVERIFIED at multi-decade in-service scale.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** geopolymer properties
 > (compressive strength, setting time, alkali-silica reaction
 > resistance, CO₂ intensity per ton binder) are set by **Si/Al ratio,
 > activator molarity, precursor reactivity, and curing schedule** —
@@ -108,7 +107,6 @@ in-situ verification is OPEN.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global geopolymer / alkali-activated-cement market is **< 1 %** of
 global cement market (~ 4 Gt/yr OPC). Growth driver: CO₂ regulation

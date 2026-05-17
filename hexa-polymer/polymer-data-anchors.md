@@ -34,7 +34,6 @@
 | 23 | Furukawa, Cordova, O'Keeffe, Yaghi 2013 | MOF design principles (cross to CER) | mof | (foundational) | 2026-05-13 |
 | 24 | Climeworks public DAC cost | $600-1000/t CO₂ amine-based | mof (DAC) | (vendor; magic-$100/t UNPROVEN) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (6-9, 14-15, 18-22, 24) carry vendor numbers AS-IS. No lattice fit.
 - CRC / ASM / ASTM / ISO rows (1-5, 10-13, 16-17, 23) are primary or standard refs.

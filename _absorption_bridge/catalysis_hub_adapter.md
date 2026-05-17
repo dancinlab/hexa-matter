@@ -77,7 +77,6 @@ adapters cache by `reaction_id`).
   or `measured`. This is the inverse-discipline mirror of the COD adapter
   and the strict-prediction sister of the NIMS MatNavi adapter's dual-mode
   tag.
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): reaction-energy /
   activation-energy values are DFT predictions with their own published
   error bars (BEEF-vdW adsorption-energy MAE ~0.1–0.2 eV vs experiment per
   Winther 2019; PBE looser). The adapter passes them through untouched.
@@ -99,7 +98,6 @@ adapters cache by `reaction_id`).
 - **Predicted-vs-experiment gap**: BEEF-vdW typical adsorption-energy MAE
   ~0.1–0.2 eV vs experiment; the adapter exposes the `xc_functional` field
   so downstream consumers can apply functional-specific corrections — but
-  the bridge does NOT apply them itself (would violate raw#10 C3 by
   re-deriving the entity's numbers).
 
 ## When this module SKIPs vs FAILs

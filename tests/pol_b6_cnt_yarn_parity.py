@@ -6,7 +6,6 @@ tests/pol_b6_cnt_yarn_parity.py — Phase I.2 gate B-POL-6.
 Anchor: Bai et al. 2018 Nat. Nanotechnol. 13, 589 (Tsinghua) — CNT
 macroscopic yarn sigma_t ~ 80 GPa at lab-mm gauge.
 
-raw#10 C3: Tsinghua / IBS / Rice + Teijin academic authority verbatim;
 no n=6 lattice-fit applied.
 
 UNPROVEN PRESERVATION (carbon/carbon.md, AGENTS.md hard constraints):
@@ -38,7 +37,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     if snap.get("unproven") is not True:
         print("FAIL: CNT yarn snapshot MUST carry unproven: true (lab-mm only)")

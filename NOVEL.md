@@ -7,7 +7,6 @@
 >
 > **SPEC_FIRST**: entries are design hypotheses, not measurements. Per
 > [`LATTICE_POLICY.md`](LATTICE_POLICY.md) §1.2/§1.3, real-limits-first.
-> Per raw#10 C3, no n=6 lattice-fit applied to external entities — vendor
 > producers use their own metrics.
 >
 > Created 2026-05-13 (Wave M + Phase A-G elevation). Sister-of-pattern:
@@ -89,15 +88,12 @@ Status tags:
 | `DESIGN`             | Composition + intended phase + target property written                        |
 | `SIM-DFT`            | DFT-level band structure / formation energy via pymatgen + MP comparison     |
 | `SIM-MD`             | MD relaxation (ASE / LAMMPS-handle) — structural stability check            |
-| `SIM-NNP-PROXY`      | Universal-FF predicted value vendored from peer-reviewed proxy literature; NO live computation; NOT measurement (raw#10 C3); status does NOT promote to EXTERNAL-VERIFIED |
-| `SIM-NNP`            | Universal-FF real local computation result via `_python_bridge/universal_ff_runner.py` (MACE / CHGNet / ALIGNN / SchNet / M3GNet); optional dep installed; SIM-NNP-PROXY proxy value matched within tolerance; status does NOT promote to EXTERNAL-VERIFIED (raw#10 C3) |
 | `SYNTH-ROUTE`        | Retrosynthesis path proposed (literature precedent or de-novo path)          |
 | `UNVERIFIED`         | Default state — Category (c) wet-lab verification not performed              |
 | `WET-LAB-PROPOSED`   | Synthesis bench parameters drafted; awaiting external partner                |
 | `EXTERNAL-VERIFIED`  | Out-of-repo measurement received — REQUIRES vendor / lab attribution         |
 | `FALSIFIED`          | Sim or external measurement contradicts design hypothesis — keep on disk     |
 
-**Honest constraint (raw#10 C3)**: status above `SIM-NNP` requires either
 (a) a real `_absorption_bridge` adapter call result hash, or (b) explicit
 external lab / vendor citation. A `hxm-*` entry CANNOT claim
 `EXTERNAL-VERIFIED` without an attributed measurement. Per
@@ -143,7 +139,6 @@ voltage decay (Manthiram 2020 review); Ni-rich (≥ 0.9 Ni) capacity-fade /
 gas-evolution UNVERIFIED at > 1000 cycles 1C; DRX disordered-rocksalt
 cation-mixing kinetics UNVERIFIED at full-cell; cell engineering (coating,
 calendering, electrolyte) belongs to `hexa-energy` per CROSS_LINK §3.3 —
-no cell-level cycle-life claim made here (raw#10 C3).
 
 ### 3.3 Solid electrolytes
 
@@ -172,24 +167,21 @@ LK-99 PV variants and HARD_WALL claims preserved
 
 | ID                    | class | target              | brief                          | status        | falsifier                             |
 |-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
-| `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe; **MP mp-555 (Fe₈N ≡ Fe₁₆N₂, I4/mmm, FM, E_hull=0.001 near-stable)** | SIM-DFT | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
-| `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc; MP mp-568382 (P6₃/mmc, FiM, E_hull=0.21 — DFT-metastable; LTP MnBi is a known applied phase) | DESIGN | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
-| `hxm-mag-tetra-001`   | mag   | tetrataenite (L1₀ FeNi) | meteoritic FeNi → terrestrial; **MP mp-2213 (FeNi P4/mmm L1₀, FM, E_hull=0 stable)** | SIM-DFT | F-MAG-3: ordered phase fraction < 50% → FAIL |
-| `hxm-mag-boride-001`  | mag   | (FeCoNiMnCr)₂B C16 boride | C16 = I4/mcm CuAl₂-type; named film (FeCoNiMn)₂B a=5.05/c=4.25 Å; Fe/Co flips easy-plane→easy-axis (x=0.3 K₁≈410 kJ/m³); DFT K~1 MJ/m³; **thin-film** — Beeson·Yin·Liu, Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
+| `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
+| `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
+| `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
+| `hxm-mag-boride-001`  | mag   | Beeson C16 high-entropy boride | quinary 3d-TM boride, C16 phase; Fe/Co sublattice mixing flips easy-plane→easy-axis, >2× coercivity vs binary/ternary; **thin-film** (combinatorial sputter) — Beeson et al., Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
 | `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 (pred Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K); **MP mp-20664 confirms P4/nmm tetragonal, FM ordering, E_hull=0 (stable), M=15.16 μB** | SIM-DFT | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
-| `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free; **MP mp-771 (MnAl P4/mmm, FM, E_hull=0 stable)** — C is a minor τ-stabilizing dopant | SIM-DFT | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
-| `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite; MP mp-3742 (P6₃/mmc, FM, E_hull=0.072 — DFT-metastable for this oxide; real M-type is commercially stable) | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
-| `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) ≤50% baseline, GB-engineered; **base Nd₂Fe₁₄B MP mp-5182 (P4₂/mnm, FiM, E_hull=0.001)** — Ce/La substitution itself stays design | SIM-DFT | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
+| `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free | DESIGN | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
+| `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
+| `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) content ≤50% of baseline, GB-engineered | DESIGN | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
 | `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM (pred Tc ≈ 1000-1070 K, 3-model); **MP mp-22300 confirms Fm-3m full Heusler, FM ordering, E_hull=0 (stable), M=6.0 μB** | SIM-DFT | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
-| `hxm-mag-gfcs-001`    | mag   | Ga₃Fe₄Co₈Si         | NEMAD Table 4 **highest-Tc** REE-free FM (pred Tc ≈ 1010-1150 K, 3-model); **MP mp-1225352 (R-3m, FM, E_hull=0 stable)** | SIM-DFT | F-MAG-10: experimentally-measured Tc < 700 K OR not single-phase synthesizable → FAIL |
-| `hxm-mag-znfe-001`    | mag   | ZnFe tetragonal     | arxiv:2507.01849 top-10 (pred Ms=1.15 T, κ=0.85); MP mp-1215473 (P4/mmm, FM, E_hull=0.023 — DFT-metastable) | DESIGN | F-MAG-11: measured κ < 0.5 OR not single-phase synthesizable → FAIL |
 
 All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
 Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
-published numbers govern (raw#10 C3).
 
 **Sim handles (2026-05-17)**: `hxm-mag-mn2sb-001` ↔ Materials Project
-`mp-20664` (P4/nmm tetragonal, FM, E_hull=0, M=15.16 μB) — the
+`mp-20664` (P4/nmm tetragonal, FM, E_hull=0, M=15.16 μB) — note the
 arxiv:2507.01849 "Mn₂Sb tetragonal" candidate matches the P4/nmm polymorph,
 NOT the metastable `mp-6912` (P6₃/mmc) or `mp-1008875` (F-43m). `hxm-mag-aifound-001`
 ↔ MP `mp-22300` (Fm-3m full Heusler, FM, E_hull=0, M=6.0 μB). Retrieved via
@@ -200,29 +192,8 @@ version conflict on Python 3.9 (`SymmetryUndeterminedError` import failure).
 energy only** — Tc and (BH)max remain UNVERIFIED: MP carries no Curie
 temperature, and the Tc figures cited above are ML-regressed (NEMAD) or
 separate-DFT (arxiv:2507.01849) predictions, NOT measurements (per @F f2 /
-g3). `hxm-mag-boride-001` stays DESIGN: web deep-research (2026-05-17) resolved
-the Beeson C16 composition — quinary (FeCoNiMnCr)₂B, C16 = I4/mcm CuAl₂-type,
-named film (FeCoNiMn)₂B (a=5.05, c=4.25 Å). MP confirms the C16 endmembers
-(Fe₂B `mp-1915` I4/mcm FM E_hull=0; Co₂B `mp-493` I4/mcm FM; Ni₂B `mp-2536`
-I4/mcm NM; Mn₂B `mp-20318` I4/mcm AFM), but the disordered quinary
-high-entropy composition has no single MP record — so boride-001 cannot
-promote to SIM-DFT without an ordered approximant or a direct DFT run.
-
-**Sim handles — §3.5 full sweep (2026-05-18)**: additional MP cross-refs
-via the stdlib-REST `--formula` path. Promoted DESIGN → SIM-DFT (MP record
-with E_hull ≤ 0.01 eV/atom, magnetic ordering confirmed): `refree-001`
-↔ `mp-555` (Fe₈N≡Fe₁₆N₂, I4/mmm, FM, E_hull=0.001); `tetra-001` ↔ `mp-2213`
-(FeNi L1₀ P4/mmm, FM, E_hull=0); `mnalc-001` ↔ `mp-771` (MnAl P4/mmm, FM,
-E_hull=0); `lowdy-001` ↔ `mp-5182` (base Nd₂Fe₁₄B P4₂/mnm, FiM, E_hull=0.001
-— the Ce/La substitution itself is unverified design); plus new
-`gfcs-001` ↔ `mp-1225352` (Ga₃Fe₄Co₈Si R-3m, FM, E_hull=0 — NEMAD
-highest-Tc). Kept DESIGN (MP record metastable, E_hull > 0.01): `ferrhd-001`
-`mp-3742` (0.072 — note: DFT over-penalises this oxide; the real M-type
-ferrite is a commercial-stable applied magnet), `mnbi-001` `mp-568382`
-(0.21), new `znfe-001` `mp-1215473` (0.023). `boride-001` stays DESIGN
-(disordered quinary, no single MP record). Promotion threshold (E_hull ≤
-0.01) is a structural-stability proxy, NOT a property measurement — Tc /
-(BH)max / Hc remain UNVERIFIED for every entry (@F f2 / g3).
+g3). `hxm-mag-boride-001` stays DESIGN — Beeson C16 exact quinary composition
+is not public, so no MP cross-reference is possible.
 
 ### 3.6 High-Entropy Alloys (HEA)
 
@@ -385,7 +356,6 @@ empirical curves, not lab-replicated here). Status DESIGN.
 specific PHA grades carry D7081); chitin filler dispersion may collapse
 to micro-agglomerates above 5 wt%; melt-processing window narrows;
 mass-balance vs. additive leaching UNVERIFIED. NatureWorks PLA / Danimer
-PHA vendor authority preserved (raw#10 C3).
 
 ### 3.17 Liquid-metal alloys (room-T gallium-based)
 
@@ -432,7 +402,6 @@ keeping ≤ 30 mV degradation after 30 k AST cycles (0.6–1.0 V, O₂).
 Vendor / lab authority: Zelenay group (LANL), Wu group (UB), Pivovar
 (NREL), Atanassov (UC Irvine), Dodelet (INRS, pioneering Fe-N-C corpus
 since 2009 Science) — their published EXAFS / Mössbauer / RDE data
-govern (raw#10 C3, NOT lattice-fit). Status DESIGN.
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
 |--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
@@ -458,7 +427,6 @@ fatigue degrades P_r by > 30%. Vendor / lab authority: Böscke (NaMLab/
 Dresden 2011, original HZO ferroelectric discovery), Mikolajick group
 (NaMLab/TU Dresden), Tsinghua HfZrO ferroelectric memory group,
 GlobalFoundries 22FDX FeFET, Ferroelectric Memory Company (FMC) —
-their published P-E loops + retention numbers govern (raw#10 C3).
 Status DESIGN.
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
@@ -488,7 +456,6 @@ retraction/reanalysis cycles 2016–2021). Lab authority: Kanatzidis
 group (Northwestern), Zhao/Tian-Xiang SnSe group (SUSTech / Beihang),
 Snyder group (Northwestern), Pei group (Tongji), Wuttig group (Aachen)
 — their published ZT(T) curves with explicit κ_lat ± error bars govern
-(raw#10 C3). Status DESIGN.
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
 |--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
@@ -515,7 +482,6 @@ up to 10 bar (CO₂/CH₄ selectivity loss < 20%). Vendor / lab authority:
 KAUST advanced membranes group (Pinnau, Han, Lai), MTR Inc. (Membrane
 Technology and Research) polyimide membranes, Air Products /
 Helmholtz-Zentrum Geesthacht MMM corpus, Sandia ZIF-8 membrane group
-— their published Robeson-plot positions govern (raw#10 C3).
 Status DESIGN.
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
@@ -544,7 +510,6 @@ contrast ≥ 1%. Lab authority: Awschalom group (U. Chicago / Argonne
 QIS center) — original V_Si⁻ qubit demonstrations in 4H-SiC at room
 temperature 2015 Nat. Mater.; Wrachtrup group (Stuttgart) — NV-center
 comparison; Son/Janzen group (Linköping) for SiC growth; STMicro and
-Coherent (II-VI) for commercial 4H-SiC wafer authority (raw#10 C3).
 Status DESIGN.
 
 | ID                       | class | target              | brief                          | status   | falsifier                             |
@@ -574,7 +539,6 @@ STMicro / Infineon / ROHM scale).
 Round-3 expansion per [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md) §3. Each
 candidate ships at status `DESIGN` with a quantitative falsifier and a
 risk-flags paragraph (per `selftest/cross_link_integrity_audit.py` B1–B4
-invariants). raw#10 C3 honored — no n=6 lattice-fit on vendor / lab
 numbers; vendor citations verbatim; UNPROVEN markers preserved.
 Sister-domain hand-offs annotated where the cell-engineering /
 device-integration layer belongs to a sister substrate (per
@@ -608,10 +572,7 @@ Status DESIGN.
 2020 review — oxygen redox is intrinsic to high-cap DRX); Mn dissolution
 UNVERIFIED at extended cycling above 4.4 V; cation-mixing kinetics
 UNVERIFIED at full-cell; cell engineering belongs to hexa-energy per
-CROSS_LINK §3.3. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13**
 — predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-bat-cath-drx-001.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
-CROSS_LINK §3.3. raw#10 C3 honored.
 **Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
 #### 4.A.2 S-PAN Li-S cathode
@@ -631,7 +592,6 @@ Status DESIGN.
 eliminated, by covalent-S architecture); Li-metal anode coupling
 UNVERIFIED at ≥ 500 cycles (pairs with `hxm-bat-anode-li-metal-001`
 SEI HARD_WALL); electrolyte volume / E/S ratio at cell scale UNVERIFIED;
-cell engineering → hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.3 Na₂FeFe(CN)₆ Prussian-blue Na-ion cathode
 
@@ -650,9 +610,7 @@ Status DESIGN.
 **Risk-flags**: water-content sensitivity UNVERIFIED at production
 (zeolitic water leads to capacity fade); vacancy formation HARD_WALL
 during synthesis (Fe(CN)₆⁴⁻ release); commodity-scale citrate process
-UNVERIFIED. Cell engineering → hexa-energy per CROSS_LINK §3.3. raw#10
 C3 honored.
-**SIM-NNP-PROXY status 2026-05-14** — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-bat-cath-naion-001.json`](_absorption_bridge/universal_ff/predictions/hxm-bat-cath-naion-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **Verb spec link** (Tier-2, `hxm-bat-cath-naion-001`): see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for vacancy-controlled Na-PBA cathode chemistry (Na₂Fe[Fe(CN)₆] Prussian-blue; Faradion / CATL Na-ion commercial baseline preserved; cell engineering → hexa-energy per CROSS_LINK §3.3).
 
 #### 4.A.4 K-Mn-Fe Prussian-blue K-ion cathode
@@ -672,7 +630,6 @@ Status DESIGN.
 HARD_WALL on structural strain; humidity stability UNVERIFIED (PBA
 ambient water uptake degrades K-ion plateau); electrolyte chemistry
 UNVERIFIED at full-cell scale. Cell engineering → hexa-energy per
-CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.5 50 µm Li-foil anode on 3D Cu current collector
 
@@ -693,10 +650,8 @@ dominant failure mode in carbonate electrolyte (Xu 2014 + Cui 2017
 reviews); commercial cell engineering belongs to hexa-energy per
 CROSS_LINK §3.3 (cycling protocol / stack pressure / separator /
 electrolyte volume all out-of-repo); full-cell vs half-cell CE gap
-typically 1–2% — falsifier targets full-cell evidence. raw#10 C3
 honored. **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored
 as `_absorption_bridge/universal_ff/predictions/hxm-bat-anode-li-metal-001.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 honored.
 **Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) — material-layer authority for this candidate's chemistry.
 
@@ -718,7 +673,6 @@ Status DESIGN.
 (food-grade sucrose lot-to-lot variability changes pore microstructure);
 Na⁺ low-voltage plateau width UNVERIFIED across batches; SEI formation
 on hard carbon consumes 15–25% Na inventory typically. Cell engineering
-→ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.7 TiNb₂O₇ Wadsley-Roth fast-charge anode
 
@@ -737,7 +691,6 @@ Status DESIGN.
 a poor electronic conductor (10⁻⁹ S/cm); Ti⁴⁺ → Ti³⁺ reduction
 introduces site-disorder at deep DOD; Nb supply geopolitical concentration
 UNVERIFIED at commodity scale (CBMM Brazil ~ 85% Nb supply). Cell
-engineering → hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.8 Li₁₀GeP₂S₁₂ (LGPS) thiophosphate solid electrolyte
 
@@ -757,7 +710,6 @@ hydrolyze at ambient RH > 10%); Ge cost UNVERIFIED at scale (Ge is
 co-product of Zn smelting, supply ~ 130 t/yr global); Li-metal interface
 forms Li-Ge alloy → SEI growth at deep cycling UNVERIFIED; dry-room
 processing cost adder. Cell engineering → hexa-energy per CROSS_LINK
-§3.3. raw#10 C3 honored.
 
 #### 4.A.9 Li₆PS₅Cl argyrodite variant solid electrolyte
 
@@ -780,7 +732,6 @@ cathode oxidation interface UNVERIFIED above 4.0 V (argyrodite anodic
 window narrower than halide-SE); Li-metal compatibility UNVERIFIED at
 ≥ 500 deep cycles; wet-chemical scale-up UNVERIFIED (mainstream is
 solid-state milling). Cell engineering → hexa-energy per CROSS_LINK
-§3.3. raw#10 C3 honored.
 
 #### 4.A.10 Li₃YCl₆ halide solid electrolyte variant
 
@@ -802,7 +753,6 @@ at Li-metal interface (typical reduction onset ~ 0.6 V vs Li); Y supply
 not a bottleneck but separation cost UNVERIFIED at battery-grade purity;
 moisture sensitivity SOFT_WALL (less aggressive than sulfide but still
 requires dry-room). Cell engineering → hexa-energy per CROSS_LINK §3.3.
-raw#10 C3 honored.
 
 #### 4.A.11 Perovskite-Si 2T tandem photovoltaic (32% target)
 
@@ -825,10 +775,7 @@ HARD_WALL under operating light (Hoke effect); SAM contact ageing
 UNVERIFIED at 25-yr field deployment (25-yr lifetime UNPROVEN for any
 perovskite cell at commodity scale); Pb halide migration to encapsulant
 HARD_WALL on environmental regulation; module-level CTM ratio loss
-UNVERIFIED. raw#10 C3 honored. **SIM-NNP-PROXY status 2026-05-13** —
 predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-pv-tandem-002.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
-UNVERIFIED. raw#10 C3 honored.
 **Verb spec link**: see [`perovskite/perovskite.md`](perovskite/perovskite.md) (primary — top-cell perovskite material layer) and [`silicon/silicon.md`](silicon/silicon.md) (Si bottom-cell substrate, 1.12 eV E_g) — material-layer authorities for this candidate's chemistry.
 
 #### 4.A.12 All-perovskite 4T tandem photovoltaic (29% target)
@@ -849,7 +796,6 @@ Status DESIGN.
 perovskite is the dominant Achilles' heel of all-perovskite tandems
 (Sn²⁺ oxidizes at trace O₂/H₂O even with SnF₂); Pb halide migration
 HARD_WALL on encapsulation; 25-yr operational lifetime UNVERIFIED at
-commercial scale (preserved from §3.4). raw#10 C3 honored.
 
 #### 4.A.13 Cu₂ZnSn(S,Se)₄ kesterite thin-film photovoltaic
 
@@ -869,7 +815,6 @@ Status DESIGN.
 antisites with ~ 100 meV formation energy are intrinsic to kesterite
 crystal chemistry and pin V_oc; secondary phases (Cu₂SnSe₃, ZnSe)
 UNVERIFIED to fully suppress at scale; Se losses during selenization
-UNVERIFIED. raw#10 C3 honored.
 
 #### 4.A.14 Y6-class small-molecule organic photovoltaic
 
@@ -889,7 +834,6 @@ Status DESIGN.
 illumination (NFA bulk-heterojunction phase separation under thermal
 stress); encapsulation HARD_WALL required for any > 5 yr operation
 (O₂/H₂O permeation degrades NFA); large-area uniformity UNVERIFIED at
-> 100 cm². raw#10 C3 honored.
 
 #### 4.A.15 CdTe + Se grading thin-film photovoltaic
 
@@ -910,7 +854,6 @@ end-of-life handling adds cost; Cd toxicity UNPROVEN to be a
 field-deployment blocker (First Solar take-back programs handle it but
 geographic regulatory variance UNVERIFIED); Te supply (co-product of Cu
 refining, ~ 600 t/yr globally) UNVERIFIED at TW-scale deployment.
-raw#10 C3 honored.
 
 #### 4.A.16 (Ba,Sr)(Co,Fe)O₃ SOFC cathode @ 600 °C
 
@@ -932,7 +875,6 @@ Crofer-22-APU interconnect is the dominant degradation mode for
 Co-bearing SOFC cathodes (Hilpert 1996 thermochemistry); thermal cycling
 UNVERIFIED at ≥ 100 cycles (CTE mismatch BSCF vs YSZ); cell-level
 balance-of-plant integration → hexa-energy per CROSS_LINK §3.3.
-raw#10 C3 honored.
 
 #### 4.A.17 Poly(arylpiperidinium) AEM (PAP-TP)
 
@@ -954,7 +896,6 @@ alkaline stability but no AEM cation is HF-free indefinitely under
 0.1 M KOH; carbonate uptake from ambient CO₂ reduces σ_OH⁻ in real
 electrolyzer stacks; commercial scale UNVERIFIED at MEA level (lab
 samples ~ 25 cm², stacks UNVERIFIED). Cell engineering → hexa-energy
-per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.18 2,6-DHAQ + methyl-viologen organic redox flow
 
@@ -975,7 +916,6 @@ selective AEM mitigates but does not eliminate; pH window UNVERIFIED at
 extended operation (DHAQ disproportionation accelerates above pH 13);
 $/kWh parity to vanadium-flow UNVERIFIED at MW-scale (organic chemistry
 synthesis cost UNVERIFIED at 10 kt/yr); cell engineering / stack design
-→ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 4.A.19 Ti₃C₂T_x MXene supercapacitor electrode
 
@@ -996,7 +936,6 @@ C pathway accelerates above 60% RH (Gogotsi 2023 review surfaced via
 electrodes (> 100 µm loses accessible surface); HF-free etching route
 UNVERIFIED at gram scale (companion of §3.15 `hxm-mxene-ti3c2-001`
 risk-flags). Cell engineering → hexa-energy per CROSS_LINK §3.3.
-raw#10 C3 honored.
 
 ---
 
@@ -1006,7 +945,6 @@ raw#10 C3 honored.
 
 8 candidates spanning non-PGM ORR · CO₂ reduction · H₂ evolution /
 OER · N₂ reduction · photocatalysis. Vendor / lab anchors named
-verbatim per raw#10 C3 (no n=6 lattice-fit on Zelenay / Wu / Pivovar
 / Atanassov / Dodelet / Sargent / Buonsanti / Strasser / Markovic
 / Norskov / Nocera / Domen / Hutchings / Schlogl groups + Climeworks
 / Carbon Engineering vendor baselines).
@@ -1120,7 +1058,6 @@ to 0.1 mg/cm² is an active research target but NOT a closed milestone
 (Strasser 2023 Chem. Rev.); cell-level integration owned by
 `hexa-energy` per CROSS_LINK §3.3. **SIM-NNP-PROXY status 2026-05-13** —
 predicted value vendored as `_absorption_bridge/universal_ff/predictions/hxm-h2-elec-iro2-doped-001.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 `hexa-energy` per CROSS_LINK §3.3.
 **Verb spec link**: see [`electrode-material/electrode-material.md`](electrode-material/electrode-material.md) (electrocatalysis sub-section: EM-L15 IrO₂ OER + Pt-ORR anchors) — material-layer authority for this candidate's chemistry.
 
@@ -1175,7 +1112,6 @@ WATER SPLITTING SYSTEMS HAVE STH < 1% at 1-sun — this candidate's 5%
 #### 4.B.2 Thermoelectrics (extends §3.21 `hxm-thermo-snse-001`)
 
 4 candidates spanning half-Heusler · filled skutterudite · nano-BiSbTe
-· organic PEDOT:PSS. Vendor authority per raw#10 C3: **Marlow Industries
 / Ferrotec / European Thermodynamics** for Bi-Te commodity modules;
 **Phononic / Komatsu / Hi-Z** for TE modules; **Northwestern Kanatzidis
 group · Snyder group · Pei group (Tongji) · Wuttig group (Aachen)** for
@@ -1206,7 +1142,6 @@ module integration). half-Heusler MODULES NOT YET COMMERCIAL at any
 vendor as of 2026 — production-scale UNVERIFIED. **SIM-NNP-PROXY status
 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-te-half-zrnisn-001.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 vendor as of 2026 — production-scale UNVERIFIED.
 **Verb spec link**: see [`metallurgy/swordsmithing.md`](metallurgy/swordsmithing.md) — material-layer authority for this candidate's chemistry (ZrNiSn-based half-Heusler is an intermetallic / metallurgical material; the verb dir hosts the metallurgy spec).
 
@@ -1305,7 +1240,6 @@ encapsulation HARD_WALL (CaCl₂ brine on steel / aluminum); long-term
 phase-separation UNVERIFIED above 5000 cycles. Vendor authority: **PCM
 Products Ltd** (S27 product), **Rubitherm Technologies** (SP25 product),
 **Climator Sweden** (ClimSel C24) — their published cycle-life data
-governs (raw#10 C3, NOT lattice-fit).
 
 Hypothesis (`hxm-pcm-sugar-erythritol-001`): erythritol sugar-alcohol
 PCM for medium-T industrial thermal-energy storage (T_m ≈ 117 °C).
@@ -1337,7 +1271,6 @@ NOT marketed as PCM; PCM grade UNVERIFIED at supply); **Rubitherm RT82**
 vacuum insulated panel (VIP). Vendor authority: **3M (Cool Roof
 Coatings)**, **PPG Industries**, **Cabot Corp (fumed silica VIP cores)**,
 **Va-Q-tec (VIP panels)**, **Kingspan Insulation**, **Panasonic vacuum
-panel division** — their published performance baselines govern (raw#10
 C3, no n=6 lattice-fit on vendor data).
 
 Hypothesis (`hxm-rcc-paint-baso4-001`): BaSO₄ acrylic radiative-cooling
@@ -1398,7 +1331,6 @@ insulation (2). **Tier-1 promotion targets**: `hxm-te-half-zrnisn-001`
 and `hxm-h2-elec-iro2-doped-001` per [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md)
 §5 priority ranking. All entries `status: DESIGN`; quantitative
 falsifiers (F-tag + number + condition + pass/fail boundary) per row;
-risk-flags + vendor / lab authority preserved verbatim per raw#10 C3
 + SPEC_FIRST. HARD_WALL preservation: Ir scarcity · Cd toxicity
 regulatory · ambient NH₃ contamination — preserved verbatim. n=6
 lattice MUST NOT be applied to vendor / lab numbers
@@ -1414,7 +1346,6 @@ topological / Weyl / flat-band / time-domain metamaterials, LED / OLED /
 `status = DESIGN`, every falsifier is quantitative with an `F-<CODE>-N`
 tag, and every UNPROVEN / HARD_WALL marker (²⁸Si enrichment cost, skyrmion
 size, Pb halide migration) is preserved verbatim per
-[`LATTICE_POLICY.md`](LATTICE_POLICY.md) §1.2 / §1.3 + raw#10 C3. None of
 the §3.1–3.23 Round-1 / Round-2 rows are modified — overlap with §3.5
 (magnetic), §3.12 (topological), §3.20 (ferroelectric thin films) is
 deliberately landed as NEW `-002` / `-001` rows in §4.C, NOT by editing
@@ -1439,7 +1370,6 @@ Morello / Dzurak / Simmons lineage); **Wrachtrup-Stuttgart** for hBN
 VB⁻ and color-center metrology (also Toth / Aharonovich UTS); Sessoli
 (Florence) and van Slageren (Stuttgart) for VOPc / molecular qubits;
 isotopic ²⁸Si feedstock from Urenco / International Avogadro Project
-(raw#10 C3 — pricing not lattice-fit). Status DESIGN.
 
 | ID                          | class    | target              | brief                                                | status | falsifier                             |
 |-----------------------------|----------|---------------------|------------------------------------------------------|--------|---------------------------------------|
@@ -1461,8 +1391,6 @@ coverage. Device-layer integration (qubit array routing, on-chip
 microwave delivery) belongs to **hexa-chip** per CROSS_LINK §3.2 — this
 ledger owns the MATERIAL layer only.
 **Verb spec link** (Tier-2, `hxm-quantum-si-donor-001`): see [`silicon/silicon.md`](silicon/silicon.md) — material-layer authority for ²⁸Si-enriched host chemistry (isotope enrichment + ³¹P donor incorporation = Si material layer; qubit device integration → hexa-chip).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-quantum-si-donor-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-quantum-si-donor-001.json`](_absorption_bridge/universal_ff/predictions/hxm-quantum-si-donor-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-quantum-hbn-vb-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-quantum-hbn-vb-001.json`](_absorption_bridge/universal_ff/predictions/hxm-quantum-hbn-vb-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **Verb spec link** (Tier-2, `hxm-quantum-hbn-vb-001`): see [`2d-materials/2d-materials.md`](2d-materials/2d-materials.md) — material-layer authority for hBN V_B⁻ color-center chemistry (ion-irradiated CVD multilayer hBN; ODMR + Hahn-echo room-T metrology; isotope-control UNVERIFIED at wafer scale preserved verbatim).
 
 ### 4.C.2 Skyrmions / antiferromagnetic memory (Mn₁.₄PtSn, Mn₃Sn)
@@ -1477,7 +1405,6 @@ current-induced 180° switching at current density J_sw ≤ 100 mA/cm². Lab
 authority: Parkin group (Halle / IBM Almaden lineage, skyrmion-racetrack
 corpus 2016–2024); Nakatsuji / Otani (UTokyo / RIKEN) for Mn₃Sn
 anomalous-Hall + spin-Hall; Tokura (RIKEN CEMS) for skyrmion materials
-search; vendor MBE wafer supply from Veeco / Riber (raw#10 C3). Status DESIGN.
 
 | ID                    | class   | target              | brief                                                | status | falsifier                             |
 |-----------------------|---------|---------------------|------------------------------------------------------|--------|---------------------------------------|
@@ -1513,7 +1440,6 @@ INNOVENT for GGG-substrate epitaxy; Vacuumschmelze / Erbicol /
 Krüger-Mecatronic for LaFeSi magnetocaloric (UNVERIFIED at commodity
 scale); **PFEIFFER Vacuum / Tasso (TU Darmstadt)** for KNN piezo; Rödel
 (TU Darmstadt) for BNT-BT; Murata / TDK / NGK Spark Plug / PI Ceramic /
-Noliac for piezo commodity authority (raw#10 C3). Status DESIGN.
 
 | ID                    | class   | target              | brief                                                | status | falsifier                             |
 |-----------------------|---------|---------------------|------------------------------------------------------|--------|---------------------------------------|
@@ -1557,7 +1483,6 @@ Lab authority: Hasan / Bansil / Cava (Princeton) for TI / Weyl ARPES;
 Hsieh / Shen (Stanford / MIT) for Bi₂Se₃ ARPES; Jarillo-Herrero (MIT)
 + Andrei (Rutgers) for TBG superconductivity (Cao 2018 Nature); Engheta
 (UPenn) + Alù (CUNY Photonics) for time-domain metamaterials; Wolfspeed
-/ HRL for TaAs growth (raw#10 C3 — single-crystal Weyl-semimetal
 production is research-scale, not commodity). Status DESIGN.
 
 | ID                       | class    | target              | brief                                                | status | falsifier                             |
@@ -1584,9 +1509,6 @@ efficiency UNVERIFIED beyond proof-of-principle 2023–2025 reports;
 ITO-pump dispersion limits bandwidth. Device-layer integration belongs
 to **hexa-chip** per CROSS_LINK §3.2; none of these candidates claim
 RT-SC (per AGENTS.md A4 + `hexa-rtsc` boundary).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-weyl-tas-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json`](_absorption_bridge/universal_ff/predictions/hxm-weyl-tas-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-flatband-tbg-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json`](_absorption_bridge/universal_ff/predictions/hxm-flatband-tbg-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-tdmeta-photonic-001`) — Tier-3 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-tdmeta-photonic-001.json`](_absorption_bridge/universal_ff/predictions/hxm-tdmeta-photonic-001.json); falsifier_relation MARGINAL (target 10% / 100 GHz); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Time-modulated permittivity drive-power HARD_WALL** preserved verbatim.
 **Verb spec link** (Tier-2, `hxm-weyl-tas-001`): see [`compound-semi/compound-semi.md`](compound-semi/compound-semi.md) — material-layer authority for TaAs Weyl-semimetal compound chemistry (CVT single-crystal growth; Berry-curvature transport metrology; Majorana CONTESTED preserved verbatim per §3.12).
 **Verb spec link** (Tier-2, `hxm-flatband-tbg-001`): see [`2d-materials/2d-materials.md`](2d-materials/2d-materials.md) — material-layer authority for twisted bilayer graphene moiré-superlattice chemistry (hBN-encapsulated tear-and-stack assembly; magic-angle 1.05-1.10° flat-band; flat-band TBG twist-precision UNVERIFIED preserved verbatim).
 
@@ -1610,7 +1532,6 @@ LG Display / JDI / BOE / Visionox** for OLED display commodity; **Aledia
 / PlayNitride / VueReal / Mojo Vision / Plessey / Jade Bird Display**
 for micro-LED; **Crystal IS / Asahi Kasei / NS Nanotech / Bolb /
 Trinity Optech / RayVio / DOWA / SETi (Stanley)** for AlN deep-UV LEDs
-(raw#10 C3). Status DESIGN.
 
 | ID                              | class       | target              | brief                                                | status | falsifier                             |
 |---------------------------------|-------------|---------------------|------------------------------------------------------|--------|---------------------------------------|
@@ -1654,7 +1575,6 @@ Kikuchi (Tokyo Tech) for PS-BPLC; Bawendi (MIT) / Klimov (LANL) /
 **Nanoco / Nanosys / Quantum Solutions** for QD; **Saint-Gobain /
 SAGE Glass / View Inc. / ChromoGenics / Gentex** for electrochromic;
 **Castech / Cristal Laser / Eksma Optics / Newlight Photonics** for
-KNbO₃ nonlinear crystals (raw#10 C3). Status DESIGN.
 
 | ID                          | class      | target              | brief                                                | status | falsifier                             |
 |-----------------------------|------------|---------------------|------------------------------------------------------|--------|---------------------------------------|
@@ -1752,7 +1672,6 @@ UNVERIFIED for fine-equiax retention; production-scale SX casting
 yield to single-crystal grain selector belongs to Category (c)
 (Cannon-Muskegon / PCC Airfoils).
 **Verb spec link** (Tier-2, `hxm-ni-4gen-re-free-001`): see [`superalloy/superalloy.md`](superalloy/superalloy.md) — material-layer authority for Re-free 4th-gen SX chemistry (UNVERIFIED-at-parity marker preserved in superalloy.md).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-ni-4gen-re-free-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-ni-4gen-re-free-001.json`](_absorption_bridge/universal_ff/predictions/hxm-ni-4gen-re-free-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.3 Carbon fiber precursors (`cf-*`) — 2 candidates
 
@@ -1889,7 +1808,6 @@ HMC binder pH ~ 10–11 ⇒ rebar corrosion HARD_WALL ⇒ glass-fiber
 + basalt-fiber reinforcement (out-of-software, Category (c)).
 **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-cement-mgo-co2neg-001.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **Verb spec link**: see [`concrete_tech/concrete-technology.md`](concrete_tech/concrete-technology.md) — material-layer authority for this candidate's chemistry (novel binder chemistry home; distinct from `concrete/concrete.md` which anchors OPC mix-design F-CON-Q* falsifiers).
 
 #### 4.D.7 Foams + transparent armor — 2 candidates
@@ -2090,7 +2008,6 @@ ASTM D5511 industrial-compost certification UNVERIFIED at panel
 scale; freeze-drying scale-up beyond 30 cm × 30 cm panels
 UNVERIFIED.
 **Verb spec link** (Tier-2, `hxm-aero-polyimide-001`): see [`aerogel-foam/aerogel-foam.md`](aerogel-foam/aerogel-foam.md) — material-layer authority for polyimide aerogel chemistry (BPDA-PPDA / BPDA-ODA dianhydride-diamine route; supercritical-CO₂ drying; commodity-cost UNPROVEN preserved verbatim in aerogel-foam.md).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-aero-polyimide-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-aero-polyimide-001.json`](_absorption_bridge/universal_ff/predictions/hxm-aero-polyimide-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.13 MOFs (extends §3.7 `mof`) — 3 candidates
 
@@ -2138,7 +2055,6 @@ DAC system engineering (sorbent contactor, regen heat
 integration) → out-of-software / Category (c) (Climeworks /
 Carbon Engineering / Heirloom).
 **Verb spec link** (Tier-2, `hxm-mof-h2o-stable-uio66-001`): see [`mof/mof.md`](mof/mof.md) — material-layer authority for water-stable Zr₆-cluster UiO-66 chemistry (MOF-L12 UiO-66 water-stability anchor preserved verbatim; Cavka-Lillerud 2008 reference).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-mof-h2o-stable-uio66-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-mof-h2o-stable-uio66-001.json`](_absorption_bridge/universal_ff/predictions/hxm-mof-h2o-stable-uio66-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 
 #### 4.D.14 High-strength fiber (`fiber`) — 1 candidate
 
@@ -2184,7 +2100,6 @@ landed in a single section so the §3 ledger above stays a stable
 named-class catalog while Round-3 batches accumulate under §4 with a
 date-stamped boundary.
 
-Per [`LATTICE_POLICY.md`](LATTICE_POLICY.md) §1.2/§1.3 + raw#10 C3:
 - All entries `status = DESIGN`; falsifier is quantitative, threshold-
   based, measurement-attributable; vendor numbers govern at production
   (not the n=6 lattice).
@@ -2208,7 +2123,6 @@ polyester matrix) that targets osteoblast viability ≥ 90% with
 degradation < 20%/wk. Vendor / authority: Mo-Sci (45S5 medical-grade
 glass), NovaBone (45S5 putty), Aesculap (synthetic-bone scaffold),
 Pinnaclife (HA-PCL paste); Hench 1971 J. Biomed. Mater. Res. and ISO
-13779 (HA) / ISO 6872 (bioactive glass) govern (raw#10 C3). Clinical
 biocompatibility belongs to `hexa-bio` per
 [`CROSS_LINK.md`](CROSS_LINK.md) §3.4 — this candidate owns the
 MATERIAL only (composition, porosity, in-vitro mechanics).
@@ -2225,7 +2139,6 @@ target UNVERIFIED at lot-to-lot reproducibility; ion-release window
 phase-segregation at melt-mixing > 180 °C HARD_WALL; rat-femur model
 to human clinical efficacy is NOT a closed extrapolation; clinical
 trials + biocompatibility owned by `hexa-bio` per CROSS_LINK §3.4 —
-no clinical efficacy claim made here (raw#10 C3).
 
 ### 4.E.2 Implants (PEEK spinal · Y-TZP dental · Mg-Y-Nd dissolvable)
 
@@ -2239,7 +2152,6 @@ targets flexural σ ≥ 900 MPa AND survival of LTD-aging at 134 °C /
 (Syntellix MAGNEZIX, Biotronik AMS) targets full resorption in
 6–12 mo with gas-evolution ≤ 10 mL/cm³/wk. Standards: ASTM F2026 (PEEK
 medical), ISO 13356 (Y-TZP medical), ASTM F3160 (Mg orthopedic).
-Vendor numbers govern (raw#10 C3). Clinical efficacy belongs to
 `hexa-bio` per [`CROSS_LINK.md`](CROSS_LINK.md) §3.4.
 
 | ID                              | class    | target              | brief                                          | status   | falsifier                                                                                       |
@@ -2257,7 +2169,6 @@ PEEK creep at body temperature 37 °C UNVERIFIED beyond 10-yr clinical
 window. Mg-Y-Nd gas (H₂) evolution rate strongly bone-site-dependent —
 MAGNEZIX hand-screw evidence does NOT extrapolate to large weight-
 bearing devices. Clinical efficacy belongs to `hexa-bio` per
-CROSS_LINK §3.4 (raw#10 C3).
 
 ### 4.E.3 E-skin (graphene strain sensor · PVDF piezo pressure array)
 
@@ -2296,7 +2207,6 @@ F1537; vendors EOS CobaltChrome SP2 / SLM Solutions / 3D Systems
 LaserForm) at density ≥ 99.7% with fatigue 10⁷ @ 800 MPa pass.
 Standards: ASTM F3055 (Ni superalloy AM), ASTM F3001/F2924 (Ti AM —
 sister), ASTM F75 (Co-Cr-Mo cast/wrought baseline). Vendor numbers
-govern (raw#10 C3). Note: `hxm-am-alloy-in939-002` is the post-HIP
 variant — IN939 LPBF without HIP is tracked in NOVEL_ROADMAP §3.I.1
 as `am-alloy-in939-001` (not duplicated here).
 
@@ -2325,7 +2235,6 @@ T (HDT) ≥ 80 °C; (b) a biocompatible (ISO 10993-5/-10 cytotoxicity
 grade ≤ 1) resin (Formlabs BioMed, NextDent Surgical Guide, Stratasys
 MED610) with print-shrinkage ≤ 2 %. Standards: ISO 10993 (medical
 biocompatibility), ASTM D638 (tensile), ASTM D648 (HDT). Vendor
-numbers govern (raw#10 C3). Clinical efficacy belongs to `hexa-bio`
 per CROSS_LINK §3.4.
 
 | ID                                       | class      | target                | brief                                          | status   | falsifier                                                                                       |
@@ -2341,7 +2250,6 @@ mechanical strength (σ_t < 50 MPa) for ISO 10993 pass — the dual
 target (engineering σ + bio) is NOT a single commercial product;
 leachables / extractables UNVERIFIED for long-term (> 30 d) implant
 contact; clinical efficacy belongs to `hexa-bio` per CROSS_LINK §3.4
-(raw#10 C3).
 
 ### 4.E.6 AM ceramics (DLP zirconia via slurry)
 
@@ -2350,7 +2258,6 @@ acrylate carrier, debinded + sintered at 1450 °C) can reach σ_flexural
 ≥ 1 GPa with shrinkage anisotropy ≤ 5 % between build-Z and in-plane
 X/Y after final sintering. Vendor / authority: Lithoz CeraFab + LCM
 process (Vienna, lead DLP-ceramic vendor), 3DCeram Sinto, Admatec —
-their ISO 6872 flexural-strength sheets govern (raw#10 C3). Companion
 to §4.E.5 (resin) but with mineralogy as primary value-bearing layer.
 
 | ID                              | class      | target              | brief                                          | status   | falsifier                                                                                       |
@@ -2362,7 +2269,6 @@ inherits 134 °C / aqueous tetragonal→monoclinic transformation; debind
 + sinter shrinkage 20–25 % linear means as-printed feature accuracy
 < 50 µm UNVERIFIED at full production scale; Lithoz LCM throughput
 $/cm³ HARD_WALL vs. injection-molded ceramic; bio-implant-grade
-qualification belongs to `hexa-bio` per CROSS_LINK §3.4 (raw#10 C3);
 DLP-ceramic large-volume parts (> 100 cm³) UNVERIFIED.
 
 ### 4.E.7 Continuous-process (CVD graphene roll-to-roll > 100 m)
@@ -2374,7 +2280,6 @@ wet-transfer to PET / SiO₂ yields a > 100 m continuous monolayer
 graphene film with sheet resistance ≤ 200 Ω/sq AND carrier mobility
 ≥ 1000 cm²/(V·s). Vendor / authority: Graphenea (CVD graphene on Cu),
 2D Carbon Graphene-on-Si, BGT Materials (Cambridge), General Graphene
-(R2R) — their sheet-resistance + mobility datasheets govern (raw#10
 C3). Device integration belongs to `hexa-chip` per
 [`CROSS_LINK.md`](CROSS_LINK.md) §3.2.
 
@@ -2391,7 +2296,6 @@ release tape, electrochemical bubbling) UNVERIFIED at > 100 m
 continuous; Cu-substrate uniformity (grain orientation, surface
 roughness) drives graphene quality but UNVERIFIED at R2R-scale;
 device-layer integration (FET / transparent electrode / touch sensor)
-belongs to `hexa-chip` per CROSS_LINK §3.2 (raw#10 C3).
 
 ### 4.E.8 2D semiconductors (wafer-scale MoS₂ · air-stable phosphorene)
 
@@ -2420,7 +2324,6 @@ ambient (P₂O₅ + H₂O catalysis); encapsulation pinhole at hBN-BP
 interface a known failure mode UNVERIFIED beyond 6 mo; isotope-
 enriched / dry-glovebox cleanroom requirement HARD_WALL on cost;
 device-layer integration (FET / photonics) belongs to `hexa-chip`
-per CROSS_LINK §3.2 — material layer only here (raw#10 C3).
 
 ### 4.E.9 Organic + PCM-memory + RRAM + neuromorphic
 
@@ -2476,7 +2379,6 @@ concentration UNVERIFIED** at scale for any In-containing 2D/RRAM
 adjacent stack (preserved verbatim from §3.3 / §3.8 corpus);
 device-layer integration (1T1R array, peripheral CMOS, BEOL
 integration) belongs to `hexa-chip` per CROSS_LINK §3.2 — material
-layer only here (raw#10 C3).
 
 ### 4.E.10 Magnetic (FeBSi amorphous core, extends §3.5)
 
@@ -2487,7 +2389,6 @@ anneal-relaxed delivers core loss ≤ 50 mW/cm³ at 50 Hz / 1.5 T AND
 coercivity H_c ≤ 2 A/m. Vendor / authority: **Hitachi Metals FT-3M /
 Metglas (Conway, SC — historical Allied Signal) / Vacuumschmelze
 VITROVAC + VITROPERM** publish these numbers directly on datasheets
-(raw#10 C3 — their published invariants govern; the n=6 lattice does
 NOT apply). Extends §3.5 corpus.
 
 | ID                              | class | target              | brief                                          | status   | falsifier                                                                                       |
@@ -2501,7 +2402,6 @@ anneal degrades µ_r by 50 %; planar-flow ribbon thickness 20–30 µm
 HARD_WALL on slot-packing factor for transformer-core stacks; Fe-Si-B
 vs Fe-Cu-Nb-Si-B (nanocrystalline Finemet) commodity-cost split
 UNVERIFIED at 50 Hz vs MHz applications; vendor numbers (Hitachi
-Metals / Metglas / Vacuumschmelze) govern at production (raw#10 C3,
 NOT lattice-fit per AGENTS.md §"Limits & verification").
 
 ---
@@ -2511,7 +2411,6 @@ slots from [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md) §3.K through §3.U
 (environmental → architectural → special-function → acoustic → cryo →
 detectors → storage → frontier → bio-inspired → sports → NTE/auxetic)
 into formal `hxm-*` candidates. Per
-[`LATTICE_POLICY.md`](LATTICE_POLICY.md) §1.2/§1.3 + raw#10 C3, every row
 is `status: DESIGN`; UNPROVEN/UNVERIFIED markers preserved verbatim;
 no n=6 lattice-fit applied to vendor / NIST / standards data; sister-repo
 boundary preserved (cell engineering → hexa-energy; device → hexa-chip;
@@ -2524,7 +2423,6 @@ amine-functionalized MFM-series MOF (extending the `hxm-mof-dac-001` row
 in §3.7) targeted at sub-2 MJ/kg-CO₂ regeneration with > 1.5 mmol/g
 capacity at the 400 ppm ambient set-point is the open testbed of the
 MOF-DAC literature (MFM/NOTT family per Schroder/Manchester corpus).
-Climeworks $600–1000/t amine-on-silica baseline governs cost (raw#10 C3).
 
 Companion: tetraethylenepentamine (TEPA)-grafted mesoporous silica
 captures the amine-on-oxide flank of the same target — the historically
@@ -2545,7 +2443,6 @@ plant scale; balance-of-plant heat-exchange energy NOT included in the
 regen-MJ/kg target. Pairs with §3.7 `hxm-mof-dac-*` ledger.
 **SIM-NNP-PROXY status 2026-05-13** — predicted value vendored as
 `_absorption_bridge/universal_ff/predictions/hxm-co2-cap-mof-mfm-002.json`;
-per raw#10 C3, this is NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **Verb spec link**: see [`mof/mof.md`](mof/mof.md) — material-layer authority for this candidate's chemistry (UNPROVEN $100/t DAC-economics marker home; Climeworks $600–1000/t baseline preserved in §9 anti-claims).
 
 ### 4.F.2 Environmental — H₂ storage (`h2-store`)
@@ -2572,7 +2469,6 @@ kWh/kg HARD_WALL ceiling vs liquid-NH₃ ~ 5.2 kWh/kg vs LH₂ ~ 33 kWh/kg
 gravimetric; Ru cost + supply UNVERIFIED at commodity-cracker scale;
 gold-standard vendor: Hydrogenious LOHC GmbH (LOHC), Hydrogen Mem-Tech
 (membrane), Topsoe (NH₃ synthesis/cracking) — their published data
-govern (raw#10 C3). Cell-integration / fuel-cell coupling belongs to
 `hexa-energy` per CROSS_LINK §3.3.
 
 ### 4.F.3 Environmental — Desalination (`desal`)
@@ -2648,7 +2544,6 @@ HARD_WALL — sub-mm grinding ⇒ huge embodied energy that erodes net
 sequestration; Vesta / Heirloom commercial pilots UNVERIFIED at $/t
 displacing geological storage; vendor authority: Carbios (PETase pilot
 in Clermont-Ferrand), Vesta / Heirloom / 44.01 (basalt ERW) — their
-LCA-audited measurements govern (raw#10 C3).
 
 ### 4.F.6 Architectural (`bipv`, `coat`, `paint-anticorr`)
 
@@ -2845,9 +2740,7 @@ or proof-of-rigidity (Khemani 2016 / Else 2016) UNVERIFIED at lab scale;
 academically contested; Bi₂Te₃ TI surface mobility vs bulk thermoelectric
 crosstalk HARD_WALL — sample-dependent (Hall coefficient reflects mix);
 Majorana fermion identification CONTESTED (preserved per §3.12 + 2D-MATERIALS.md
-and Microsoft Station Q retractions 2018-2024); raw#10 C3: TI ARPES
 provenance must come from synchrotron facility, not lattice-fit.
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-time-crystal-trivial-001`) — Tier-3 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-time-crystal-trivial-001.json`](_absorption_bridge/universal_ff/predictions/hxm-time-crystal-trivial-001.json); falsifier_relation AT-RISK (target ≥ 100 ms); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Trivial-time-crystal vs MBL distinction HARD_WALL** preserved verbatim.
 
 ### 4.F.13 Bio-inspired (`mycel`, `algae`, `bio-electron`, `softrobotics`)
 
@@ -2878,8 +2771,6 @@ strain ≥ 50% UNVERIFIED at 10⁵ cycles in salt / sweat environment for
 wearable scale; vendor anchors: Ecovative / Mogu (mycelium); Cargill /
 NatureWorks / Danimer (PHA); MC10 / Nfinity Wearables (transient); Festo
 / Soft Robotics Inc. (pneumatic).
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-mycel-composite-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-mycel-composite-001.json`](_absorption_bridge/universal_ff/predictions/hxm-mycel-composite-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED. **Mycelium scaffold biodegradability UNVERIFIED** preserved verbatim.
-**SIM-NNP-PROXY status 2026-05-14** (`hxm-algae-plastic-001`) — Tier-2 promotion; predicted value vendored as [`_absorption_bridge/universal_ff/predictions/hxm-algae-plastic-001.json`](_absorption_bridge/universal_ff/predictions/hxm-algae-plastic-001.json); per raw#10 C3, NOT measurement and does NOT promote to EXTERNAL-VERIFIED.
 **Verb spec link** (Tier-2, `hxm-mycel-composite-001`): see [`wood-cellulose/wood-cellulose.md`](wood-cellulose/wood-cellulose.md) — material-layer authority for mycelium-bound cellulosic composite chemistry (chitin-glucan fungal-network binder + hemp / wood-flour substrate; mycelium scaffold biodegradability UNVERIFIED preserved verbatim).
 **Verb spec link** (Tier-2, `hxm-algae-plastic-001`): see [`biodegradable-plastics/biodegradable-plastics.md`](biodegradable-plastics/biodegradable-plastics.md) — material-layer authority for algae-derived PHA bioplastic chemistry (PHB-co-PHV copolymer fermentation route; algae-PHA marine-biodegradable claim UNVERIFIED preserved verbatim per §3.16).
 
@@ -2938,7 +2829,6 @@ Round-4 expansion per [`NOVEL_ROADMAP.md`](NOVEL_ROADMAP.md) §4 (cross-class
 hybrids) + §3.S (bio-inspired) + §3.U (NTE/auxetic-adjacent frontier classes).
 Each candidate ships at status `DESIGN` with a quantitative falsifier and a
 risk-flags paragraph (per `selftest/cross_link_integrity_audit.py` B1–B4
-invariants). raw#10 C3 honored — no n=6 lattice-fit on vendor / lab numbers;
 vendor citations verbatim; UNPROVEN / HARD_WALL markers preserved.
 Sister-domain hand-offs annotated where the cell-engineering /
 device-integration layer belongs to a sister substrate
@@ -2979,7 +2869,6 @@ crystalline-to-amorphous interfacial cohesion HARD_WALL above 0.6 T_m
 FCC stability narrows above 1100 °C — multi-element solute drag is
 empirically dataset-fragmented; vendor-scale arc-melt vs LPBF
 microstructure variance HARD_WALL preserved from §3.6 HEA ledger.
-raw#10 C3 honored.
 
 #### 5.A.2 Ni₃(HITP)₂ 2D MOF for electrocatalysis
 
@@ -3005,7 +2894,6 @@ sheet-to-sheet stacking-fault scattering decreases out-of-plane σ by
 preserved as honesty anchor (0.90–0.95 V vs RHE onset baseline);
 not a replacement claim for PGM catalysts at production. Cell
 engineering / MEA integration → hexa-energy per CROSS_LINK §3.3.
-raw#10 C3 honored.
 
 #### 5.A.3 CsPbBr₃ perovskite + Li₃InCl₆ halide-SE interface
 
@@ -3032,7 +2920,6 @@ ingress + halide-SE moisture sensitivity); In-supply UNVERIFIED at
 commodity scale (geopolitical concentration of In ore); LK-99 NOT
 REPRODUCED preserved as antecedent perovskite-SC anti-claim. Device
 fabrication / lithography ⇒ hexa-chip per CROSS_LINK §3.2; cell
-engineering ⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 5.A.4 Ti₃C₂T_x MXene + paraffin PCM conductive composite
 
@@ -3056,7 +2943,6 @@ hot non-polar solvents); k_total scaling above 20 vol% MXene loading
 SOFT_WALL (percolation gain saturates while paraffin loading drops below
 practical PCM latent-heat envelope); Cabot pilot-scale MXene aerogel
 commercial cost UNVERIFIED (Gogotsi 2023 lab-scale only); Rubitherm
-paraffin baseline (200–250 J/g) preserved as honesty anchor. raw#10 C3
 honored.
 
 #### 5.A.5 Silica aerogel-confined paraffin PCM
@@ -3084,7 +2970,6 @@ from §3.14 aerogel ledger; supercritical-CO₂ drying production
 throughput UNVERIFIED at building-insulation scale; not in MP/GNoME
 canonical database — listed in COD per
 [`_absorption_bridge/cod/SOURCES.md`](_absorption_bridge/cod/SOURCES.md).
-raw#10 C3 honored.
 
 #### 5.A.6 hBN/graphene/hBN heterostructure qubit host
 
@@ -3110,7 +2995,6 @@ SOFT_WALL (1.1% natural ¹³C abundance dominates broadening below
 isotopic purification); device fabrication ⇒ hexa-chip per CROSS_LINK
 §3.2 (lithography + photoresist + bonding pads owned by sister); CNT
 yarn 80 GPa lab-mm caveat preserved as adjacent 2D-substrate honesty.
-raw#10 C3 honored.
 
 #### 5.A.7 Ru-bipyridyl dye-sensitized TiO₂ molecular photocatalyst
 
@@ -3136,7 +3020,6 @@ commodity-photocatalyst scale; CO₂RR selectivity vs HER UNVERIFIED at
 high faradaic loading (competitive H₂ evolution dominates in aqueous
 systems); STF benchmark 2% remains aspirational vs Grätzel-cell
 photovoltaic + electrocatalyst stack (5–10% STF demonstrated in two-
-step decoupled architecture). raw#10 C3 honored.
 
 #### 5.A.8 PVDF-TrFE piezoelectric film on stretchable elastomer e-skin
 
@@ -3163,7 +3046,6 @@ laminates); PDMS hydrolytic-stability UNVERIFIED at long-duration
 sweat / saline contact (typical wearable failure mode); device
 fabrication / packaging ⇒ hexa-chip per CROSS_LINK §3.2; PVDF-TrFE
 70/30 commodity-grade availability VERIFIED via Arkema Kynar catalog
-but high-purity formulations remain Arkema-specialty pricing. raw#10
 C3 honored.
 
 ### 5.B Missing-class frontier fillers (7 candidates)
@@ -3201,7 +3083,6 @@ UNVERIFIED at C-band insertion-loss budget; time-domain photonic-
 metamaterial frequency-conversion beyond ~ 10 GHz UNVERIFIED at
 commodity-process node (Engheta + Alù 2020 — lab-scale demonstrations
 only). Device fabrication / lithography ⇒ hexa-chip per CROSS_LINK
-§3.2. raw#10 C3 honored.
 
 #### 5.B.2 Alkylamine-decorated low-temperature DAC MOF
 
@@ -3227,7 +3108,6 @@ baseline $600-1000/t per Climeworks 2024 public LCA); cold-climate
 sorbent kinetics UNVERIFIED at sub-zero air-water partial-pressure
 regime; not in MP/GNoME canonical database — listed in COD per
 [`_absorption_bridge/cod/SOURCES.md`](_absorption_bridge/cod/SOURCES.md).
-raw#10 C3 honored.
 
 #### 5.B.3 Fe-based NH₃ cracker (Ru-substitute)
 
@@ -3250,7 +3130,6 @@ cracker reviews); Ru/La₂O₃ baseline preserved as honesty anchor (Ru
 cost-vs-T trade is the falsifier's true axis); cracker-to-fuel-cell
 H₂ purity is the limiting integration constraint (PEM FC requires
 NH₃ ≤ 0.1 ppm — separation downstream UNVERIFIED at commodity scale);
-H₂ device integration ⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3
 honored.
 
 #### 5.B.4 Na-hard-carbon anode + Prussian-blue SEI engineering
@@ -3276,7 +3155,6 @@ UNVERIFIED at commodity-anode scale; first-cycle Na loss to bulk-SEI
 on bare HC is empirically 15–25% (Stevens & Dahn 2000), so the
 ≥ 85% ICE target requires the PBA overlayer to fully suppress
 bulk-SEI formation — UNVERIFIED at full-cell scale; cell engineering
-⇒ hexa-energy per CROSS_LINK §3.3. raw#10 C3 honored.
 
 #### 5.B.5 Multilayer Ti₃C₂ + V₂C MXene EMI shielding
 
@@ -3300,7 +3178,6 @@ unpredictably across multilayer growth runs; Gogotsi 2023); MXene
 oxidation in ambient humidity HARD_WALL preserved from §3.15 MXene
 ledger; spray / vacuum-filtration MXene-stack uniformity UNVERIFIED
 at m² scale; CNT yarn 80 GPa lab-mm caveat preserved as adjacent
-2D-substrate honesty anchor. raw#10 C3 honored.
 
 #### 5.B.6 Graphene-aerogel + 1-octadecanol PCM composite
 
@@ -3324,7 +3201,6 @@ at production scale (preserved from §3.14 aerogel ledger — Tsinghua
 80 °C (aldehyde / acid product chain); k_total ≥ 3 W/(m·K) requires
 graphene-aerogel volume fraction ≥ 10% — at higher loadings PCM
 latent-heat per unit composite drops below the practical PCM-
-storage envelope; not in MP/GNoME canonical database. raw#10 C3
 honored.
 
 #### 5.B.7 Mycelium-PHA elastomer composite for soft-robotics
@@ -3351,7 +3227,6 @@ compost UNVERIFIED at marine + soil dual-protocol (Danimer Nodax
 PHA meets ASTM D6400 industrial-compost but D7081 marine remains
 PHA-grade specific; preserved from §3.16 biodegradable ledger);
 PHBV grade-to-grade Tg / E variance across Danimer Nodax lots
-UNVERIFIED at long-cycle fatigue. raw#10 C3 honored.
 
 ### 5.C Round 5 — extended frontier (2026-05-14)
 
@@ -3366,7 +3241,6 @@ memory, Cu₂O homojunction photovoltaic, ZIF-67 gas-separation membrane,
 and an extended 4H-SiC silicon-vacancy chemistry (V₂ vacancy distinct
 from §3.23 SiCVV-001 single-vacancy). All entries adopt the existing
 class-tag taxonomy per §1; falsifier discipline + risk-flag paragraph
-+ vendor citation conventions follow §5.A / §5.B precedent. raw#10 C3
 honored throughout — no n=6 lattice-fit on vendor / lab numbers.
 
 #### 5.C.1 H₃S-class high-pressure superconductor
@@ -3397,7 +3271,6 @@ hydride-SC Tc reproductions across multi-lab campaigns UNVERIFIED
 (Salamat 2024 review notes 5–10 K Tc spread across DAC growth runs);
 diamond-anvil-cell pressure calibration HARD_WALL above 200 GPa (ruby
 fluorescence calibration breaks down); device-layer integration ⇒
-hexa-rtsc per CROSS_LINK §3.4 (no RT-SC claim made here). raw#10 C3
 honored.
 
 #### 5.C.2 Bimetallic MOF for atmospheric water harvesting
@@ -3427,7 +3300,6 @@ mixed-metal node stability HARD_WALL at high-cycle hydrothermal
 cycling (Co leaching into product water UNVERIFIED for potable
 spec); Climeworks / Source Global vendor anchor preserved as
 honesty baseline (Source hydropanel uses sorbent + solar-thermal
-desorption, not pure passive MOF cycle). raw#10 C3 honored.
 
 #### 5.C.3 PEDOT:PSS with ionic-liquid post-treatment
 
@@ -3455,7 +3327,6 @@ liquid hygroscopicity HARD_WALL above 60% RH (water uptake degrades
 preserved as honesty baseline (Worfolk 2015 PNAS 8800 S/cm post-H₂SO₄
 treatment but transparency drops); ITO-replacement claim REMAINS
 ASPIRATIONAL at the 90% transparency + 7000 S/cm joint envelope.
-raw#10 C3 honored.
 
 #### 5.C.4 PEM electrolyzer membrane with reduced-Pt-Ir loading
 
@@ -3485,7 +3356,6 @@ benchmarks show 1-2 mg/cm² + 80000 h durability typical, below
 multi-lab campaign; Nafion ionomer chemical stability HARD_WALL
 above 90 °C (perfluorosulfonic-acid backbone fluoride release
 dominates); cell engineering ⇒ hexa-energy per CROSS_LINK §3.3.
-raw#10 C3 honored.
 
 #### 5.C.5 Paraffin microcapsule textile thermal regulation
 
@@ -3513,7 +3383,6 @@ during hot-laundry > 60 °C UNVERIFIED at 100-cycle target; Outlast
 Technologies vendor baseline preserved (30-40 J/g new fabric, drops
 to 18-25 J/g after 50 washes — leakage is the bottleneck); cellulose-
 fiber substrate dye-uptake interference UNVERIFIED at commodity
-textile dyehouse. raw#10 C3 honored.
 
 #### 5.C.6 PVDF-TrFE-CFE relaxor terpolymer
 
@@ -3538,7 +3407,6 @@ CFE comonomer ratio HARD_WALL on d₃₃ vs T_max trade-off (more CFE
 narrows polar-region but lowers ferroelectric ordering temperature);
 Solvay Solef commodity-grade availability VERIFIED but high-purity
 relaxor terpolymer remains specialty pricing; device-layer
-integration ⇒ hexa-chip per CROSS_LINK §3.2. raw#10 C3 honored.
 
 #### 5.C.7 BaTiO₃ thin-film ferroelectric memory
 
@@ -3564,7 +3432,6 @@ across Murata / TDK + academic reviews); strain-engineering window
 HARD_WALL on epitaxial-mismatch fatigue (SrRuO₃ / SrTiO₃ template
 strain pinning UNVERIFIED at production scale); BTO Curie temperature
 ~ 120 °C constrains automotive-grade memory deployment; cell
-engineering ⇒ hexa-chip per CROSS_LINK §3.2. raw#10 C3 honored.
 
 #### 5.C.8 Cu₂O homojunction solar cell
 
@@ -3592,7 +3459,6 @@ Shockley-Queisser 1.8 V floor) — closing this 0.5 V deficit
 UNVERIFIED at production; Sumitomo Metal Mining + Toyota Central
 R&D vendor baseline preserved (lab-scale cells only); CdTe / CIGS
 incumbents provide 23%+ PCE benchmark — Cu₂O remains a low-cost
-exploratory pathway, not a commodity-disruption claim. raw#10 C3
 honored.
 
 #### 5.C.9 ZIF-67 cobalt-imidazolate MOF gas separation
@@ -3621,7 +3487,6 @@ review); BASF Basolite commodity-MOF supply VERIFIED but ZIF-67
 membrane fabrication remains a Hong Kong UST / NuMat pilot scale;
 permeance vs selectivity trade-off preserved as honesty anchor
 (Robeson 2008 upper bound is the canonical reference); MOF defect-
-healing at commodity scale UNVERIFIED. raw#10 C3 honored.
 
 #### 5.C.10 4H-SiC silicon-vacancy V₂ extended chemistry
 
@@ -3649,7 +3514,6 @@ divacancy V_C-V_Si formation yield uncontrolled lot-to-lot (Awschalom
 Wolfspeed 4H-SiC wafers); ODMR contrast > 5% achievable in
 Wolfspeed-grade epitaxial layers but UNVERIFIED at commodity-wafer
 purity; device-layer integration ⇒ hexa-chip per CROSS_LINK §3.2.
-raw#10 C3 honored.
 
 ---
 
@@ -3674,7 +3538,6 @@ discipline).
 
 Every entry in §3 above is currently `DESIGN`-only. **No entry has
 external measurement evidence.** Production-scale verification belongs to
-real foundries / labs / mills (raw#10 C3):
 
 - **Vendor authority** for production: Wacker (poly-Si) / Wolfspeed (SiC) /
   Stora Enso (CLT) / Hitachi Metals (NdFeB) / TDK / Shin-Etsu / Arnold /

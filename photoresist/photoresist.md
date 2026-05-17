@@ -27,7 +27,6 @@ verdict_basis: vendor-published numbers (JSR / TOK / Shin-Etsu / Sumitomo Chemic
 > `hexa-chip`; this verb owns the resist *as material* only —
 > chemistry, sensitivity, contrast, LER, etch resistance.**
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3 + CROSS_LINK §3.2):**
 > photoresist material properties (sensitivity in mJ/cm² at the
 > exposure wavelength, contrast γ, LER/LWR in nm, etch resistance,
 > outgassing) are set by **polymer chemistry + photoacid generator
@@ -117,7 +116,6 @@ full commodity scale.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global photoresist market is ~ $5–6 B/yr (2024 industry estimates).
 Concentrated supply: > 80 % from Japan (JSR / TOK / Shin-Etsu /

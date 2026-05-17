@@ -7,7 +7,6 @@
 > TTT diagrams, refractory metals.
 > **Companion**: `metallurgy/metallurgy.md` (spec doc) · `SWORDSMITHING.md` (~23 kB upstream-canon chapter, metallurgy anchor).
 >
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3)**: alloy property data cited
 > from ASM Handbook vols. 1-4 + Special Metals datasheets (Inconel),
 > ATI / RMI / Timet (titanium), and primary literature. Vendor figures
 > are not lattice-fitted.
@@ -127,7 +126,6 @@ Producers: **PCC Aerostructures, Howmet Aerospace, Doncasters Group** — small 
 
 ### §3.5 (c) hand-off
 
-Per `CLOSURE_RESIDUAL_BACKLOG.md §C-MET-1`: single-crystal turbine blade casting pilot DEST = PCC / Howmet / Doncasters. No active hexa-matter contract (vendor-numbers-only discipline, raw#10 C3).
 
 ---
 
@@ -295,7 +293,6 @@ The **5000 K wall** (covalent-bond-energy theoretical ceiling, per L5 honest est
 
 ---
 
-## §9 Honest C3 (raw#10)
 
 - Inconel 718 / Ti-6Al-4V / single-crystal SX property data from ASM Handbook vols. 1-2 + manufacturer datasheets. **No values lattice-derived.**
 - The Cedillos-Barraza 2016 melting point claim is **experimental measurement** (TaHfC quaternary at 4215 K via brightness pyrometry), the HARD wall L5 anchor.

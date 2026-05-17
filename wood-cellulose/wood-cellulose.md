@@ -19,7 +19,6 @@ verdict_basis: USDA Wood Handbook (FPL Madison) + TAPPI + nanocellulose primary 
 > **Forestry agronomy + timber yield** lives in `hexa-farm`; **building
 > construction** in `hexa-arch` or downstream verbs.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** mechanical property
 > data from USDA Wood Handbook (USDA-FPL Madison WI) + Saito et al.
 > nanocellulose literature. Stora Enso / UPM / Daicel / BORREGAARD /
 > CelluForce / FiberLean vendor figures cited verbatim. No lattice
@@ -81,7 +80,6 @@ building feasibility.
 
 ---
 
-## §3 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer | Material focus | Reported scale | Source |
 |----------|----------------|----------------|--------|
@@ -250,7 +248,6 @@ Cellulose acetate:
    French 2014, Saito 2013, TAPPI / ANSI / APA / ASTM standards, and
    vendor public disclosures.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-mycel-composite-001` — see [NOVEL.md §4.F.13](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Mycelium-substrate hemp / wood-flour insulation panel (chitin-glucan fungal-network binder on cellulosic substrate); k ≤ 0.06 W/(m·K) + moisture absorption ≤ 30 % is the material-layer chemistry — building-system installation + code-compliance → out-of-software / Category (c) (Ecovative / Mogu vendor authority). **Mycelium scaffold biodegradability UNVERIFIED** preserved verbatim; mycelium fire-classification (Euroclass B/C) UNVERIFIED at production density grade.
 
 ---
 

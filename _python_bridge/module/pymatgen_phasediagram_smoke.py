@@ -18,7 +18,6 @@ The actual phase-diagram construction for real material systems is the
 Phase F + G target (`_research_bridge/materials_project_fetch.py` and
 beyond).
 
-raw#10 C3: synthetic data only. No external system queried.
 
 Optional dep: pymatgen >= 2024.0.0
 

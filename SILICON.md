@@ -5,7 +5,6 @@
 > **Scope**: material layer of silicon (poly-Si, mono-Si wafer, SiO₂, SiC/SiN ceramics, silicone polymer).
 > **Out of scope**: semiconductor *device + fab process* — that lives in `hexa-chip` (call `hexa-chip materials`).
 >
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3)**: vendor figures (Wacker, GCL,
 > Hemlock, Wolfspeed, Shin-Etsu, SUMCO, etc.) are cited from each company's
 > own published numbers. The n=6 invariant lattice does **NOT** predict any
 > silicon parameter. Any apparent fit is coincidence.
@@ -80,7 +79,6 @@ CZ pulls are constrained by the fused-silica crucible:
 - Industrial ceiling: ~600 mm crucible diameter (32-inch class), capable of supporting 300 mm wafer pulls + (R&D) 450 mm wafer pulls
 - Crucible life: typically 1 pull (consumed) for production-grade; recharge-pulls (multiple ingots per crucible) used for some advanced setups
 
-Ferrotec, Heraeus, and SUNEDISON Crucible Products are the main suppliers of fused-silica crucibles. **No lattice-fit applied to crucible diameter** (per raw#10 C3); ~600 mm is what fused silica's creep + handling allow.
 
 ### §2.4 Dopant + oxygen + carbon control
 
@@ -224,11 +222,9 @@ Reference: Becker et al. 2010 *Phys. Status Solidi A* 207, 49 (Avogadro producti
 
 At ~$100k/g, even a 100 mg active region for a quantum chip costs $10k in raw substrate. Scaling to 1 cm² of isotope-pure Si layer (~ 0.5 g) at 100 nm thickness is ~ $50k of substrate alone. **HARD wall on cost** — this is what limits commercial Si-based quantum compute to research scale through 2030s.
 
-Forecast (raw#10 C3, no lattice fit): cost should drop ~10× per decade with scale-up + improvement in centrifuge throughput; commercial-scale ²⁸Si (~ $10k/g) likely by 2035-2040.
 
 ---
 
-## §8 Vendor tonnage trends 2015-2025 (raw#10 C3 — vendor figures, no lattice fit)
 
 ### §8.1 Polysilicon production (electronic + solar combined)
 
@@ -314,7 +310,6 @@ The trends above are reported facts. No lattice fit applied to any number.
 | `hexa-chip` | sister repo | semiconductor device + fab process |
 | `hexa-energy` | sister repo | photovoltaic device level (PV material flow is in hexa-matter; PV device design is in hexa-energy) |
 | `LIMIT_BREAKTHROUGH.md` | real-limits anchor | L4 Mohs / L5 T_m / L7 T_g / L9 thermal k |
-| `LATTICE_POLICY.md` | policy | raw#10 C3 vendor-figure discipline |
 
 ---
 
@@ -337,7 +332,6 @@ The trends above are reported facts. No lattice fit applied to any number.
 
 ---
 
-## §12 Honest C3 (raw#10)
 
 - Vendor tonnage figures in §8 cite each vendor's own annual report. **No lattice fit applied to any vendor capacity figure.**
 - Si-L1..Si-L12 limits table is sourced from NIST WebBook, CRC Handbook 105th ed., ASM Handbook vol. 21, SEMI M1, ASTM F121/F1188/F47, and primary literature (Becker, Wolfowicz, Saddow, Kaiser, etc.). Each row has a citation.

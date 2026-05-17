@@ -133,7 +133,6 @@ verb yet — silicone fragments into adhesive (`adhesive/`), elastomer
 | Si-L12 | Si₃N₄ flexural strength (HIP-densified) | SOFT | 600–1200 MPa | ASM Handbook vol. 21 |
 
 None of Si-L1..Si-L12 derives from n=6 lattice arithmetic. Each is anchored
-to a primary source (NIST/CRC/SEMI/ASTM or vendor) per raw#10 C3.
 
 ## §6 The hexa-matter ↔ hexa-chip boundary
 
@@ -160,7 +159,6 @@ The boundary is enforced in three places:
 
 This separation is fundamental. Treating wafer fab as a "material" mistake
 is what leads to lattice-fit-on-vendors errors. The discipline at the
-boundary is what keeps raw#10 C3 honest.
 
 ## §7 Phase-D additions that touch Si
 

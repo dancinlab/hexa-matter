@@ -82,7 +82,6 @@ Fatigue series accumulate continuously).
   requires `record_type_note` to mention `measure(d)/experimental` for the
   experimental case or `predict/DFT/CALPHAD/comput*` for the computed case.
   Mis-labelled records FAIL the schema.
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): NIMS-reported
   uncertainties (mill-certificate ± 5–10 % on mechanical properties;
   documented statistics on long-term creep-rupture series) are the
   authoritative bars. The adapter passes them through untouched.

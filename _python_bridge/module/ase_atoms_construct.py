@@ -10,7 +10,6 @@ Backs the SPEC_FIRST claim that internal structural literals are
 self-consistent: when we say "Si diamond cubic a=5.4307 Å", does the ASE
 crystal builder accept that input and produce a sensible Atoms object?
 
-This is a SPEC-INTERNAL-CONSISTENCY check. raw#10 C3: we do NOT relax,
 optimize, or fit any vendor data; we only construct.
 
 Optional dep: ase >= 3.22.0

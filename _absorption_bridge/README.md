@@ -152,7 +152,6 @@ external rate limits during CI.
 
 This bridge must NOT:
 
-1. **Apply n=6 lattice formulas to external system data** (`raw#10 C3`).
    Materials Project DFT outputs, GNoME predictions, Matlantis NNP outputs,
    OMat24 records, and universal-FF energies all carry their OWN published
    invariants. The bridge passes them through untouched.

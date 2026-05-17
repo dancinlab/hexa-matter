@@ -70,7 +70,6 @@
   rupture series for power-plant / aerospace alloys (multi-decade NIMS test
   programs) + Japanese polymer industrial data + alloy phase-diagram archive.
   Not redundant with US/EU databases.
-- **raw#10 C3**: no n=6 lattice-fit on NIMS records. NIMS-reported uncertainties
   (mill-certificate scatter ± 5–10 % on mechanical properties; longer-term
   creep-rupture series with documented statistics) are the authoritative bars.
 - **Account gating**: full Creep Data Sheet / Fatigue Data Sheet PDFs require

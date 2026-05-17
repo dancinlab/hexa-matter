@@ -6,7 +6,6 @@ tests/fas_b2_kubelka_munk_parity.py — Phase I.2 gate B-FAS-2.
 Anchor: AATCC Test Method 6 (1993) + Kubelka & Munk 1931 Z. Tech. Phys.
 12, 593 — K/S = (1 - R_inf)^2 / (2 * R_inf); identity check.
 
-raw#10 C3: AATCC + classical optics verbatim; no n=6 lattice-fit.
 SPEC_FIRST: parity gate verifies the closed-form K/S identity at R_inf = 0.5
 (K/S = 0.25 exactly) and reflectance bounds [0, 1].
 
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     bounds = snap["claim"]["bounds"]
     r_lo, r_hi = bounds["R_inf_range"]

@@ -19,7 +19,6 @@ verdict_basis: NIST + Sze + vendor datasheets; no lattice fit
 > SiC's material side cross-links to `silicon/silicon.md §1` and
 > `ceramics/`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** bandgap, mobility,
 > breakdown field, k_th, lattice constant are physical-chemistry
 > parameters, NOT n=6 lattice outputs. Wolfspeed (SiC), Sumitomo
 > (GaAs), IQE (InP epi), Coherent (GaAs/InP), Mitsubishi Chemical
@@ -87,7 +86,6 @@ those diameters; cited from vendor public statements.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 | Producer | Material focus | Reported scale | Source |
 |----------|----------------|----------------|--------|
@@ -236,7 +234,6 @@ happens after — wafer in, die out — is `hexa-chip`'s domain.
    of bandgap / mobility / breakdown to n=6 is coincidence; the
    lattice does not predict these.
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status SIM-NNP-PROXY as of 2026-05-14): `hxm-weyl-tas-001` — see [NOVEL.md §4.C.4](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. TaAs Weyl-semimetal single crystal (CVT-grown, Princeton Hasan / Bansil / Cava corpus); chiral-anomaly negative longitudinal MR + B-linear AHE Berry-curvature signature is the material-layer chemistry — device-layer integration → `hexa-chip` per CROSS_LINK §3.2. Single-crystal production research-scale only (Wolfspeed / HRL prototype); current-jetting artifacts (Arnold 2016 / Reis 2016) contaminate negative-MR claims — UNVERIFIED outside academic single-crystal batches.
 
 ---
 

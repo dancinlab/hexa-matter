@@ -20,7 +20,6 @@ its optional dep is missing.
 
 ---
 
-## Honest notes (per `INIT.md` hard rule 3 — `raw#10 C3`)
 
 - **No n=6 lattice-fit** applied to any FF output. These NNPs carry their
   OWN published error bars (typical force MAE 20–60 meV/Å on MPtrj /

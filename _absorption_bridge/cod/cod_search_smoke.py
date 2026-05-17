@@ -20,7 +20,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to COD records.
 It only validates schema + passes through the record. Records are EXPERIMENTAL
 MEASUREMENTS, not predictions — clearly labelled in adapter output and SOURCES.md.
 
@@ -147,7 +146,6 @@ def _selftest() -> int:
     # in adapter output, per bridge rule #4 ("predictions ≠ measurements").
     print(
         f"  NOTE: measurement_type={rec['measurement_type']!r} — "
-        "EXPERIMENTAL (raw#10 C3: no lattice-fit applied; depositor cell parameter uncertainties authoritative)"
     )
     print(
         "  NOTE: live REST path http://www.crystallography.net/cod/<id>.cif is "

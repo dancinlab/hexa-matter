@@ -43,7 +43,6 @@ hexa-matter's history:
 
 This release ships under the dancinlab-wide `LATTICE_POLICY` (Wave K) +
 `LIMIT_BREAKTHROUGH` (Wave M) discipline; all 19 new artifacts respect the
-raw#10 C3 invariant (no n=6 lattice-fit on external entities) and preserve
 UNPROVEN/UNVERIFIED markers verbatim.
 
 ---
@@ -101,7 +100,6 @@ EUV resist photon-shot-noise vs LER NOT FULLY RESOLVED (IRDS 2023), CATL Blade
 21 fine-grained gates landed under `selftest/`: 8 cross-cutting (symlink audit,
 registry consistency, regression audit, n=6 axis computation, cross-doc audit,
 canon provenance, NIST anchor audit, **lattice-fit-on-external-entities audit
-[raw#10 C3 enforcement]**) + 8 group-specific (CER thermal-shock, POL T_g, FIB
 tensile, MET alloy classification, GEM authenticity, PRC yield, FAS dye
 chemistry, silicon purity) + 4 verb-specific (compound-semi bandgap, magnetic
 Curie+BHmax, **CNT 80 GPa honesty caveat**, **MOF DAC $100/t UNPROVEN
@@ -255,7 +253,6 @@ all carry quantitative falsifiers:
 | quantum    | `hxm-quantum-sicvv-001`                                                            |
 
 Per `NOVEL.md §2`, no entry has `EXTERNAL-VERIFIED` status — that requires
-attributed external lab / vendor citation per raw#10 C3. Every entry has a
 written quantitative falsifier (`F-<class>-NN`). Per `LATTICE_POLICY.md §1.2`,
 the n=6 lattice is NOT evidence for property claims here — it is an organizing
 tool only.
@@ -345,7 +342,6 @@ internally consistent at the values declared in §"Scoreboard" of
   anchoring the real-limits-first verification anchors
 - All 23 external scientific tools / databases / NNPs absorbed across
   Phase E + F + G + G+1 + G+2 — their published license + citation + version
-  is vendored honestly per raw#10 C3
 
 ---
 

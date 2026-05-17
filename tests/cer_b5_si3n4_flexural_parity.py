@@ -10,7 +10,6 @@ HIP-densified Si3N4 flexural strength range 600-1200 MPa
 Parity: silicon/silicon.md Si-L12 row ↔ tests/snapshots/cer_b5_si3n4_flexural.json.
 Pass iff spec range overlaps the published ASM range.
 
-raw#10 C3: ASM published range verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B5_SI3N4_FLEXURAL__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_lo = float(snap["claim"]["range_min"])
     src_hi = float(snap["claim"]["range_max"])

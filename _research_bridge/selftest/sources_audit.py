@@ -10,7 +10,6 @@ Phase F (2026-05-13): validates that `arxiv/SOURCES.md` and `web/SOURCES.md`:
   2. List the expected arxiv categories (cond-mat.mtrl-sci primary).
   3. List a non-empty vendor set (Wacker, Wolfspeed, etc.).
   4. List USPTO + EPO patent endpoints.
-  5. Carry an honest-C3 disclaimer (raw#10 / SPEC_FIRST preservation).
   6. The speculative-claim trip list is consistent (named in arxiv + web SOURCES).
 
 This audit does NOT make network calls — it validates that the bridge
@@ -56,7 +55,6 @@ def main() -> int:
         "User-Agent",
         "3-second",     # backoff discipline
         "@arxiv-informed",
-        "raw#10",
     ]
     web_required = [
         "Wacker",
@@ -64,7 +62,6 @@ def main() -> int:
         "USPTO",
         "EPO",
         "robots.txt",
-        "raw#10",
         "Climeworks",   # honest baseline for MOF DAC
     ]
 

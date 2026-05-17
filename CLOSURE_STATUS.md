@@ -174,13 +174,11 @@ Every (a)+(b) closure gate must respect these invariants. Violation is BAD.
 |----|--------------------------------------------------------------------------------------------------|-------------------------------------------------|
 | 1  | **Real-limits-first** — project ceiling set by REAL math/physics/eng limits, NOT n=6 lattice     | `LATTICE_POLICY.md §1.2`                        |
 | 2  | **n=6 is auxiliary** — lattice is a tool, not a constraint; never force-map onto external domains | `LATTICE_POLICY.md §1.3`                        |
-| 3  | **No n=6 lattice-fit on external entities** — vendors / NIST / ITER use THEIR own invariants     | `raw#10 C3` enforced by `selftest/lattice_fit_on_external_entities_audit.py` |
 | 4  | **SPEC_FIRST verdict preserved** — "SPEC_FIRST, not MEASURED here" footer in every verb spec; passing parity gate ≠ measurement | `INIT.md` rule 4                                |
 | 5  | **UNPROVEN / UNVERIFIED stamps preserved verbatim** — LK-99 / metallic-H / MOF-DAC / CNT-yarn / etc. | `INIT.md` rule 5; `selftest/{carbon_cnt_strength, mof_dac_economics}_honesty_audit.py` |
 | 6  | **`LIMIT_BREAKTHROUGH.md` authoritative on wall classification** — HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / UNCLEAR | `INIT.md` rule 6                                |
 
 Every snapshot under `tests/snapshots/*.json` carries
-`n6_lattice_fit_applied: false` so the raw#10 C3 invariant is machine-
 checkable. Every Phase G adapter SOURCES.md carries license + citation +
 status (CC-BY 4.0 / CC0 / MIT / BSD-3 / **COMMERCIAL UNVERIFIED**) so the
 license-honesty matrix is machine-checkable. Every verb spec footer
@@ -207,7 +205,6 @@ In particular, 100% (a)+(b) closure **does NOT** mean:
   `AXIS_CLOSURE_PLAN.md §0`, every vendor / fab / mill carries its own
   measurement layer. We do not synthesize. We do not pour concrete. We
   do not pull silicon. The 100% verdict is a software-discipline verdict.
-- **Vendor numbers have been audited by us.** The `raw#10 C3` discipline
   is: vendor numbers vendored AS-IS with provenance; NO lattice-fit on
   them. We name the vendor, we cite the SKU / datasheet / standard, we
   do not re-derive their measurement. The audit trail is honest about
@@ -231,7 +228,6 @@ either a NIST/CRC/ASM/vendor source row that matches it, or an UNPROVEN
 flag that says it does not. There are no silent claims.
 
 Category (c) — the wet-lab / vendor / fab layer — remains permanently
-OUT-OF-REPO by definition. Software-side discipline (raw#10 C3) is in
 place; closing (c) requires real-world counterparty selection that is
 not a software task.
 
@@ -288,7 +284,6 @@ scopes the percentage already established by `verify/run_all.hexa`,
   `SIM-NNP-PROXY` rows in `NOVEL.md` are advances in the
   `DESIGN → SIM → SYNTH-ROUTE → EXTERNAL-VERIFIED` flow defined in
   `NOVEL.md §7`. They are **not** promotions to `EXTERNAL-VERIFIED`,
-  which per raw#10 C3 requires an external lab citation with sample-ID
   and measurement protocol.
 - **Every UNPROVEN / UNVERIFIED marker is preserved verbatim.** LK-99
   NOT REPRODUCED · metallic-H ambient UNPROVEN · magic-MOF DAC $100/t
@@ -322,7 +317,6 @@ scopes the percentage already established by `verify/run_all.hexa`,
   The Tier-1 candidates from `NOVEL_ROADMAP.md §5` now carry vendored
   proxy-prediction JSONs under `_absorption_bridge/universal_ff/
   predictions/*.json` with peer-reviewed proxy sources (M3GNet /
-  CHGNet / ALIGNN-FF / MACE-MP-0). Per raw#10 C3, the JSON carries
   `is_measurement: false` and `is_external_verification: false` — the
   promotion is from `DESIGN` to `SIM-NNP-PROXY`, **not** to
   `EXTERNAL-VERIFIED`.

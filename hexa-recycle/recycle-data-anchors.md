@@ -28,7 +28,6 @@
 | 17 | Schulz 1939 / Flory 1942 polymer MW theory | step-growth polydispersity Đ → 2 at high conversion | recycling | (foundational) | 2026-05-13 |
 | 18 | NOAA Marine Debris Program | microplastics fate when recycle fails | recycling (cross to POL) | (regulator) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (3-7): chemical recycling pilots vendored AS-IS. No lattice fit.
 - Industry rows (10-15): recycle rates from trade associations.

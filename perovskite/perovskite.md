@@ -17,7 +17,6 @@ verdict_basis: NIST + primary literature + vendor datasheets; no lattice fit; LK
 > FAPbI₃, CsPbI₃ + Sn / Bi substitutions), antiperovskite (Cu₃N,
 > Mn₃Cu). LK-99 status preserved as **HARD_WALL UNPROVEN**.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** perovskite parameters
 > (bandgap, d₃₃, ε_r, T_curie) are physical-chemistry parameters, NOT
 > n=6 lattice outputs. LK-99 reproduction status preserved at **null
 > per multiple peer-reviewed attempts**. Cell-record efficiency
@@ -111,7 +110,6 @@ family (Cu₃N etc.) is structurally distinct.
 
 ---
 
-## §5 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer / source | Material focus | Reported scale | Source |
 |----|----|----|----|
@@ -201,7 +199,6 @@ Antiperovskite branch:
 - ✗ "MAPbI₃ E_g 1.55 eV fits n=6 lattice" — coincidence; do not write
 - ✗ "BaTiO₃ T_curie 393 K equals σ·τ × 8.2" — coincidence; do not write
 
-**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-pv-tandem-002` — see [NOVEL.md §4.A.11](NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Primary verb-spec home for perovskite-Si 2T tandem material layer; bottom-cell Si chemistry cross-linked to [`silicon/silicon.md`](../silicon/silicon.md).
 
 ---
 

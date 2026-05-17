@@ -22,9 +22,7 @@ Status tag distinction (NOVEL.md §2):
                       (no live computation); existing 17 fixtures.
   - `SIM-NNP`       — universal-FF actual local run; requires optional dep
                       installed; this module is what produces SIM-NNP records.
-  Both are SIM tags; neither promotes to `EXTERNAL-VERIFIED` per raw#10 C3.
 
-Honest C3 boundary (raw#10 C3, LATTICE_POLICY §1.2/§1.3):
   - Every record returned by `run_universal_ff()` carries
     `is_measurement: false` — model output is COMPUTATION, NOT measurement.
   - `is_external_verification: false` — running a NNP locally does NOT
@@ -129,7 +127,6 @@ def _run_mace(candidate_id: str, structure: Optional[dict],
         return _skip_record("mace", package)
     # Phase K.2 implementation: build ASE Atoms, attach mace_mp calculator,
     # extract potential energy or relevant scalar. Captured but tagged as
-    # computation, not measurement (raw#10 C3).
     return _execute_local_nnp("mace", candidate_id, structure, proxy)
 
 
@@ -291,7 +288,6 @@ def _selftest() -> int:
         rec = run_universal_ff(sample_id, model)
         if rec.get("status") == "SKIP":
             skipped += 1
-            # Verify SKIP record discipline (raw#10 C3 invariants).
             for inv in ("is_measurement", "is_external_verification",
                         "n6_lattice_fit_applied"):
                 if rec.get(inv) is not False:

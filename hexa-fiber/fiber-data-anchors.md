@@ -32,7 +32,6 @@
 | 21 | Mjøsa Tower Norway (18 floors mass-timber) | precedent | wood-cellulose | (commercial precedent; 50+ floors UNVERIFIED) | 2026-05-13 |
 | 22 | Ascent Milwaukee (25 floors mass-timber) | precedent | wood-cellulose | (commercial precedent; 50+ floors UNVERIFIED) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (2-9, 17-19, 21-22) carry vendor numbers AS-IS.
 - Standard rows (10-16) are ASTM/TAPPI/ISO primary refs.

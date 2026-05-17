@@ -12,7 +12,6 @@ Hosted at HuggingFace:
   - dataset:   fairchem/OMAT24
   - checkpoint: fairchem/MACE-OMat-2024
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to OMat24
 records. They carry their OWN DFT error bars (same caveats as MP/PBE).
 
 Optional dep (live fetch): `huggingface_hub` (`pip install huggingface_hub`).

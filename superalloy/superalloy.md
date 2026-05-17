@@ -20,7 +20,6 @@ verdict_basis: ASM Handbook + Special Metals + Haynes + ATI vendor datasheets; n
 > blade-to-disc attachment, single-crystal solidification scheduling)
 > lives in `hexa-energy`. Depth content cross-links to METALLURGY-DEEP.md.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** stress-rupture,
 > γ' fraction, fatigue lives cite ASM Handbook vol. 1 + 2 + Special
 > Metals (Huntington Alloys) + Haynes International + ATI Specialty
 > Alloys datasheets. No lattice projection of vendor capacity.
@@ -80,7 +79,6 @@ the SX architecture eliminates grain-boundary creep.
 
 ---
 
-## §3 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer | Material focus | Reported scale | Source |
 |----------|----------------|----------------|--------|
@@ -211,7 +209,6 @@ treatment / TBC**. Engine integration is `hexa-energy` / `hexa-mobility`.
 - ✗ "Special Metals / Haynes / ATI revenue follows n=6" — they have not heard of it
 - ✗ "Re content 3-6 wt % equals n=6 / 2" — coincidence
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-ni-4gen-re-free-001` — see [NOVEL.md §4.D.2](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Re-free 4th-gen SX UNVERIFIED at parity preserved verbatim (F-SA-1 OPEN); CMSX-10 / René N6 Re-bearing incumbents govern the parity bar.
 
 ---
 

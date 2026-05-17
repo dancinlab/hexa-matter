@@ -60,7 +60,6 @@ cache by `entry_id`).
   as `experimental` or `measured`. This is a structural distinguisher from
   the COD adapter (which is the inverse — it rejects predictions labelled as
   measurements).
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): formation energies
   + cell volumes belong to the underlying DFT-PBE calculation, with the
   Kirklin 2015 systematic-error bars (MAE ~50–100 meV/atom on ΔHf). The
   adapter passes them through untouched.
@@ -78,7 +77,6 @@ cache by `entry_id`).
   Specs that quote OQMD band gaps as measurements would be wrong; the
   adapter exposes the `band_gap_PBE_eV` field so downstream consumers
   can apply scissor corrections if needed (but the bridge does NOT apply
-  them itself — that would violate raw#10 C3 by re-deriving the entity's
   numbers).
 
 ## When this module SKIPs vs FAILs

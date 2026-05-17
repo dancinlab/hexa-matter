@@ -69,7 +69,6 @@ _research_bridge/
 
 **Live mode is INVOKED ONLY when the user explicitly passes `--live`.**
 `--selftest` is offline-by-default and air-gap-safe. No live network call is
-ever attempted in `--selftest`. This is the raw#10 C3 + CI sandbox discipline.
 
 ---
 
@@ -122,7 +121,6 @@ and exits 0 — same discipline as Phase E.
 This bridge **must NOT**:
 
 1. Apply n=6 lattice formulas to vendor / arxiv / patent data
-   (`raw#10 C3` — enforced by `selftest/lattice_fit_on_external_entities_audit.py`
    at the repo level).
 2. Replace SPEC_FIRST verdicts. Research signals INFORM specs; the per-verb
    spec markdown remains the source of truth.

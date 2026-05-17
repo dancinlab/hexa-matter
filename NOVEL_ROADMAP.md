@@ -12,7 +12,6 @@ NOVEL.md rounds. Each row is a *slot* — a class + target + hypothesis
 sketch + a falsifier template — not yet a registered candidate. Future
 rounds promote selected slots to `hxm-<class>-<target>-<NNN>` entries in
 NOVEL.md with full SPEC_FIRST + DESIGN-status + quantitative-falsifier
-rigor (per raw#10 C3 + AGENTS.md).
 
 ## 0.1 What "exhaustion" means here
 
@@ -27,7 +26,6 @@ design; it is a *menu*, not a roadmap to ship.
 
 - Every candidate slot must start at `status: DESIGN` when promoted to
   NOVEL.md. Never `VERIFIED` / `EXTERNAL-VERIFIED` without external lab
-  citation + sample-ID per raw#10 C3.
 - Every slot must have a *quantitative* falsifier template (number +
   condition + pass/fail boundary) — qualitative claims rejected.
 - Anti-claims preserved verbatim: LK-99 NOT REPRODUCED · metallic-H at
@@ -753,7 +751,6 @@ Slot → NOVEL.md entry when ALL pass:
 1. Falsifier is *one falsifier line* (number + condition + pass/fail boundary).
    Multi-criterion falsifiers OK, but each must be quantitative.
 2. Anchor citation present (peer-reviewed paper / vendor datasheet / standards
-   body) — verbatim, raw#10 C3 honored, no n=6 lattice-fit assertion.
 3. Status `DESIGN` — never claim VERIFIED / EXTERNAL-VERIFIED in this repo
    (requires external lab + sample-ID).
 4. Risk-flags listed — at minimum: synthesis-feasibility, regulatory,
@@ -764,7 +761,6 @@ Slot → NOVEL.md entry when ALL pass:
 
 ---
 
-## 8. Out-of-scope notes (raw#10 C3 boundary)
 
 - This roadmap is a *hypothesis menu* — promotion to NOVEL.md is gated by
   the user and ledger review, not by this doc's listing.

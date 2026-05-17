@@ -1,7 +1,6 @@
 <!-- @authored: 2026-05-13 -->
 <!-- @author: 박민우 <nerve011235@gmail.com> -->
 <!-- @phase: C — axis-prefixed depth directory for GROUP_CER -->
-<!-- @policy: real-limits-first per LATTICE_POLICY.md §1.2; raw#10 C3 vendor discipline -->
 ---
 depth_dir: hexa-ceramic
 axis_group: GROUP_CER

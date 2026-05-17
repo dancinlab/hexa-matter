@@ -37,7 +37,6 @@ things, each measurable, each fully respecting the hard constraints:
    the **DESIGN → SIM-NNP-PROXY** transition for 7 Tier-1 candidates
    using already-vendored universal-FF proxies (SchNet / MACE / ALIGNN /
    CHGNet / M3GNet from Phase G). This is **NOT** a promotion to
-   `EXTERNAL-VERIFIED` per raw#10 C3 — proxy predictions remain SIM
    tags, with `is_measurement: false` and `is_external_verification:
    false` baked into the prediction JSON.
 3. **Broader external-data absorption.** Phase G shipped 14 adapters;
@@ -116,7 +115,6 @@ correctly valued (`is_measurement: false` etc.).
 `bash selftest/run_all.sh` → 34/34 PASS; each `hxm-*` row in `NOVEL.md`
 flipped from `DESIGN` to `SIM-NNP-PROXY` with proxy handle recorded.
 
-**Discipline (raw#10 C3 + SPEC_FIRST)**:
 - proxy is a NNP **prediction**, not a measurement.
 - `is_measurement: false` and `is_external_verification: false` are
   hardcoded in every prediction JSON — Phase J.1 gate #31 verifies the
@@ -148,7 +146,6 @@ Selftest gates added: #35 (`nims_mats_adapter_smoke`) + #36
 
 **Discipline**: each adapter ships its own SOURCES.md license + citation
 + status row; license-honesty matrix in `_absorption_bridge/README.md`
-extended to 16 rows; raw#10 C3 (no n=6 lattice-fit on adapter records)
 enforced via `lattice_fit_on_external_entities_audit.py` (existing gate
 #8) automatically picking up the new subdirs.
 
@@ -196,7 +193,6 @@ the bidirectional invariant.
   `AXIS_CLOSURE_PLAN.md §0`, Category (c) is permanently OUT-OF-REPO. Phase
   J adds zero (c) closure. The §C ledger remains at 18 enumerated items,
   each at DEST: vendor-numbers-only / HARD_WALL / cross-domain.
-- ❌ **Promotion to EXTERNAL-VERIFIED.** Per raw#10 C3 + `NOVEL.md §7`,
   `EXTERNAL-VERIFIED` requires an external lab citation with sample-ID
   + measurement protocol. NNP-proxy predictions do **not** qualify.
 - ❌ **UNPROVEN-flag removal.** Every flag preserved verbatim — LK-99
@@ -228,7 +224,6 @@ Bound by the 6 hard constraints in `INIT.md` §"Hard constraints":
    on n=6 tautology.
 2. **`LATTICE_POLICY.md §1.3 n=6 auxiliary`** — zero lattice-derived
    assertions added. Gate count is engineering-chosen.
-3. **raw#10 C3 — no lattice-fit on external entities** — NIMS / Catalysis-
    Hub records flow through verbatim; SchNet / MACE / ALIGNN / CHGNet /
    M3GNet proxy predictions carry their own published error bars
    (force MAE 20–60 meV/Å typical); NO n=6 lattice-fit applied.
@@ -290,7 +285,6 @@ Each sub-phase carries the same author-trailer convention:
 |---|---|
 | Reader interprets "deepening" as "100% was incomplete" | `CLOSURE_STATUS.md §10` opens with explicit statement that the §1 verdict still holds; this plan §0 repeats it. |
 | SIM-NNP-PROXY confused with EXTERNAL-VERIFIED | Every prediction JSON carries `is_measurement: false` + `is_external_verification: false`; J.1 gate #31 + J.2 gate #34 machine-enforce. |
-| Adapter sprawl (16 adapters, fewer in active use) | License-honesty matrix in `_absorption_bridge/README.md` lists each with cost + license + status; raw#10 C3 audit (gate #8) sweeps every subdir automatically. |
 | NOVEL bidirectional links drift | `selftest/cross_link_integrity_audit.py` (gate #29) extension in J.5 enforces both directions. |
 | Selftest scoreboard expansion breaks downstream consumers | `hexa.toml [closure].selftest_pass` updated atomically with the J commits; `cross_doc_audit.py` keeps README / AGENTS.md / INIT.md in sync. |
 

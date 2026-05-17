@@ -10,7 +10,6 @@ engineering envelope corresponding to > 1000 h to 0.2 % creep strain).
 Parity: superalloy/superalloy.md SA-L1 row '~ 700 MPa' ↔
 tests/snapshots/met_b1_inconel718_creep.json. Threshold: spec >= 690 MPa.
 
-raw#10 C3: ASM / Special Metals values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __MET_B1_INCONEL718_CREEP__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     thr = float(snap["tolerance"]["min_threshold_MPa"])
     with open(SPEC_DOC, "r", encoding="utf-8") as fh:

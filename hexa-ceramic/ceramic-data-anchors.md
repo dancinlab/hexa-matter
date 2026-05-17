@@ -35,7 +35,6 @@
 | 23 | Wacker Polysilicon AG | poly-Si purity grade specs (vendor) | silicon | (vendor) | 2026-05-13 |
 | 24 | GCL Tech / Hemlock / OCI / REC | poly-Si production capacity (vendor) | silicon | (vendor) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Rows 17-24 are vendor / lab / public-disclosure values. NO lattice fit applied.
 - Rows 1-16 are NIST/CRC/SEMI/ASTM/ASM/ACI primary sources, anchored to

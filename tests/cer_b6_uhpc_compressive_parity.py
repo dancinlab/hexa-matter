@@ -7,7 +7,6 @@ Anchor: Ductal (Lafarge-Holcim) + Cor-Tuf (USACE ERDC) datasheet — UHPC
 sigma_c 150-200 MPa typical, 800 MPa upper headroom with steel-fiber +
 autoclave per ASTM C39.
 
-raw#10 C3: vendor numbers verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate verifies snapshot↔vendor parity; reproducibility of the
 800 MPa upper headroom remains UNVERIFIED at commodity scale.
 
@@ -30,7 +29,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     if not snap.get("source", {}).get("citation"):
         print("FAIL: missing source citation")

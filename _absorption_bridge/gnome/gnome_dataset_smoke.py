@@ -13,7 +13,6 @@ UNPROVEN preservation (per INIT.md Phase G hard rule 4):
   Every GNoME record carries `is_synthesized: false` and a `synthesis_status`
   field. The adapter enforces these markers are present.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to GNoME
 predictions. They carry their OWN published error bars (formation-energy
 MAE ~20 meV/atom per Merchant et al. 2023 supplementary).
 

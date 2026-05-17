@@ -32,7 +32,6 @@
 | 19 | Ferrotec / Heraeus crucible specs | CZ fused-silica crucible ~600 mm | silicon | Si-L3 | 2026-05-13 |
 | 20 | Topsil / Siltronic FZ datasheets | FZ rod ~200 mm | silicon | Si-L4 | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - **No lattice fit on any vendor figure** (rows 11-17, 19-20). Vendor numbers
   are vendored as-is; no n=6 lattice arithmetic is applied.
@@ -53,7 +52,6 @@ file as the authoritative ledger and check:
 1. Each row's value appears verbatim in the corresponding verb spec file.
 2. Each row's source is a primary source (NIST/CRC/SEMI/ASTM/peer-reviewed),
    except rows marked `(vendor)` which are explicitly vendor-only.
-3. No row applies n=6 lattice arithmetic (raw#10 C3 enforcement).
 4. Last-verified date is within `selftest_freshness_days` (TBD; default 365 days).
 
 ## §4 Cross-anchor map (where else these anchors are used)

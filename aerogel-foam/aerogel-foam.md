@@ -22,7 +22,6 @@ verdict_basis: NIST + primary literature (Kistler / Hrubesh) + Aspen Aerogels / 
 > Distinct from `mof/` (which is *crystalline* nanoporous);
 > aerogel is *amorphous-network* nanoporous.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** aerogel densities,
 > thermal conductivities, and BET surface areas are set by **sol-gel
 > network connectivity + supercritical-drying schedule + post-treatment**
 > — not by the n=6 lattice. Aspen Aerogels (Cryogel / Spaceloft) /
@@ -99,7 +98,6 @@ price tier needed for residential building retrofit at scale.
 
 ---
 
-## §3 Industrial scale — vendor-published figures (raw#10 C3, NO lattice fit)
 
 Global aerogel market is **niche**: ~ $700M–$1B/yr (industry estimates
 ~ 2024) vs polyurethane foam market ~ $80B/yr. Aerogel is concentrated
@@ -256,7 +254,6 @@ Cellulose aerogel branch:
   UNPROVEN at large-pane production; <m² typical
 - ✗ "Self-healing aerogel is production-ready" — UNPROVEN
 
-**Related NOVEL candidate** (Tier-2 hypothesis, status as of 2026-05-13): `hxm-aero-polyimide-001` — see [NOVEL.md §4.D.12](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Polyimide aerogel (BPDA-PPDA / BPDA-ODA dianhydride-diamine route, Meador / NASA-Glenn corpus) for aerospace cryogenic-to-elevated-T insulation; cost-per-kg UNPROVEN at commodity-foam parity.
 
 ---
 

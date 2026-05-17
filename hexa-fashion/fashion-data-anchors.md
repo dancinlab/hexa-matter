@@ -30,7 +30,6 @@
 | 19 | DyStar / Huntsman Textile Effects / Archroma dye datasheets | dye-grade specs | textile-dyeing | (vendor) | 2026-05-13 |
 | 20 | Genencor / Pivot Bio bacterial indigo lab refs | bio-fermented indigo | textile-dyeing (cross to bio) | (vendor / lab) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - ISO / AATCC rows (1-8) are industry test standards (the protocol IS the
   measurement).

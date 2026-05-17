@@ -213,7 +213,6 @@ leaching, biofilm colonization, K_d partition coefficient.
 
 Cross-link: NOAA Marine Debris Program / 5 Gyres Institute / Algalita
 publish field measurements; the verb spec stores these as vendor-class
-data with no lattice fit (raw#10 C3).
 
 ## §8 The biodegradable-plastics spotlight (Phase D)
 

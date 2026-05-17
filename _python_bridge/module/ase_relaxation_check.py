@@ -7,7 +7,6 @@ the in-repo fixture without external DFT calculators.
 
 Status: PARTIAL (FUNCTIONAL with ASE; SKIPs cleanly without).
 
-raw#10 C3: this module runs ONLY on a self-constructed toy system (a few
 Cu atoms with the EMT calculator). It does NOT touch vendor data and does
 NOT claim DFT-grade material parameters. EMT is a coarse semi-empirical
 potential — sufficient for a "the pipeline runs" smoke test, NOT a

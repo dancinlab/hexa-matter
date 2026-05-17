@@ -15,7 +15,6 @@ snapshot value is checked against the closed-form pi/(3*sqrt(2)).
 Parity: LIMIT_BREAKTHROUGH.md L11 row ↔
 tests/snapshots/prc_b1_hales_packing.json. Tolerance: abs 0.0005.
 
-raw#10 C3: Hales formal proof verbatim; no n=6 lattice-fit applied
 (packing pi/(3 sqrt2) is the Kepler invariant, not an n=6 invariant).
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
@@ -41,7 +40,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     snap_val = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

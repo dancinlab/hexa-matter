@@ -24,7 +24,6 @@ Phase H drains the highest-leverage subset. It is the honesty-bridge
 step: hexa-matter states "Si density = 2.329 g/cm³ (CRC)"; Phase H makes
 that claim a runnable, deterministic test that the spec doc and the
 vendored CRC snapshot agree within a published tolerance — without
-crossing into Category (c) wet-lab work and without violating raw#10 C3
 (vendor snapshots are vendored AS-IS with provenance; no n=6 lattice-fit
 applied).
 
@@ -97,7 +96,6 @@ call.
 }
 ```
 
-**Honesty rules** (per raw#10 C3 + Rule 4 SPEC_FIRST):
 - `n6_lattice_fit_applied: false` is a mandatory field on every snapshot.
   No σ·φ=24 fitting on vendor / NIST / standards data.
 - `__fixture_tag__` matches the Phase F/G pattern ("VENDORED SOURCE
@@ -163,7 +161,6 @@ increases by exactly 10 vs. the Phase G baseline. §B summary totals
 
 - `INIT.md` Phase H row: `🚧 WIP` → `✅ DONE` + commit SHA filled in; add
   a "Phase H — DONE" section mirroring the Phase G template (gate count,
-  sentinel string, source matrix, raw#10 C3 note).
 - `hexa.toml [closure]`: add `parity_gates_total = 10`; update
   `selftest_pass = "23/23"` → `"24/24"`.
 - `AGENTS.md` §🧪 Selftest authority: update "23/23 PASS" → "24/24 PASS";
@@ -188,7 +185,6 @@ AGENTS.md).
 - ❌ **Category (c) wet-lab partnerships** (Wacker poly-Si batch audit,
   Wolfspeed SiC wafer audit, LK-99 reproduction, Stora Enso CLT mill
   audit, …). 100% out-of-software-scope; stays in §C.
-- ❌ **Re-running n=6 lattice arithmetic on vendor data.** raw#10 C3:
   every vendor / NIST / ASM / SEMI / ISO / TAPPI value is quoted
   AS-IS with provenance. `n6_lattice_fit_applied: false` is hard-coded
   in every snapshot.
@@ -216,7 +212,6 @@ Bound by the 6 hard constraints in `INIT.md` §"Hard constraints":
 2. **`LATTICE_POLICY.md` §1.3 n=6 auxiliary** — zero lattice-derived
    assertions added. Gate count (10) is engineering-chosen, not
    lattice-chosen.
-3. **raw#10 C3 — no lattice-fit on external entities** — every snapshot
    tagged `n6_lattice_fit_applied: false`. NIST / CRC / ASM / TAPPI /
    ISO / DuPont / Wolfspeed values flow through verbatim with provenance.
 4. **SPEC_FIRST verdict preserved** — gates check spec ↔ source parity;

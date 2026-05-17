@@ -129,7 +129,6 @@ The achievable closure is BOUNDED by L12.
 
 - `selftest/recycling_yield_audit.py` (Phase B target): parse recycling.md
   for yield claims; cross-check vendor claims (Loop, Eastman) AS-IS without
-  lattice fit (raw#10 C3).
 - `selftest/lattice_arithmetic_regression.py` (Phase B): verify σ(6)=12,
   τ(6)=4, φ(6)=2, J₂=24, master identity σ·φ = n·τ — but does NOT
   cross-check these against recycling efficiency.

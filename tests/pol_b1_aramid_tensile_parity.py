@@ -10,7 +10,6 @@ Parity: aramid/aramid.md F-AR-Q1 falsifier row ↔
 tests/snapshots/pol_b1_aramid_tensile.json. Pass iff spec threshold meets
 or exceeds the standard's published minimum.
 
-raw#10 C3: DuPont/ASTM values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __POL_B1_ARAMID_TENSILE__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_min = float(snap["claim"]["min_value"])
     with open(SPEC_DOC, "r", encoding="utf-8") as fh:

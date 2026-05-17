@@ -55,7 +55,6 @@
   Project / GNoME / OMat24 (which are DFT outputs). Cell parameters were
   determined experimentally by the depositor. Provenance lives in the
   attached publication.
-- **raw#10 C3**: no n=6 lattice-fit on COD records. The depositor's reported
   uncertainties (typically e.s.d. on cell parameters, ~10⁻⁴ Å) are the
   authoritative bars.
 - **Not a DFT-property replacement**: COD records carry experimental cell

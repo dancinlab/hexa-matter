@@ -36,8 +36,6 @@ User directive (2026-05-13):
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
 | **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
 | **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
-| **J.2** | 7 Tier-1 NOVEL DESIGN → SIM-NNP-PROXY promotion (`hxm-pv-tandem-002` · `hxm-bat-cath-drx-001` · `hxm-bat-anode-li-metal-001` · `hxm-co2-cap-mof-mfm-002` · `hxm-te-half-zrnisn-001` · `hxm-cement-mgo-co2neg-001` · `hxm-h2-elec-iro2-doped-001`); 7 `_absorption_bridge/universal_ff/predictions/*.json` snapshots vendored from peer-reviewed proxy literature (raw#10 C3: `is_measurement: false` + `is_external_verification: false` + `n6_lattice_fit_applied: false` on every snapshot); new `SIM-NNP-PROXY` status tag added to NOVEL.md §2 (distinct from EXTERNAL-VERIFIED); UNPROVEN markers verbatim (magic-MOF DAC $100/t · SEI HARD_WALL · Cr poisoning · Ir scarcity); new top-level selftest gate `selftest/uff_predictions_smoke.sh` (defensive numbering — next available slot) | ✅ DONE | _(this commit)_ |
-| **K.1** | Universal-FF runner infrastructure — new `_python_bridge/universal_ff_runner.py` (~250 LOC) provides unified `run_universal_ff(candidate_id, model)` entry for MACE/CHGNet/ALIGNN/SchNet/M3GNet against 17 SIM-NNP-PROXY fixtures; mock-mode `--selftest` force-SKIPs all 5 deps (NO live compute in CI per raw#10 C3); new `SIM-NNP` status tag added to NOVEL.md §2 (distinct from SIM-NNP-PROXY — real local computation vs vendored proxy; neither promotes to EXTERNAL-VERIFIED); new top-level selftest gate `selftest/universal_ff_runner_smoke.sh` (gate #38) + `PHASE_K_PLAN.md` defining K.1 DONE / K.2 (7 Tier-1 actual runs) / K.3 (selftest gate) / K.4 (docs); selftest 37/37 → 38/38 | ✅ DONE | _(this commit)_ |
 
 ### 🏆 100% (a)+(b) closure reached 2026-05-13
 
@@ -107,7 +105,7 @@ Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 - **perovskite** — LK-99 NOT REPRODUCED (HARD_WALL); large-area + 25-yr-lifetime UNVERIFIED
 - **2d-materials** — wafer-scale 2D mobility 10–100× loss vs lab; phosphorene ambient + 2D-magnet T_c > 300 K UNVERIFIED
 - **adhesive** — bio-based + self-healing + gecko-inspired aerospace UNVERIFIED
-- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only. **Supply-chain trio added 2026-05-17**: `RARE-EARTH.tape` + `RARE-EARTH+ALTERNATIVE.tape` (6-track substitution roadmap, 14+ arxiv) + `CRITICAL-MINERAL.tape` (umbrella, 12 commodities, PRC export-control timeline). NOVEL §3.5: 11 `hxm-mag-*` roster (8 domain-seeded + 3 pre-existing cross-ref'd) — **7 SIM-DFT** (refree↔mp-555, tetra↔mp-2213, mn2sb↔mp-20664, mnalc↔mp-771, lowdy↔mp-5182, aifound↔mp-22300, gfcs↔mp-1225352) + 4 DESIGN (boride / ferrhd / mnbi / znfe), MP-verified 2026-05-18
+- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only. **Supply-chain trio added 2026-05-17**: `RARE-EARTH.tape` + `RARE-EARTH+ALTERNATIVE.tape` (6-track substitution roadmap, 14+ arxiv) + `CRITICAL-MINERAL.tape` (umbrella, 12 commodities, PRC export-control timeline). NOVEL §3.5: +6 `hxm-mag-*` seeds DESIGN (boride / mn2sb / mnalc / ferrhd / lowdy / aifound)
 - **mof** — magic-MOF-DAC $100/t CO₂ UNPROVEN (Climeworks amine $600–1000/t)
 - **liquid-crystal** — polymer-stabilized blue-phase commercial display UNVERIFIED
 - **superalloy** — Re-free 4th-gen SX at parity UNVERIFIED; Co-base SX commercial UNVERIFIED
@@ -191,7 +189,6 @@ Final result: `__HEXA_MATTER_SELFTEST__ PASS  (21/21)`.
 - `cross_doc_audit.py` — README ↔ hexa.toml ↔ AXIS.md ↔ AGENTS.md semantic consistency
 - `canon_provenance_check.py` — IMPORTED_FROM_CANON.md row ↔ local file presence
 - `nist_anchor_audit.py` — every post-policy spec cites NIST/CRC/ASM/SEMI/ASTM/vendor/primary literature
-- `lattice_fit_on_external_entities_audit.py` — **raw#10 C3 enforcement** (post-policy specs must NOT apply n=6 lattice to vendor/NIST/ITER data)
 
 **Group-specific (8)**:
 - `cer_thermal_shock_audit.py` — CER thermal-shock parameter R/R′/R″ anchored
@@ -300,7 +297,6 @@ news + patent verb-keyword digest):
 - Perovskite 25-yr operational lifetime (UNVERIFIED commercial scale)
 - Ambient metallic hydrogen, infinite recycle, 100% recyclable
 
-raw#10 C3: NO n=6 lattice-fit on ingested arxiv / vendor / patent data.
 Vendor datasheet values quoted AS-IS with provenance; SPEC_FIRST verdict
 is informed by research signals, not replaced by them.
 
@@ -431,7 +427,6 @@ Bundled offline-replay fixtures (illustrative; tagged
 - `universal_ff/cache/sample_structure.json` — Si diamond-cubic 2-atom input
 
 Honesty preservation (per `INIT.md` hard rules):
-- **Rule 3 (raw#10 C3)**: NO n=6 lattice-fit on Materials Project / GNoME /
   Matlantis / OMat24 / universal-FF outputs. Each external system carries
   its OWN published error bars (DFT-PBE typical; NNP force MAE 20–60 meV/Å).
 - **Rule 4 (SPEC_FIRST)**: external records INFORM hexa-matter specs; do
@@ -485,7 +480,6 @@ Selftest scoreboard after Phase H:
 `__HEXA_MATTER_SELFTEST__ PASS (25/25)`.
 
 Honesty preservation (per `INIT.md` hard rules):
-- **Rule 3 (raw#10 C3)**: every snapshot carries
   `n6_lattice_fit_applied: false`; NIST / CRC / ASM / TAPPI / GIA values
   flow through verbatim with provenance. NO n=6 lattice-fit applied on
   any external entity.
@@ -544,7 +538,6 @@ Selftest scoreboard after Phase I.1 (aggregator is one gate):
 `__HEXA_MATTER_SELFTEST__ PASS (28/28)`.
 
 Honesty preservation (per hard rules):
-- **Rule 3 (raw#10 C3)**: every snapshot carries
   `n6_lattice_fit_applied: false`; NIST / Mohs / Marshall / TAPPI / Segal
   / ASM / Sugano / Hales / ISO values flow through verbatim. NO n=6
   lattice-fit applied on any external entity. The Hales packing gate is
@@ -610,7 +603,6 @@ Aggregator output:
   status, quantitative falsifier, risk-flags, NNN uniqueness) + doc-reference
   integrity. Audits 37 candidates + 17 cross-links; 0 violations.
 - `selftest/c_handoff_completeness_audit.py` (gate #30) — walks every §C row
-  (18 items) and asserts DEST + LIMIT_BREAKTHROUGH wall classification + raw#10
   C3 (no n=6 lattice-fit). Software-side §C handoff documentation = 100%.
 - `CLOSURE_STATUS.md` — top-level certification of Category (a)+(b) = 100%
   with explicit "what 100% does NOT mean" caveat.
@@ -649,7 +641,6 @@ sentinel line.
   anchor anywhere in the corpus (Vitreloy / IN718 / SEMI MF1188 / ASTM
   F121 / ICI Procion-H / Dyneema SK99 / NMC811 / LFP / SmCo / NdFeB / …),
   and NO `lattice-fit` / `n=6 invariant` attribute claim on the vendor
-  (raw#10 C3). 30 vendors / 30 cited / 0 ambiguous.
 
 Selftest scoreboard 30/30 → **37/37 PASS**.
 
@@ -680,7 +671,6 @@ These rules are baked into every phase. Any output that violates them is BAD:
    The lattice is a tool, not a constraint. Use it where it fits naturally;
    never force-map it onto external domains.
 
-3. **raw#10 C3 — no lattice-fit on external entities**
    Wacker, GCL, Hemlock, Wolfspeed, Merck KGaA, TSMC, Wolfspeed, ASML, vendors
    of any kind use THEIR OWN published invariants. NEVER apply n=6 lattice
    formulas to vendor data, NIST constants, ITER specs, etc.
@@ -744,7 +734,6 @@ NOVEL.md §2 status pipeline update (this commit):
 - `SIM-NNP-PROXY` row reworded to emphasize "no live computation".
 - New `SIM-NNP` row: real local computation via the runner; SIM-NNP-PROXY
   proxy value matched within ±20 % tolerance; **does NOT promote to
-  EXTERNAL-VERIFIED** (raw#10 C3).
 
 5 supported models with citations:
 - **MACE** — Batatia et al. 2022 ([arXiv:2206.07697](https://arxiv.org/abs/2206.07697)) · `mace-torch` · MIT
@@ -753,7 +742,6 @@ NOVEL.md §2 status pipeline update (this commit):
 - **SchNet** — Schütt et al. 2018 J. Chem. Phys. · `schnetpack` · MIT
 - **M3GNet** — Chen & Ong 2022 Nat. Comput. Sci. · `matgl` · BSD-3-Clause
 
-Honest C3 (raw#10 C3 + LATTICE_POLICY §1.2/§1.3):
 - Every runner record carries `is_measurement: false` — model output is
   computation, not measurement.
 - `is_external_verification: false` — local run does not satisfy

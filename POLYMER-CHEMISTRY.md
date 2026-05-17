@@ -8,7 +8,6 @@
 > **Companion verbs**: aramid, epoxy, nylon, pet_film, microplastics, tire_cord;
 > companion upstream-canon chapters: ARAMID.md, EPOXY.md, NYLON.md, PET-FILM.md.
 >
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3)**: polymer property data cited
 > from CRC Handbook 105th ed., ASM Handbook vol. 21 (composites with polymer
 > matrix), Mark's Encyclopedia of Polymer Science 4th ed., and manufacturer
 > datasheets (DuPont, BASF, Toray, DSM Dyneema, Hexcel). Vendor values are
@@ -425,7 +424,6 @@ This is why mechanical recycling tops out at ~ 30-50% effective yield (per strea
 
 ---
 
-## §12 Honest C3 (raw#10)
 
 - Polymer property data from CRC Handbook, ASM Handbook vol. 21, Mark's Encyclopedia, and manufacturer datasheets (DuPont, BASF, Toray, DSM, NatureWorks). **No values lattice-derived.**
 - Aramid Kevlar 49 σ_f = 3.6 GPa is DuPont's published spec; not a lattice prediction.

@@ -11,7 +11,6 @@ Parity: wood-cellulose/wood-cellulose.md WC-L12 row ↔
 tests/snapshots/fib_b1_cellulose_segal.json. Tolerance: ± 10 % on each
 endpoint of the 60-80 % band.
 
-raw#10 C3: TAPPI/Segal values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __FIB_B1_CELLULOSE_SEGAL__ PASS sentinel.
@@ -35,7 +34,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_lo = float(snap["claim"]["CrI_pct_min"])
     src_hi = float(snap["claim"]["CrI_pct_max"])

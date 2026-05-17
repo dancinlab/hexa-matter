@@ -42,7 +42,6 @@
   training. Cite carefully.
 - MACE-OMat checkpoint is one of several universal NNPs that consumed
   OMat24; it is NOT the only model.
-- raw#10 C3: no n=6 lattice-fit on OMat24 records. They carry their OWN
   DFT error bars.
 
 ## Cross-link

@@ -46,7 +46,6 @@ with peer-reviewed proxy predictions vendored under
 
 This release ships under the dancinlab-wide `LATTICE_POLICY` (Wave K) +
 `LIMIT_BREAKTHROUGH` (Wave M) discipline; every new artifact respects
-the raw#10 C3 invariant (no n=6 lattice-fit on external entities) and
 preserves UNPROVEN/UNVERIFIED markers verbatim.
 
 ---
@@ -87,7 +86,6 @@ prediction JSON carries the four discipline flags
 (`is_measurement: false` / `is_external_verification: false` /
 `n6_lattice_fit_applied: false` / `__fixture_tag__: SIM-NNP-PROXY …`).
 
-**Discipline (raw#10 C3 + SPEC_FIRST + NOVEL.md §7)**: `SIM-NNP-PROXY` is
 a SIM tag, **NOT** `EXTERNAL-VERIFIED`. The promotion advances the
 DESIGN → SIM stage only; external verification still requires an
 attributed external lab citation per `NOVEL.md §7` step 6.
@@ -215,7 +213,6 @@ MACE-MP-0) and the four discipline flags
 (`is_measurement: false` / `is_external_verification: false` /
 `n6_lattice_fit_applied: false` / `__fixture_tag__: SIM-NNP-PROXY …`).
 
-Per raw#10 C3 + `NOVEL.md §7`, the promotion advances the DESIGN → SIM
 stage only. `EXTERNAL-VERIFIED` still requires an external lab citation
 with sample-ID and measurement protocol — that bar is unchanged.
 
@@ -323,14 +320,6 @@ specific Phase K or v1.4 scope. The Phase J deepening axis is itself
 optional in the sense that the v1.2.0 (a)+(b)=100% verdict was already
 stable; v1.3.0 adds rigor + breadth around that envelope.
 
-**Post-v1.3.0 work already on `main` (un-versioned, 2026-05-17/18)**: a
-supply-chain domain trio — `RARE-EARTH.tape` / `RARE-EARTH+ALTERNATIVE.tape`
-/ `CRITICAL-MINERAL.tape` (+ `.md` + `.log.tape` siblings) — plus a
-`NOVEL.md` §3.5 `hxm-mag-*` roster of 11 rare-earth-free magnet candidates
-(7 promoted DESIGN → SIM-DFT by Materials Project cross-reference, 4 DESIGN).
-The `mp_api_smoke.py` adapter gained a stdlib-`urllib` REST fallback +
-`--formula` path. Folds into a future v1.4 if/when the maintainer cuts one.
-
 Phase K-shaped candidate axes that are conceivable but not committed:
 
 - additional NOVEL DESIGN → SIM-NNP-PROXY promotions beyond the 7 Tier-1
@@ -362,7 +351,6 @@ consistent at the values declared in `CLOSURE_STATUS.md §1` (baseline)
 - Wave M `LIMIT_BREAKTHROUGH` audit for the real-limits-first anchors
 - All 23+2 external scientific tools / databases / NNPs absorbed across
   Phase E + F + G + G+1 + G+2 + J.3 — their published license + citation
-  + version is vendored honestly per raw#10 C3
 - M3GNet (Chen 2022) / CHGNet (Deng 2023) / ALIGNN-FF (Choudhary 2021) /
   MACE-MP-0 (Batatia 2022) / SchNet (Schütt 2017) authors for the open
   universal-FF proxy stack that enables `DESIGN → SIM-NNP-PROXY` advances

@@ -133,7 +133,6 @@ The `verdict = "SPEC_FIRST"` is honest: 16/16 verbs ship as peer-citable markdow
 
 ---
 
-## Scope honesty (raw#10 C3)
 
 Per `hexa.toml [scope].honest_scope`:
 

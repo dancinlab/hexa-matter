@@ -37,7 +37,6 @@ The 17th verb — silicon — was authored in-repo on 2026-05-13 (commit `a23961
 
 This honesty preserves the audit trail: we know exactly which 16 verbs are canon-import lineage and which 1 verb is in-repo authored.
 
-### §1.3 raw#10 C3 enforcement — no lattice-fit on external entities
 
 The hardest discipline lesson came from authoring `silicon/silicon.md`. The temptation to write "Wacker produces N kt/yr poly-Si and the n=6 lattice predicts 12·N..." was real and was rejected. The rule (from `AGENTS.md`):
 
@@ -91,7 +90,6 @@ User directive (2026-05-12, Wave K): "n=6 격자를 강제할 필요 없어, 제
 The pivot:
 - LATTICE_POLICY.md §1.2: n=6 is a *tool* (use where it naturally fits), not a *constraint* (don't force it onto external domains)
 - LATTICE_POLICY.md §1.3: lattice-arithmetic identities (σ·φ=24) are AUXILIARY self-consistency checks; they do NOT constitute verification
-- AGENTS.md raw#10 C3: claims about external entities must NOT include lattice-fit assertions
 
 After the pivot, every spec doc was audited for lattice-fit on external entities (Wacker, GCL, Wolfspeed, DuPont, BASF) and cleaned. The substrate is now honest about what the lattice is (an internal arithmetic invariant for n=6) and what it is not (a predictor of vendor tonnage, fab capacity, or material parameter).
 
@@ -255,7 +253,6 @@ The Phase D verb count (12+) is *engineering-driven*. We will NOT force-fit to 2
 > (LIMIT_BREAKTHROUGH NIST/CRC/Hales/Frenkel audit) + silicon close
 > (the missing 17th verb surfaced by Wave M gap detection) = hexa-matter
 > v1.x reached **17/17 verbs · 4/4 verify PASS · CLOSED** on 2026-05-13,
-> with raw#10 C3 discipline preserved across all external-entity citations.
 
 ---
 
@@ -265,7 +262,6 @@ The Phase D verb count (12+) is *engineering-driven*. We will NOT force-fit to 2
 - `LIMIT_BREAKTHROUGH.md` — hexa-matter real-limits audit (Wave M, 2026-05-12)
 - `silicon/silicon.md` — silicon verb authored 2026-05-13
 - `hexa.toml` — verb manifest + verify scoreboard
-- `AGENTS.md` — raw#10 C3 honesty discipline
 - `hexa-bio/LESSONS.md` — sister-substrate lessons (cycle-30 cohort)
 - `hexa-bio/AXIS_CLOSURE_PLAN.md` §0 — residual category (a)/(b)/(c) legend
 

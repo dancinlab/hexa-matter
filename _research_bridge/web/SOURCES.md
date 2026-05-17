@@ -2,7 +2,6 @@
 
 > **Created**: 2026-05-13 (Phase F)
 > **Status**: vendor datasheet + RSS news feeds + patent endpoints
-> **Honesty**: vendor datasheet values are THE VENDOR'S OWN NUMBERS (raw#10 C3 — never lattice-fit).
 
 ---
 
@@ -80,7 +79,6 @@
 
 ---
 
-## §4 raw#10 C3 — vendor data discipline
 
 **Critical**: when a vendor datasheet says "9N purity", the spec markdown
 quotes that EXACTLY:
@@ -136,7 +134,6 @@ synthetic, not vendor IP.
 - This file lists URLs as **research-bridge targets**, not as endorsements.
 - All values pulled from these sources are SOFT walls in `LIMIT_BREAKTHROUGH.md`
   classification unless they cross-reference a NIST/CRC/ASM/SEMI/ASTM HARD wall.
-- raw#10 C3 enforcement: `selftest/lattice_fit_on_external_entities_audit.py`
   fails the repo if any spec markdown applies n=6 lattice formulas to data
   pulled via this bridge.
 

@@ -61,7 +61,6 @@ no fixed release number — adapters cache by `cod_id`).
   `experimental`/`measured` — preserving the bridge rule that predictions
   (MP/GNoME/OMat24/NNP) must not be silently labelled as measurements.
   This is a structural distinguisher from the DFT-database adapters.
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): cell parameters and
   e.s.d. (typically ~10⁻⁴ Å) belong to the depositor + journal that
   measured them. The adapter passes them through untouched.
 

@@ -92,7 +92,6 @@ drift away from the local cache.
 - A spec update grounded ONLY in arxiv (no NIST/CRC/ASM anchor) is suspect.
   The honest pattern: arxiv flags a candidate → spec update happens only
   when a NIST/CRC/ASM/SEMI/ASTM/vendor anchor matches.
-- raw#10 C3: NO n=6 lattice-fit on arxiv data. Author counts are not σ. Page
   counts are not τ. Categories are not axis labels.
 
 ---

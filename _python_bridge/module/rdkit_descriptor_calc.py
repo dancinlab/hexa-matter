@@ -19,7 +19,6 @@ These descriptors are used by:
   - elastomer/elastomer.md    (NR, SBR, EPDM precursors)
   - biodegradable-plastics/biodegradable-plastics.md (PLA/PHA/PBS monomers)
 
-raw#10 C3: descriptors are computed from structural literals (SMILES) we
 control. They are NOT applied to vendor MWD data or commercial product
 spec values to claim equivalence.
 

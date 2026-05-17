@@ -12,7 +12,6 @@ Parity: METALLURGY-DEEP.md §5.1 ASCII TTT + §5.2 phase descriptions ↔
 tests/snapshots/met_b3_aisi1080_ttt.json. Tolerances: nose +/- 25 C,
 bainite +/- 25 C, Ms +/- 35 C.
 
-raw#10 C3: ASM published values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __MET_B3_AISI1080_TTT__ PASS sentinel.
@@ -36,7 +35,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_nose = float(snap["claim"]["nose_C"])
     src_bainite = float(snap["claim"]["bainite_onset_C"])

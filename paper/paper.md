@@ -454,7 +454,6 @@ This section covers references for the domain. Initial scaffold content — expa
 
 ## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
 
-Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §7.10 lattice
 falsifiers above are number-theoretic only. The engineering thresholds below
 are what retire the corresponding *paper* claim on measurement.
 

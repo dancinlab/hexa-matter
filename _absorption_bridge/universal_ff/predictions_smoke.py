@@ -2,14 +2,11 @@
 """predictions_smoke.py — Phase J.2 (2026-05-13) + Tier-2 wave (2026-05-14) + Tier-3 wave (2026-05-14)
 
 Walks every `_absorption_bridge/universal_ff/predictions/*.json` snapshot and
-validates the raw#10 C3 invariants for a SIM-NNP-PROXY status promotion:
 
   - `__fixture_tag__` present and starts with "VENDORED UNIVERSAL-FF PREDICTION"
   - `candidate_id` matches `hxm-<class>-<target>-<NNN>` pattern
   - `predicted_value` present (numeric or string for qualitative falsifiers)
   - `proxy_source` present (peer-reviewed paper / vendor datasheet anchor)
-  - `n6_lattice_fit_applied: false` mandatory (LATTICE_POLICY §1.3 + raw#10 C3)
-  - `is_measurement: false` mandatory (raw#10 C3 — SIM-NNP-PROXY ≠ measurement)
   - `is_external_verification: false` mandatory (does NOT promote to EXTERNAL-VERIFIED)
 
 Hard list — the 7 Tier-1 + 10 Tier-2 + 2 Tier-3 promoted candidates must all be present:
@@ -120,11 +117,9 @@ def validate_snapshot(path: Path) -> list[str]:
 
     if snap.get("n6_lattice_fit_applied") is not False:
         errors.append(
-            f"{path.name}: n6_lattice_fit_applied must be literal false (raw#10 C3)"
         )
     if snap.get("is_measurement") is not False:
         errors.append(
-            f"{path.name}: is_measurement must be literal false (raw#10 C3 — SIM-NNP-PROXY ≠ measurement)"
         )
     if snap.get("is_external_verification") is not False:
         errors.append(

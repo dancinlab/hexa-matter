@@ -9,7 +9,6 @@ E_g = 1.12 eV at 300 K.
 Parity: silicon/silicon.md Si-L7 row ↔ tests/snapshots/cer_b3_si_bandgap.json.
 Tolerance: abs 0.02 eV (Varshni T-dependent spread).
 
-raw#10 C3: NIST value verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B3_SI_BANDGAP__ PASS sentinel.
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     expected = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

@@ -23,7 +23,6 @@ Used by:
   - magnetic-materials/magnetic-materials.md  (NdFeB Nd2Fe14B, bell-bronze 78 Cu / 22 Sn)
   - lutherie/lutherie.md       (bell-bronze, bronze 88 Cu / 12 Sn)
 
-raw#10 C3: pure arithmetic conversion. NO n=6 lattice fit on vendor
 composition data. Specs cite ASM Handbook / vendor datasheets directly.
 
 License: MIT (hexa-matter Phase E).

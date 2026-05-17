@@ -64,7 +64,6 @@ cache by `auid`).
   as `experimental` or `measured`. AFLOW does NOT curate synthesis status —
   many entries are prototype-substituted hypothetical compounds that have
   never been synthesized.
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): formation enthalpies,
   cell volumes, and DFT band gaps belong to the underlying AFLOW Standard
   DFT calculation, with documented per-record numerical-convergence
   parameters (ENCUT, k-point density). The adapter passes them through

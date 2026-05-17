@@ -454,7 +454,6 @@ This section covers references for the domain. Initial scaffold content — expa
 
 ## §16 QUANTITATIVE FALSIFIERS — real-domain (post-policy addendum)
 
-Per LATTICE_POLICY §1.2 (real-limits-first) and raw#10 C3, the §X.5 / §7.10
 entries above are number-theoretic self-consistency probes only. The
 engineering falsifiers below are the ones that retire the corresponding
 *concrete-technology / mix-design* claim on measurement.
@@ -471,5 +470,4 @@ Pass = numeric threshold met at cited ASTM/ACI method, ambient
 Fail = below threshold at same condition → caveat the spec and re-baseline
 the CER-concrete-technology mix-design atlas entry.
 
-**Related NOVEL candidate** (Tier-1 hypothesis, status as of 2026-05-13): `hxm-cement-mgo-co2neg-001` — see [NOVEL.md §4.D.6](../NOVEL.md). UNPROVEN at commodity scale; raw#10 C3 — proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to EXTERNAL-VERIFIED. Reactive-MgO + hydrated-magnesium-carbonate (HMC) binder is a **novel cement binder chemistry** distinct from OPC mix-design — material-layer home for novel binder belongs here in `concrete_tech` (vs `concrete/` which anchors OPC mix-design F-CON-Q* falsifiers); LCA boundary + watershed-scale CO₂ accounting → `hexa-earth` per CROSS_LINK §3.8.
 

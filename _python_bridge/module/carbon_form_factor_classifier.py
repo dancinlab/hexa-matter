@@ -21,7 +21,6 @@ Honest C3: CNT 80 GPa caveat from `selftest/carbon_cnt_strength_honesty_audit.py
 is PRESERVED — this module does NOT claim production-scale CNT strength.
 It only classifies form-factor identity by structural descriptor.
 
-raw#10 C3: this is a structural-classification utility. It does NOT apply
 n=6 lattice formulas to vendor carbon-grade data.
 
 License: MIT (hexa-matter Phase E).

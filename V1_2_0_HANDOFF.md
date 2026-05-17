@@ -150,7 +150,6 @@ The next major version (v1.2.0) targets **Phase B + Phase C** — selftest gates
 - `_python_bridge/module/nist_srd_fetch.py` — NIST SRD fetch
 - `_python_bridge/module/materials_project_fetch.py` — Materials Project fetch (via pymatgen API)
 
-**Expecting**: 4-6 research bridge fetchers in Phase F. Programmatic citation discipline (raw#10 C3) preserved: every fetched value carries its source URL + access date.
 
 **Out of Phase F**: live-fetching during verify-script runs (would break determinism). Fetched data gets **vendored** as JSON snapshots at known SHAs, mirroring the hexa-bio pattern (`ribozyme/spec/gencode_v47_offtarget_risearch2_summary.json`).
 
@@ -207,7 +206,6 @@ To prevent scope creep, the following are NOT v1.2.0 deliverables:
 - ❌ Hexa-bio-style 5-axis Bayesian σ-match audit (not applicable to material verbs; per `DECOMPOSITION_PLAN.md §5`)
 - ❌ Lean4 formal verification (mirror of hexa-meta) — not a material-substrate concern
 - ❌ Wet-lab / fab partnerships (these are category (c), out-of-software-scope; per `CLOSURE_RESIDUAL_BACKLOG.md §C`)
-- ❌ Vendor data scraping that violates raw#10 C3 (vendor data must be cited honestly, never lattice-fitted)
 - ❌ Renaming the v1.x scoreboard verdict from `SPEC_FIRST` to something stronger until the underlying claim is true
 
 ---

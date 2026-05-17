@@ -10,7 +10,6 @@ Parity: LIMIT_BREAKTHROUGH.md refractory melting table 'W | 3695' row ↔
 tests/snapshots/met_b4_w_melting.json. Tolerance: abs 1 C (NIST cites
 3422 +/- 1 C).
 
-raw#10 C3: NIST/CRC value verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __MET_B4_W_MELTING__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_K = float(snap["claim"]["value_K"])
     tol_C = float(snap["tolerance"]["abs_C"])

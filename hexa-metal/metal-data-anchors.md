@@ -33,7 +33,6 @@
 | 22 | Lavoisier Antoine 1789 | element list (foundational; no longer load-bearing per modern NIST) | metallurgy | (historical) | 2026-05-13 |
 | 23 | Bain & Davenport TTT (1930) | austenite transformation kinetics foundational | metallurgy | (foundational) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (10-21) carry vendor numbers AS-IS. No lattice fit.
 - ASM / CRC / NIST primary refs are load-bearing for L5 / L6 / L9.

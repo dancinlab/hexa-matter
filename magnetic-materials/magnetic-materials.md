@@ -19,7 +19,6 @@ verdict_basis: vendor datasheets + USGS Mineral Commodity Summaries; no lattice 
 > turbine generator design**, **MRI magnet engineering** live in
 > `hexa-energy` / `hexa-mobility`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** (BH)_max, T_curie,
 > coercivity values cite manufacturer datasheets (Hitachi Metals,
 > TDK, Shin-Etsu Chemical, Arnold Magnetic Technologies,
 > Vacuumschmelze, Magnequench). Rare-earth supply tonnage cites USGS
@@ -75,7 +74,6 @@ applications above 200 °C, SmCo wins despite lower energy product.
 
 ---
 
-## §3 Industrial scale — vendor figures + rare-earth supply (raw#10 C3, NO lattice fit)
 
 | Producer / data | Material focus | Reported scale | Source |
 |----|----|----|----|

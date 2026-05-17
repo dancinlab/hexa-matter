@@ -66,7 +66,6 @@ When `selftest/silicon_purity_audit.py` lands (Phase B), it should:
 3. Cross-check that `silicon-data-anchors.md §1 row 6` references SEMI M1.
 4. Verify no lattice arithmetic is applied to the purity figure (regex audit).
 
-Pass criterion: all three cross-references consistent, raw#10 C3 compliant.
 
 ---
 

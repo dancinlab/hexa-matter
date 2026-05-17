@@ -23,7 +23,6 @@
     "path": "carbon/carbon.md",
     "line_hint": "CNT yarn 80 GPa lab-mm-scale UNPROVEN row"
   },
-  "provenance_note": "Tsinghua + Rice + Teijin + IBS published peer-reviewed; raw#10 C3 — academic authority preserved verbatim",
   "unproven": true,
   "unproven_reason": "lab-mm gauge only; commercial CNT yarn at km scale remains 1-3 GPa (40-80x gap); NOT reproduced at commodity yarn scale",
   "accessed": "2026-05-13",

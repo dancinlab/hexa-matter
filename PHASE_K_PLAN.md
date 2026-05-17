@@ -3,7 +3,6 @@
 > **Created**: 2026-05-14 · **Status**: 🚧 ROLLING UP (K.1 ✅ DONE _(this commit)_; K.2 / K.3 / K.4 planned, no automated promotion)
 > **Author**: 박민우 <nerve011235@gmail.com>
 > **Predecessors**: Phase J.2 (`a01b6dc` + ledger sync) — vendored 17 SIM-NNP-PROXY snapshots under `_absorption_bridge/universal_ff/predictions/*.json` for 7 Tier-1 NOVEL candidates plus 10 additional Round-3 candidates.
-> **Source-of-scope**: NOVEL.md §2 status pipeline + `_absorption_bridge/universal_ff/SOURCES.md` 5-FF aggregate citation table + raw#10 C3 honesty discipline.
 
 ---
 
@@ -35,7 +34,6 @@ What Phase K is **not**:
   envelope.
 - ❌ Not an EXTERNAL-VERIFIED promotion. `SIM-NNP` is still a SIM tag.
   Neither `SIM-NNP-PROXY` nor `SIM-NNP` crosses the external-lab
-  attribution boundary (raw#10 C3 + `NOVEL.md §7` step 6).
 - ❌ Not an UNPROVEN-flag removal. Every flag preserved verbatim.
 
 ---
@@ -70,7 +68,6 @@ For each of `mace` / `chgnet` / `alignn` / `schnet` / `m3gnet`:
 
 - Force-SKIPs every optional dep via `_MOCK_FORCE_SKIP = True`.
 - Validates all 5 SKIP sentinels are reachable.
-- Verifies each SKIP record carries the 3 raw#10 C3 invariants.
 - Exits 0 with sentinel
   `__HEXA_MATTER_UFF_RUNNER__ PASS (M models attempted, K skipped, J run)`.
 - Selftest **never** triggers live computation. CI remains
@@ -99,7 +96,6 @@ Promote `SIM-NNP-PROXY` → `SIM-NNP` for the 7 Tier-1 candidates from
 Per-candidate result manifest deposited under
 `_absorption_bridge/universal_ff/predictions/<candidate_id>.sim_nnp.json`
 (distinct from the existing `<candidate_id>.json` proxy snapshot — the
-proxy snapshot is preserved verbatim per raw#10 C3 audit trail).
 
 **Completion criterion (measurable, future)**: 7 of the existing 17
 proxy snapshots gain a sibling `.sim_nnp.json` real-run manifest with
@@ -110,7 +106,6 @@ with an explicit user-maintainer attribution.
 **Status**: 📋 PLANNED. **No automated promotion** — requires explicit
 user/maintainer trigger.
 
-**Discipline (raw#10 C3 + SPEC_FIRST)**:
 
 - Real model output is computation, **not** measurement. Every record
   carries `is_measurement: false`.
@@ -144,7 +139,6 @@ Docs landed in this commit:
 
 1. **`_python_bridge/universal_ff_runner.md`** (~80 lines) — runner
    architecture, SIM-NNP vs SIM-NNP-PROXY distinction, optional-dep
-   installation table, raw#10 C3 boundary, 5-FF citation block.
 2. **`NOVEL.md §2`** — new `SIM-NNP` row in the status pipeline table
    distinguishing real-local-run from SIM-NNP-PROXY (vendored proxy).
 3. **`PHASE_K_PLAN.md`** (this file) — Phase K scope-definition
@@ -164,7 +158,6 @@ Docs landed in this commit:
 - ❌ **Live MACE / CHGNet / ALIGNN / SchNet / M3GNet inference in
   selftest.** `--selftest` is mock-only; force-SKIPs every dep. No
   network, no checkpoint download, no torch import in CI.
-- ❌ **Promotion to EXTERNAL-VERIFIED.** Per raw#10 C3, `EXTERNAL-VERIFIED`
   requires an external lab citation with sample-ID + measurement
   protocol. NNP-real-local-run predictions do NOT qualify.
 - ❌ **UNPROVEN-flag removal.** Every flag preserved verbatim — LK-99
@@ -192,7 +185,6 @@ Bound by the 6 hard constraints in `INIT.md` §"Hard constraints":
    assertions added. Tolerance band (±20 %) is engineering-chosen,
    matching typical universal-FF energy/property MAE on out-of-domain
    chemistries.
-3. **raw#10 C3 — no lattice-fit on external entities** — MACE / CHGNet /
    ALIGNN / SchNet / M3GNet outputs flow through verbatim with
    provenance + their own error bars. NO n=6 lattice-fit applied.
 4. **SPEC_FIRST verdict preserved** — `SIM-NNP` is a SIM tag, NOT

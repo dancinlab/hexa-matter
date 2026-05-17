@@ -15,7 +15,6 @@ Two paths:
 NO external API calls in --selftest. The actual MP API fetch is Phase F
 (`_research_bridge/materials_project_fetch.py`).
 
-raw#10 C3: this is a serialization smoke test. We do NOT lattice-fit MP
 DFT data. CIF round-trip is structural identity only.
 
 Optional dep: pymatgen >= 2024.0.0

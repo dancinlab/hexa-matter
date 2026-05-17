@@ -9,7 +9,6 @@
 > material aspect of carbon is in scope here, while device-level
 > graphene FETs / nanotube transistors live in `hexa-chip`.
 >
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3)**: theoretical strength /
 > conductivity ceilings cite Frenkel 1926, calculated values from primary
 > literature. Lab-frontier numbers (Tsinghua / IBS CNT yarn σ = 80 GPa)
 > are clearly labeled as lab-best vs commercial. Vendor figures (Element
@@ -338,7 +337,6 @@ We mention the 6-fold symmetry here for completeness; we do **NOT** claim that n
 
 ---
 
-## §11 Honest C3 (raw#10)
 
 - Graphene σ = 130 GPa is the Lee et al. 2008 AFM-nanoindentation measurement on suspended monolayer over a 1 µm hole. Macroscopic graphene films do not reach this value (defect-limited).
 - CNT yarn σ = 80 GPa is the Tsinghua/IBS 2024 lab-best on a 1 mm sample. Commercial CNT yarn is ~ 5-15 GPa.

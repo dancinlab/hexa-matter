@@ -7,7 +7,6 @@ Anchor: ISO 14040 LCA + Gibbs 1876 + Atkins Phys. Chem. 11th — recycling
 energy floor >= T * R * sum(x_i * ln(x_i)); PET/PE 50:50 ideal-mixing
 ΔG_min ~ 1.72 kJ/mol at 298 K.
 
-raw#10 C3: ISO + classical thermodynamics verbatim; no n=6 lattice-fit.
 SPEC_FIRST: this gate verifies the ideal-mixing LOWER BOUND only; real
 recycling energies are vastly higher (non-ideal + enthalpy + kinetics).
 
@@ -33,7 +32,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     ex = snap["claim"]["example_pet_pe_50_50"]
     T = float(ex["T_K"])

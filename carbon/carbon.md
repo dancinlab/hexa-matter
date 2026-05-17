@@ -21,7 +21,7 @@ verdict_basis: NIST + primary literature + Element Six + Toray; no lattice fit; 
 > cross-linked from `2d-materials/`); this spec covers the bulk +
 > fiber + nanostructure side.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** lab-record values
+> **Honesty (LATTICE_POLICY §1.2):** lab-record values
 > (CNT yarn σ 80 GPa, graphene mobility 200k cm²/V·s) clearly
 > distinguished from commercial values (T1100G ~ 7 GPa, large-area
 > CVD graphene ~ 5000 cm²/V·s). Element Six / Toray / Mitsubishi
@@ -92,7 +92,7 @@ limited spacecraft + aero structures.
 
 ---
 
-## §3 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
+## §3 Industrial scale — vendor figures (NO lattice fit)
 
 | Producer | Material focus | Reported scale | Source |
 |----------|----------------|----------------|--------|

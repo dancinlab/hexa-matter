@@ -26,7 +26,6 @@
     "path": "fabric/fabric.md",
     "line_hint": "dye-uptake measurement reference"
   },
-  "provenance_note": "AATCC + Kubelka-Munk classical optics; raw#10 C3 — standards + physics authority preserved verbatim",
   "unproven": false,
   "accessed": "2026-05-13",
   "n6_lattice_fit_applied": false

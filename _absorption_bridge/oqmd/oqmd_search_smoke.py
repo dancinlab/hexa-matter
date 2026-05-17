@@ -22,7 +22,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to OQMD records.
 It only validates schema + passes through. Records are DFT PREDICTIONS (PBE),
 not measurements — clearly labelled in adapter output and SOURCES.md.
 
@@ -154,7 +153,6 @@ def _selftest() -> int:
     # per bridge rule #4 ("predictions ≠ measurements").
     print(
         f"  NOTE: prediction_method={rec['prediction_method']!r} — "
-        "DFT-PBE PREDICTION (raw#10 C3: no lattice-fit applied; "
         "DFT-PBE typical ΔHf MAE ~50-100 meV/atom)"
     )
     print(

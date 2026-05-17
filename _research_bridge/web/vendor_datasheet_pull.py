@@ -20,7 +20,6 @@ Target vendors (from `web/SOURCES.md`):
   - Element Six (CVD diamond)
   - Hitachi Metals / TDK (NdFeB / SmCo magnets)
 
-raw#10 C3: this module extracts VENDOR'S OWN PUBLISHED NUMBERS. It does NOT
 apply n=6 lattice formulas to those numbers. Vendor data is quoted as-is in
 hexa-matter spec docs; the spec then carries an `@vendor-informed:` cross-
 link to the cache entry.

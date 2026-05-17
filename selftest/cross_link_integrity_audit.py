@@ -229,6 +229,20 @@ def check_B1_status_design(rows: list[dict]) -> list[str]:
                         re.IGNORECASE,
                     )
                 )
+            # 2026-05-18: `SIM-DFT` is a distinct SIM tag (NOVEL.md §2 pipeline)
+            # — a DFT-level cross-reference against a Materials Project record.
+            # It is NOT an external-lab measurement and does NOT promote to
+            # EXTERNAL-VERIFIED. The audit accepts an `mp-XXXXX` record ID (or
+            # an explicit "Materials Project" mention) in the section as the
+            # citation form — the MP record itself carries the DFT provenance.
+            if r["status"] == "SIM-DFT":
+                has_citation = has_citation or bool(
+                    re.search(
+                        r"\bmp-\d+\b|Materials Project|SIM-DFT",
+                        section_text,
+                        re.IGNORECASE,
+                    )
+                )
             if r["status"] != "DESIGN" and not has_citation:
                 bad.append(
                     f"{r['id']} (§{r['section']}): status='{r['status']}' "

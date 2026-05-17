@@ -11,7 +11,6 @@ Parity: hexa-fashion/fashion-architecture.md §3.1 Reactive dye F-FAS-Q1
 falsifier ↔ tests/snapshots/fas_b1_reactive_dye_yield.json. Threshold:
 spec must claim >= 60 %.
 
-raw#10 C3: ISO / industry values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __FAS_B1_REACTIVE_DYE_YIELD__ PASS sentinel.
@@ -35,7 +34,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     thr = float(snap["tolerance"]["min_threshold_pct"])
     with open(SPEC_DOC, "r", encoding="utf-8") as fh:

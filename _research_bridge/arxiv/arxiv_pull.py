@@ -15,7 +15,6 @@ What it does:
   - SELFTEST mode (`--selftest`): replay from arxiv_cache/sample_response.xml
     (a 3-paper synthetic fixture) and validate the parser produces 3 records.
 
-raw#10 C3: this module ingests arxiv abstracts AS-IS. It does NOT apply n=6
 lattice formulas to paper claims. It does not lattice-fit author counts,
 publication dates, or category lists.
 

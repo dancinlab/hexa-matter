@@ -71,7 +71,6 @@ cache by `entry_id`.
 - **Multi-code provenance preservation**: unlike MP / OQMD / AFLOW (VASP-only),
   NOMAD aggregates many DFT codes. The adapter surfaces `program_name` in
   its selftest output so the provenance is visible to consumers.
-- **No n=6 lattice-fit on absorbed data** (raw#10 C3): total energies,
   lattice parameters, and functional + basis-set metadata belong to the
   originating DFT calculation. The adapter passes them through untouched.
 

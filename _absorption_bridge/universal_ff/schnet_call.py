@@ -14,7 +14,6 @@ materials property prediction. The adapter:
      this is NOT exercised in --selftest (model load = network fetch + GPU
      compute, breaks determinism + offline rule).
 
-raw#10 C3: no n=6 lattice-fit on SchNet outputs. Schnet carries its OWN
 published force MAE (Schütt et al. 2017 J. Chem. Phys.).
 
 Optional dep: schnetpack (`pip install schnetpack`)

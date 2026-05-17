@@ -7,7 +7,6 @@
 > **Companion**: `ceramics/ceramics.md` (spec doc; ceramic verb headline) ·
 > `CERAMICS.md` (37 kB upstream-canon-imported chapter).
 >
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3)**: Vickers / Knoop / flexural
 > values are cited from ASM Handbook vol. 21, manufacturer datasheets
 > (Coorstek, Kyocera, Saint-Gobain, Morgan, NGK Spark Plug), and primary
 > literature. Vendor figures are not lattice-fitted.
@@ -285,7 +284,6 @@ Per-kg cost is dominated by raw material + densification cycle:
 
 ---
 
-## §11 Honest C3 (raw#10)
 
 - All Vickers / Knoop / σ_f / K_IC values cite ASM Handbook vol. 21, NIST SRM 2100 / 1960, or manufacturer datasheets. No values are lattice-derived.
 - Vendor cost figures in §8 are 2024-2025 market estimates; ranges given because spot prices vary 20-50% by region + order size. **No lattice fit on cost figures.**

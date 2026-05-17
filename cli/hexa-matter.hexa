@@ -11,12 +11,10 @@
 // Phase D'' (2026-05-13) added 3 more verbs (33→36):
 // refractory, photoresist, electrode-material.
 //
-// Cross-link policy (raw#10): chip-grade materials live in hexa-chip;
 // for those, call `hexa-chip materials` directly — do NOT proxy here.
 //
 // Root resolution: $HEXA_MATTER_ROOT env, else inferred from $0.
 //
-// raw#9 hexa-only, raw#15 read-only.
 
 let VERSION = "1.0.0"
 
@@ -104,7 +102,6 @@ fn _print_spec_headline(verb: str, spec_path: str) {
 
 fn _print_caveats() {
     println("")
-    println("--- caveats (raw#10 C3) ---")
     println("  1. 36/36 verbs ship as SPEC docs (17 v1.0.0 + 12 Phase D + 4 Phase D follow-on")
     println("     + 3 Phase D'' 2026-05-13: refractory, photoresist, electrode-material)")
     println("     — working .hexa numerical sandboxes are TBD per per-verb F-* gates.")

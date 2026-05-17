@@ -30,7 +30,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to NIMS records.
 It only validates schema + passes through. Mechanical / creep / corrosion
 values are vendor / NIMS-lab MEASUREMENTS with their own published scatter
 (mill-cert ± 5-10 % typical; multi-decade creep series with documented
@@ -177,12 +176,10 @@ def _selftest() -> int:
     rtype = rec["record_type"]
     if rtype.startswith("experimental_"):
         print(
-            f"  NOTE: record_type={rtype!r} — EXPERIMENTAL (raw#10 C3: no lattice-fit "
             "applied; mill-cert ± 5-10 % typical scatter authoritative)"
         )
     else:
         print(
-            f"  NOTE: record_type={rtype!r} — PREDICTION (raw#10 C3: no lattice-fit "
             "applied; DFT/CALPHAD systematic error bars per source authoritative)"
         )
     print(

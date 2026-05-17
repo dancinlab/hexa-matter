@@ -17,7 +17,6 @@ What it does:
      "ASM Handbook vol. XX", "ASTM Fnnnn", "SEMI Mn", etc.)
   - rejects bare claims with no anchor
 
-raw#10 C3: this module does NOT apply n=6 lattice formulas to vendor
 citations. It validates citation form only.
 
 License: MIT (hexa-matter Phase E).

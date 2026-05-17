@@ -18,7 +18,6 @@ Target feeds (from `web/SOURCES.md`):
   - Wood Magazine industry feed (mass timber updates)
   - etc.
 
-raw#10 C3: this module aggregates HEADLINES + descriptions AS-IS. It does NOT
 apply n=6 lattice formulas to news content. Verb tagging is keyword-based,
 deterministic, and never modifies the underlying claim.
 

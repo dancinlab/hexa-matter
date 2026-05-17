@@ -19,9 +19,6 @@ Three paths:
 Both live paths require the `MP_API_KEY` env var. NOT exercised in --selftest
 (per `NO LIVE API CALLS in selftest` rule from INIT.md Phase G).
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to MP data.
-It only validates schema + passes through the record.
-
 Why a stdlib fallback exists (per bridge rule g5.1 — stdlib fallback): the
 `mp-api` SDK pulls `emmet-core`, which on some environments imports symbols
 absent from the locally-installed `pymatgen` (observed 2026-05-17: emmet-core

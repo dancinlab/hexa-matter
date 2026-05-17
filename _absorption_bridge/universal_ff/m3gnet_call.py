@@ -13,7 +13,6 @@ TensorNet model under one roof.
 The adapter validates input-structure schema offline and SKIPs live forward
 when `matgl` is missing.
 
-raw#10 C3: no n=6 lattice-fit on M3GNet outputs. M3GNet carries its OWN
 published force MAE (Chen & Ong 2022 Nat. Comput. Sci.).
 
 Optional dep: matgl (`pip install matgl`)

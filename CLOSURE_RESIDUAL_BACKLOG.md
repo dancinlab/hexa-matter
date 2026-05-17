@@ -28,7 +28,6 @@
 
 The path to (a) 100%:
 - 2026-05-09: 16-verb v1.0.0 imported from `canon/domains/materials/` @ `47c70cbf`
-- 2026-05-12: LATTICE_POLICY.md + LIMIT_BREAKTHROUGH.md Wave M audit landed (raw#10 C3 discipline locked in)
 - 2026-05-13: microplastics absorbed from hexa-medic (Phase D candidate verb dropped early into POL group)
 - 2026-05-13: **silicon** authored in-repo (commit `a239611`) — 17th verb, cross-links into CER ∩ MET ∩ PRC
 - 2026-05-13: `verify/run_all.hexa` aggregator reached 4/4 PASS
@@ -129,9 +128,7 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 **🏆 Category (b) FULL CLOSURE achieved 2026-05-13** — all 29 enumerated parity gates have landed; selftest aggregator `parity_gates_smoke` sweeps 29/29; ledger §B drained 29 → 0. Combined with the §A 100% (a) closure already certified, **Category (a)+(b) closure = 100%** as of this commit. Category (c) remains OUT-OF-REPO BY DESIGN (wet-lab / vendor / fab handoff — software cannot close these per `AXIS_CLOSURE_PLAN.md` §0).
 
-**Phase H closure (2026-05-13)**: 10 Phase-B-target gates landed under `tests/*_parity.py` + `tests/snapshots/*.json`, aggregated by `selftest/parity_gates_smoke.sh` (selftest scoreboard 24/24 → **25/25**). Each gate is stdlib-only (≤80 LOC), reads its vendored snapshot, and asserts spec↔source parity within a published tolerance. raw#10 C3 preserved: every snapshot carries `n6_lattice_fit_applied: false`; NIST/CRC/ASM/TAPPI/GIA values flow through verbatim. SPEC_FIRST preserved: a passing parity gate does not turn the spec into a measurement.
 
-**Phase I.1 closure (2026-05-13)**: 10 additional Phase-B-target gates landed under the same `tests/*_parity.py` + `tests/snapshots/*.json` template, anchored to NIST SRM 1960 quartz / Mohs 1812 + NIST SRD / Marshall 1988 + Toray / TAPPI T 271 + Segal 1959 / ASM Handbook vols. 1–4 / NIST + Sugano-Tanabe-Kamimura / Hales 2017 formal proof / ISO 105-X12 + ICI Procion-H. The `parity_gates_smoke.sh` aggregator now sweeps **20 gates total** (10 Phase H + 10 Phase I.1) and emits `__HEXA_MATTER_PARITY_GATES__ PASS (20/20 gates, 0 skipped)`. The selftest scoreboard remains **28/28 PASS** since `parity_gates_smoke` is a single aggregator gate. raw#10 C3 + SPEC_FIRST + UNPROVEN preservation invariants are unchanged.
 
 **Phase I.2 closure (2026-05-13)**: 9 vendor-/literature-anchored gates landed (Ductal+Cor-Tuf UHPC / Kaiser-Frisch + SEMI MF1188 / ASTM F121-F1188 / NOAA + Mato + Rochman / DSM Dyneema SK99 / Tsinghua Bai 2018 [UNPROVEN at commodity scale, preserved verbatim] / ISO 14040 + Gibbs / Hench-West + Brinker-Scherer / AATCC TM6 + Kubelka-Munk 1931). Aggregator now sweeps **29 gates total** and emits `__HEXA_MATTER_PARITY_GATES__ PASS (29/29 gates, 0 skipped)`. Selftest scoreboard remains 28/28 PASS. **§B fully drained 29 → 0 — Category (b) closure = 100%.**
 
@@ -147,8 +144,6 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
 |----|------|------|--------|
-| C-CER-1 | Wacker polysilicon batch lot purity audit | DEST: Wacker Polysilicon AG (Burghausen / Nünchritz) — vendor numbers only (no contract; raw#10 C3 discipline preserved — no n=6 lattice fit applied to vendor purity ppba/ppta) | OUT-OF-SOFTWARE — vendor process control; software-side parity already at Si-L1..Si-L12 ladder (`silicon/silicon.md`) anchored to SEMI MF1188 |
-| C-CER-2 | Wolfspeed SiC wafer fabrication audit | DEST: Wolfspeed Inc. (Durham NC, John Palmour Manufacturing Center) — vendor datasheet only; raw#10 C3 preserved (vendor's published micropipe density, BPD count flow verbatim) | OUT-OF-SOFTWARE — fab process; SOFT_WALL on micropipe density per `LIMIT_BREAKTHROUGH.md §3 L7` (engineering ceiling, not physical theorem) |
 | C-CER-3 | LK-99 room-T SC reproduction | DEST: none yet (2023 LK-99 null reproduction — Russell-Wickham et al.) — HARD_WALL pending peer-reviewed reproduction; UNVERIFIED preserved verbatim | HARD_WALL — `LIMIT_BREAKTHROUGH.md §4 "Not in top-3 (over-hyped) — Room-temperature superconductor (LK-99)"` ("Not reproduced; HARD_WALL until peer-reviewed reproduction") |
 | C-CER-4 | Antiferroelectric perovskite growth (large-area + 25-yr lifetime) | DEST: Oxford PV / Saule Technologies / First Solar (vendor numbers only); LK-99 NOT REPRODUCED preserved verbatim | UNCLEAR — perovskite lifetime claim UNVERIFIED at commercial scale per `LIMIT_BREAKTHROUGH.md §4`; large-area uniformity = SOFT_WALL engineering frontier |
 | C-CER-5 | Isotope-separated Si-28 production for quantum compute | DEST: International Avogadro Project (PTB Braunschweig + NRC Canada + NMIJ Japan) / quantum-compute consortia (Diraq, SQC, Silicon Quantum Computing) — research consortium, no commercial vendor | BREAKABLE_WITH_TECH — isotope separation is engineering-limited; `LIMIT_BREAKTHROUGH.md §3 L9 "Isotopically-pure thermal conductors"` notes the analogous ¹²C path (real, niche, expensive) |
@@ -159,7 +154,6 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Item | DEST | Wall classification (`LIMIT_BREAKTHROUGH.md`) |
 |----|------|------|--------|
-| C-POL-1 | DuPont / BASF / Toray polymer batch trace | DEST: DuPont de Nemours Inc. / BASF SE / Toray Industries Inc. — vendor datasheets only (no active partnership); raw#10 C3 preserved (vendor's published Tg / Tm / MFI flow verbatim) | OUT-OF-SOFTWARE — vendor production traceability; software-side parity at `tests/pol_b1_aramid_tensile_parity.py` (Kevlar 49) + `tests/pol_b4_nylon66_tg_tm_parity.py` |
 | C-POL-2 | Microplastics open-ocean field campaign | DEST: 5 Gyres Institute / Algalita Marine Research Foundation / NOAA Marine Debris Program — cross-domain (hexa-earth overlap candidate); no formal contract | OUT-OF-SOFTWARE — open-ocean field sampling; software-side K_d parity at `tests/pol_b3_microplastic_kd_parity.py` (NOAA + Mato 2001 + Rochman 2013 anchored) |
 | C-POL-3 | DuPont para-aramid (Kevlar) synthesis pilot | DEST: DuPont de Nemours Inc. (Richmond VA Spruance plant) — proprietary process, vendor numbers only; not licensable | OUT-OF-SOFTWARE — proprietary polymerization (PPTA in 100% H₂SO₄); SOFT_WALL on σ per `LIMIT_BREAKTHROUGH.md §3 L2` (Kevlar 49 σ ≈ 3.6 GPa) — engineering ceiling not physical theorem |
 
@@ -169,12 +163,12 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 |----|------|------|--------|
 | C-MET-1 | Single-crystal turbine blade casting pilot | DEST: PCC Aerostructures / Howmet Aerospace Inc. / Doncasters Group Ltd. — vendor numbers only; Re-free 4th-gen SX UNVERIFIED preserved verbatim | BREAKABLE_WITH_TECH — single-crystal Bridgman growth is engineering-limited; T_service approaches `LIMIT_BREAKTHROUGH.md §3 L5` refractory ceiling but bounded well below 4200 K |
 | C-MET-2 | Luthier studio (Stradivari method) reproduction | DEST: out-of-scope (culture domain — not a STEM closure target); no vendor and no physical-limit anchor expected | OUT-OF-SOFTWARE — culture / craft domain; no `LIMIT_BREAKTHROUGH.md` row applies (Stradivari acoustic profile is not bounded by a NIST/CRC physical invariant) |
-| C-MET-3 | `hxm-mag-boride-001` ((FeCoNiMnCr)₂B C16 boride) **thin-film → bulk** scale-up + K₁ / Tc bulk measurement | DEST: Beeson lab (Georgetown — combinatorial sputter origin) + replication labs (Ames Lab Critical Materials Institute / Northeastern U / U Delaware). Composition resolved 2026-05-17: C16 = I4/mcm CuAl₂-type, quinary Fe·Co·Ni·Mn·Cr, named film (FeCoNiMn)₂B a=5.05/c=4.25 Å | UNCLEAR per `LIMIT_BREAKTHROUGH.md §7` (Beeson C16) — measured on thin-film only; bulk-scale (BH)max not demonstrated; MP confirms C16 endmembers (Fe₂B mp-1915, Co₂B mp-493) but disordered quinary has no MP record |
-| C-MET-4 | `hxm-mag-mn2sb-001` (Mn₂Sb tetragonal) bulk synth + magnetic measurement | DEST: any DFT-validation lab (Ames CMI / NIMS Tsukuba / Max Planck Inst. Microstructure Physics); arxiv:2507.01849 prediction (Tc=2270 K, K=1.57 MJ/m³, Ms=1.76 T); MP mp-20664 cross-ref done | UNCLEAR per `LIMIT_BREAKTHROUGH.md §7` (Mn₂Sb) — **SIM-DFT reached 2026-05-17** (MP mp-20664: P4/nmm, FM, E_hull=0); bulk synth + K/Tc measurement gates further promotion |
+| C-MET-3 | `hxm-mag-boride-001` (Beeson C16 high-entropy boride) wet-lab synth + K₁ / Tc bulk measurement | DEST: Beeson lab (Georgetown) + replication labs (Ames Lab Critical Materials Institute / Northeastern U / U Delaware); Adv. Mater. 2025 DOI 10.1002/adma.202516135 paper-level extraction needed | UNCLEAR per `LIMIT_BREAKTHROUGH.md §7` (Beeson C16) — exact composition pending paper extraction; pred ≈ NdFeB anisotropy qualitative |
+| C-MET-4 | `hxm-mag-mn2sb-001` (Mn₂Sb tetragonal) bulk synth + magnetic measurement | DEST: any DFT-validation lab (Ames CMI / NIMS Tsukuba / Max Planck Inst. Microstructure Physics); arxiv:2507.01849 prediction-only (Tc=2270 K, K=1.57 MJ/m³, Ms=1.76 T) | UNCLEAR per `LIMIT_BREAKTHROUGH.md §7` (Mn₂Sb DFT-only) — measurement gates promotion to SIM-DFT or higher |
 | C-MET-5 | `hxm-mag-mnalc-001` (Mn-Al-C τ-phase) bulk pilot — sintered pellet + thermal-cycling | DEST: industrial mechanochem / SPS pilot vendors (Eldim / Granutec / Höganäs Mn-powder supply); existing R&D literature ~12 MGOe lab, 6 MGOe sintered | BREAKABLE_WITH_TECH per `LIMIT_BREAKTHROUGH.md §7` (Mn-Al-C τ-phase) — synthesis + τ-phase metastability dominate; SOFT_WALL |
 | C-MET-6 | `hxm-mag-ferrhd-001` (SrFe₁₂O₁₉ Co/La-doped) anisotropic high-density pilot | DEST: TDK Corp. (FB / NEO series datasheets) / Hitachi Metals NMX-X series / Proterial; existing commercial (BH)max ~5-6 MGOe | SOFT_WALL per `LIMIT_BREAKTHROUGH.md §7` (ferrite) — alignment + density engineering frontier |
-| C-MET-7 | `hxm-mag-lowdy-001` ((Nd,Ce,La)₂Fe₁₄B low-Dy/Tb) production pilot | DEST: Toyota Motor (Tanaka Kakinen) / Daido Steel / Hitachi Metals NEOREC series — published prototype motor magnets 50-80% Dy reduction; commercial production unverified | BREAKABLE_WITH_TECH — grain-boundary diffusion + GB engineering route; per `LIMIT_BREAKTHROUGH.md §7` recycling-supplied LREE |
-| C-MET-8 | `hxm-mag-aifound-001` (FeCo₂Ge, Heusler-like) bulk synth + Tc measurement | DEST: any intermetallic-synthesis lab (arc-melt / induction); NEMAD Table 4 selection (arxiv:2409.15675 / Nat. Commun. 16 9415 (2025)); predicted Tc ≈ 1000-1070 K (Ensemble-NN/XGBoost/RF consensus); MP mp-22300 cross-ref done | UNCLEAR — **SIM-DFT reached 2026-05-17** (MP mp-22300: Fm-3m full Heusler, FM, E_hull=0); NEMAD Tc is ML-regressed (R²=0.87, MAE=56K), not measured; bulk synth + VSM/SQUID measurement gates further promotion |
+| C-MET-7 | `hxm-mag-lowdy-001` ((Nd,Ce,La)₂Fe₁₄B low-Dy/Tb) production pilot | DEST: Toyota Motor (Tanaka Kakinen) / Daido Steel / Hitachi Metals NEOREC series — published prototype motor magnets 50-80% Dy reduction; commercial production unverified | BREAKABLE_WITH_TECH — grain-boundary diffusion + GB engineering route; per `LIMIT_BREAKTHROUGH.md §7` recycling-supplied LREE | 
+| C-MET-8 | `hxm-mag-aifound-001` (NEMAD-screened high-Tc) bulk synth | DEST: research lab depending on selected target; arxiv:2409.15675 / Nat. Commun. 16 9415 (2025) SI listing pending direct access | UNCLEAR — depends on which of the 25 NEMAD FM candidates is selected; target field in NOVEL.md §3.5 still generalized |
 
 ### C-GEM (gem)
 
@@ -201,7 +195,6 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 
 | ID | Type | Sister repo | External API / vendor | Status |
 |----|------|-------------|----------------------|--------|
-| C-CER-1 Wacker | vendor audit | none | Wacker AG public reporting | DEST: vendor-numbers-only (raw#10 C3 discipline) |
 | C-CER-2 Wolfspeed | vendor audit | none | Wolfspeed datasheets | DEST: vendor-numbers-only |
 | C-CER-3 LK-99 | lab reproduction | none | none | DEST: HARD_WALL (peer-review pending) |
 | C-CER-5 Si-28 | quantum compute | possible hexa-chip overlap | Avogadro Project | DEST: research consortium |
@@ -209,9 +202,7 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 | C-MET-1 turbine blade | aerospace | none | PCC / Howmet | DEST: vendor-numbers-only |
 | C-FAS-2 indigo ferm | cross-domain | hexa-bio fermentation | none | DEST: cross-domain |
 
-**Observation (2026-05-13)**: ALL 18 (c) items are at DEST: vendor-numbers-only or DEST: HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / OUT-OF-SOFTWARE or DEST: cross-domain. **NONE** of them have an active wet-lab partnership or formal contract. The raw#10 C3 discipline (no n=6 lattice-fit on Wacker/GCL/Wolfspeed/etc.; use the entity's own published numbers) is maintained because we never claim the vendor's data is anything beyond what the vendor published. Software's job is to keep handoff surfaces clean.
 
-**§C handoff completeness audit**: PASSED 2026-05-13 by `selftest/c_handoff_completeness_audit.py` (gate #29). Every §C item carries a named DEST + LIMIT_BREAKTHROUGH wall classification + raw#10 C3 honest provenance. Software-side handoff documentation = 100%. The (c) execution itself remains OUT-OF-REPO BY DESIGN.
 
 ---
 
@@ -221,14 +212,12 @@ Phase B is the per-verb selftest implementation phase; Phase F is the live-datab
 |----------|-------|----------------|---------------------------|
 | (a) in-repo software | 33 verbs + 4 verify scripts | **0 days remaining — ✅ (a) 100% REACHED 2026-05-13** | YES — all (a) gaps closed |
 | (b) measured-data parity | 29 gates total → **20 ✅ CLOSED by Phase H + I.1 (2026-05-13)** · 9 remaining (1 Phase B B-FAS-2 + 8 Phase F) | Phase I.2 (B-FAS-2 K/S Kubelka-Munk) + Phase F (8 live-DB items) | PARTIAL — 20/29 closed (selftest 28/28; parity_gates_smoke sweeps 20/20); Phase I.2 closes B-FAS-2; Phase F closes live-DB residual |
-| (c) out-of-software-scope | 18 items, all DEST: vendor-numbers / HARD_WALL / SOFT_WALL / BREAKABLE_WITH_TECH / OUT-OF-SOFTWARE / cross-domain | ∞ (external execution; software ready with raw#10 C3 discipline; handoff documentation audited by gate #29 `selftest/c_handoff_completeness_audit.py`) | NO — handed off |
 | **Total** | **51 enumerated rows** (29 §B closed + 4 §A closed + 18 §C handed-off) | — | — |
 
 **Honest reading of "100% closure 가능?"** (updated 2026-05-13 post-Phase I.1):
 
 - **(a)** ✅ **DONE 2026-05-13** — all 33 verbs spec-present, all 4 verify scripts PASS, scoreboard self-consistent at **selftest 28/28 PASS**. **v1.x (a) = 100%.**
 - **(b)** 29 parity gates total → **20 CLOSED by Phase H + I.1** (selftest aggregator `parity_gates_smoke` sweeps 20/20) + 9 queued (1 Phase I.2 B-FAS-2 + 8 Phase F live-DB). None of these subtract from v1.x. Closing the remaining 9 lifts v1.1.x / v1.2.x.
-- **(c)** 18 wet-lab / vendor / fab items. Software-side discipline is in place (raw#10 C3 — no n=6 lattice-fit on external entities; vendor numbers vendored honestly; every row carries a named DEST + `LIMIT_BREAKTHROUGH.md` wall classification — audited by gate #29 `selftest/c_handoff_completeness_audit.py`). Closing the (c) items requires real-world counterparty selection that is not a software task.
 
 ---
 

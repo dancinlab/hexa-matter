@@ -18,7 +18,6 @@ verdict_basis: ASTM + vendor datasheets; no lattice fit
 > service temperature). **Aircraft / aerospace structural-bonding
 > design** lives in `hexa-mobility`; tire RFL bonding in `tire_cord/`.
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3):** lap-shear values are
 > ASTM-standardized substrate + surface-prep dependent; real
 > qualified-flight values may differ. 3M / Henkel / Sika / Loctite
 > figures cited verbatim with no lattice projection.
@@ -76,7 +75,6 @@ adherends or thicker Al raise it modestly.
 
 ---
 
-## §3 Industrial scale — vendor figures (raw#10 C3, NO lattice fit)
 
 | Producer | Product family | Reported scale | Source |
 |----------|----------------|----------------|--------|

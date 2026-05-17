@@ -36,7 +36,6 @@
 ## Honest notes
 
 - **Not a measurement** — Materials Project DFT values are *computed*, not lab-measured. They are first-principles predictions whose error bars vary by property (band gap GGA-PBE typically underestimates by ~50%).
-- **No n=6 lattice-fit** applied to MP outputs (raw#10 C3). MP carries its OWN error bars (e.g. formation energy ±0.1 eV/atom typical).
 - **Adapter caching**: `cache/<md5-stamp>.json` per request; bundled fixture is `cache/sample_response.json` for selftest replay.
 - **SDK dependency conflict (observed 2026-05-17)**: `mp-api` 0.45.9 pulls `emmet-core` 0.84.6rc4, which imports `SymmetryUndeterminedError` from `pymatgen.symmetry.analyzer` — a symbol absent in `pymatgen` 2024.8.9 (the last Python-3.9-compatible release). On such environments the SDK path raises at import time; `mp_api_smoke.py` detects this via `_mp_api_usable()` and transparently uses the stdlib-`urllib` REST fallback. The `--selftest` path is unaffected (offline fixture only).
 

@@ -1,7 +1,6 @@
 <!-- @authored: 2026-05-13 -->
 <!-- @author: 박민우 <nerve011235@gmail.com> -->
 <!-- @phase: C — axis-prefixed depth directory (cross-group anchor) -->
-<!-- @policy: real-limits-first per LATTICE_POLICY.md §1.2; raw#10 C3 no-lattice-fit-on-vendors -->
 ---
 depth_dir: hexa-silicon
 axis_group: (cross-group anchor; not a single AXIS.md group)
@@ -27,13 +26,11 @@ status: SPEC_FIRST · category-(a) 100% · (b) UNVERIFIED · (c) OUT-OF-REPO
 > `silicon/silicon.md` (gold-standard, 350 lines) or the root deep-dive
 > at `SILICON.md` (350 lines).
 
-> **Honesty (LATTICE_POLICY §1.2 + raw#10 C3).** The 9N purity ceiling,
 > ~600 mm CZ crucible, ~200 mm FZ rod, 1687 K T_m, 2.329 g/cm³, 1.12 eV
 > bandgap, 3.26 eV 4H-SiC bandgap are **metallurgy + thermal physics +
 > vendor engineering** anchors — not n=6 lattice anchors. Wacker, GCL,
 > Hemlock, OCI, REC, Shin-Etsu, SUMCO, Siltronic, GlobalWafers, SK Siltron,
 > Wolfspeed publish their own batch numbers. No lattice fit is applied to
-> their figures (raw#10 C3).
 
 ---
 
@@ -81,7 +78,6 @@ Cross-linked verbs from other groups:
 |----------|--------|-------|
 | (a) in-repo SW | **100%** — silicon/silicon.md present, 4/4 verify PASS | gold-standard template |
 | (b) NIST/CRC parity | **UNVERIFIED** — 5 gates queued (B-CER-1..B-CER-5) | Phase B selftest target |
-| (c) wet-lab / vendor / fab | **OUT-OF-REPO** — DEST: Wacker, Wolfspeed, isotope-separated Si-28 | raw#10 C3: no lattice fit applied |
 
 (b) gates queued for Phase B:
 - B-CER-1 NIST SRM quartz refractive index vs `glass/glass.md`
@@ -105,7 +101,6 @@ From `silicon/silicon.md` and `compound-semi/compound-semi.md`:
 - **diamond-as-semi wafer** UNPROVEN (compound-semi)
 - **silicene ambient stability** UNVERIFIED beyond Ag(111) substrate (2d-materials)
 
-## §6 The cross-link discipline (raw#10 C3)
 
 Silicon is the canonical example of why the cross-link policy exists. Three groups touch it:
 

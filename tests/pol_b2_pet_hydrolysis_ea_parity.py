@@ -11,7 +11,6 @@ Parity: POLYMER-CHEMISTRY.md §4.1 ester block 'E_a ≈ 80-100 kJ/mol
 (Marshall et al. 1988)' ↔ tests/snapshots/pol_b2_pet_hydrolysis_ea.json.
 Tolerance: ± 10 kJ/mol on each endpoint of the 75-100 band.
 
-raw#10 C3: literature values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __POL_B2_PET_HYDROLYSIS_EA__ PASS sentinel.
@@ -35,7 +34,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_lo = float(snap["claim"]["Ea_kJ_per_mol_min"])
     src_hi = float(snap["claim"]["Ea_kJ_per_mol_max"])

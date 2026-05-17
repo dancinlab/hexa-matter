@@ -11,7 +11,6 @@ laser excitation, calibrated spectrometer (resolution <= 0.2 nm).
 Parity: gemology/gemology.md F-GEM-Q3 falsifier row ↔
 tests/snapshots/gem_b2_ruby_rline.json. Tolerance: abs 0.3 nm.
 
-raw#10 C3: NIST / Sugano values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __GEM_B2_RUBY_RLINE__ PASS sentinel.
@@ -35,7 +34,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     src_val = float(snap["claim"]["value_nm"])
     tol = float(snap["tolerance"]["abs_nm"])

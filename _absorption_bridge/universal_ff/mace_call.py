@@ -17,7 +17,6 @@ The adapter:
      selftest (model checkpoint = ~hundreds of MB network fetch, breaks
      offline + determinism rules).
 
-raw#10 C3: no n=6 lattice-fit on MACE outputs. MACE carries its OWN
 published force MAE (Batatia et al. 2022 NeurIPS).
 
 Optional dep: mace-torch (`pip install mace-torch`)

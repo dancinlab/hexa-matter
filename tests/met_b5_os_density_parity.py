@@ -10,7 +10,6 @@ rho = 22.59 g/cm^3 at 293 K. Highest-density stable element
 Parity: LIMIT_BREAKTHROUGH.md L6 row '22.59 g/cm^3' ↔
 tests/snapshots/met_b5_os_density.json. Tolerance: abs 0.02 g/cm^3.
 
-raw#10 C3: NIST/CRC value verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __MET_B5_OS_DENSITY__ PASS sentinel.
@@ -34,7 +33,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     expected = float(snap["claim"]["value"])
     tol = float(snap["tolerance"]["abs"])

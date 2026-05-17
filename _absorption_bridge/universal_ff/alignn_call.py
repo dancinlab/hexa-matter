@@ -13,7 +13,6 @@ JARVIS-DFT.
 The adapter validates input-structure schema offline and SKIPs live forward
 when `alignn` is missing.
 
-raw#10 C3: no n=6 lattice-fit on ALIGNN outputs. ALIGNN carries its OWN
 published MAE per property (Choudhary & DeCost 2021).
 
 Optional dep: alignn (`pip install alignn`)

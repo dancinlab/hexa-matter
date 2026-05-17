@@ -20,7 +20,6 @@ Most-probable / Flory-Schulz distribution: PDI → 2.
 Anionic / living polymerization (Poisson): PDI → 1 + 1/X_n ≈ 1.
 Step-growth at full conversion: PDI → 1 + p where p is degree of polymerization.
 
-raw#10 C3: this is a pure arithmetic identity. It does NOT apply n=6
 lattice formulas to vendor MWD GPC data. Spec validity check only.
 
 License: MIT (hexa-matter Phase E).

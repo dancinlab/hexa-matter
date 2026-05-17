@@ -11,7 +11,6 @@ Parity: gemology/gemology.md F-GEM-Q5 row ↔
 tests/snapshots/cer_b7_mohs_hardness.json. Mohs ladder is a defined
 reference set — gate enforces 10 stops with exact mineral identity.
 
-raw#10 C3: Mohs/NIST values verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: gate checks spec↔source parity, not measurement.
 
 stdlib only; --selftest exits 0 with __CER_B7_MOHS_HARDNESS__ PASS sentinel.
@@ -35,7 +34,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     ladder = snap["claim"]["ladder"]
     if len(ladder) != 10:

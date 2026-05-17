@@ -23,7 +23,6 @@ Two paths:
 
 The selftest never hits the network. The cache fixture is bundled.
 
-raw#10 C3: this adapter does NOT apply n=6 lattice formulas to Catalysis-Hub
 records. It only validates schema + passes through. Reaction-energy / E_a
 values are DFT predictions with their OWN published error bars (BEEF-vdW
 adsorption MAE ~0.1-0.2 eV; PBE looser). Clearly labelled as PREDICTION,
@@ -183,7 +182,6 @@ def _selftest() -> int:
     # Honesty preservation — Catalysis-Hub is DFT-PREDICTION ONLY (rule #4).
     print(
         f"  NOTE: prediction_method={rec['prediction_method']!r} — "
-        "DFT PREDICTION (raw#10 C3: no lattice-fit applied; BEEF-vdW typical "
         "adsorption-energy MAE ~0.1-0.2 eV vs experiment per Winther 2019)"
     )
     print(

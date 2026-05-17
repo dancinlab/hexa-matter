@@ -18,7 +18,6 @@
 > etc.) are cited using their **own published numbers** (annual report,
 > datasheet, vendor spec, NIST SRM, ASTM standard). The n=6 invariant lattice
 > is **not** applied as a predictor or constraint for any vendor / external
-> entity figure (per `AGENTS.md` raw#10 C3 + `LATTICE_POLICY.md §1.2`).
 
 **Current state**: ✅ in place — see `silicon/silicon.md §3 vendor` table for the canonical example. All vendor tonnage figures are cited with explicit "this spec does not project these onto n=6 nor claim n=6 is implicated."
 
@@ -227,7 +226,6 @@ Confirm that hexa-matter adopts the same "CLI integration over Python wrappers" 
 - `CLOSURE_RESIDUAL_BACKLOG.md` — per-row deferral ledger
 - `DECOMPOSITION_PLAN.md` — Phase D candidate enumeration
 - `LATTICE_POLICY.md` — universal real-limits standard
-- `AGENTS.md` — raw#10 C3 honesty obligation + sister-repo discipline
 - `hexa-bio/USER_ACTION_REQUIRED.md` — sister-substrate style reference
 
 ---

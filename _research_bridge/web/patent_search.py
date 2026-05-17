@@ -11,7 +11,6 @@ the USPTO PatFT (granted) / AppFT (application) public endpoints OR the EPO
 Espacenet public API, parses the result list, and emits a JSONL stream with
 patent_no / title / assignee / filing_date / abstract.
 
-raw#10 C3: this module surfaces vendor / patentee CLAIMS AS-IS. It does NOT
 apply n=6 lattice formulas to patent content. It does not arithmetic-verify
 patent claims. The patent abstract is exactly what the patentee wrote; readers
 must apply UNPROVEN judgement based on whether the claim has been reproduced

@@ -25,7 +25,6 @@
 | 14 | Chatham flux-grown emerald reference | synthetic emerald | gemology | (vendor) | 2026-05-13 |
 | 15 | International Mineralogical Association (IMA) approved species list | mineral nomenclature SSOT | gemology | (foundational) | 2026-05-13 |
 
-## §2 Anchor discipline (raw#10 C3)
 
 - Vendor rows (10, 14): synthetic diamond / emerald specs vendored AS-IS.
 - GIA / IGI / GCAL grading (rows 5-7, 12): industry-standard scales, not

@@ -75,7 +75,6 @@
   data exists; PBE looser. The Winther 2019 paper documents the
   cross-functional spread. The adapter does NOT apply scissor corrections
   or re-scaling — it passes the underlying DFT number through.
-- **raw#10 C3**: no n=6 lattice-fit on Catalysis-Hub records. The
   per-functional-class error bars (BEEF-vdW Bayesian error estimates
   available where the workflow stored them; PBE typical scatter
   documented per dataset) are the authoritative bars.

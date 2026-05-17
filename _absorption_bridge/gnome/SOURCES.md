@@ -42,7 +42,6 @@
   re-analysis (Cheetham & Seshadri, *Chem. Mater.* 2024, etc.) flagged that
   a meaningful fraction of GNoME "stable" predictions are minor variants or
   already-known compositions. Cite the Nature paper but note the discourse.
-- **No n=6 lattice-fit** applied to GNoME outputs (raw#10 C3). GNoME carries
   its OWN published error bars (formation-energy MAE ~20 meV/atom on their
   test split).
 

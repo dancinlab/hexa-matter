@@ -6,7 +6,6 @@ tests/cer_b9_si_oxygen_interstitial_parity.py — Phase I.2 gate B-CER-9.
 Anchor: ASTM F121 / F1188 — FTIR 1107 cm^-1 interstitial oxygen in CZ Si
 wafer; [O_i] typical 10-30 ppma (5-15 x 10^17 cm^-3).
 
-raw#10 C3: ASTM standard verbatim; no n=6 lattice-fit applied.
 SPEC_FIRST: parity gate.
 
 stdlib only; --selftest exits 0 with __CER_B9_SI_OXYGEN_INTERSTITIAL__ PASS.
@@ -31,7 +30,6 @@ def main() -> int:
     with open(SNAPSHOT, "r", encoding="utf-8") as fh:
         snap = json.load(fh)
     if snap.get("n6_lattice_fit_applied") is not False:
-        print("FAIL: snapshot must carry n6_lattice_fit_applied: false (raw#10 C3)")
         return 1
     lo_p, hi_p = snap["claim"]["value_range_ppma"]
     lo_c, hi_c = snap["claim"]["value_range_cm3"]
