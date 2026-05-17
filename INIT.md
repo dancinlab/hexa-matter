@@ -107,7 +107,7 @@ Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 - **perovskite** — LK-99 NOT REPRODUCED (HARD_WALL); large-area + 25-yr-lifetime UNVERIFIED
 - **2d-materials** — wafer-scale 2D mobility 10–100× loss vs lab; phosphorene ambient + 2D-magnet T_c > 300 K UNVERIFIED
 - **adhesive** — bio-based + self-healing + gecko-inspired aerospace UNVERIFIED
-- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only. **Supply-chain trio added 2026-05-17**: `RARE-EARTH.tape` + `RARE-EARTH+ALTERNATIVE.tape` (6-track substitution roadmap, 14+ arxiv) + `CRITICAL-MINERAL.tape` (umbrella, 12 commodities, PRC export-control timeline). NOVEL §3.5: +6 `hxm-mag-*` seeds — 4 DESIGN (boride / mnalc / ferrhd / lowdy) + 2 SIM-DFT (mn2sb↔mp-20664, aifound↔mp-22300, MP-verified 2026-05-17)
+- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only. **Supply-chain trio added 2026-05-17**: `RARE-EARTH.tape` + `RARE-EARTH+ALTERNATIVE.tape` (6-track substitution roadmap, 14+ arxiv) + `CRITICAL-MINERAL.tape` (umbrella, 12 commodities, PRC export-control timeline). NOVEL §3.5: 11 `hxm-mag-*` roster (8 domain-seeded + 3 pre-existing cross-ref'd) — **7 SIM-DFT** (refree↔mp-555, tetra↔mp-2213, mn2sb↔mp-20664, mnalc↔mp-771, lowdy↔mp-5182, aifound↔mp-22300, gfcs↔mp-1225352) + 4 DESIGN (boride / ferrhd / mnbi / znfe), MP-verified 2026-05-18
 - **mof** — magic-MOF-DAC $100/t CO₂ UNPROVEN (Climeworks amine $600–1000/t)
 - **liquid-crystal** — polymer-stabilized blue-phase commercial display UNVERIFIED
 - **superalloy** — Re-free 4th-gen SX at parity UNVERIFIED; Co-base SX commercial UNVERIFIED

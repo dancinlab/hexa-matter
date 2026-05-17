@@ -323,6 +323,14 @@ specific Phase K or v1.4 scope. The Phase J deepening axis is itself
 optional in the sense that the v1.2.0 (a)+(b)=100% verdict was already
 stable; v1.3.0 adds rigor + breadth around that envelope.
 
+**Post-v1.3.0 work already on `main` (un-versioned, 2026-05-17/18)**: a
+supply-chain domain trio — `RARE-EARTH.tape` / `RARE-EARTH+ALTERNATIVE.tape`
+/ `CRITICAL-MINERAL.tape` (+ `.md` + `.log.tape` siblings) — plus a
+`NOVEL.md` §3.5 `hxm-mag-*` roster of 11 rare-earth-free magnet candidates
+(7 promoted DESIGN → SIM-DFT by Materials Project cross-reference, 4 DESIGN).
+The `mp_api_smoke.py` adapter gained a stdlib-`urllib` REST fallback +
+`--formula` path. Folds into a future v1.4 if/when the maintainer cuts one.
+
 Phase K-shaped candidate axes that are conceivable but not committed:
 
 - additional NOVEL DESIGN → SIM-NNP-PROXY promotions beyond the 7 Tier-1

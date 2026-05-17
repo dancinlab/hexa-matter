@@ -172,15 +172,17 @@ LK-99 PV variants and HARD_WALL claims preserved
 
 | ID                    | class | target              | brief                          | status        | falsifier                             |
 |-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
-| `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
-| `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
-| `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
+| `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe; **MP mp-555 (Fe₈N ≡ Fe₁₆N₂, I4/mmm, FM, E_hull=0.001 near-stable)** | SIM-DFT | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
+| `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc; MP mp-568382 (P6₃/mmc, FiM, E_hull=0.21 — DFT-metastable; LTP MnBi is a known applied phase) | DESIGN | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
+| `hxm-mag-tetra-001`   | mag   | tetrataenite (L1₀ FeNi) | meteoritic FeNi → terrestrial; **MP mp-2213 (FeNi P4/mmm L1₀, FM, E_hull=0 stable)** | SIM-DFT | F-MAG-3: ordered phase fraction < 50% → FAIL |
 | `hxm-mag-boride-001`  | mag   | (FeCoNiMnCr)₂B C16 boride | C16 = I4/mcm CuAl₂-type; named film (FeCoNiMn)₂B a=5.05/c=4.25 Å; Fe/Co flips easy-plane→easy-axis (x=0.3 K₁≈410 kJ/m³); DFT K~1 MJ/m³; **thin-film** — Beeson·Yin·Liu, Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
 | `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 (pred Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K); **MP mp-20664 confirms P4/nmm tetragonal, FM ordering, E_hull=0 (stable), M=15.16 μB** | SIM-DFT | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
-| `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free | DESIGN | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
-| `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
-| `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) content ≤50% of baseline, GB-engineered | DESIGN | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
+| `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free; **MP mp-771 (MnAl P4/mmm, FM, E_hull=0 stable)** — C is a minor τ-stabilizing dopant | SIM-DFT | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
+| `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite; MP mp-3742 (P6₃/mmc, FM, E_hull=0.072 — DFT-metastable for this oxide; real M-type is commercially stable) | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
+| `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) ≤50% baseline, GB-engineered; **base Nd₂Fe₁₄B MP mp-5182 (P4₂/mnm, FiM, E_hull=0.001)** — Ce/La substitution itself stays design | SIM-DFT | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
 | `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM (pred Tc ≈ 1000-1070 K, 3-model); **MP mp-22300 confirms Fm-3m full Heusler, FM ordering, E_hull=0 (stable), M=6.0 μB** | SIM-DFT | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
+| `hxm-mag-gfcs-001`    | mag   | Ga₃Fe₄Co₈Si         | NEMAD Table 4 **highest-Tc** REE-free FM (pred Tc ≈ 1010-1150 K, 3-model); **MP mp-1225352 (R-3m, FM, E_hull=0 stable)** | SIM-DFT | F-MAG-10: experimentally-measured Tc < 700 K OR not single-phase synthesizable → FAIL |
+| `hxm-mag-znfe-001`    | mag   | ZnFe tetragonal     | arxiv:2507.01849 top-10 (pred Ms=1.15 T, κ=0.85); MP mp-1215473 (P4/mmm, FM, E_hull=0.023 — DFT-metastable) | DESIGN | F-MAG-11: measured κ < 0.5 OR not single-phase synthesizable → FAIL |
 
 All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
 Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
@@ -205,6 +207,22 @@ named film (FeCoNiMn)₂B (a=5.05, c=4.25 Å). MP confirms the C16 endmembers
 I4/mcm NM; Mn₂B `mp-20318` I4/mcm AFM), but the disordered quinary
 high-entropy composition has no single MP record — so boride-001 cannot
 promote to SIM-DFT without an ordered approximant or a direct DFT run.
+
+**Sim handles — §3.5 full sweep (2026-05-18)**: additional MP cross-refs
+via the stdlib-REST `--formula` path. Promoted DESIGN → SIM-DFT (MP record
+with E_hull ≤ 0.01 eV/atom, magnetic ordering confirmed): `refree-001`
+↔ `mp-555` (Fe₈N≡Fe₁₆N₂, I4/mmm, FM, E_hull=0.001); `tetra-001` ↔ `mp-2213`
+(FeNi L1₀ P4/mmm, FM, E_hull=0); `mnalc-001` ↔ `mp-771` (MnAl P4/mmm, FM,
+E_hull=0); `lowdy-001` ↔ `mp-5182` (base Nd₂Fe₁₄B P4₂/mnm, FiM, E_hull=0.001
+— the Ce/La substitution itself is unverified design); plus new
+`gfcs-001` ↔ `mp-1225352` (Ga₃Fe₄Co₈Si R-3m, FM, E_hull=0 — NEMAD
+highest-Tc). Kept DESIGN (MP record metastable, E_hull > 0.01): `ferrhd-001`
+`mp-3742` (0.072 — note: DFT over-penalises this oxide; the real M-type
+ferrite is a commercial-stable applied magnet), `mnbi-001` `mp-568382`
+(0.21), new `znfe-001` `mp-1215473` (0.023). `boride-001` stays DESIGN
+(disordered quinary, no single MP record). Promotion threshold (E_hull ≤
+0.01) is a structural-stability proxy, NOT a property measurement — Tc /
+(BH)max / Hc remain UNVERIFIED for every entry (@F f2 / g3).
 
 ### 3.6 High-Entropy Alloys (HEA)
 

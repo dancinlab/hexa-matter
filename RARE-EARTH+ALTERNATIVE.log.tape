@@ -52,4 +52,16 @@
   => "MP cross-ref of C16 endmembers via the new --formula path: Fe₂B mp-1915 (I4/mcm FM E_hull=0), Co₂B mp-493 (I4/mcm FM), Ni₂B mp-2536 (I4/mcm NM), Mn₂B mp-20318 (I4/mcm AFM)."
   => "hxm-mag-boride-001 STAYS DESIGN — endmembers confirm the C16 lattice but the disordered quinary high-entropy composition has no single MP record; SIM-DFT would need an ordered approximant or a direct DFT run."
 
+@A novel_full_sweep_2026_05_18 := "NOVEL §3.5 full MP cross-reference sweep" :: assistant [d=2026-05-18 ok]
+  <- "@A beeson_deep_research_2026_05_17"
+  => "Swept all §3.5 hxm-mag-* via the stdlib-REST --formula path (dogfooding 877e50c). Promotion rule: DESIGN → SIM-DFT iff MP record with confirmed magnetic ordering AND E_hull ≤ 0.01 eV/atom."
+  => "Promoted: refree-001↔mp-555 (Fe₈N≡Fe₁₆N₂), tetra-001↔mp-2213 (FeNi L1₀), mnalc-001↔mp-771 (MnAl), lowdy-001↔mp-5182 (base Nd₂Fe₁₄B). New: gfcs-001↔mp-1225352 (Ga₃Fe₄Co₈Si, NEMAD highest-Tc, SIM-DFT), znfe-001↔mp-1215473 (ZnFe, DESIGN, metastable)."
+  => "Kept DESIGN: ferrhd-001 (mp-3742 E_hull=0.072 — DFT over-penalises this commercial-stable oxide), mnbi-001 (mp-568382 0.21), boride-001 (no single MP record for the disordered quinary)."
+  => "§3.5 roster now 11 entries: 7 SIM-DFT + 4 DESIGN. All Tc/(BH)max/Hc remain UNVERIFIED (MP carries no Tc; E_hull is a stability proxy only)."
+
+@? selftest_raw10_collateral_2026_05_18 := "user raw#10 cleanup broke 7 selftest gates" :: anomaly [d=2026-05-18]
+  detail = "selftest/run_all.sh → 7/38 FAIL. Root cause: the user's in-flight raw#10 C3 cleanup deletes every line containing the string 'raw#10 C3' — including code identifier lines like `_RISK_TOKENS = (... 'raw#10 C3')` in cross_link_integrity_audit.py, causing NameError. 25 selftest scripts show pure-deletion diffs (44 deletions, 0 insertions)."
+  impact = "FAIL is a working-tree artifact of an unfinished user cleanup, NOT caused by any hexa-matter domain/bridge commit this session (none of which touch selftest/)."
+  not-mine = "true — flagged to user; cleanup script needs an identifier-safe match (avoid deleting code tokens that merely contain the literal 'raw#10 C3')"
+
 # ─── append new events below this line ───

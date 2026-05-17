@@ -157,14 +157,16 @@ n=6 격자 적합으로 천장이 결정되는 것 아님 (`@D g2`).
 
 | ID | target | track | status | falsifier |
 |---|---|---|---|---|
-| `hxm-mag-boride-001` | Beeson C16 high-entropy boride (Fe/Co thin-film) | 4a | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
+| `hxm-mag-boride-001` | (FeCoNiMnCr)₂B C16 (Fe/Co thin-film) | 4a | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
 | `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | **SIM-DFT** (mp-20664) | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
-| `hxm-mag-mnalc-001` | Mn-Al-C τ-phase | 3 | DESIGN | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
-| `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
-| `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | DESIGN | F-MAG-7: 150°C에서 Hc 손실 > 15% |
-| `hxm-mag-aifound-001` | FeCo₂Ge (Heusler-like, NEMAD Table 4) | 6 | **SIM-DFT** (mp-22300) | F-MAG-8: 실측 Tc < 600 K OR 단상 합성 불가 |
+| `hxm-mag-mnalc-001` | MnAl τ-phase | 3 | **SIM-DFT** (mp-771) | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
+| `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | DESIGN (mp-3742 metastable) | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
+| `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | **SIM-DFT** (mp-5182 base) | F-MAG-7: 150°C에서 Hc 손실 > 15% |
+| `hxm-mag-aifound-001` | FeCo₂Ge (Heusler-like, NEMAD) | 6 | **SIM-DFT** (mp-22300) | F-MAG-8: 실측 Tc < 600 K OR 단상 합성 불가 |
+| `hxm-mag-gfcs-001` | Ga₃Fe₄Co₈Si (NEMAD 최고 Tc) | 6 | **SIM-DFT** (mp-1225352) | F-MAG-10: 실측 Tc < 700 K OR 단상 합성 불가 |
+| `hxm-mag-znfe-001` | ZnFe tetragonal | 4b | DESIGN (mp-1215473 metastable) | F-MAG-11: 측정 κ < 0.5 OR 단상 합성 불가 |
 
-`mn2sb-001` + `aifound-001`은 MP 검증(2026-05-17)으로 DESIGN→SIM-DFT 승급 — MP의 DFT ordering+E_hull cross-ref만 의미하며 Tc/(BH)max는 UNVERIFIED. 나머지 4개는 DESIGN. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET (C-MET-3 ~ C-MET-8)에 등재.
+**§3.5 roster 11개** (8 seeded-by-this-domain + 3 pre-existing cross-ref'd: `refree-001`↔mp-555 SIM-DFT, `tetra-001`↔mp-2213 SIM-DFT, `mnbi-001`↔mp-568382 DESIGN). 승급 규칙: MP record에 자성 ordering 확인 + **E_hull ≤ 0.01 eV/atom**이면 DESIGN→SIM-DFT (구조 안정성 proxy일 뿐, Tc/(BH)max/Hc는 전부 UNVERIFIED — `@F f2`). 최종: **7 SIM-DFT + 4 DESIGN**. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET에 등재.
 
 ---
 

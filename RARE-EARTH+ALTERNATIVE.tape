@@ -289,16 +289,23 @@
   followup  = "mp_api_smoke.py adapter needs a pymatgen/emmet version fix OR a stdlib-REST fallback path so future MP lookups produce a proper §6 sim handle"
   ~> "@N mp_lookup_attempt_2026_05_17"
 
-@N seed_novel_md := "6 hxm-mag-* candidates in NOVEL.md §3.5 (5 initial + 1 correction-driven add)" :: planned-edit [active d=2026-05-17]
-  ids = [
-    "hxm-mag-boride-001  : Beeson C16 high-entropy boride — Adv. Mater. 2025 (TRACK 4a)",
-    "hxm-mag-mn2sb-001   : Mn₂Sb tetragonal — arxiv:2507.01849 top-10 (TRACK 4b) — added during 2026-05-17 correction of misattributed boride formula",
-    "hxm-mag-mnalc-001   : Mn-Al-C τ-phase (TRACK 3)",
-    "hxm-mag-ferrhd-001  : SrFe₁₂O₁₉ Co/La-doped high-density (TRACK 2)",
-    "hxm-mag-lowdy-001   : Nd₂Fe₁₄B with Ce/La heavy-REE replacement (TRACK 5)",
-    "hxm-mag-aifound-001 : NEMAD-screened high-Tc candidate (TRACK 6)"
+@N seed_novel_md := "NOVEL.md §3.5 hxm-mag-* roster (11 total: 6 seeded + 2 added + 3 pre-existing cross-ref'd)" :: planned-edit [active d=2026-05-18]
+  seeded-by-this-domain = [
+    "hxm-mag-boride-001  : (FeCoNiMnCr)₂B C16 — Beeson Adv. Mater. 2025 (TRACK 4a) — DESIGN (disordered quinary, no single MP record)",
+    "hxm-mag-mn2sb-001   : Mn₂Sb P4/nmm — arxiv:2507.01849 (TRACK 4b) — SIM-DFT mp-20664",
+    "hxm-mag-mnalc-001   : MnAl τ-phase (TRACK 3) — SIM-DFT mp-771",
+    "hxm-mag-ferrhd-001  : SrFe₁₂O₁₉ M-type (TRACK 2) — DESIGN (mp-3742 E_hull=0.072 DFT-metastable)",
+    "hxm-mag-lowdy-001   : (Nd,Ce,La)₂Fe₁₄B (TRACK 5) — SIM-DFT mp-5182 (base Nd₂Fe₁₄B; Ce/La sub stays design)",
+    "hxm-mag-aifound-001 : FeCo₂Ge (TRACK 6) — SIM-DFT mp-22300",
+    "hxm-mag-gfcs-001    : Ga₃Fe₄Co₈Si — NEMAD highest-Tc (TRACK 6) — SIM-DFT mp-1225352 (added 2026-05-18)",
+    "hxm-mag-znfe-001    : ZnFe — arxiv:2507.01849 top-10 (TRACK 4b) — DESIGN (mp-1215473 E_hull=0.023) (added 2026-05-18)"
   ]
-  status = "DESIGN — quantitative falsifier defined per @D g1_substitution_defined"
+  pre-existing-cross-refd = [
+    "hxm-mag-refree-001 (Fe₁₆N₂) → SIM-DFT mp-555 (Fe₈N≡Fe₁₆N₂)",
+    "hxm-mag-tetra-001 (tetrataenite L1₀ FeNi) → SIM-DFT mp-2213",
+    "hxm-mag-mnbi-001 (MnBi LTP) → DESIGN (mp-568382 E_hull=0.21)"
+  ]
+  promotion-rule = "DESIGN → SIM-DFT when an MP record exists with magnetic ordering confirmed AND E_hull ≤ 0.01 eV/atom (structural-stability proxy, NOT a property measurement — Tc/(BH)max/Hc stay UNVERIFIED per @F f2)"
   note   = "TRACK 1 (recycling) is a PROCESS track, not a de-novo material → does NOT get a hxm-mag-* entry; lives in RECYCLING.tape per NOVEL §0 scope boundary."
   -> "NOVEL.md §3.5 Magnetic materials (rare-earth-free)"
 
