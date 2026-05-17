@@ -63,11 +63,13 @@
 두 출처를 명확히 구분 (오해 방지):
 
 **(a) Beeson C16 고엔트로피 보라이드** (`hxm-mag-boride-001`)
-- 5원소 quinary 3d transition-metal + B; C16 uniaxial phase
-- **핵심 메커니즘**: transition-metal sublattice에서 **Fe/Co 혼합 비율**로 easy-plane → easy-axis 이방성 전환. 이원/삼원 TM 보라이드 대비 **보자력 2배+** 증가
-- **형태**: **thin-film** (combinatorial sputtering, 1회 ~50 샘플 동시 증착 — Liu's lab). bulk-scale 미실증
-- **출처**: Beeson et al., *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed; PubMed 41431427)
-- 정확한 quinary 조성은 press release 미공개 → 본문 추출 필요
+- **구조**: C16 = tetragonal **I4/mcm (No.140)**, CuAl₂-type, M₂B 화학량론 (B 33%)
+- **조성**: quinary 3d-TM = **Fe · Co · Ni · Mn · Cr** + B. 논문 명시 박막 = **(FeCoNiMn)₂B** 50 nm, 격자상수 a=5.05 Å, c=4.25 Å
+- **핵심 메커니즘**: (Fe₁₋ₓCoₓ)₂B에서 Fe/Co 혼합비로 easy-plane → easy-axis 전환. x=0.3에서 K₁≈410 kJ/m³ @RT. 이원/삼원 TM 보라이드 대비 **보자력 2배+**
+- **DFT 이방성**: ~1×10⁷ erg/cm³ (≈1 MJ/m³)
+- **형태**: **thin-film** (combinatorial sputtering, 1회 ~50 샘플 — Liu's lab). bulk-scale 미실증
+- **출처**: Beeson·Yin·Liu, *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed; PubMed 41431427)
+- **MP cross-ref (2026-05-17)**: C16 endmember 4종이 MP에서 모두 I4/mcm 확인 — Fe₂B `mp-1915` (FM, E_hull=0), Co₂B `mp-493` (FM), Ni₂B `mp-2536` (NM), Mn₂B `mp-20318` (AFM). 단 disordered quinary 조성은 MP 단일 record 부재 → `boride-001` **DESIGN 유지** (구조 family만 확인)
 - **caveat**: thin-film K₁ ≠ bulk magnet (BH)max (`@F f1`)
 - **falsifier**: F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 → FAIL
 

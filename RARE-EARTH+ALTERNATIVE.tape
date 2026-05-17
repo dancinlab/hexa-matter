@@ -82,10 +82,11 @@
   |> "[@x_arxiv_2507_01849]  DFT high-throughput screen"
 
 @L t4_boride := "TRACK 4 — rare-earth-free borides + nitrides + Fe-based intermetallics" :: track [active d=2026-05-17]
-  approach     = "two complementary literature waves: (a) Beeson 2025 Adv. Mater. C16-phase high-entropy borides (5-element quinary 3d transition-metals + B); (b) Lopez-Gomez 2025 arxiv DFT high-throughput screen → 10 binary candidates (FeSn, CrSb, Mn2Sb, FeB, FeNi, Fe2P, Fe3Ga, FeGe, ZnFe, Fe8N)"
-  performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 = Fe/Co sublattice mixing flips easy-plane→easy-axis anisotropy, >2× coercivity vs binary/ternary TM borides"
+  approach     = "two complementary literature waves: (a) Beeson 2025 Adv. Mater. C16-phase high-entropy borides; (b) arxiv:2507.01849 DFT high-throughput screen → 10 binary candidates (FeSn, CrSb, Mn2Sb, FeB, FeNi, Fe2P, Fe3Ga, FeGe, ZnFe, Fe8N)"
+  beeson-detail = "C16 phase = tetragonal I4/mcm (No.140), CuAl₂-type, M₂B (33% B). quinary 3d-TM = Fe·Co·Ni·Mn·Cr. Named film: (FeCoNiMn)₂B 50 nm, a=5.05 Å c=4.25 Å. Mechanism: (Fe₁₋ₓCoₓ)₂B easy-plane→easy-axis switch, x=0.3 → K₁≈410 kJ/m³ at RT. DFT anisotropy ≈ 1×10⁷ erg/cm³ (~1 MJ/m³). Team: Beeson·Yin·Liu, Georgetown Physics."
+  performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 >2× coercivity vs binary/ternary TM borides"
   status       = "Beeson Adv. Mater. = published, THIN-FILM (combinatorial sputter, ~50 samples/run); bulk-scale NOT demonstrated. arxiv:2507.01849 = DFT predicted only"
-  mp-verified  = "Mn₂Sb → MP mp-20664 confirms P4/nmm tetragonal (matches arxiv 'Mn₂Sb tetragonal'), FM ordering, E_hull=0 (stable), M_tot=15.16 μB → hxm-mag-mn2sb-001 promoted DESIGN → SIM-DFT (2026-05-17)"
+  mp-verified  = "Mn₂Sb → MP mp-20664 (P4/nmm, FM, E_hull=0, M=15.16 μB) → hxm-mag-mn2sb-001 SIM-DFT. C16 structure family confirmed in MP: Fe₂B mp-1915 (I4/mcm, FM, E_hull=0), Co₂B mp-493 (I4/mcm, FM), Ni₂B mp-2536 (I4/mcm, NM), Mn₂B mp-20318 (I4/mcm, AFM) — endmembers confirm the C16 lattice, but the disordered quinary high-entropy composition has NO single MP record → hxm-mag-boride-001 STAYS DESIGN."
   novelty      = "5-element compositions sit naturally near n=6 lattice — high-entropy boride space largely unexplored"
   caveat       = "Beeson result is thin-film — thin-film K₁ ≠ bulk magnet (BH)max (per @F f1). Exact quinary stoichiometry still requires Adv. Mater. paper-level extraction."
   hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — thin-film measured, bulk unproven)"

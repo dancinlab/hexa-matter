@@ -175,7 +175,7 @@ LK-99 PV variants and HARD_WALL claims preserved
 | `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
 | `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
 | `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
-| `hxm-mag-boride-001`  | mag   | Beeson C16 high-entropy boride | quinary 3d-TM boride, C16 phase; Fe/Co sublattice mixing flips easy-plane→easy-axis, >2× coercivity vs binary/ternary; **thin-film** (combinatorial sputter) — Beeson et al., Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
+| `hxm-mag-boride-001`  | mag   | (FeCoNiMnCr)₂B C16 boride | C16 = I4/mcm CuAl₂-type; named film (FeCoNiMn)₂B a=5.05/c=4.25 Å; Fe/Co flips easy-plane→easy-axis (x=0.3 K₁≈410 kJ/m³); DFT K~1 MJ/m³; **thin-film** — Beeson·Yin·Liu, Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
 | `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 (pred Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K); **MP mp-20664 confirms P4/nmm tetragonal, FM ordering, E_hull=0 (stable), M=15.16 μB** | SIM-DFT | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
 | `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free | DESIGN | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
 | `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
@@ -198,8 +198,13 @@ version conflict on Python 3.9 (`SymmetryUndeterminedError` import failure).
 energy only** — Tc and (BH)max remain UNVERIFIED: MP carries no Curie
 temperature, and the Tc figures cited above are ML-regressed (NEMAD) or
 separate-DFT (arxiv:2507.01849) predictions, NOT measurements (per @F f2 /
-g3). `hxm-mag-boride-001` stays DESIGN — Beeson C16 exact quinary composition
-is not public, so no MP cross-reference is possible.
+g3). `hxm-mag-boride-001` stays DESIGN: web deep-research (2026-05-17) resolved
+the Beeson C16 composition — quinary (FeCoNiMnCr)₂B, C16 = I4/mcm CuAl₂-type,
+named film (FeCoNiMn)₂B (a=5.05, c=4.25 Å). MP confirms the C16 endmembers
+(Fe₂B `mp-1915` I4/mcm FM E_hull=0; Co₂B `mp-493` I4/mcm FM; Ni₂B `mp-2536`
+I4/mcm NM; Mn₂B `mp-20318` I4/mcm AFM), but the disordered quinary
+high-entropy composition has no single MP record — so boride-001 cannot
+promote to SIM-DFT without an ordered approximant or a direct DFT run.
 
 ### 3.6 High-Entropy Alloys (HEA)
 

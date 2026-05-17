@@ -46,4 +46,10 @@
   workaround = "MP REST summary API direct call via stdlib urllib (no mp-api / pymatgen dependency)"
   fix-options = ["upgrade Python to 3.10+ then upgrade pymatgen", "pin emmet-core to a pymatgen-2024.8.9-compatible release", "add a stdlib-REST fallback path to mp_api_smoke.py"]
 
+@A beeson_deep_research_2026_05_17 := "Beeson C16 composition + structure resolved via web deep research" :: assistant [d=2026-05-17 ok]
+  <- "@A mp_query_2026_05_17"
+  => "Adv. Mater. paper itself paywalled, but composition + structure extracted from abstract + Georgetown press + Fe-Co-B literature: C16 = tetragonal I4/mcm (No.140) CuAl₂-type M₂B; quinary 3d-TM = Fe·Co·Ni·Mn·Cr; named film (FeCoNiMn)₂B 50 nm a=5.05 c=4.25 Å; Fe/Co easy-plane→easy-axis switch (x=0.3 K₁≈410 kJ/m³); DFT anisotropy ~1×10⁷ erg/cm³."
+  => "MP cross-ref of C16 endmembers via the new --formula path: Fe₂B mp-1915 (I4/mcm FM E_hull=0), Co₂B mp-493 (I4/mcm FM), Ni₂B mp-2536 (I4/mcm NM), Mn₂B mp-20318 (I4/mcm AFM)."
+  => "hxm-mag-boride-001 STAYS DESIGN — endmembers confirm the C16 lattice but the disordered quinary high-entropy composition has no single MP record; SIM-DFT would need an ordered approximant or a direct DFT run."
+
 # ─── append new events below this line ───
