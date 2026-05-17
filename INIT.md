@@ -1,6 +1,6 @@
 # INIT — hexa-matter elevation to hexa-bio level
 
-> **Last updated**: 2026-05-14
+> **Last updated**: 2026-05-18
 > **Purpose**: Working-state record so phase progress is not lost across sessions.
 > If you're picking this up cold, read this file first.
 
@@ -36,6 +36,7 @@ User directive (2026-05-13):
 | **H** | Category (b) parity-gate landing — 10 `tests/<gate>_parity.py` + 10 `tests/snapshots/<gate>.json` + `selftest/parity_gates_smoke.sh`; ledger drain 29 → 19 in CLOSURE_RESIDUAL_BACKLOG §B; selftest 24/24 → 28/28 (with G+2) | ✅ DONE | `e12dfb9` |
 | **I.1** | Phase B target parity gates batch 1 — 10 more `tests/<gate>_parity.py` + 10 snapshots (cer_b1 quartz · cer_b7 Mohs · pol_b2 PET hydrolysis · fib_b1 cellulose Segal · met_b1/2/3 IN718/Ti64/AISI1080 · gem_b2 ruby R-line · prc_b1 Hales packing · fas_b1 reactive dye yield); `parity_gates_smoke` sweeps 20/20; ledger drain 19 → 9 in CLOSURE_RESIDUAL_BACKLOG §B | ✅ DONE | `583fddb` |
 | **I.2** | Phase F/B target parity gates batch 2 — 9 more `tests/<gate>_parity.py` + 9 vendored snapshots (cer_b6 UHPC Ductal+Cor-Tuf · cer_b8 Si thermal donor Kaiser-Frisch+SEMI · cer_b9 Si [O_i] ASTM F121 · pol_b3 microplastic K_d NOAA · pol_b5 UHMWPE Dyneema · pol_b6 CNT yarn Tsinghua **UNPROVEN-at-commodity preserved** · prc_b2 recycling Gibbs ISO 14040 · prc_b3 sol-gel TEOS Hench-West · fas_b2 K/S Kubelka-Munk AATCC); `parity_gates_smoke` sweeps 29/29; ledger drain 9 → 0 in CLOSURE_RESIDUAL_BACKLOG §B — **Category (a)+(b) closure = 100%** | ✅ DONE | _(this commit)_ |
+| **HX** | hexa-native Stage-1 migration — T1 6 stdlib-only compute modules → `_hexa_bridge/module/*.hexa`; T2 **26/26** selftest audit gates → `_hexa_bridge/selftest/*.hexa`; `selftest/run_all.sh` rewired to a hexa-first **union** (`.py`/`.sh` kept as fallback + re-parity reference); every gate verified at **byte-parity** with its `.py` source (lossless: `grep -E` ERE ≡ Python `re`, no Stage-1 substring approx — g3 regression 0); `verify/closure_consistency.hexa` README-badge regex fixed (pre-existing 3/4 regression from `20a919d` README reformat → restored **verify 4/4**). Migration SSOT: `~/core/hexa-lang/stdlib/PLAN.md`. selftest **38/38**, verify **4/4**. | ✅ DONE | `bf577fa` · `af1141a` |
 
 ### 🏆 100% (a)+(b) closure reached 2026-05-13
 

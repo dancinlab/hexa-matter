@@ -119,7 +119,9 @@
   bridges           = ["_python_bridge/ (12 modules)",
                        "_research_bridge/ (8 modules)",
                        "_absorption_bridge/ (16 adapters)"]
-  selftest          = "selftest/run_all.sh   # 38/38 PASS sentinel"
+  hexa_native       = ["_hexa_bridge/module/*.hexa   (T1 · 6 stdlib-only compute modules)",
+                       "_hexa_bridge/selftest/*.hexa (T2 · 26/26 selftest gates, byte-parity verified)"]
+  selftest          = "selftest/run_all.sh   # 38/38 PASS; hexa-first union (.hexa→.py/.sh fallback)"
   verify            = "verify/run_all.hexa   # 4/4 PASS structural closure"
   parity_gates      = "tests/*_parity.py + tests/snapshots/*.json (29 gates)"
   cli               = "cli/hexa-matter.hexa"
@@ -201,6 +203,16 @@
                 + 1 Phase J.5 NOVEL ↔ verb xref audit
                 + 1 Phase K.1 universal-FF runner (added 2026-05-14)
   EOF
+  hexa_native_union <<~EOF
+    Phase HX (2026-05-18): run_all.sh `run()` is a hexa-first UNION — if
+    `_hexa_bridge/selftest/<label>.hexa` exists it runs THAT, else the
+    `.py`/`.sh` fallback. T1 6 compute modules + T2 26/26 selftest gates
+    are hexa-native; each verified byte-parity vs its `.py` (lossless —
+    `grep -E` ERE ≡ Python `re`, NO Stage-1 substring approx, g3
+    regression = 0). `.py`/`.sh` retained as fallback + re-parity ref.
+    Migration SSOT: ~/core/hexa-lang/stdlib/PLAN.md (T1✅ T2✅ T3/T4/T5⏳).
+  EOF
+  |> "verify/closure_consistency.hexa (README-badge regex fixed 2026-05-18 — verify 3/4→4/4)"
 
 @D g7 := "parity-gates-anchored" :: policy [required active]
   rule = "29 parity gates verify spec↔source parity within published tolerance — NOT measurements"

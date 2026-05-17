@@ -247,6 +247,32 @@ The Phase D verb count (12+) is *engineering-driven*. We will NOT force-fit to 2
 
 ---
 
+## §5.HX hexa-native Stage-1 migration — lessons (2026-05-18)
+
+1. **Lossless `.py`→`.hexa` port = `grep -E` ERE as the literal
+   equivalent of Python `re`** (`\d`→`[0-9]`, `\s`→`[[:space:]]`,
+   `(?:..)`→`(..)`, `\b` kept), hexa doing only orchestration. Stage-1
+   substring approximation of a digit-shape / word-boundary regex is a
+   *verification-power regression* (g3) — it was explicitly never used.
+   For the one faithful gap (Python `\s` bridging a ±window newline-join
+   in `hardwall_provenance` / `vendor_citation`) only the precompute-
+   misses get a precise ±window-join re-grep → exact byte-parity.
+2. **Verify byte-parity vs the `.py` before adopting**; wire the
+   aggregator as a hexa-first **union** (`.hexa` else `.py`/`.sh`) so
+   migration is per-gate incremental-safe, not all-or-nothing. Keep the
+   `.py` as fallback + re-parity reference.
+3. **A doc/SSOT format change must sweep every consumer regex.** The
+   README badge moved to shields.io `verbs-36-informational` in
+   `20a919d`; `selftest/registry_consistency_audit` was widened but its
+   verify-layer twin `verify/closure_consistency.hexa` was not — so
+   `verify/run_all.hexa` had silently regressed to **3/4** and stayed
+   there until the HX sweep found it. Format pivots need a grep for all
+   matchers, not just the nearest one.
+4. **hexa `.substr`/`.len` are byte-indexed.** Multibyte glyphs (`§`,
+   `σ`, `τ`, `φ`, `χ²`, `Å`) break char-slice parsers — drive structure
+   detection from `grep -nE` line numbers / shell instead, and reserve
+   hexa for ASCII-only scanning.
+
 ## §6 One-line summary
 
 > Wave K (LATTICE_POLICY pivot — n=6 as tool not constraint) + Wave M

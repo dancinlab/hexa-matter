@@ -202,6 +202,22 @@ The `verify/` directory's `run_all.hexa` (4/4 PASS) is the structural
 closure layer (file presence + lattice arithmetic + real-limits anchor +
 scoreboard cross-check). Selftest is the content layer on top.
 
+**Phase HX — hexa-native Stage-1 (2026-05-18).** `run_all.sh`'s `run()`
+is now a **hexa-first union**: if `_hexa_bridge/selftest/<label>.hexa`
+exists it runs that, otherwise it falls back to the `.py`/`.sh` gate.
+T1 = 6 stdlib-only compute modules (`_hexa_bridge/module/*.hexa`); T2 =
+**26/26** selftest audit gates (`_hexa_bridge/selftest/*.hexa`). Every
+hexa gate was verified at **byte-parity** with its `.py` source — the
+ports are lossless (`grep -E` ERE used as the literal equivalent of
+Python `re`; no Stage-1 substring approximation; g3 verification-power
+regression = 0). The `.py`/`.sh` files are kept as the union fallback
+and a re-parity reference; their removal is a separate decision. A
+pre-existing 3/4 verify regression (`verify/closure_consistency.hexa`
+still grepped the legacy `verbs-NN_spec` badge after `20a919d`
+reformatted README to the shields.io `verbs-36-informational` form) was
+found and fixed — **verify restored to 4/4**. Migration SSOT:
+`~/core/hexa-lang/stdlib/PLAN.md` (T1 ✅ · T2 ✅ · T3/T4/T5 ⏳).
+
 `hexa.toml [closure]` records: `verify_pass = "4/4"`,
 `selftest_pass = "38/38"`, `python_bridge_modules = 12`,
 `research_bridge_modules = 8`, `absorption_bridge_modules = 14`,
