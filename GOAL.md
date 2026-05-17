@@ -47,13 +47,13 @@ RARE-EARTH.tape (17원소 가족 레퍼런스)
 
 **목표 미도달.** 경로는 열렸고 거리는 측정됐으나 실증 탈희토류 자석은 미발현 — 그게 정직한 현재.
 
-- `hxm-mag-*` roster: 11 후보 — **7 SIM-DFT** (MP cross-ref) + 4 DESIGN
-- **EXTERNAL-VERIFIED: 0** — SIM-DFT 는 MP 의 DFT 구조 cross-ref (E_hull ≤ 0.01) 일 뿐, Tc·(BH)max·Hc 는 전부 UNVERIFIED
+- `hxm-mag-*` roster: 11 후보 — **7 SIM-DFT** (MP cross-ref) + **1 SIM-NNP** (boride: CHGNet relax of C16 ordered approximant, ubu-1 GPU) + 3 DESIGN (ferrhd · mnbi · znfe)
+- **EXTERNAL-VERIFIED: 0** — SIM-DFT 는 MP 의 DFT 구조 cross-ref (E_hull ≤ 0.01), SIM-NNP 는 universal-FF 실계산일 뿐, Tc·(BH)max·Hc·K₁ 는 전부 UNVERIFIED
 - 6-트랙 중 재활용(TRACK 1)만 상용 근접, 나머지(ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found)는 실험실/예측 단계
 
 **후보 심화 과정 — Category (a) in-repo closure 달성 (2026-05-18)**:
 
-- 11 후보 전부 MP `--formula` cross-ref 완료 → in-repo 로 갈 수 있는 최대 등급 도달 (E_hull ≤ 0.01 → SIM-DFT 7개; 초과 → DESIGN 4개)
+- 11 후보 전부 MP `--formula` cross-ref 완료 → in-repo 최대 등급 도달 (E_hull ≤ 0.01 → SIM-DFT 7개; boride 는 disordered quinary 라 MP record 부재 → ubu-1 GPU 에서 CHGNet ordered-approximant 실계산 → SIM-NNP; 나머지 3개 metastable → DESIGN)
 - 11 후보 전부 정량 falsifier (F-MAG-1~11) + verb-spec backlink (`magnetic-materials.md`, novel_verb_xref Tier-2) + wet-lab handoff (`CLOSURE_RESIDUAL_BACKLOG.md` §C-MET C-MET-3~13) 등재
 - `selftest/run_all.sh` **38/38 PASS** — 후보 심화 관련 게이트 전부 통과
 - in-repo 로 더 닫을 것 없음. **Category (a) 100%.** 남은 거리는 전부 Category (c) out-of-repo

@@ -86,7 +86,7 @@
   beeson-detail = "C16 phase = tetragonal I4/mcm (No.140), CuAl₂-type, M₂B (33% B). quinary 3d-TM = Fe·Co·Ni·Mn·Cr. Named film: (FeCoNiMn)₂B 50 nm, a=5.05 Å c=4.25 Å. Mechanism: (Fe₁₋ₓCoₓ)₂B easy-plane→easy-axis switch, x=0.3 → K₁≈410 kJ/m³ at RT. DFT anisotropy ≈ 1×10⁷ erg/cm³ (~1 MJ/m³). Team: Beeson·Yin·Liu, Georgetown Physics."
   performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 >2× coercivity vs binary/ternary TM borides"
   status       = "Beeson Adv. Mater. = published, THIN-FILM (combinatorial sputter, ~50 samples/run); bulk-scale NOT demonstrated. arxiv:2507.01849 = DFT predicted only"
-  mp-verified  = "Mn₂Sb → MP mp-20664 (P4/nmm, FM, E_hull=0, M=15.16 μB) → hxm-mag-mn2sb-001 SIM-DFT. C16 structure family confirmed in MP: Fe₂B mp-1915 (I4/mcm, FM, E_hull=0), Co₂B mp-493 (I4/mcm, FM), Ni₂B mp-2536 (I4/mcm, NM), Mn₂B mp-20318 (I4/mcm, AFM) — endmembers confirm the C16 lattice, but the disordered quinary high-entropy composition has NO single MP record → hxm-mag-boride-001 STAYS DESIGN."
+  mp-verified  = "Mn₂Sb → MP mp-20664 (P4/nmm, FM, E_hull=0, M=15.16 μB) → hxm-mag-mn2sb-001 SIM-DFT. C16 structure family confirmed in MP: Fe₂B mp-1915 (I4/mcm, FM, E_hull=0), Co₂B mp-493 (I4/mcm, FM), Ni₂B mp-2536 (I4/mcm, NM), Mn₂B mp-20318 (I4/mcm, AFM). The disordered quinary high-entropy composition has NO single MP record → boride-001 instead promoted via a CHGNet relax of the (FeCoNiMn)₂B C16 ordered approximant on ubu-1 GPU → hxm-mag-boride-001 SIM-NNP (2026-05-18)."
   novelty      = "5-element compositions sit naturally near n=6 lattice — high-entropy boride space largely unexplored"
   caveat       = "Beeson result is thin-film — thin-film K₁ ≠ bulk magnet (BH)max (per @F f1). Exact quinary stoichiometry still requires Adv. Mater. paper-level extraction."
   hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — thin-film measured, bulk unproven)"
@@ -284,14 +284,14 @@
     Mn2Sb    → mp-20664  P4/nmm tetragonal  · ordering=FM · E_hull=0 (stable) · M_tot=15.16 μB
                (metastable polymorphs mp-6912 P6₃/mmc, mp-1008875 F-43m also exist)
   EOF
-  promotion = "hxm-mag-mn2sb-001 + hxm-mag-aifound-001 → DESIGN promoted to SIM-DFT (MP DFT ordering + E_hull). hxm-mag-boride-001 STAYS DESIGN — Beeson C16 quinary composition not public, no MP query possible."
+  promotion = "hxm-mag-mn2sb-001 + hxm-mag-aifound-001 → DESIGN promoted to SIM-DFT (MP DFT ordering + E_hull). hxm-mag-boride-001 → SIM-NNP via CHGNet relax of the (FeCoNiMn)₂B C16 ordered approximant (ubu-1 GPU, 2026-05-18) — the disordered quinary has no MP record."
   honesty   = "SIM-DFT = MP DFT prediction cross-ref ONLY; Tc / (BH)max remain UNVERIFIED (MP has no Tc field)."
   followup  = "mp_api_smoke.py adapter needs a pymatgen/emmet version fix OR a stdlib-REST fallback path so future MP lookups produce a proper §6 sim handle"
   ~> "@N mp_lookup_attempt_2026_05_17"
 
 @N seed_novel_md := "NOVEL.md §3.5 hxm-mag-* roster (11 total: 6 seeded + 2 added + 3 pre-existing cross-ref'd)" :: planned-edit [active d=2026-05-18]
   seeded-by-this-domain = [
-    "hxm-mag-boride-001  : (FeCoNiMnCr)₂B C16 — Beeson Adv. Mater. 2025 (TRACK 4a) — DESIGN (disordered quinary, no single MP record)",
+    "hxm-mag-boride-001  : (FeCoNiMnCr)₂B C16 — Beeson Adv. Mater. 2025 (TRACK 4a) — SIM-NNP (CHGNet relax of (FeCoNiMn)₂B C16 ordered approximant on ubu-1; disordered quinary has no MP record)",
     "hxm-mag-mn2sb-001   : Mn₂Sb P4/nmm — arxiv:2507.01849 (TRACK 4b) — SIM-DFT mp-20664",
     "hxm-mag-mnalc-001   : MnAl τ-phase (TRACK 3) — SIM-DFT mp-771",
     "hxm-mag-ferrhd-001  : SrFe₁₂O₁₉ M-type (TRACK 2) — DESIGN (mp-3742 E_hull=0.072 DFT-metastable)",

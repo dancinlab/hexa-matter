@@ -64,4 +64,10 @@
   impact = "FAIL is a working-tree artifact of an unfinished user cleanup, NOT caused by any hexa-matter domain/bridge commit this session (none of which touch selftest/)."
   not-mine = "true — flagged to user; cleanup script needs an identifier-safe match (avoid deleting code tokens that merely contain the literal 'raw#10 C3')"
 
+@A boride_simnnp_2026_05_18 := "hxm-mag-boride-001 DESIGN → SIM-NNP via CHGNet" :: assistant [d=2026-05-18 ok]
+  <- "@A beeson_deep_research_2026_05_17"
+  => "boride-001 disordered quinary (FeCoNiMnCr)₂B has no single MP record → built the C16 (FeCoNiMn)₂B ordered approximant (I4/mcm M₂B, M-8h decorated Fe/Co/Ni/Mn) and ran a real CHGNet 0.4.2 relaxation on the wilson compute pool (ubu-1, NVIDIA RTX 5070)."
+  => "Result: relaxes stably (a 5.05→5.02 Å, c 4.25→4.23 Å — within 0.5% of the Beeson named film), retains a magnetic moment (|magmom| 0.64 μB/atom; Fe₂B C16 control 1.32). Snapshot: _absorption_bridge/universal_ff/predictions/hxm-mag-boride-001.json."
+  => "hxm-mag-boride-001 promoted DESIGN → SIM-NNP (real universal-FF computation). CHGNet resolves neither FM/AFM ordering nor K₁ — F-MAG-4 stays UNVERIFIED, wet-lab handoff C-MET-3 open. roster: 7 SIM-DFT + 1 SIM-NNP + 3 DESIGN."
+
 # ─── append new events below this line ───

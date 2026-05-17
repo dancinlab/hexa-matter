@@ -221,10 +221,15 @@ def check_B1_status_design(rows: list[dict]) -> list[str]:
             has_citation = bool(
                 re.search(r"sample[-\s]?ID|lab\s+citation|external\s+lab", section_text, re.IGNORECASE)
             )
-            if r["status"] == "SIM-NNP-PROXY":
+            if r["status"] in ("SIM-NNP-PROXY", "SIM-NNP"):
+                # SIM-NNP-PROXY = proxy value vendored from literature;
+                # SIM-NNP = real universal-FF computation. Both cite their
+                # frozen JSON snapshot under predictions/ as the citation
+                # form (the snapshot carries proxy_source / computation
+                # provenance). Neither promotes to EXTERNAL-VERIFIED.
                 has_citation = has_citation or bool(
                     re.search(
-                        r"_absorption_bridge/universal_ff/predictions/|proxy[-_\s]?source|SIM-NNP-PROXY",
+                        r"_absorption_bridge/universal_ff/predictions/|proxy[-_\s]?source|SIM-NNP",
                         section_text,
                         re.IGNORECASE,
                     )

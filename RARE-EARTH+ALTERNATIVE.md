@@ -69,7 +69,8 @@
 - **DFT 이방성**: ~1×10⁷ erg/cm³ (≈1 MJ/m³)
 - **형태**: **thin-film** (combinatorial sputtering, 1회 ~50 샘플 — Liu's lab). bulk-scale 미실증
 - **출처**: Beeson·Yin·Liu, *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed; PubMed 41431427)
-- **MP cross-ref (2026-05-17)**: C16 endmember 4종이 MP에서 모두 I4/mcm 확인 — Fe₂B `mp-1915` (FM, E_hull=0), Co₂B `mp-493` (FM), Ni₂B `mp-2536` (NM), Mn₂B `mp-20318` (AFM). 단 disordered quinary 조성은 MP 단일 record 부재 → `boride-001` **DESIGN 유지** (구조 family만 확인)
+- **MP cross-ref (2026-05-17)**: C16 endmember 4종이 MP에서 모두 I4/mcm 확인 — Fe₂B `mp-1915` (FM, E_hull=0), Co₂B `mp-493` (FM), Ni₂B `mp-2536` (NM), Mn₂B `mp-20318` (AFM). disordered quinary 조성은 MP 단일 record 부재.
+- **CHGNet 실계산 (2026-05-18)**: MP record가 없으므로 ubu-1(RTX 5070 GPU)에서 (FeCoNiMn)₂B C16 ordered approximant를 CHGNet 0.4.2로 relax — 안정 (a 5.05→5.02 Å), \|magmom\| 0.64 μB/atom 보유 (Fe₂B 대조 1.32). → `boride-001` **DESIGN → SIM-NNP 승급** (`_absorption_bridge/universal_ff/predictions/hxm-mag-boride-001.json`). CHGNet은 FM/AFM·K₁ 미해상 → F-MAG-4 UNVERIFIED 유지
 - **caveat**: thin-film K₁ ≠ bulk magnet (BH)max (`@F f1`)
 - **falsifier**: F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 → FAIL
 
@@ -157,7 +158,7 @@ n=6 격자 적합으로 천장이 결정되는 것 아님 (`@D g2`).
 
 | ID | target | track | status | falsifier |
 |---|---|---|---|---|
-| `hxm-mag-boride-001` | (FeCoNiMnCr)₂B C16 (Fe/Co thin-film) | 4a | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
+| `hxm-mag-boride-001` | (FeCoNiMnCr)₂B C16 (Fe/Co thin-film) | 4a | **SIM-NNP** (CHGNet, ubu-1) | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
 | `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | **SIM-DFT** (mp-20664) | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
 | `hxm-mag-mnalc-001` | MnAl τ-phase | 3 | **SIM-DFT** (mp-771) | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
 | `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | DESIGN (mp-3742 metastable) | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
