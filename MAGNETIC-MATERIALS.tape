@@ -47,6 +47,18 @@
   parent = "dancinlab/hexa-matter"
   sibling-md = "MAGNETIC-MATERIALS.md"
 
+# ────────────────────────────────────────────────────────────────────
+# Cross-links — added 2026-05-17
+# ────────────────────────────────────────────────────────────────────
+
+@H h_xlink_rare_earth_alternative := "REE-free magnet roadmap" :: cross-link [active d=2026-05-17]
+  ?> "[[RARE-EARTH+ALTERNATIVE]]"
+  why = "5-track REE substitution roadmap (recycling · ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found) lives in RARE-EARTH+ALTERNATIVE.tape; this file owns the verb (process · characterization · parity gates)"
+
+@H h_xlink_rare_earth := "REE element-family reference" :: cross-link [active d=2026-05-17]
+  ?> "[[RARE-EARTH]]"
+  why = "Nd / Pr / Dy / Tb / Sm / Eu application + supply detail lives in RARE-EARTH.tape"
+
 # ─── §Log (append @A / @D events here, chronological) ────────────────
 # 
 # Pre-existing log entries live in MAGNETIC-MATERIALS.md.

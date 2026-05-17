@@ -104,6 +104,9 @@
   limit_breakthrough = "LIMIT_BREAKTHROUGH.md"
   deep_chapters     = ["SILICON.md", "CERAMIC-ENGINEERING.md", "METALLURGY-DEEP.md",
                        "POLYMER-CHEMISTRY.md", "GRAPHENE-CARBON.md"]
+  supply_chain_domain = ["RARE-EARTH.tape",                  # 17-element family reference
+                         "RARE-EARTH+ALTERNATIVE.tape",      # meta-domain: 6-track substitution roadmap (added 2026-05-17)
+                         "CRITICAL-MINERAL.tape"]            # umbrella: REE + Ga + Ge + Sb + W + Co + Li + graphite + Mg + Ti + Nb + Ta
   verb_dirs         = "<verb>/<verb>.md per 36 verbs (ceramics, polymer, silicon, …)"
   bridges           = ["_python_bridge/ (12 modules)",
                        "_research_bridge/ (8 modules)",
