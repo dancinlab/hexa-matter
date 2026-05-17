@@ -50,13 +50,30 @@ fail=0
 skip=0
 total=0
 
-for f in "$BRIDGE/module"/*.py; do
-  [[ -e "$f" ]] || continue
+# Module set = union of .py basenames and ported .hexa basenames, so a
+# module remains covered after its .py is removed (Stage-1 full port).
+HEXA_MOD="$REPO_ROOT/_hexa_bridge/module"
+mod_names="$( { ls "$BRIDGE/module"/*.py 2>/dev/null | sed 's#.*/##; s/\.py$//'; \
+                ls "$HEXA_MOD"/*.hexa 2>/dev/null | sed 's#.*/##; s/\.hexa$//'; } \
+              | sort -u )"
+for m in $mod_names; do
+  [[ -n "$m" ]] || continue
   total=$((total + 1))
-  name="$(basename "$f")"
-  # Capture output; check exit code + sentinel.
-  out="$(python3 "$f" --selftest 2>&1)"
-  rc=$?
+  name="$m"
+  # hexa-native port (Stage 1): if _hexa_bridge/module/<m>.hexa exists,
+  # run THAT; else fall back to the .py --selftest. Per-module auto-migrate.
+  hexa_eq="$HEXA_MOD/$m.hexa"
+  py_eq="$BRIDGE/module/$m.py"
+  if [[ -f "$hexa_eq" ]] && command -v hexa >/dev/null 2>&1; then
+    out="$(cd "$REPO_ROOT" && hexa run "$hexa_eq" 2>&1)"
+    rc=$?
+    name="$m [hexa]"
+  elif [[ -f "$py_eq" ]]; then
+    out="$(python3 "$py_eq" --selftest 2>&1)"
+    rc=$?
+  else
+    continue
+  fi
   if [[ "$rc" -ne 0 ]]; then
     echo "  [FAIL] $name (exit $rc)"
     echo "$out" | sed 's/^/         /'
