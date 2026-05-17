@@ -20,10 +20,10 @@
 | 1 | NdFeB 재활용 | 습식제련 (hydromet) | 모빌리티 자석 수요 ≤40% offset (10년) | (공정 트랙 → RECYCLING.md, 시드 없음) |
 | 2 | 고밀도 페라이트 | SrFe₁₂O₁₉ Co/La 도핑 | (BH)max ~5-6 MGOe 상용, ~9 MGOe 이론 | `hxm-mag-ferrhd-001` |
 | 3 | Mn-Al-C τ-phase | L1₀ 메타스테이블 합성 | 12 MGOe lab thin-film, 6 MGOe 소결 | `hxm-mag-mnalc-001` |
-| 4a | Beeson C16 고엔트로피 보라이드 | 5-원소 3d TM + B | NdFeB 근접 (정성, 정확 조성 비공개) | `hxm-mag-boride-001` |
+| 4a | Beeson C16 고엔트로피 보라이드 | 5-원소 3d TM + B, Fe/Co easy-axis (thin-film) | NdFeB 근접, 보자력 2배+ vs 이/삼원 | `hxm-mag-boride-001` |
 | 4b | arxiv:2507.01849 binary intermetallics | DFT HT 스크리닝 | Mn₂Sb 예측 Tc=2270K, K=1.57 MJ/m³ (최강) | `hxm-mag-mn2sb-001` |
 | 5 | NdFeB Dy/Tb→Ce/La 치환 | Grain boundary 공학 | Dy/Tb ≥50% 감축 + 150°C 보자력 유지 | `hxm-mag-lowdy-001` |
-| 6 | AI/ML 자석 발굴 | NEMAD 67k DB + ML 분류 | 25 promising FM 후보 (Tc > 500K) | `hxm-mag-aifound-001` |
+| 6 | AI/ML 자석 발굴 | NEMAD 67k DB + ML 분류 | 62 FM 후보 Tc>500K; FeCo₂Ge 선정 | `hxm-mag-aifound-001` |
 
 ---
 
@@ -63,10 +63,13 @@
 두 출처를 명확히 구분 (오해 방지):
 
 **(a) Beeson C16 고엔트로피 보라이드** (`hxm-mag-boride-001`)
-- 5원소 quinary 3d transition-metal + B; C16 phase
-- **출처**: Beeson et al., *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed)
-- 일부 측정된 자기 이방성; 정확 조성은 press release 미공개 → 본문 추출 필요
-- **falsifier**: F-MAG-4: bulk K₁ < 1.0 MJ/m³ at 300 K OR Tc < 500 K (measured) → FAIL
+- 5원소 quinary 3d transition-metal + B; C16 uniaxial phase
+- **핵심 메커니즘**: transition-metal sublattice에서 **Fe/Co 혼합 비율**로 easy-plane → easy-axis 이방성 전환. 이원/삼원 TM 보라이드 대비 **보자력 2배+** 증가
+- **형태**: **thin-film** (combinatorial sputtering, 1회 ~50 샘플 동시 증착 — Liu's lab). bulk-scale 미실증
+- **출처**: Beeson et al., *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed; PubMed 41431427)
+- 정확한 quinary 조성은 press release 미공개 → 본문 추출 필요
+- **caveat**: thin-film K₁ ≠ bulk magnet (BH)max (`@F f1`)
+- **falsifier**: F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 → FAIL
 
 **(b) arxiv:2507.01849 binary intermetallics** (`hxm-mag-mn2sb-001`)
 - DFT HT 스크리닝 → 10 binary 후보 (FeSn, CrSb, **Mn₂Sb**, FeB, FeNi, Fe2P, Fe3Ga, FeGe, **ZnFe**, **Fe8N**)
@@ -86,15 +89,25 @@
 - **anchors**: PMC PMC11595260 (Securing REE PMs); arxiv:2312.02475 (ML 보자력 예측)
 - **falsifier**: F-MAG-7: 150°C에서 Hc 손실 > 15% vs 상용 NdFeB baseline → FAIL
 
-### 2.6 TRACK 6 — AI / ML 자석 발굴 (`hxm-mag-aifound-001`)
+### 2.6 TRACK 6 — AI / ML 자석 발굴 (`hxm-mag-aifound-001` = FeCo₂Ge)
 
 - **접근**: MAGNDATA · NEMAD · MP · GNoME에서 graph-NN + descriptor 스크리닝
-- **증거**: NEMAD (67,573 entries, 90% 분류 정확도); 25 FM 후보 (Tc > 500K) 발굴
+- **증거**: NEMAD (67,573 entries, 90% 분류 정확도); Table 4 스크린 → **62 FM 후보 Tc>500K**, 22%가 600K 초과
+- **NEMAD Table 4 상위 REE-free 후보** (3-모델 Ensemble-NN / XGBoost / RF 예측 Tc, K):
+
+  | 화합물 | Ensemble-NN | XGBoost | RF |
+  |---|---|---|---|
+  | Ga₃Fe₄Co₈Si | 1151 | 1157 | 1010 |
+  | FeCo₂Ge | 1051 | 1068 | 999 |
+  | GaFe₂Co₄Si | 1042 | 1013 | 1007 |
+  | Fe₃Co₃Si₂ | 1042 | 939 | 913 |
+  | MnCo₂Si | 823 | 991 | 662 |
+
+- **선정**: `hxm-mag-aifound-001` → **FeCo₂Ge** (Heusler-like). 단순 조성 + 3-모델 Tc 합의(999/1051/1068 K)가 quinary Ga-Fe-Co-Si보다 합성 타깃으로 명확
 - **상태**: 계산 후보만 — 실험 검증율 현재 ≤5%
-- **caveat**: AI 예측 ≠ 측정값 (`@F f2`)
-- **현 한계**: NEMAD 25 FM 후보의 abstract 미공개 → Nat. Commun. 16, 9415 (2025) 본문/SI 필요. 따라서 본 후보의 target field는 일반화 상태 유지
-- **anchors**: arxiv:2409.15675 (NEMAD), arxiv:2509.05909 (ML 자기 order 분류), arxiv:2507.01913 (구조 기반 ML)
-- **falsifier**: F-MAG-8: 실측 Tc < 400 K OR 단상 순도 > 90% 합성 불가 → FAIL
+- **caveat**: AI 예측 ≠ 측정값 (`@F f2`). NEMAD Tc는 ML 회귀(R²=0.87, MAE=56K)이지 측정 아님
+- **anchors**: arxiv:2409.15675 (NEMAD, Nat. Commun. 16 9415 (2025)), arxiv:2509.05909 (ML 자기 order 분류), arxiv:2507.01913 (구조 기반 ML)
+- **falsifier**: F-MAG-8: 실측 Tc < 600 K OR 단상 순도 > 90% 합성 불가 → FAIL
 
 ---
 
@@ -140,12 +153,12 @@ n=6 격자 적합으로 천장이 결정되는 것 아님 (`@D g2`).
 
 | ID | target | track | falsifier |
 |---|---|---|---|
-| `hxm-mag-boride-001` | Beeson C16 high-entropy boride | 4a | F-MAG-4: bulk K₁ < 1.0 MJ/m³ at 300 K OR Tc < 500 K (measured) |
+| `hxm-mag-boride-001` | Beeson C16 high-entropy boride (Fe/Co thin-film) | 4a | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
 | `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
 | `hxm-mag-mnalc-001` | Mn-Al-C τ-phase | 3 | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
 | `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
 | `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | F-MAG-7: 150°C에서 Hc 손실 > 15% |
-| `hxm-mag-aifound-001` | NEMAD-screened candidate | 6 | F-MAG-8: 실측 Tc < 400 K OR 단상 합성 불가 |
+| `hxm-mag-aifound-001` | FeCo₂Ge (Heusler-like, NEMAD Table 4) | 6 | F-MAG-8: 실측 Tc < 600 K OR 단상 합성 불가 |
 
 모두 DESIGN 상태. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET (C-MET-3 ~ C-MET-8)에 등재.
 

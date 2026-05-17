@@ -83,10 +83,11 @@
 
 @L t4_boride := "TRACK 4 — rare-earth-free borides + nitrides + Fe-based intermetallics" :: track [active d=2026-05-17]
   approach     = "two complementary literature waves: (a) Beeson 2025 Adv. Mater. C16-phase high-entropy borides (5-element quinary 3d transition-metals + B); (b) Lopez-Gomez 2025 arxiv DFT high-throughput screen → 10 binary candidates (FeSn, CrSb, Mn2Sb, FeB, FeNi, Fe2P, Fe3Ga, FeGe, ZnFe, Fe8N)"
-  performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 boride exact composition NOT public in press release (Adv. Mater. paper required)"
-  status       = "Beeson Adv. Mater. = published with measured magnetic anisotropy; arxiv:2507.01849 = DFT predicted only"
+  performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 = Fe/Co sublattice mixing flips easy-plane→easy-axis anisotropy, >2× coercivity vs binary/ternary TM borides"
+  status       = "Beeson Adv. Mater. = published, THIN-FILM (combinatorial sputter, ~50 samples/run); bulk-scale NOT demonstrated. arxiv:2507.01849 = DFT predicted only"
   novelty      = "5-element compositions sit naturally near n=6 lattice — high-entropy boride space largely unexplored"
-  hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — predicted/early-measured)"
+  caveat       = "Beeson result is thin-film — thin-film K₁ ≠ bulk magnet (BH)max (per @F f1). Exact quinary stoichiometry still requires Adv. Mater. paper-level extraction."
+  hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — thin-film measured, bulk unproven)"
   |> "[@x_arxiv_2507_01849]  DFT HT search for REE-free PMs (10 binary candidates)"
   |> "[@x_arxiv_2501_01607]  Unveiling potential REE-free candidates"
   |> "[@x_phys_org_2026_boride]  Georgetown announcement (popular press)"
@@ -104,11 +105,13 @@
 
 @L t6_ai := "TRACK 6 — AI / ML discovery from large magnetic-materials DBs" :: track [active d=2026-05-17]
   approach     = "graph-NN + descriptor-based screening over MAGNDATA · NEMAD · MP · GNoME for unexplored ferromagnets"
-  evidence     = "NEMAD (67,573 entries, 90% classifier accuracy); 25 promising high-Tc compounds surfaced"
+  evidence     = "NEMAD (67,573 entries, 90% classifier accuracy); Table 4 screen → 62 FM candidates Tc>500K, 22% above 600K"
+  top-candidates = "highest predicted Tc (3-model consensus, K): Ga₃Fe₄Co₈Si ~1106, FeCo₂Ge ~1039, GaFe₂Co₄Si ~1021, Fe₃Co₃Si₂ ~965 — all REE-free Fe-Co intermetallics"
+  selected     = "hxm-mag-aifound-001 → FeCo₂Ge (Heusler-like) chosen: simple composition + 3-model Tc consensus 999/1051/1068 K; easier synthesis target than the quinary Ga-Fe-Co-Si compounds"
   status       = "computational candidates only — experimental validation rate currently ≤5%"
-  caveat       = "AI predictions ≠ measurements (project governance @F f2)"
-  hxm          = "→ NOVEL.md §3.5 hxm-mag-aifound-001"
-  |> "[@x_arxiv_2409_15675]  NEMAD database (67k magnetic compounds)"
+  caveat       = "AI predictions ≠ measurements (project governance @F f2). NEMAD Tc is ML-regressed (R²=0.87, MAE=56K), not measured."
+  hxm          = "→ NOVEL.md §3.5 hxm-mag-aifound-001 (FeCo₂Ge)"
+  |> "[@x_arxiv_2409_15675]  NEMAD database (67k magnetic compounds) — Table 4 candidate list"
   |> "[@x_arxiv_2509_05909]  ML magnetic-order classification"
   |> "[@x_arxiv_2507_01913]  Structure-based ML for magnetic ordering"
 
@@ -154,9 +157,10 @@
   finding = "refined descriptor generalizes across 5741 stable binary + ternary Fe/Mn/Co compounds"
 
 @X x_arxiv_2409_15675 := "NEMAD — Northeast Materials Database (magnetic)" :: arxiv-paper [active d=2024-09]
-  url     = "https://arxiv.org/html/2409.15675v1"
-  finding = "67,573 experimentally-validated entries; 90% accuracy ferro/antiferro/non-mag classification"
-  role    = "primary anchor for TRACK 6 AI discovery"
+  url       = "https://arxiv.org/html/2409.15675v1"
+  published = "Nature Communications 16, 9415 (2025) — s41467-025-64458-z"
+  finding   = "67,573 LLM-extracted entries; 90% ferro/antiferro/non-mag classification accuracy; Table 4 → 62 FM candidates Tc>500K (Ensemble-NN + XGBoost + RF). Top REE-free: Ga₃Fe₄Co₈Si, FeCo₂Ge, GaFe₂Co₄Si, Fe₃Co₃Si₂, MnCo₂Si — all Fe-Co intermetallics"
+  role      = "primary anchor for TRACK 6 AI discovery; FeCo₂Ge selected for hxm-mag-aifound-001"
 
 @X x_arxiv_2312_02475 := "ML predictions of coercivity in high-performance PMs" :: arxiv-paper [active d=2023-12]
   url     = "https://arxiv.org/abs/2312.02475"

@@ -175,12 +175,12 @@ LK-99 PV variants and HARD_WALL claims preserved
 | `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
 | `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
 | `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
-| `hxm-mag-boride-001`  | mag   | Beeson C16 high-entropy boride | 5-element 3d-TM boride, C16 phase (Beeson et al., Adv. Mater. 2025, DOI 10.1002/adma.202516135); exact composition not in press release | DESIGN | F-MAG-4: bulk K₁ < 1.0 MJ/m³ at 300 K OR Tc < 500 K (measured) → FAIL |
+| `hxm-mag-boride-001`  | mag   | Beeson C16 high-entropy boride | quinary 3d-TM boride, C16 phase; Fe/Co sublattice mixing flips easy-plane→easy-axis, >2× coercivity vs binary/ternary; **thin-film** (combinatorial sputter) — Beeson et al., Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
 | `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 candidate; predicted Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K — needs bulk synthesis + measurement | DESIGN | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
 | `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free | DESIGN | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
 | `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
 | `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) content ≤50% of baseline, GB-engineered | DESIGN | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
-| `hxm-mag-aifound-001` | mag   | NEMAD-screened candidate | high-Tc ferromagnet from arxiv:2409.15675 / 2509.05909 pipeline | DESIGN | F-MAG-8: experimentally-measured Tc < 400 K OR not synthesizable at single-phase purity > 90% → FAIL |
+| `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM candidate; predicted Tc ≈ 1000-1070 K (3-model consensus), simple composition; arxiv:2409.15675 / Nat. Commun. 16 9415 (2025) | DESIGN | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
 
 All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
 Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
