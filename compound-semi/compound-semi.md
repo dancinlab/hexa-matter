@@ -260,3 +260,11 @@ happens after — wafer in, die out — is `hexa-chip`'s domain.
 `compound-semi` verb (19 of 29). Real-limits-first per
 LATTICE_POLICY.md §1.2; no lattice fit on bandgap / mobility / k_th
 or vendor capacity. Device + fab process out of scope — `hexa-chip`.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-weyl-tas-001` — see [NOVEL.md §4.C.4](../NOVEL.md): TaAs-family Weyl semimetal.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

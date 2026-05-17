@@ -50,7 +50,15 @@ RARE-EARTH.tape (17원소 가족 레퍼런스)
 - `hxm-mag-*` roster: 11 후보 — **7 SIM-DFT** (MP cross-ref) + 4 DESIGN
 - **EXTERNAL-VERIFIED: 0** — SIM-DFT 는 MP 의 DFT 구조 cross-ref (E_hull ≤ 0.01) 일 뿐, Tc·(BH)max·Hc 는 전부 UNVERIFIED
 - 6-트랙 중 재활용(TRACK 1)만 상용 근접, 나머지(ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found)는 실험실/예측 단계
-- 다음: bulk 합성 + 자기측정 (C-MET-3~8, out-of-repo) — 또는 boride ordered-approximant 직접 DFT
+
+**후보 심화 과정 — Category (a) in-repo closure 달성 (2026-05-18)**:
+
+- 11 후보 전부 MP `--formula` cross-ref 완료 → in-repo 로 갈 수 있는 최대 등급 도달 (E_hull ≤ 0.01 → SIM-DFT 7개; 초과 → DESIGN 4개)
+- 11 후보 전부 정량 falsifier (F-MAG-1~11) + verb-spec backlink (`magnetic-materials.md`, novel_verb_xref Tier-2) + wet-lab handoff (`CLOSURE_RESIDUAL_BACKLOG.md` §C-MET C-MET-3~13) 등재
+- `selftest/run_all.sh` **38/38 PASS** — 후보 심화 관련 게이트 전부 통과
+- in-repo 로 더 닫을 것 없음. **Category (a) 100%.** 남은 거리는 전부 Category (c) out-of-repo
+
+- 다음 (out-of-repo, Category c): bulk 합성 + 자기측정 (§C-MET C-MET-3~13) — 또는 boride ordered-approximant 직접 DFT (pool GPU 자원 대기)
 
 > 이 GOAL 은 north-star — "희토류 문제 해결" 주장 아님, 측정된 거리 명시.
 > mechanism (후보 ledger · falsifier · cross-ref discipline) 은 정합,

@@ -259,3 +259,23 @@ Amorphous (Metglas):
 `magnetic-materials` verb (23 of 29). Real-limits-first per
 LATTICE_POLICY.md §1.2; no lattice fit on (BH)_max / Curie T /
 core loss or USGS rare-earth tonnage.*
+
+---
+
+## Related NOVEL candidates
+
+REE-free permanent-magnet candidates — see [NOVEL.md §3.5](../NOVEL.md). Status as of 2026-05-18:
+
+- `hxm-mag-refree-001` — Fe₁₆N₂ thin-film (SIM-DFT, MP mp-555)
+- `hxm-mag-mnbi-001` — MnBi LTP (DESIGN)
+- `hxm-mag-tetra-001` — tetrataenite L1₀ FeNi (SIM-DFT, MP mp-2213)
+- `hxm-mag-boride-001` — (FeCoNiMnCr)₂B C16 boride (DESIGN)
+- `hxm-mag-mn2sb-001` — Mn₂Sb tetragonal (SIM-DFT, MP mp-20664)
+- `hxm-mag-mnalc-001` — MnAl τ-phase (SIM-DFT, MP mp-771)
+- `hxm-mag-ferrhd-001` — SrFe₁₂O₁₉ Co/La-doped (DESIGN)
+- `hxm-mag-lowdy-001` — (Nd,Ce,La)₂Fe₁₄B low-Dy/Tb (SIM-DFT, MP mp-5182)
+- `hxm-mag-aifound-001` — FeCo₂Ge Heusler (SIM-DFT, MP mp-22300)
+- `hxm-mag-gfcs-001` — Ga₃Fe₄Co₈Si (SIM-DFT, MP mp-1225352)
+- `hxm-mag-znfe-001` — ZnFe tetragonal (DESIGN)
+
+> SIM-DFT = MP DFT structural cross-reference (E_hull ≤ 0.01) — NOT a measurement. Tc / (BH)max / Hc remain UNVERIFIED: per Coey 2010 (*Magnetism and Magnetic Materials*, Cambridge) the magnetic-physics ceilings are anchored, but these candidates' values are unmeasured. `EXTERNAL-VERIFIED` requires attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5). Bulk-synthesis handoff: `CLOSURE_RESIDUAL_BACKLOG.md` §C-MET (C-MET-3 ~ C-MET-13).

@@ -470,4 +470,12 @@ Pass = numeric threshold met at cited ASTM/ACI method, ambient
 Fail = below threshold at same condition → caveat the spec and re-baseline
 the CER-concrete-technology mix-design atlas entry.
 
+---
+
+## Related NOVEL candidate
+
+- `hxm-cement-mgo-co2neg-001` — see [NOVEL.md §4.D.6](../NOVEL.md): MgO-based carbon-negative cement.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).
+
 

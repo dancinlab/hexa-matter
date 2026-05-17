@@ -307,3 +307,11 @@ Cellulose acetate (Eastman):
 `biodegradable-plastics` verb (27 of 29). Marine-biodegradable claim
 UNVERIFIED preserved. No lattice fit on T_g / T_m / cost or vendor
 capacity. Fermentation pipeline + marine policy out of scope.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-algae-plastic-001` — see [NOVEL.md §4.F.13](../NOVEL.md): algae-feedstock biodegradable plastic.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

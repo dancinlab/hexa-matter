@@ -165,6 +165,8 @@ LK-99 PV variants and HARD_WALL claims preserved
 
 ### 3.5 Magnetic materials (rare-earth-free)
 
+**Verb spec link**: see [`magnetic-materials/magnetic-materials.md`](magnetic-materials/magnetic-materials.md) — material-layer authority for all `hxm-mag-*` candidates in this section (REE-free permanent-magnet chemistry).
+
 | ID                    | class | target              | brief                          | status        | falsifier                             |
 |-----------------------|-------|---------------------|--------------------------------|---------------|---------------------------------------|
 | `hxm-mag-refree-001`  | mag   | Fe₁₆N₂ thin-film    | (BH)max > 35 MGOe              | DESIGN        | F-MAG-1: (BH)max < 25 MGOe → FAIL     |
@@ -176,6 +178,8 @@ LK-99 PV variants and HARD_WALL claims preserved
 | `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
 | `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) content ≤50% of baseline, GB-engineered | DESIGN | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
 | `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM (pred Tc ≈ 1000-1070 K, 3-model); **MP mp-22300 confirms Fm-3m full Heusler, FM ordering, E_hull=0 (stable), M=6.0 μB** | SIM-DFT | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
+| `hxm-mag-gfcs-001`    | mag   | Ga₃Fe₄Co₈Si         | NEMAD Table 4 **highest-Tc** REE-free FM (pred Tc ≈ 1010-1150 K, 3-model); **MP mp-1225352 confirms R-3m, FM ordering, E_hull=0 (stable)** | SIM-DFT | F-MAG-10: experimentally-measured Tc < 700 K OR not single-phase synthesizable → FAIL |
+| `hxm-mag-znfe-001`    | mag   | ZnFe tetragonal     | arxiv:2507.01849 top-10 (pred Ms=1.15 T, κ=0.85); MP mp-1215473 (P4/mmm, FM, E_hull=0.023 — DFT-metastable) | DESIGN | F-MAG-11: measured κ < 0.5 OR not single-phase synthesizable → FAIL |
 
 All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
 Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
@@ -1129,6 +1133,8 @@ spec).
 | ID                       | class | target              | brief                          | status   | falsifier                             |
 |--------------------------|-------|---------------------|--------------------------------|----------|---------------------------------------|
 | `hxm-te-half-zrnisn-001` | thermo | ZrNiSn half-Heusler | Zr/Hf mass-fluctuation + Sb dop; mid-T waste-heat | SIM-NNP-PROXY | F-TE-HALF-ZRNISN-1: ZT @ 800 K < 1.5 OR 1000 K stability < 100 h → FAIL |
+
+**Verb spec link**: see [`metallurgy/swordsmithing.md`](metallurgy/swordsmithing.md) — material-layer authority for this candidate's half-Heusler intermetallic metallurgy.
 
 **Risk-flags**: Sn-vacancy concentration drift at high-T HARD_WALL
 (volatilization above 1000 K → composition shift → ZT drop per Berry

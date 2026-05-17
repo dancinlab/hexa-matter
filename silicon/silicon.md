@@ -294,3 +294,12 @@ are **real engineering / physical limits**, not n=6 lattice fits.
 17th verb. Real-limits-first per LATTICE_POLICY.md §1.2; no lattice fit
 on Si purity / dimension / vendor tonnage. Semiconductor device + fab
 process out of scope — see `hexa-chip` (sibling CLI).*
+
+---
+
+## Related NOVEL candidates
+
+- `hxm-pv-tandem-002` — see [NOVEL.md §4.A.11](../NOVEL.md): perovskite/Si 4-terminal tandem (Si bottom-cell substrate, 1.12 eV E_g).
+- `hxm-quantum-si-donor-001` — see [NOVEL.md §4.C.1](../NOVEL.md): Si donor-spin quantum-defect host.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

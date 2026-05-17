@@ -277,3 +277,11 @@ Cellulose acetate:
 `wood-cellulose` verb (28 of 29). USDA Wood Handbook anchored.
 No lattice fit on wood properties / CNC properties / vendor capacity.
 Forestry agronomy + building code out of scope.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-mycel-composite-001` — see [NOVEL.md §4.F.13](../NOVEL.md): mycelium-bound biocomposite.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

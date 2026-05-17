@@ -349,6 +349,11 @@ proxy prediction (if SIM-NNP-PROXY) is NOT measurement and does NOT promote to
 EXTERNAL-VERIFIED. This verb is the material-layer authority for all three
 chemistries; cell engineering boundary → `hexa-energy` per CROSS_LINK §3.3.
 
+**Related NOVEL candidate** (Tier-2): `hxm-bat-cath-naion-001` — see
+[NOVEL.md §4.A.3](../NOVEL.md) (vacancy-controlled Na-PBA Prussian-blue
+cathode). SIM / proxy status is NOT a measurement and does NOT promote to
+`EXTERNAL-VERIFIED` without attributed external-lab evidence.
+
 
 ---
 

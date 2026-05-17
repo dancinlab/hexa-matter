@@ -264,3 +264,11 @@ treatment / TBC**. Engine integration is `hexa-energy` / `hexa-mobility`.
 `superalloy` verb (26 of 29). Depth content cross-links
 METALLURGY-DEEP.md §1-§3. Engine architecture out of scope —
 `hexa-energy` / `hexa-mobility`. No lattice fit.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-ni-4gen-re-free-001` — see [NOVEL.md §4.D.2](../NOVEL.md): Re-free 4th-generation Ni-base single-crystal superalloy.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

@@ -261,3 +261,12 @@ COF (Covalent-Organic Framework) parallel branch:
 *Authored 2026-05-13 by 박민우. Material-layer spec for Phase D
 `mof` verb (24 of 29). Magic-MOF-DAC-economics UNPROVEN preserved.
 No lattice fit on BET / pore size / capacity / vendor scale.*
+
+---
+
+## Related NOVEL candidates
+
+- `hxm-co2-cap-mof-mfm-002` — see [NOVEL.md §4.F.1](../NOVEL.md): MOF direct-air-capture sorbent.
+- `hxm-mof-h2o-stable-uio66-001` — see [NOVEL.md §4.D.13](../NOVEL.md): water-stable UiO-66 MOF.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

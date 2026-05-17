@@ -72,11 +72,12 @@ def extract_readme_count() -> int | None:
     path = os.path.join(REPO_ROOT, "README.md")
     with open(path, "r", encoding="utf-8") as fh:
         text = fh.read()
-    # Badge: ![Verbs: 29 spec](...) or "29-verb"
-    m = re.search(r"verbs-([0-9]+)_spec", text)
+    # Badge: shields.io `badge/verbs-NN-<color>` (e.g. verbs-36-informational)
+    # or legacy `verbs-NN_spec`; or prose "NN-verb" (optionally bold-wrapped).
+    m = re.search(r"verbs-([0-9]+)[-_]", text)
     if m:
         return int(m.group(1))
-    m = re.search(r"\*\*([0-9]+)-verb", text)
+    m = re.search(r"\*{0,2}([0-9]+)-verb", text)
     if m:
         return int(m.group(1))
     return None

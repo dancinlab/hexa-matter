@@ -257,3 +257,12 @@ heterostructures with atomically clean interfaces.
 `2d-materials` verb (21 of 29). Non-carbon 2D crystals; carbon-side
 in `carbon/`. Lab-record vs production scale honestly distinguished.
 No lattice fit.*
+
+---
+
+## Related NOVEL candidates
+
+- `hxm-quantum-hbn-vb-001` — see [NOVEL.md §4.C.1](../NOVEL.md): hBN boron-vacancy (V_B) quantum-defect host.
+- `hxm-flatband-tbg-001` — see [NOVEL.md §4.C.4](../NOVEL.md): twisted-bilayer-graphene flat-band system.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

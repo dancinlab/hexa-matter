@@ -470,3 +470,11 @@ Pass = numeric threshold met at cited ASTM method, 25 °C ± 2 °C ambient, n �
 threshold at same condition → caveat the spec and re-baseline the metallurgy
 heat-treat schedule.
 
+---
+
+## Related NOVEL candidate
+
+- `hxm-te-half-zrnisn-001` — see [NOVEL.md §4.B.2](../NOVEL.md): ZrNiSn half-Heusler thermoelectric (metallurgy material-layer authority).
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).
+

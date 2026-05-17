@@ -252,3 +252,11 @@ Antiperovskite branch:
 *Authored 2026-05-13 by 박민우. Material-layer spec for Phase D
 `perovskite` verb (20 of 29). LK-99 HARD_WALL UNPROVEN preserved.
 No lattice fit on bandgap / efficiency / T_curie / vendor capacity.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-pv-tandem-002` — see [NOVEL.md §4.A.11](../NOVEL.md): perovskite/Si 4-terminal tandem absorber (top-cell perovskite material layer).
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

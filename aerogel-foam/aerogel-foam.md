@@ -352,3 +352,11 @@ foam); transparent monolith $500+/kg research grade. Graphene
 aerogel 0.16 kg/m³ density record (Sun 2013) UNVERIFIED at production
 scale. Building-envelope + EV-battery + spacecraft thermal-system
 design out of scope.*
+
+---
+
+## Related NOVEL candidate
+
+- `hxm-aero-polyimide-001` — see [NOVEL.md §4.D.12](../NOVEL.md): polyimide aerogel.
+
+> SIM / proxy status is NOT a measurement and does NOT promote to `EXTERNAL-VERIFIED` without attributed external-lab evidence (NOVEL.md §7 · @F f2 / f5).

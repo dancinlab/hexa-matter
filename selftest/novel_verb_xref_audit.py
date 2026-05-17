@@ -51,8 +51,9 @@ TIER1: dict[str, tuple[str, ...]] = {
     "hxm-h2-elec-iro2-doped-001": ("electrode-material/electrode-material.md",),
 }
 
-# 10 Tier-2 candidates with their primary verb-spec home(s). Soft-floor group:
+# Tier-2 candidates with their primary verb-spec home(s). Soft-floor group:
 # K ≤ 2 broken links tolerated for transitional state.
+# 2026-05-18: +11 hxm-mag-* (RARE-EARTH+ALTERNATIVE.tape roster, NOVEL §3.5).
 TIER2: dict[str, tuple[str, ...]] = {
     "hxm-quantum-si-donor-001": ("silicon/silicon.md",),
     "hxm-quantum-hbn-vb-001": ("2d-materials/2d-materials.md",),
@@ -64,6 +65,17 @@ TIER2: dict[str, tuple[str, ...]] = {
     "hxm-aero-polyimide-001": ("aerogel-foam/aerogel-foam.md",),
     "hxm-mof-h2o-stable-uio66-001": ("mof/mof.md",),
     "hxm-bat-cath-naion-001": ("electrode-material/electrode-material.md",),
+    "hxm-mag-refree-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-mnbi-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-tetra-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-boride-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-mn2sb-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-mnalc-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-ferrhd-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-lowdy-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-aifound-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-gfcs-001": ("magnetic-materials/magnetic-materials.md",),
+    "hxm-mag-znfe-001": ("magnetic-materials/magnetic-materials.md",),
 }
 
 TIER2_SOFT_FLOOR_K = 2
