@@ -1,0 +1,176 @@
+# RARE-EARTH+ALTERNATIVE — 희토류 대체 6트랙 로드맵 (메타도메인)
+
+> **구조 사이블링**: [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape)
+>
+> **메타도메인** (governance #4): "희토류" ∩ "대체" — 두 조건이 동시 성립할 때만 본 파일에 진입
+>
+> **상위/측위 도메인**:
+> - 원소 가족 → [`RARE-EARTH.md`](RARE-EARTH.md)
+> - 자석 verb → [`MAGNETIC-MATERIALS.md`](MAGNETIC-MATERIALS.md)
+> - 재활용 → [`RECYCLING.md`](RECYCLING.md) / [`HEXA-RECYCLE.md`](HEXA-RECYCLE.md)
+> - 광물 우산 → [`CRITICAL-MINERAL.md`](CRITICAL-MINERAL.md)
+> - 후보 시드 → [`NOVEL.md`](NOVEL.md) §3.5 `hxm-mag-*`
+
+---
+
+## 1. 6트랙 요약
+
+| # | 트랙 | 접근 | 성능 천장 | hxm-mag-* 시드 |
+|---|---|---|---|---|
+| 1 | NdFeB 재활용 | 습식제련 (hydromet) | 모빌리티 자석 수요 ≤40% offset (10년) | (공정 트랙 → RECYCLING.md, 시드 없음) |
+| 2 | 고밀도 페라이트 | SrFe₁₂O₁₉ Co/La 도핑 | (BH)max ~5-6 MGOe 상용, ~9 MGOe 이론 | `hxm-mag-ferrhd-001` |
+| 3 | Mn-Al-C τ-phase | L1₀ 메타스테이블 합성 | 12 MGOe lab thin-film, 6 MGOe 소결 | `hxm-mag-mnalc-001` |
+| 4a | Beeson C16 고엔트로피 보라이드 | 5-원소 3d TM + B | NdFeB 근접 (정성, 정확 조성 비공개) | `hxm-mag-boride-001` |
+| 4b | arxiv:2507.01849 binary intermetallics | DFT HT 스크리닝 | Mn₂Sb 예측 Tc=2270K, K=1.57 MJ/m³ (최강) | `hxm-mag-mn2sb-001` |
+| 5 | NdFeB Dy/Tb→Ce/La 치환 | Grain boundary 공학 | Dy/Tb ≥50% 감축 + 150°C 보자력 유지 | `hxm-mag-lowdy-001` |
+| 6 | AI/ML 자석 발굴 | NEMAD 67k DB + ML 분류 | 25 promising FM 후보 (Tc > 500K) | `hxm-mag-aifound-001` |
+
+---
+
+## 2. 트랙별 상세
+
+### 2.1 TRACK 1 — NdFeB 재활용 (process)
+
+- **접근**: EoL NdFeB(HDD / EV 모터 / 풍력 nacelle) 습식제련 leach + 선택적 침전
+- **천장**: 향후 10년 모빌리티 자석 수요 ~40% offset ceiling (Climate Change News 2026-05)
+- **블로커**: 상용 규모 경제성 미확정; ROW 수거 logistics 분산
+- **EoL 피드스톡 타이밍**:
+  - 글로벌 HDD ~75 kt/yr (현재 — SSD 대체로 축소 중)
+  - EV 모터 wave 시작 ~2030+ (차량 15년 수명)
+  - 풍력 nacelle wave ~2035+ (자산 20년 수명)
+- **anchors**: arxiv:2506.22569 (Toward Sustainable REE Production), arxiv:2504.10495 (phosphogypsum 회수)
+- **본 NOVEL 비편입 사유**: 공정 트랙 (de-novo material 아님) → NOVEL.md §0 scope boundary
+
+### 2.2 TRACK 2 — 고밀도 페라이트 (`hxm-mag-ferrhd-001`)
+
+- **접근**: SrFe₁₂O₁₉ / BaFe₁₂O₁₉ M-type hexaferrite, Co/La/Mn 공도핑
+- **원가**: 산화철 + Sr/Ba 탄산염 — **REE-FREE**, 원료가 ~10× 저렴 vs NdFeB
+- **성능**: (BH)max ~5 MGOe 상용 Sr-페라이트 vs NdFeB ~50 MGOe → 동일 자속 위해 10× 부피/질량
+- **적합 envelope**: 저원가 EV (200kW 이하), 산업 모터, 마이크로 자석, 자기 분리
+- **anchor**: ACS Sust. Chem. Eng. (2024) — LCA of REE-free magnets
+- **falsifier**: F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C → FAIL
+
+### 2.3 TRACK 3 — Mn-Al-C τ-phase (`hxm-mag-mnalc-001`)
+
+- **접근**: Mn₅₅Al₄₄C₁ 정렬 L1₀ τ-phase (REE-free, Co-free)
+- **성능**: (BH)max ~7-12 MGOe lab-scale, Hc ~0.3 T, Tc ~340°C
+- **상태**: 1960년대 Koch 발견; 2020+ 기계화학(mechanochem) 합성으로 부흥
+- **블로커**: τ-phase 메타스테이빌리티 — 생성 윈도우 좁음, 열사이클링에 demixing
+- **falsifier**: F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 thermal cycles → FAIL
+
+### 2.4 TRACK 4 — REE-free 보라이드 + binary intermetallics
+
+두 출처를 명확히 구분 (오해 방지):
+
+**(a) Beeson C16 고엔트로피 보라이드** (`hxm-mag-boride-001`)
+- 5원소 quinary 3d transition-metal + B; C16 phase
+- **출처**: Beeson et al., *Advanced Materials* (2025), DOI 10.1002/adma.202516135 (peer-reviewed)
+- 일부 측정된 자기 이방성; 정확 조성은 press release 미공개 → 본문 추출 필요
+- **falsifier**: F-MAG-4: bulk K₁ < 1.0 MJ/m³ at 300 K OR Tc < 500 K (measured) → FAIL
+
+**(b) arxiv:2507.01849 binary intermetallics** (`hxm-mag-mn2sb-001`)
+- DFT HT 스크리닝 → 10 binary 후보 (FeSn, CrSb, **Mn₂Sb**, FeB, FeNi, Fe2P, Fe3Ga, FeGe, **ZnFe**, **Fe8N**)
+- **Mn₂Sb**: 예측 Ms=1.76 T, K=1.57 MJ/m³, Tc=**2270 K** (10중 최강)
+- ZnFe + Fe8N은 노블 후보로 highlight
+- 모두 DFT 예측만, 실험 측정 없음
+- **falsifier**: F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K → FAIL
+
+**중요 정정 (2026-05-17)**: 초기 web search summary가 Mn₂MoB₄ / Mn₂WB₄를 arxiv:2507.01849 boride 후보로 추정했으나, arxiv 원문 직접 fetch 결과 해당 화합물은 최종 10 후보 어디에도 없음. 잘못된 출처 결합이 [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) 첫 draft에 들어갔다가 2026-05-17 수정됨.
+
+### 2.5 TRACK 5 — NdFeB 저-Dy/Tb (`hxm-mag-lowdy-001`)
+
+- **접근**: 고가 HREE (Dy, Tb)를 저렴/풍부 LREE (Ce, La)로 grain boundary에서 치환
+- **목표**: 150°C 이상 열보자력 유지하면서 HREE 함량 ≥50% 감축
+- **트레이드오프**: Ce/La 첨가는 포화자화 감소 → grain refinement + GB diffusion으로 보상
+- **상태**: Toyota / Daido + Hitachi Metals가 50-80% Dy 감축 프로토타입 모터 자석 발표
+- **anchors**: PMC PMC11595260 (Securing REE PMs); arxiv:2312.02475 (ML 보자력 예측)
+- **falsifier**: F-MAG-7: 150°C에서 Hc 손실 > 15% vs 상용 NdFeB baseline → FAIL
+
+### 2.6 TRACK 6 — AI / ML 자석 발굴 (`hxm-mag-aifound-001`)
+
+- **접근**: MAGNDATA · NEMAD · MP · GNoME에서 graph-NN + descriptor 스크리닝
+- **증거**: NEMAD (67,573 entries, 90% 분류 정확도); 25 FM 후보 (Tc > 500K) 발굴
+- **상태**: 계산 후보만 — 실험 검증율 현재 ≤5%
+- **caveat**: AI 예측 ≠ 측정값 (`@F f2`)
+- **현 한계**: NEMAD 25 FM 후보의 abstract 미공개 → Nat. Commun. 16, 9415 (2025) 본문/SI 필요. 따라서 본 후보의 target field는 일반화 상태 유지
+- **anchors**: arxiv:2409.15675 (NEMAD), arxiv:2509.05909 (ML 자기 order 분류), arxiv:2507.01913 (구조 기반 ML)
+- **falsifier**: F-MAG-8: 실측 Tc < 400 K OR 단상 순도 > 90% 합성 불가 → FAIL
+
+---
+
+## 3. 거버넌스
+
+### 3.1 무엇이 대체로 인정되나 (`@D g1_substitution_defined`)
+
+다음 중 ≥1 성립 시에만 본 파일에 등재:
+- (a) 자성상에서 ≥1 REE 원소 제거 (TRACK 2/3/4)
+- (b) 동일 envelope에서 Dy/Tb ≥50% 감축 (TRACK 5)
+- (c) virgin REE를 secondary feedstock으로 >25% 대체 (TRACK 1)
+- (d) MP / GNoME / OMat24 등 기존 DB에 미수록 후보 발굴 (TRACK 6, 단 신규성 성립 시)
+
+마케팅성 substitution(예: AlNiCo for niche industrial)은 정량 envelope-match 없이는 비편입.
+
+### 3.2 실물리 ceiling (`@D g2_real_limits_first`)
+
+성능 천장은 실제 자기물리에 의해 bound:
+- **NdFeB (BH)max 이론 최대**: ~64 MGOe (Stoner-Wohlfarth single-domain, 100% 이론 밀도 + 완벽 정렬)
+- **Brown's coercivity inequality**: Hc/Hk 관계
+- **anisotropy field**: H_K = 2K₁/μ₀M_s
+
+n=6 격자 적합으로 천장이 결정되는 것 아님 (`@D g2`).
+
+### 3.3 arxiv 증거 freeze (`@D g3_arxiv_freeze`)
+
+본 파일의 arxiv 인용은 2025-04 → 2026-05 문헌 wave에 고정. 신규 문헌은 새 `@X` entry로 추가(기존 entry silent 재작성 금지).
+
+---
+
+## 4. 금지 패턴
+
+| ID | 패턴 | 룰 |
+|---|---|---|
+| `@F f1_lab_mm_strength_claim` | lab-mm 성능 ≠ 생산 grade | 매 성능 클레임에 (lab-mm \| pilot \| production) 태그 필수 |
+| `@F f2_ai_prediction_as_measurement` | DFT / ML 예측 ≠ 측정 | `SIM-DFT` / `SIM-NNP` / `SIM-PROXY` 태그 후 promotion |
+| `@F f3_recycling_silver_bullet` | 재활용이 신규 채굴을 0화하지 못함 | 향후 10년 ≤40% ceiling (EoL wave 타이밍) |
+| `@F f4_quinary_boride_overclaim` | 보라이드 출처 구별 필수 | Beeson Adv. Mater. (peer-reviewed) ≠ arxiv (DFT-only); Mn₂MoB₄ 인용 시 paper-level reference 필요 |
+
+---
+
+## 5. 신소재 후보 시드 (NOVEL.md §3.5)
+
+| ID | target | track | falsifier |
+|---|---|---|---|
+| `hxm-mag-boride-001` | Beeson C16 high-entropy boride | 4a | F-MAG-4: bulk K₁ < 1.0 MJ/m³ at 300 K OR Tc < 500 K (measured) |
+| `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
+| `hxm-mag-mnalc-001` | Mn-Al-C τ-phase | 3 | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
+| `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
+| `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | F-MAG-7: 150°C에서 Hc 손실 > 15% |
+| `hxm-mag-aifound-001` | NEMAD-screened candidate | 6 | F-MAG-8: 실측 Tc < 400 K OR 단상 합성 불가 |
+
+모두 DESIGN 상태. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET (C-MET-3 ~ C-MET-8)에 등재.
+
+---
+
+## 6. 참고 문헌 (요약)
+
+| ref | 역할 |
+|---|---|
+| [arxiv:2507.01849](https://arxiv.org/abs/2507.01849) | DFT HT REE-free PM — Mn₂Sb / ZnFe / Fe8N + 7개 binary |
+| [arxiv:2506.22569](https://arxiv.org/abs/2506.22569) | NdFeB 재활용 TEA + LCA + 사회영향 |
+| [arxiv:2504.10495](https://arxiv.org/abs/2504.10495) | Phosphogypsum REE 회수 |
+| [arxiv:2504.07007](https://arxiv.org/abs/2504.07007) | ML 광물화 인사이트 |
+| [arxiv:2509.05909](https://arxiv.org/abs/2509.05909) | ML 자기 order 분류 |
+| [arxiv:2507.01913](https://arxiv.org/abs/2507.01913) | 구조 기반 ML 자기 ordering |
+| [arxiv:2409.15675](https://arxiv.org/abs/2409.15675) | NEMAD 67k 자성 화합물 DB |
+| [arxiv:2312.02475](https://arxiv.org/abs/2312.02475) | ML 보자력 예측 |
+| [arxiv:2605.02926](https://arxiv.org/abs/2605.02926) | 지정학 critical mineral resilience (QCCM) |
+| [arxiv:2508.00556](https://arxiv.org/abs/2508.00556) | REE 산업 시스템 무역 리스크 |
+| [arxiv:2506.11645](https://arxiv.org/abs/2506.11645) | REE 공급 분단 비운동 억제 |
+| [arxiv:2512.20317](https://arxiv.org/abs/2512.20317) | 인도 critical minerals 맥락 |
+| [arxiv:2405.01128](https://arxiv.org/abs/2405.01128) | REE-기반 magnetocaloric H₂ 액화 |
+| [PMC11595260](https://pmc.ncbi.nlm.nih.gov/articles/PMC11595260/) | Securing REE PM (Dy/Tb 최소화) |
+| ACS Sust. Chem. Eng. (2024) | LCA — ferrite + Mn-Al-C |
+| Beeson, *Adv. Mater.* (2025), DOI 10.1002/adma.202516135 | C16 high-entropy boride (peer-reviewed) |
+| [Climate Change News 2026-05-05](https://www.climatechangenews.com/2026/05/05/the-energy-transition-has-a-rare-earth-problem-these-startups-are-solving-it/) | 재활용 40% ceiling + 스타트업 풍경 |
+| [phys.org 2026-01](https://phys.org/news/2026-01-class-strong-magnets-earth-abundant.html) | Georgetown 보라이드 발표 (press) |
+| [ScienceDaily 2026-02](https://www.sciencedaily.com/releases/2026/02/260218031611.htm) | AI 자석 발표 (press, NEMAD 매칭) |

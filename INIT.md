@@ -107,7 +107,7 @@ Honest UNPROVEN/UNVERIFIED markers preserved per verb (one-liner each):
 - **perovskite** — LK-99 NOT REPRODUCED (HARD_WALL); large-area + 25-yr-lifetime UNVERIFIED
 - **2d-materials** — wafer-scale 2D mobility 10–100× loss vs lab; phosphorene ambient + 2D-magnet T_c > 300 K UNVERIFIED
 - **adhesive** — bio-based + self-healing + gecko-inspired aerospace UNVERIFIED
-- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only
+- **magnetic-materials** — rare-earth-free > 35 MGOe UNVERIFIED; tetrataenite/MnBi/Fe₁₆N₂ R&D only. **Supply-chain trio added 2026-05-17**: `RARE-EARTH.tape` + `RARE-EARTH+ALTERNATIVE.tape` (6-track substitution roadmap, 14+ arxiv) + `CRITICAL-MINERAL.tape` (umbrella, 12 commodities, PRC export-control timeline). NOVEL §3.5: +6 `hxm-mag-*` seeds DESIGN (boride / mn2sb / mnalc / ferrhd / lowdy / aifound)
 - **mof** — magic-MOF-DAC $100/t CO₂ UNPROVEN (Climeworks amine $600–1000/t)
 - **liquid-crystal** — polymer-stabilized blue-phase commercial display UNVERIFIED
 - **superalloy** — Re-free 4th-gen SX at parity UNVERIFIED; Co-base SX commercial UNVERIFIED

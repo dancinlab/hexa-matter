@@ -47,6 +47,14 @@
   parent = "dancinlab/hexa-matter"
   sibling-md = "RECYCLING.md"
 
+@H h_xlink_rare_earth_alternative := "NdFeB hydromet recycling = TRACK 1 of REE alternatives" :: cross-link [active d=2026-05-17]
+  ?> "[[RARE-EARTH+ALTERNATIVE]]"
+  why = "RARE-EARTH+ALTERNATIVE.tape @L t1_recycling owns the REE-specific NdFeB hydromet narrative + arxiv anchors; this file owns the broader recycling verb"
+
+@H h_xlink_critical_mineral := "secondary feedstock for critical minerals" :: cross-link [active d=2026-05-17]
+  ?> "[[CRITICAL-MINERAL]]"
+  why = "CRITICAL-MINERAL.tape lists per-commodity recycling status (Co/Li/graphite EoL waves); this file owns the verb"
+
 # ─── §Log (append @A / @D events here, chronological) ────────────────
 # 
 # Pre-existing log entries live in RECYCLING.md.

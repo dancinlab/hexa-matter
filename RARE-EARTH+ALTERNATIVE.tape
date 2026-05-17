@@ -81,15 +81,17 @@
   |> "[@x_acs_lca_2024]"
   |> "[@x_arxiv_2507_01849]  DFT high-throughput screen"
 
-@L t4_boride := "TRACK 4 — rare-earth-free borides + nitrides" :: track [active d=2026-05-17]
-  approach     = "DFT high-throughput discovery of Mn₂MoB₄ / Mn₂WB₄ / 5-element quinary borides (Georgetown 2026)"
-  performance  = "magnetocrystalline anisotropy approaching NdFeB; some exceed prior REE-free high-entropy boride records"
-  status       = "predicted only — synthesis + bulk magnetic measurement pending"
+@L t4_boride := "TRACK 4 — rare-earth-free borides + nitrides + Fe-based intermetallics" :: track [active d=2026-05-17]
+  approach     = "two complementary literature waves: (a) Beeson 2025 Adv. Mater. C16-phase high-entropy borides (5-element quinary 3d transition-metals + B); (b) Lopez-Gomez 2025 arxiv DFT high-throughput screen → 10 binary candidates (FeSn, CrSb, Mn2Sb, FeB, FeNi, Fe2P, Fe3Ga, FeGe, ZnFe, Fe8N)"
+  performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 boride exact composition NOT public in press release (Adv. Mater. paper required)"
+  status       = "Beeson Adv. Mater. = published with measured magnetic anisotropy; arxiv:2507.01849 = DFT predicted only"
   novelty      = "5-element compositions sit naturally near n=6 lattice — high-entropy boride space largely unexplored"
-  hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001"
-  |> "[@x_arxiv_2507_01849]  Data-driven HT search for REE-free PMs"
+  hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — predicted/early-measured)"
+  |> "[@x_arxiv_2507_01849]  DFT HT search for REE-free PMs (10 binary candidates)"
   |> "[@x_arxiv_2501_01607]  Unveiling potential REE-free candidates"
-  |> "[@x_phys_org_2026_boride]  Georgetown quinary boride announcement"
+  |> "[@x_phys_org_2026_boride]  Georgetown announcement (popular press)"
+  |> "[@x_beeson_2025_adv_mater]  Beeson C16 high-entropy boride (peer-reviewed)"
+  correction-note = "earlier draft mis-attributed Mn₂MoB₄ / Mn₂WB₄ to arxiv:2507.01849 — direct fetch confirms those compounds DO NOT appear in that paper's final 10. Corrected 2026-05-17."
 
 @L t5_lowdy := "TRACK 5 — light-REE substitution in NdFeB (low-Dy/Tb)" :: track [active d=2026-05-17]
   approach     = "replace expensive heavy-REE (Dy, Tb) with cheaper abundant LREE (Ce, La) at Nd₂Fe₁₄B grain boundaries"
@@ -116,8 +118,15 @@
 
 @X x_arxiv_2507_01849 := "Data-driven high-throughput search for REE-free PMs" :: arxiv-paper [active d=2025-07]
   url       = "https://arxiv.org/abs/2507.01849"
-  finding   = "DFT screen on binary alloys → 10 promising candidates (incl. Mn₂MoB₄, Mn₂WB₄); MAE + Tc evaluated"
-  role      = "primary anchor for TRACK 4 boride family"
+  finding   = "DFT screen on binary alloys → final 10 candidates: FeSn / CrSb / Mn2Sb (Tc=2270K, K=1.57 MJ/m³) / FeB / FeNi / Fe2P / Fe3Ga / FeGe / ZnFe (Ms=1.15T, K=0.76, κ=0.85) / Fe8N (Ms=1.21T, K=0.57, κ=0.70). ZnFe + Fe8N highlighted as novel."
+  role      = "primary anchor for TRACK 4 binary intermetallic candidates"
+  correction = "earlier-recorded 'Mn₂MoB₄ / Mn₂WB₄' assertion was from a low-confidence web-search summary and does NOT appear in this paper's final 10; directly verified via arxiv HTML 2026-05-17"
+
+@X x_beeson_2025_adv_mater := "Beeson et al. — C16 Phase High-Entropy Borides with High Magnetic Anisotropy" :: peer-reviewed [active d=2025]
+  doi     = "10.1002/adma.202516135"
+  journal = "Advanced Materials (2025)"
+  role    = "primary peer-reviewed anchor for TRACK 4 high-entropy boride family (3d transition metals + B in C16 phase)"
+  honesty = "press release (Georgetown via phys.org 2026-01) omits the exact composition; full paper required for stoichiometry + measured K1 / Tc values"
 
 @X x_arxiv_2501_01607 := "Unveiling potential candidates for REE-free magnets" :: arxiv-paper [active d=2025-01]
   url     = "https://arxiv.org/pdf/2501.01607"
@@ -243,9 +252,18 @@
   rule = "Claims that recycling can supply >40% of NdFeB demand in the next decade are not supported by feedstock availability (EoL wave timing) — see TRACK 1 ceiling."
   why  = "EV motor + wind nacelle recycling waves are 10-20 years out due to asset life; HDD wave is shrinking due to SSD displacement."
 
-@F f4_quinary_boride_overclaim := "Georgetown boride is predicted, not produced" :: anti-pattern [denied d=2026-05-17]
-  rule = "Mn₂MoB₄ / quinary boride claims are DFT-predicted MAE + first-principles Tc. No bulk magnetic-measurement evidence published as of 2026-05-17. Do NOT cite as a replacement-ready magnet."
-  fix  = "TRACK 4 candidates stay in NOVEL.md DESIGN status until experimental Hc + (BH)max measured"
+@F f4_quinary_boride_overclaim := "high-entropy boride claims need source-discrimination" :: anti-pattern [denied d=2026-05-17]
+  rule <<~EOF
+    Two distinct claims must NOT be conflated:
+      (a) Beeson 2025 Adv. Mater. C16 high-entropy boride — peer-reviewed,
+          some measured anisotropy; exact composition + bulk (BH)max NOT in
+          press release; need full paper for synthesis-readiness claim
+      (b) arxiv:2507.01849 binary intermetallics (FeSn / Mn2Sb / ZnFe / ...) —
+          DFT predicted MAE + Tc ONLY; no bulk magnetic measurement
+    Mn₂MoB₄ / Mn₂WB₄ have NOT been confirmed in either source; do NOT cite
+    those formulas as boride candidates without a direct paper-level reference.
+  EOF
+  fix  = "TRACK 4 candidates stay in NOVEL.md DESIGN status until experimental Hc + (BH)max measured at bulk scale"
 
 # ────────────────────────────────────────────────────────────────────
 # Novel-ledger seeds — feeds NOVEL.md §3.5
@@ -258,9 +276,10 @@
   next-step = "user installs `mp-api>=0.41.0` + sets `MP_API_KEY` → re-run with `--mp-id mp-XXX` for Mn-Mo-B / Mn-W-B compositions"
   candidate-status = "hxm-mag-boride-001 stays DESIGN (per @F f4_quinary_boride_overclaim — DFT prediction insufficient)"
 
-@N seed_novel_md := "5 hxm-mag-* candidates to add to NOVEL.md §3.5" :: planned-edit [active d=2026-05-17]
+@N seed_novel_md := "6 hxm-mag-* candidates in NOVEL.md §3.5 (5 initial + 1 correction-driven add)" :: planned-edit [active d=2026-05-17]
   ids = [
-    "hxm-mag-boride-001  : Mn₂MoB₄ quinary boride (TRACK 4)",
+    "hxm-mag-boride-001  : Beeson C16 high-entropy boride — Adv. Mater. 2025 (TRACK 4a)",
+    "hxm-mag-mn2sb-001   : Mn₂Sb tetragonal — arxiv:2507.01849 top-10 (TRACK 4b) — added during 2026-05-17 correction of misattributed boride formula",
     "hxm-mag-mnalc-001   : Mn-Al-C τ-phase (TRACK 3)",
     "hxm-mag-ferrhd-001  : SrFe₁₂O₁₉ Co/La-doped high-density (TRACK 2)",
     "hxm-mag-lowdy-001   : Nd₂Fe₁₄B with Ce/La heavy-REE replacement (TRACK 5)",

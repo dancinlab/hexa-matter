@@ -87,6 +87,11 @@ up the repo cold. All at root in UPPERCASE following the
   [`METALLURGY-DEEP.md`](METALLURGY-DEEP.md) · [`POLYMER-CHEMISTRY.md`](POLYMER-CHEMISTRY.md) ·
   [`GRAPHENE-CARBON.md`](GRAPHENE-CARBON.md)
 
+**Supply-chain domain trio (added 2026-05-17)** — cross-cutting supply / criticality manifests orthogonal to the 36 verbs:
+- [`RARE-EARTH.tape`](RARE-EARTH.tape) — 17-element family reference (LREE/HREE/Sc), USGS / IEA / EU CRM / 한국 종합대책 (1조 원 2026-02) anchors
+- [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) — meta-domain REE × substitution; 6-track roadmap (recycling · ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found); 14+ arxiv 2024-2026 anchors; seeds 6 `hxm-mag-*` candidates in `NOVEL.md` §3.5
+- [`CRITICAL-MINERAL.tape`](CRITICAL-MINERAL.tape) — umbrella for 12 export-controlled commodities (REE+Ga+Ge+Sb+W+Co+Li+graphite+Mg+Ti+Nb+Ta); 2023-2026 PRC export-control timeline. See [`CROSS_LINK.md`](CROSS_LINK.md) §7 for verb-by-verb boundary.
+
 ---
 
 ## 🌉 External tool bridges — Phase E / F / G

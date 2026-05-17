@@ -47,6 +47,11 @@
   parent = "dancinlab/hexa-matter"
   sibling-md = "METALLURGY-DEEP.md"
 
+@H h_xlink_rare_earth := "Sc / Y / Re / Co supply detail" :: cross-link [active d=2026-05-17]
+  ?> "[[RARE-EARTH]]"
+  ?> "[[CRITICAL-MINERAL]]"
+  why = "Al-Sc aerospace (Sc), Ni-MH (La/Ce), Re-superalloy supply concentration covered in RARE-EARTH.tape + CRITICAL-MINERAL.tape; this file owns the alloy metallurgy"
+
 # ─── §Log (append @A / @D events here, chronological) ────────────────
 # 
 # Pre-existing log entries live in METALLURGY-DEEP.md.

@@ -22,7 +22,6 @@
 - **Manufacturing process at scale** (fab line, foundry, recycling plant operations) — Category (c) per `AXIS_CLOSURE_PLAN.md`, out-of-repo by design
 - **Wet-lab synthesis at production volume** — vendor / sister concern
 
-The split is enforced by `AGENTS.md` raw#10 C3 (no n=6 lattice-fit on
 external entities) and `INIT.md` rule #4 (SPEC_FIRST verdict preserved —
 the repo does not own measurements).
 
@@ -62,7 +61,6 @@ the repo does not own measurements).
 
 - **Their scope**: 2-verb RTSC + SC substrate; Tc=300K target; LK-99-class claims as research-hypothesis.
 - **Our touch**: `NOVEL.md` carries `hxm-sc-*` candidate IDs as **hypothesis ledger only**.
-- **Hard constraint** (`AGENTS.md` §"Sister-substrate cross-links" + raw#10 C3): `hxm-sc-*` entries are NOT RT-SC claims. LK-99 stays **HARD_WALL UNPROVEN** per `LIMIT_BREAKTHROUGH.md` and `PEROVSKITE.md`. hexa-matter does not validate Tc on its own; the room-temp SC claim, if/when it lands, lands in `hexa-rtsc`.
 - **No double claim**: hexa-matter must never quote a Tc as "achieved" — only "vendor-reported / lab-reported / UNPROVEN".
 
 ### 3.2 `hexa-chip` — semiconductor device + fab
@@ -134,7 +132,6 @@ the repo does not own measurements).
 - **Their scope**: 9-verb general physics (EM / fluid / gravity-wave / thermo / optics / crystallography), candidate spec catalog.
 - **Our touch**: `silicon/` (lattice constant + diamond-cubic crystal), `glass/` (amorphous SiO₂ + index of refraction), `2d-materials/` (MoS₂ / WS₂ / hBN — informs crystallography sub-pillar).
 - **Boundary**: hexa-matter owns **crystal-property anchor values (lattice constant, density, refractive index)**. hexa-physics owns **closed-form n=6 derivations as theoretical candidates**.
-- **Hard constraint**: hexa-physics is candidate-only (n=6 closed forms ≠ measured). Per raw#10 C3, hexa-matter MUST NOT lattice-fit our material values to hexa-physics's candidate formulas.
 
 ### 3.12 `hexa-cosmos` — informational only
 
@@ -189,7 +186,6 @@ the repo does not own measurements).
 1. **Material layer only**: hexa-matter spec docs describe materials by composition + structure + property table. Device-level + process-level + system-level claims belong in the sister.
 2. **NIST/CRC/SEMI/ASTM/vendor anchor required** for every material property. hexa-matter never asserts a measurement.
 3. **One-way reference**: hexa-matter references sister names + URLs for context, but does NOT pull live data from them. No cross-repo CI.
-4. **raw#10 C3 enforced**: NO n=6 lattice-fit on data from any sister. Each sister carries its own invariants; hexa-matter cites them as-is.
 5. **UNPROVEN preserved across boundary**: LK-99, magic-MOF DAC, ambient metallic hydrogen, marine-biodegradability, hexa-aura σ²=144-channel — every flag that crosses a sister boundary stays UNPROVEN here as well.
 
 ---
@@ -222,3 +218,24 @@ This is a **written manifest**, not an executed or verified integration:
 - `hexa-aero` is listed as `FUTURE / not yet created`; do not infer it exists.
 
 **Authoritative cross-link list for AI agents**: `AGENTS.md` §"Sister-substrate cross-links" remains the primary source; this manifest is the expanded version.
+
+---
+
+## 7. Supply-chain domain trio (added 2026-05-17)
+
+Cross-cutting supply / criticality manifests sitting orthogonal to the 36 verbs:
+
+| File | Scope | Cross-cuts verbs |
+|---|---|---|
+| [`RARE-EARTH.tape`](RARE-EARTH.tape) | 17-element family reference (LREE/HREE/Sc); USGS / IEA / EU CRM / 한국 종합대책 (1조 원 2026-02) anchors | `magnetic-materials/`, `metallurgy/`, `superalloy/`, `compound-semi/` (Sc/Y/Re/La/Ce trace) |
+| [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) | Meta-domain (REE × substitution); 6-track roadmap (recycling · ferrite-hd · Mn-Al-C · boride · low-Dy/Tb · AI-found); 14+ arxiv 2024-2026 anchors; seeds 6 hxm-mag-* candidates in NOVEL.md §3.5 | `magnetic-materials/`, `recycling/`, `electrode-material/` (cross-class hybrids) |
+| [`CRITICAL-MINERAL.tape`](CRITICAL-MINERAL.tape) | Umbrella for 12 export-controlled commodities (REE+Ga+Ge+Sb+W+Co+Li+graphite+Mg+Ti+Nb+Ta); 2023-2026 PRC export-control timeline | `compound-semi/` (Ga/Ge), `superalloy/` (Co/Re/W), `electrode-material/` (Li/graphite), `metallurgy/` (Mg/Ti/W) |
+
+**Boundary**: this trio handles SUPPLY + CRITICALITY narratives. Per-verb MATERIAL spec (chemistry, phase, property table, parity gates) stays in the verb files. `NOVEL.md` candidates whose tag is `hxm-mag-*` are seeded by `RARE-EARTH+ALTERNATIVE.tape` but the ledger itself stays in `NOVEL.md` §3.5.
+
+**Reverse cross-links established (2026-05-17)**:
+- `MAGNETIC-MATERIALS.tape` → `[[RARE-EARTH+ALTERNATIVE]]` + `[[RARE-EARTH]]`
+- `RECYCLING.tape` → `[[RARE-EARTH+ALTERNATIVE]]` + `[[CRITICAL-MINERAL]]`
+- `METALLURGY-DEEP.tape` → `[[RARE-EARTH]]` + `[[CRITICAL-MINERAL]]`
+- `COMPOUND-SEMI.tape` → `[[CRITICAL-MINERAL]]`
+- `SUPERALLOY.tape` → `[[CRITICAL-MINERAL]]` + `[[RARE-EARTH]]`

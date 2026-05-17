@@ -47,6 +47,11 @@
   parent = "dancinlab/hexa-matter"
   sibling-md = "SUPERALLOY.md"
 
+@H h_xlink_critical_mineral := "Co / Re / Ni / W feedstock concentration" :: cross-link [active d=2026-05-17]
+  ?> "[[CRITICAL-MINERAL]]"
+  ?> "[[RARE-EARTH]]"
+  why = "Co (DRC mining + China refining 70%), Re (Chile + Kazakhstan), W (China ~80%), and trace REE alloying covered in CRITICAL-MINERAL.tape + RARE-EARTH.tape; this file owns the alloy spec + creep / oxidation parity gates"
+
 # ─── §Log (append @A / @D events here, chronological) ────────────────
 # 
 # Pre-existing log entries live in SUPERALLOY.md.

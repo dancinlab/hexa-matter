@@ -186,3 +186,24 @@ Polymer/alloy recycling fundamentally requires kT energy per separated mole (Gib
 ---
 
 *Audit wave: M. Authored by 박민우 <nerve011235@gmail.com>. No n=6 lattice anchoring of material parameters (LATTICE_POLICY §1.2). All values from NIST WebBook, CRC Handbook, ASM Handbook, Ashby.*
+
+---
+
+## §7 Magnet wall update — Wave M+ (2026-05-17)
+
+Real-physics ceilings on permanent magnets (added per `RARE-EARTH+ALTERNATIVE.tape` TRACK 2-6 anchors):
+
+| Limit | Wall | Anchor |
+|---|---|---|
+| **(BH)max theoretical max for NdFeB**: ≈ 64 MGOe at 100% theoretical density + perfect alignment | **HARD_WALL** | Stoner-Wohlfarth single-domain; Coey *Magnetism and Magnetic Materials* (2010) — commercial Nd-Fe-B saturates at 52-55 MGOe (Hitachi Metals N52SH datasheet) |
+| **(BH)max for SrFe₁₂O₁₉ ferrite**: ≈ 5-6 MGOe commercial → predicted ~9 MGOe theoretical at perfect alignment | **SOFT_WALL** (alignment + density engineering frontier) | TDK FB12B datasheet; LCA paper ACS Sust. Chem. Eng. (2024) |
+| **(BH)max for Mn-Al-C τ-phase**: 12 MGOe lab thin-film, ~6 MGOe sintered (decay during cycling) | **BREAKABLE_WITH_TECH** (mechanochemical synthesis + τ-phase stabilization) | Koch 1960s; recent Mn-Al-C revival via SPS / mechanochem (multiple 2020-2024 papers) |
+| **Mn₂Sb tetragonal Tc**: predicted 2270 K, K=1.57 MJ/m³ DFT only | **UNCLEAR** until bulk synthesis | arxiv:2507.01849 (2025-07) |
+| **Beeson C16 high-entropy boride K₁**: "approaching NdFeB" qualitatively | **UNCLEAR** — exact composition + measured K₁ pending Adv. Mater. paper-level extraction | Beeson et al., *Adv. Mater.* (2025), DOI 10.1002/adma.202516135 |
+| **Recycling mass-flow ceiling**: ≤ 40% mobility magnet demand offset over next decade (EoL wave timing) | **SOFT_WALL** (logistics + EoL collection rate, not physics) | Climate Change News 2026-05-05; arxiv:2506.22569 |
+| **REE separation enthalpy**: similar ionic radii → small ΔG of separation; solvent-extraction (PC88A / EHEHP) energy cost ~ 5-20 GJ/t TREO | **SOFT_WALL** (chemistry-engineering; Gibbs ΔS₃ contribution per L12 above is moderate) | Bauer 2011; Spedding-Powell 1947 (early REE separation chemistry) |
+
+**Honesty caveats**:
+- DFT-predicted Tc / K values (Mn₂Sb 2270 K, ZnFe, Fe₈N) are UNVERIFIED until bulk synthesis + magnetic measurement. Lab thin-film ≠ production bulk magnet (per `RARE-EARTH+ALTERNATIVE.tape` @F f1).
+- Beeson Adv. Mater. paper is the peer-reviewed anchor; phys.org 2026-01 popular press is announcement-level only.
+- 64 MGOe ceiling is for Nd₂Fe₁₄B specifically; alternative chemistries have their own ceilings (Mn₂Sb predicted Ms × K → upper-bound (BH)max unknown without measured Hc).
