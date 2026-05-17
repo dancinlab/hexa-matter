@@ -49,10 +49,16 @@ fn _toml_int(root: str, key: str) -> int {
 
 fn _readme_badge_count(root: str) -> int {
     let readme = root + "/README.md"
-    let cmd = "grep -oE 'verbs-[0-9]+_spec' " + shq(readme) + " | head -1 | grep -oE '[0-9]+'"
+    // shields.io `verbs-NN-<color>` (e.g. verbs-36-informational) OR the
+    // legacy `verbs-NN_spec`; fallback to prose `NN-verb`. Mirrors the
+    // widened regex in selftest/registry_consistency_audit.
+    let cmd = "grep -oE 'verbs-[0-9]+[-_]' " + shq(readme) + " | head -1 | grep -oE '[0-9]+'"
     let raw = exec(cmd).trim()
-    if raw.len() == 0 { return -1 }
-    return int(raw)
+    if raw.len() > 0 { return int(raw) }
+    let cmd2 = "grep -oE '[0-9]+-verb' " + shq(readme) + " | head -1 | grep -oE '[0-9]+'"
+    let raw2 = exec(cmd2).trim()
+    if raw2.len() == 0 { return -1 }
+    return int(raw2)
 }
 
 fn _file_contains(p: str, needle: str) -> bool {
