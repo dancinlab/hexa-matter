@@ -34,4 +34,16 @@
   remaining = "MP_API_KEY env var still NOT set — user must obtain a free key at materialsproject.org/api and export it"
   next-step = "once MP_API_KEY set: query MP for FeCo₂Ge / Mn₂Sb / Beeson-composition records → promote candidates DESIGN → SIM-DFT"
 
+@A mp_query_2026_05_17 := "Materials Project cross-reference completed" :: assistant [d=2026-05-17 ok]
+  <- "@N mp_api_installed_2026_05_17"
+  => "MP_API_KEY provisioned via secret vault. mp-api 0.45.9 package unusable (pymatgen 2024.8.9 ↔ emmet-core 0.84.6rc4 SymmetryUndeterminedError conflict on Python 3.9) → queried MP REST summary API directly with stdlib urllib."
+  => "FeCo₂Ge → mp-22300 (Fm-3m full Heusler, FM, E_hull=0 stable, M=6.0 μB). Mn₂Sb → mp-20664 (P4/nmm tetragonal, FM, E_hull=0 stable, M=15.16 μB) — P4/nmm matches the arxiv:2507.01849 'tetragonal' candidate, not the metastable mp-6912/mp-1008875 polymorphs."
+  => "hxm-mag-mn2sb-001 + hxm-mag-aifound-001 promoted DESIGN → SIM-DFT. hxm-mag-boride-001 stays DESIGN (Beeson C16 composition not public)."
+
+@? mp_api_version_conflict := "mp-api adapter blocked by dependency conflict" :: anomaly [d=2026-05-17]
+  detail = "mp-api 0.45.9 pulls emmet-core 0.84.6rc4 which imports SymmetryUndeterminedError from pymatgen.symmetry.analyzer — absent in pymatgen 2024.8.9 (last Python-3.9-compatible release)"
+  impact = "_absorption_bridge/materials_project/mp_api_smoke.py live path (--mp-id) is unusable until resolved; --selftest offline path unaffected"
+  workaround = "MP REST summary API direct call via stdlib urllib (no mp-api / pymatgen dependency)"
+  fix-options = ["upgrade Python to 3.10+ then upgrade pymatgen", "pin emmet-core to a pymatgen-2024.8.9-compatible release", "add a stdlib-REST fallback path to mp_api_smoke.py"]
+
 # ─── append new events below this line ───

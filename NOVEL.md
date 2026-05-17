@@ -176,15 +176,30 @@ LK-99 PV variants and HARD_WALL claims preserved
 | `hxm-mag-mnbi-001`    | mag   | MnBi LTP            | Tc > 300°C + high Hc           | DESIGN        | F-MAG-2: Hc < 0.5 T @ 200°C → FAIL    |
 | `hxm-mag-tetra-001`   | mag   | tetrataenite        | meteoritic FeNi → terrestrial   | DESIGN        | F-MAG-3: ordered phase fraction < 50% → FAIL |
 | `hxm-mag-boride-001`  | mag   | Beeson C16 high-entropy boride | quinary 3d-TM boride, C16 phase; Fe/Co sublattice mixing flips easy-plane→easy-axis, >2× coercivity vs binary/ternary; **thin-film** (combinatorial sputter) — Beeson et al., Adv. Mater. 2025, DOI 10.1002/adma.202516135 | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale synthesis not demonstrated → FAIL |
-| `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 candidate; predicted Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K — needs bulk synthesis + measurement | DESIGN | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
+| `hxm-mag-mn2sb-001`   | mag   | Mn₂Sb tetragonal    | arxiv:2507.01849 top-10 (pred Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K); **MP mp-20664 confirms P4/nmm tetragonal, FM ordering, E_hull=0 (stable), M=15.16 μB** | SIM-DFT | F-MAG-9: measured K < 0.8 MJ/m³ OR Tc < 600 K → FAIL |
 | `hxm-mag-mnalc-001`   | mag   | Mn₅₅Al₄₄C₁ τ-phase  | L1₀ ordered intermetallic, REE-free + Co-free | DESIGN | F-MAG-5: sintered (BH)max < 6 MGOe OR τ-phase fraction < 80% after 100 thermal cycles → FAIL |
 | `hxm-mag-ferrhd-001`  | mag   | SrFe₁₂O₁₉ Co/La-doped | high-density anisotropic M-type hexaferrite | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200 °C → FAIL |
 | `hxm-mag-lowdy-001`   | mag   | (Nd,Ce,La)₂Fe₁₄B    | heavy-REE (Dy/Tb) content ≤50% of baseline, GB-engineered | DESIGN | F-MAG-7: Hc loss > 15% at 150°C vs commercial NdFeB baseline → FAIL |
-| `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM candidate; predicted Tc ≈ 1000-1070 K (3-model consensus), simple composition; arxiv:2409.15675 / Nat. Commun. 16 9415 (2025) | DESIGN | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
+| `hxm-mag-aifound-001` | mag   | FeCo₂Ge (Heusler-like) | NEMAD Table 4 top REE-free FM (pred Tc ≈ 1000-1070 K, 3-model); **MP mp-22300 confirms Fm-3m full Heusler, FM ordering, E_hull=0 (stable), M=6.0 μB** | SIM-DFT | F-MAG-8: experimentally-measured Tc < 600 K OR not synthesizable at single-phase purity > 90% → FAIL |
 
 All entries UNVERIFIED at production. NdFeB/SmCo gold standards via
 Hitachi Metals / TDK / Vacuumschmelze / Shin-Etsu / Arnold — their
 published numbers govern (raw#10 C3).
+
+**Sim handles (2026-05-17)**: `hxm-mag-mn2sb-001` ↔ Materials Project
+`mp-20664` (P4/nmm tetragonal, FM, E_hull=0, M=15.16 μB) — the
+arxiv:2507.01849 "Mn₂Sb tetragonal" candidate matches the P4/nmm polymorph,
+NOT the metastable `mp-6912` (P6₃/mmc) or `mp-1008875` (F-43m). `hxm-mag-aifound-001`
+↔ MP `mp-22300` (Fm-3m full Heusler, FM, E_hull=0, M=6.0 μB). Retrieved via
+MP REST summary API direct call — the `_absorption_bridge/materials_project/mp_api_smoke.py`
+adapter was bypassed due to a pymatgen 2024.8.9 ↔ emmet-core 0.84.6rc4
+version conflict on Python 3.9 (`SymmetryUndeterminedError` import failure).
+**SIM-DFT status reflects MP's DFT-computed magnetic ordering + formation
+energy only** — Tc and (BH)max remain UNVERIFIED: MP carries no Curie
+temperature, and the Tc figures cited above are ML-regressed (NEMAD) or
+separate-DFT (arxiv:2507.01849) predictions, NOT measurements (per @F f2 /
+g3). `hxm-mag-boride-001` stays DESIGN — Beeson C16 exact quinary composition
+is not public, so no MP cross-reference is possible.
 
 ### 3.6 High-Entropy Alloys (HEA)
 

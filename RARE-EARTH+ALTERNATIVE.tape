@@ -85,6 +85,7 @@
   approach     = "two complementary literature waves: (a) Beeson 2025 Adv. Mater. C16-phase high-entropy borides (5-element quinary 3d transition-metals + B); (b) Lopez-Gomez 2025 arxiv DFT high-throughput screen → 10 binary candidates (FeSn, CrSb, Mn2Sb, FeB, FeNi, Fe2P, Fe3Ga, FeGe, ZnFe, Fe8N)"
   performance  = "Mn2Sb (tetragonal): Ms=1.76 T, K=1.57 MJ/m³, Tc=2270 K predicted; ZnFe / Fe8N highlighted as novel; Beeson C16 = Fe/Co sublattice mixing flips easy-plane→easy-axis anisotropy, >2× coercivity vs binary/ternary TM borides"
   status       = "Beeson Adv. Mater. = published, THIN-FILM (combinatorial sputter, ~50 samples/run); bulk-scale NOT demonstrated. arxiv:2507.01849 = DFT predicted only"
+  mp-verified  = "Mn₂Sb → MP mp-20664 confirms P4/nmm tetragonal (matches arxiv 'Mn₂Sb tetragonal'), FM ordering, E_hull=0 (stable), M_tot=15.16 μB → hxm-mag-mn2sb-001 promoted DESIGN → SIM-DFT (2026-05-17)"
   novelty      = "5-element compositions sit naturally near n=6 lattice — high-entropy boride space largely unexplored"
   caveat       = "Beeson result is thin-film — thin-film K₁ ≠ bulk magnet (BH)max (per @F f1). Exact quinary stoichiometry still requires Adv. Mater. paper-level extraction."
   hxm          = "→ NOVEL.md §3.5 hxm-mag-boride-001 (Beeson C16 family — thin-film measured, bulk unproven)"
@@ -108,7 +109,8 @@
   evidence     = "NEMAD (67,573 entries, 90% classifier accuracy); Table 4 screen → 62 FM candidates Tc>500K, 22% above 600K"
   top-candidates = "highest predicted Tc (3-model consensus, K): Ga₃Fe₄Co₈Si ~1106, FeCo₂Ge ~1039, GaFe₂Co₄Si ~1021, Fe₃Co₃Si₂ ~965 — all REE-free Fe-Co intermetallics"
   selected     = "hxm-mag-aifound-001 → FeCo₂Ge (Heusler-like) chosen: simple composition + 3-model Tc consensus 999/1051/1068 K; easier synthesis target than the quinary Ga-Fe-Co-Si compounds"
-  status       = "computational candidates only — experimental validation rate currently ≤5%"
+  mp-verified  = "MP mp-22300 confirms FeCo₂Ge as Fm-3m full Heusler, FM ordering, E_hull=0 (stable), M_tot=6.0 μB → hxm-mag-aifound-001 promoted DESIGN → SIM-DFT (2026-05-17)"
+  status       = "SIM-DFT for FeCo₂Ge (MP DFT cross-ref); other Table 4 candidates remain computational, validation rate ≤5%"
   caveat       = "AI predictions ≠ measurements (project governance @F f2). NEMAD Tc is ML-regressed (R²=0.87, MAE=56K), not measured."
   hxm          = "→ NOVEL.md §3.5 hxm-mag-aifound-001 (FeCo₂Ge)"
   |> "[@x_arxiv_2409_15675]  NEMAD database (67k magnetic compounds) — Table 4 candidate list"
@@ -273,12 +275,18 @@
 # Novel-ledger seeds — feeds NOVEL.md §3.5
 # ────────────────────────────────────────────────────────────────────
 
-@N mp_lookup_attempt_2026_05_17 := "Materials Project lookup of Mn₂MoB₄ / Mn₂WB₄ — gated" :: investigation [active d=2026-05-17]
-  attempted = "boride candidates from arxiv:2507.01849 (TRACK 4) for promotion DESIGN → SIM-DFT via MP record cross-reference"
-  outcome   = "BLOCKED — `mp_api` Python package not installed AND `MP_API_KEY` env var not set in this environment"
-  evidence  = "ran `python3 _absorption_bridge/materials_project/mp_api_smoke.py --selftest` → __HEXA_MATTER_MP_API_SMOKE__ PASS (offline fixture only; live API path SKIP)"
-  next-step = "user installs `mp-api>=0.41.0` + sets `MP_API_KEY` → re-run with `--mp-id mp-XXX` for Mn-Mo-B / Mn-W-B compositions"
-  candidate-status = "hxm-mag-boride-001 stays DESIGN (per @F f4_quinary_boride_overclaim — DFT prediction insufficient)"
+@N mp_lookup_2026_05_17 := "Materials Project lookup — RESOLVED" :: investigation [active d=2026-05-17]
+  attempted = "TRACK 4b / TRACK 6 candidates promotion DESIGN → SIM-DFT via MP record cross-reference"
+  outcome   = "DONE — MP_API_KEY provisioned (secret vault). mp-api 0.45.9 package itself unusable (pymatgen 2024.8.9 ↔ emmet-core 0.84.6rc4 SymmetryUndeterminedError conflict on Python 3.9) → queried MP REST summary API directly via stdlib urllib."
+  results <<~EOF
+    FeCo2Ge  → mp-22300  Fm-3m full Heusler · ordering=FM · E_hull=0 (stable) · M_tot=6.0 μB
+    Mn2Sb    → mp-20664  P4/nmm tetragonal  · ordering=FM · E_hull=0 (stable) · M_tot=15.16 μB
+               (metastable polymorphs mp-6912 P6₃/mmc, mp-1008875 F-43m also exist)
+  EOF
+  promotion = "hxm-mag-mn2sb-001 + hxm-mag-aifound-001 → DESIGN promoted to SIM-DFT (MP DFT ordering + E_hull). hxm-mag-boride-001 STAYS DESIGN — Beeson C16 quinary composition not public, no MP query possible."
+  honesty   = "SIM-DFT = MP DFT prediction cross-ref ONLY; Tc / (BH)max remain UNVERIFIED (MP has no Tc field)."
+  followup  = "mp_api_smoke.py adapter needs a pymatgen/emmet version fix OR a stdlib-REST fallback path so future MP lookups produce a proper §6 sim handle"
+  ~> "@N mp_lookup_attempt_2026_05_17"
 
 @N seed_novel_md := "6 hxm-mag-* candidates in NOVEL.md §3.5 (5 initial + 1 correction-driven add)" :: planned-edit [active d=2026-05-17]
   ids = [

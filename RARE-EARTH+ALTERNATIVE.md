@@ -75,7 +75,8 @@
 - DFT HT 스크리닝 → 10 binary 후보 (FeSn, CrSb, **Mn₂Sb**, FeB, FeNi, Fe2P, Fe3Ga, FeGe, **ZnFe**, **Fe8N**)
 - **Mn₂Sb**: 예측 Ms=1.76 T, K=1.57 MJ/m³, Tc=**2270 K** (10중 최강)
 - ZnFe + Fe8N은 노블 후보로 highlight
-- 모두 DFT 예측만, 실험 측정 없음
+- **MP 검증 (2026-05-17)**: `mp-20664` — P4/nmm tetragonal, FM ordering, E_hull=0 (안정), M_tot=15.16 μB. arxiv의 "Mn₂Sb tetragonal"이 P4/nmm 다형체와 정확 일치 (metastable `mp-6912` P6₃/mmc, `mp-1008875` F-43m은 아님). → `hxm-mag-mn2sb-001` **DESIGN → SIM-DFT 승급**
+- **honesty**: SIM-DFT는 MP의 DFT 자성 ordering + formation energy cross-ref만 의미. Tc / (BH)max는 여전히 UNVERIFIED (MP에 Tc 필드 없음; Tc=2270K는 별도 DFT 예측)
 - **falsifier**: F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K → FAIL
 
 **중요 정정 (2026-05-17)**: 초기 web search summary가 Mn₂MoB₄ / Mn₂WB₄를 arxiv:2507.01849 boride 후보로 추정했으나, arxiv 원문 직접 fetch 결과 해당 화합물은 최종 10 후보 어디에도 없음. 잘못된 출처 결합이 [`RARE-EARTH+ALTERNATIVE.tape`](RARE-EARTH+ALTERNATIVE.tape) 첫 draft에 들어갔다가 2026-05-17 수정됨.
@@ -104,8 +105,9 @@
   | MnCo₂Si | 823 | 991 | 662 |
 
 - **선정**: `hxm-mag-aifound-001` → **FeCo₂Ge** (Heusler-like). 단순 조성 + 3-모델 Tc 합의(999/1051/1068 K)가 quinary Ga-Fe-Co-Si보다 합성 타깃으로 명확
-- **상태**: 계산 후보만 — 실험 검증율 현재 ≤5%
-- **caveat**: AI 예측 ≠ 측정값 (`@F f2`). NEMAD Tc는 ML 회귀(R²=0.87, MAE=56K)이지 측정 아님
+- **MP 검증 (2026-05-17)**: `mp-22300` — Fm-3m **full Heusler**, FM ordering, E_hull=0 (안정), M_tot=6.0 μB. → `hxm-mag-aifound-001` **DESIGN → SIM-DFT 승급**
+- **상태**: SIM-DFT (MP DFT cross-ref); 다른 Table 4 후보는 계산 단계, 실험 검증율 ≤5%
+- **caveat**: AI 예측 ≠ 측정값 (`@F f2`). NEMAD Tc는 ML 회귀(R²=0.87, MAE=56K)이지 측정 아님. SIM-DFT는 MP의 ordering+E_hull cross-ref만 의미하며 Tc는 여전히 UNVERIFIED
 - **anchors**: arxiv:2409.15675 (NEMAD, Nat. Commun. 16 9415 (2025)), arxiv:2509.05909 (ML 자기 order 분류), arxiv:2507.01913 (구조 기반 ML)
 - **falsifier**: F-MAG-8: 실측 Tc < 600 K OR 단상 순도 > 90% 합성 불가 → FAIL
 
@@ -151,16 +153,16 @@ n=6 격자 적합으로 천장이 결정되는 것 아님 (`@D g2`).
 
 ## 5. 신소재 후보 시드 (NOVEL.md §3.5)
 
-| ID | target | track | falsifier |
-|---|---|---|---|
-| `hxm-mag-boride-001` | Beeson C16 high-entropy boride (Fe/Co thin-film) | 4a | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
-| `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
-| `hxm-mag-mnalc-001` | Mn-Al-C τ-phase | 3 | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
-| `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
-| `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | F-MAG-7: 150°C에서 Hc 손실 > 15% |
-| `hxm-mag-aifound-001` | FeCo₂Ge (Heusler-like, NEMAD Table 4) | 6 | F-MAG-8: 실측 Tc < 600 K OR 단상 합성 불가 |
+| ID | target | track | status | falsifier |
+|---|---|---|---|---|
+| `hxm-mag-boride-001` | Beeson C16 high-entropy boride (Fe/Co thin-film) | 4a | DESIGN | F-MAG-4: thin-film K₁ < 1.0 MJ/m³ at 300 K OR bulk-scale 합성 미실증 |
+| `hxm-mag-mn2sb-001` | Mn₂Sb tetragonal | 4b | **SIM-DFT** (mp-20664) | F-MAG-9: 측정 K < 0.8 MJ/m³ OR Tc < 600 K |
+| `hxm-mag-mnalc-001` | Mn-Al-C τ-phase | 3 | DESIGN | F-MAG-5: 소결 (BH)max < 6 MGOe OR τ-phase 분율 < 80% after 100 cycles |
+| `hxm-mag-ferrhd-001` | SrFe₁₂O₁₉ Co/La-doped | 2 | DESIGN | F-MAG-6: (BH)max < 6 MGOe OR Hc decay > 15% after 1000 h @ 200°C |
+| `hxm-mag-lowdy-001` | (Nd,Ce,La)₂Fe₁₄B | 5 | DESIGN | F-MAG-7: 150°C에서 Hc 손실 > 15% |
+| `hxm-mag-aifound-001` | FeCo₂Ge (Heusler-like, NEMAD Table 4) | 6 | **SIM-DFT** (mp-22300) | F-MAG-8: 실측 Tc < 600 K OR 단상 합성 불가 |
 
-모두 DESIGN 상태. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET (C-MET-3 ~ C-MET-8)에 등재.
+`mn2sb-001` + `aifound-001`은 MP 검증(2026-05-17)으로 DESIGN→SIM-DFT 승급 — MP의 DFT ordering+E_hull cross-ref만 의미하며 Tc/(BH)max는 UNVERIFIED. 나머지 4개는 DESIGN. wet-lab 검증은 [`CLOSURE_RESIDUAL_BACKLOG.md`](CLOSURE_RESIDUAL_BACKLOG.md) §C-MET (C-MET-3 ~ C-MET-8)에 등재.
 
 ---
 
