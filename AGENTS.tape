@@ -295,6 +295,12 @@
   path = "./AXIS_CLOSURE_PLAN.md"
   role = "per-group closure roadmap, Category (a)/(b)/(c) framework"
 
+@X x_hexa_migration_ssot := "hexa-native migration SSOT" :: external-ssot [active]
+  path   = "~/core/hexa-lang/stdlib/PLAN.md"
+  role   = "SINGLE source-of-truth for the T3/T4/T5 hexa-native migration tracks (hexa-bio gates + hexa-lang science-stack stdlib). append-only `## 진행 로그` — read its tail for current state."
+  rule   = "do NOT duplicate migration status into hexa-matter — this repo is a POINTER only. SSOT lives in hexa-lang."
+  note   = "T3 (hexa-bio run_all.sh gates → hexa-native) complete 2026-05-19; T4 (atoms/crystal/mol stdlib Stage-2 kernels) landed; T5 pending."
+
 # ────────────────────────────────────────────────────────────────────
 # Hooks — file-relationship anchors
 # ────────────────────────────────────────────────────────────────────
